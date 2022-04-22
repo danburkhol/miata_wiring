@@ -1,0 +1,181 @@
+connectors:
+  X-PMU16:
+    pincount: 39
+    pinlabels: [
+      OUTPUT O13,
+      OUTPUT O12,
+      OUTPUT O11,
+      OUTPUT O1O,
+      OUTPUT O9,
+      INPUT A9,
+      +12V SW,
+      INPUT A14,
+      OUTPUT O8,
+      OUTPUT O7,
+      OUTPUT O6,
+      OUTPUT O5,
+      OUTPUT O4,
+      OUTPUT O14,
+      +5V OUTPUT,
+      INPUT A2,
+      INPUT A4,
+      INPUT A6,
+      INPUT A8,
+      INPUT A11,
+      INPUT A13,
+      INPUT A16,
+      CAN1H,
+      CAN2H,
+      GROUND,
+      OUTPUT O3,
+      OUTPUT O15,
+      OUTPUT O16,
+      INPUT A1,
+      INPUT A3,
+      INPUT A5,
+      INPUT A7,
+      INPUT A1O,
+      INPUT A12,
+      INPUT A15,
+      CAN1L,
+      CAN2L,
+      OUTPUT O1,
+      OUTPUT O2
+    ]
+
+  X-HEADLAMP-D1: &template_headlamp
+    pincount: 2
+    pinlabels: [HIGH BEAM, LOW BEAM]
+    notes: Driver side body sub-harness
+
+  X-HEADLAMP-P1:
+    <<: *template_headlamp
+    notes: Passenger side body sub-harness
+
+  X-BODY-D1: &template_front_lamps
+    pincount: 6
+    pinlabels: [
+      TNS,
+      RETRACTOR PWR,
+      RETRACTOR UP,
+      TURN SIGNAL,
+      RETRACTOR DOWN,
+      RETRACTOR ACTIVE
+    ]
+    notes: Driver's side body sub-harness
+
+  X-BODY-D2:
+    pincount: 6
+    pinlabels: [
+      WASHER,
+      A/C CLUTCH,
+      HORN,
+      BRAKE FL.,
+      COOLING FAN,
+      UNUSED
+    ]
+    notes: Driver's side body sub-harness
+
+  X-BODY-P1:
+    <<: *template_front_lamps
+    notes: Passenger's side body sub-harness
+
+  X-BODY-P2:
+    pincount: 2
+    pinlabels: [
+      A/C PRES. SW,
+      A/C FAN,
+    ]
+    notes: Driver's side body sub-harness
+
+  X-14:
+    pincount: 8
+    pinlabels: [
+      REAR RIGHT TURN SIGNAL,
+      FUEL PUMP,
+      TNS,
+      REVERSE LIGHTS,
+      REAR LEFT TURN SIGNAL,
+      FUEL LEVEL SENDER,
+      STOP LIGHTS,
+      DOOR SW
+    ]
+    notes: OEM Connector X-14 to custom connector
+
+cables:
+  C-BODY-1:
+    # wirecount: 2
+    colors: [RDWH, RDBK]
+  C-BODY-2:
+    wirecount: 10
+  # C-BODY-3:
+    # wirecount: 10
+
+connections:
+  # headlamps
+  -
+    - X-HEADLAMP-D1: [1,2]
+    - C-BODY-1: [1,2]
+  -
+    - X-HEADLAMP-P1: [1,2]
+    - C-BODY-1: [1,2]
+  -
+    - C-BODY-1: [1,2]
+    - X-PMU16: [1, 38]
+  # tns
+  -
+    - X-BODY-D1: [1]
+    - C-BODY-2: [1]
+  -
+    - X-BODY-P1: [1]
+    - C-BODY-2: [1]
+  -
+    - X-14: [3]
+    - C-BODY-2: [1]
+  -
+    - C-BODY-2: [1]
+    - X-PMU16: [14]
+  # L Turn Signals
+  -
+    - X-BODY-D1: [4]
+    - C-BODY-2: [4]
+  -
+    - X-14: [5]
+    - C-BODY-2: [4]
+  -
+    - C-BODY-2: [4]
+    - X-PMU16: [10]
+  # R Turn Signals
+  -
+    - X-BODY-P1: [4]
+    - C-BODY-2: [5]
+  -
+    - X-14: [1]
+    - C-BODY-2: [5]
+  -
+    - C-BODY-2: [5]
+    - X-PMU16: [11]
+  # brake lights
+  -
+    - X-14: [7]
+    - C-BODY-2: [6]
+    - X-PMU16: [4]
+  #fuel pump
+  -
+    - X-14: [2]
+    - C-BODY-2: [7]
+  # a/c
+  - # clutch
+    - X-BODY-D2: [2]
+    - C-BODY-2: [2]
+  - # fan
+    - X-BODY-P2: [2]
+    - C-BODY-2: [2]
+  -
+    - C-BODY-2: [2]
+    - X-PMU16: [26]
+  # cooling fan
+  -
+    - X-BODY-D2: [5]
+    - C-BODY-2: [3]
+    - X-PMU16: [28]
