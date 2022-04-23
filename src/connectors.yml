@@ -1,3 +1,4 @@
+# Common connectors shared across multipl circuits
 connectors:
   X-PMU16:
     pincount: 39
@@ -209,3 +210,47 @@ connectors:
       DOOR SW
     ]
     notes: OEM Connector X-14 to custom connector
+
+  X-CRIMP: # this is a ferrule that will be auto-generated on demand
+    style: simple
+    autogenerate: true
+    type: Crimp ferrule
+    # subtype: 0.5 mm²
+    # color: OG
+
+  D-03:
+    pincount: 16
+    image:
+      src: ../img/d-03.png
+    notes: Located on steering column
+
+  B1-10:
+    pincount: 4
+    image:
+      src: ../img/b1-10.png
+
+
+
+  E1-01: &headlamp_conn
+    pincount: 2
+    image:
+      src: ../img/e1-01.png
+    notes: L Headlamp
+  E1-02:
+    <<: *headlamp_conn
+    notes: R Headlamp
+
+  E1-04: &headlamp_actuator_conn
+    pincount: 6
+    image:
+      src: ../img/e1-04.png
+    notes: L Headlight Actuator
+  E1-05:
+    <<: *headlamp_actuator_conn
+    notes: R Headlight Actuator
+
+  E1-08:
+    pincount: 7
+    image:
+      src: ../img/e1-08.png
+    notes: Retractable headlight switch in tombstone
