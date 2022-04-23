@@ -17,6 +17,9 @@ cables:
     # colors: [RD]
   C-ECU-3:
     wirecount: 47
+  C-INJ:
+    wirecount: 5
+    colors: [RD, GN, PK, YE, BU]
 
 connections:
   -
@@ -26,7 +29,7 @@ connections:
   # injectors
   -
     - X-MAXXECU-RACE-1: [48,37,38,45,46]
-    - C-ECU-2: [5,15,16,17,18]
+    - C-INJ: [1,2,3,4,5]
     - X-BULKHEAD: [5,15,16,17,18]
   # spark trigger
   -
