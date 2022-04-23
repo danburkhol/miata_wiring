@@ -6,6 +6,22 @@ connectors:
       CAN HIGH,
       CAN LOW
     ]
+  B1-06: &injector_conn
+    pincount: 2
+    pins: [Y, W/R]
+    pinlabels: [TRIGGER, +12V]
+    image:
+      src: ../img/b1-06.png
+    notes: Injector No. 1
+  B1-07:
+    <<: *injector_conn
+    notes: Injector No. 2
+  B1-08:
+    <<: *injector_conn
+    notes: Injector No. 3
+  B1-09:
+    <<: *injector_conn
+    notes: Injector No. 4
 
 cables:
   C-ECU-1:
@@ -17,7 +33,12 @@ cables:
     # colors: [RD]
   C-ECU-3:
     wirecount: 47
-  C-INJ:
+  C-ECU-BULKHEAD-INJ:
+    wirecount: 5
+    colors: [RD, GN, PK, YE, BU]
+  C-BULKHEAD-INJ:
+    wirecount: 5
+  C-TPS:
     wirecount: 5
     colors: [RD, GN, PK, YE, BU]
 
@@ -29,8 +50,24 @@ connections:
   # injectors
   -
     - X-MAXXECU-RACE-1: [48,37,38,45,46]
-    - C-INJ: [1,2,3,4,5]
+    - C-ECU-BULKHEAD-INJ: [1,2,3,4,5]
     - X-BULKHEAD: [5,15,16,17,18]
+  -
+    - B1-06: [Y, W/R]
+    - C-BULKHEAD-INJ: [1, 5]
+    - X-BULKHEAD: [15, 5]
+  -
+    - B1-07: [Y, W/R]
+    - C-BULKHEAD-INJ: [2, 5]
+    - X-BULKHEAD: [16, 5]
+  -
+    - B1-08: [Y, W/R]
+    - C-BULKHEAD-INJ: [3, 5]
+    - X-BULKHEAD: [17, 5]
+  -
+    - B1-09: [Y, W/R]
+    - C-BULKHEAD-INJ: [4, 5]
+    - X-BULKHEAD: [18, 5]
   # spark trigger
   -
     - X-MAXXECU-RACE-1: [2,3,6,7]
