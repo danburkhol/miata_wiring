@@ -133,6 +133,17 @@ connectors:
       H4 - MOTOR 1+
     ]
 
+  X-EASYGUARD:
+    pincount: 6
+    pinlabels: [
+      VCC,
+      VCC,
+      IG1,
+      IG2,
+      ACC,
+      ST
+    ]
+
   X-BULKHEAD:
     pincount: 47
     notes: Deutsch HD30 47-pin connector
