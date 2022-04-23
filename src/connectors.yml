@@ -144,6 +144,9 @@ connectors:
       ST
     ]
 
+  X-PWR-WINDOW:
+    pincount: 16
+
   X-BULKHEAD:
     pincount: 47
     notes: Deutsch HD30 47-pin connector
