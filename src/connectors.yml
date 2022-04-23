@@ -230,12 +230,6 @@ connectors:
       src: ../img/d-03.png
     notes: Located on steering column
 
-  B1-10:
-    pincount: 4
-    image:
-      src: ../img/b1-10.png
-
-
 
   E1-01: &headlamp_conn
     pincount: 2

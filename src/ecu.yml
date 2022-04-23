@@ -68,6 +68,19 @@ connectors:
     image:
       src: ../img/nc_throttle.png
 
+  B1-10:
+    pincount: 4
+    pins: [Y/L, W, W/R, B/LG]
+    pinlabels: [
+      Y/L,
+      W,
+      +5V,
+      SENSOR GND
+    ]
+    image:
+      src: ../img/b1-10.png
+    notes: Crank angle sensor
+
 cables:
   C-ECU-1:
     wirecount: 4
@@ -103,6 +116,12 @@ cables:
     wirecount: 6
   C-ECU-APP:
     wirecount: 6
+  C-BULKHEAD-CAS:
+    wirecount: 4
+    colors: [WHBU, WH, RD, BK]
+  C-ECU-BULKHEAD-CAS:
+    wirecount: 4
+    colors: [WHBU, WH, RD, BK]
 
 connections:
   # ECU power and comms
@@ -165,3 +184,10 @@ connections:
     - X-APP: [A,B,C,D,E,F]
     - C-ECU-APP: [1-6]
     # - X-MAXXECU-RACE-1: [H4, H2, H1, E4, G1, G3]
+  # CAS
+  -
+    - B1-10: [Y/L, W, W/R, B/LG]
+    - C-BULKHEAD-CAS: [1-4]
+    - X-BULKHEAD: [43, 44, 29, 41]
+    - C-ECU-BULKHEAD-CAS: [1-4]
+    - X-MAXXECU-RACE-1: [H3, H4, G1, H1]
