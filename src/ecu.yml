@@ -42,6 +42,32 @@ connectors:
       src: ../img/lsu49.png
     pins: [IP, COM, HTR, LAMBDA, RCAL, VS/OS IN]
 
+  X-THROTTLE-BODY:
+    pins: [A,B,C,D,E,F]
+    pinlabels: [
+      Throttle +,
+      Throttle,
+      TPS Sig GND,
+      TPS 2 Sig,
+      TPS 5V,
+      TPS 1 Sig,
+    ]
+    image:
+      src: ../img/nc_throttle.png
+
+  X-APP:
+    pins: [A,B,C,D,E,F]
+    pinlabels: [
+      APP 1 Sens 5V+,
+      APP 2 Sig GND,
+      APP Sens 2 Signal,
+      APP 2 Sens 5V+,
+      APP 1 Sig GND,
+      APP Sens 1 Signal,
+    ]
+    image:
+      src: ../img/nc_throttle.png
+
 cables:
   C-ECU-1:
     wirecount: 4
@@ -70,6 +96,12 @@ cables:
   C-BULKHEAD-LSU:
     wirecount: 6
   C-ECU-BULKHEAD-LSU:
+    wirecount: 6
+  C-BULKHEAD-THROTTLE:
+    wirecount: 6
+  C-ECU-BULKHEAD-THROTTLE:
+    wirecount: 6
+  C-ECU-APP:
     wirecount: 6
 
 connections:
@@ -121,3 +153,15 @@ connections:
     - X-BULKHEAD: [22, 20, 36, 5, 23, 21]
     - C-ECU-BULKHEAD-LSU: [1-6]
     - X-MAXXECU-RACE-1: [G3, F3, D1, M4, G4, F4]
+  # throttle
+  -
+    - X-THROTTLE-BODY: [A,B,C,D,E,F]
+    - C-BULKHEAD-THROTTLE: [1-6]
+    - X-BULKHEAD: [25, 26, 30, 28, 29, 27]
+    - C-ECU-BULKHEAD-THROTTLE: [1-6]
+    - X-MAXXECU-RACE-1: [H4, H2, H1, E4, G1, G3]
+  # accel pedal
+  -
+    - X-APP: [A,B,C,D,E,F]
+    - C-ECU-APP: [1-6]
+    # - X-MAXXECU-RACE-1: [H4, H2, H1, E4, G1, G3]
