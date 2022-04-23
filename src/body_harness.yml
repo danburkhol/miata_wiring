@@ -4,8 +4,9 @@ cables:
     colors: [RDWH, RDBK]
   C-BODY-2:
     wirecount: 10
+
   # C-BODY-3:
-    # wirecount: 10
+  #   wirecount: 10
 
 connections:
   # headlamps

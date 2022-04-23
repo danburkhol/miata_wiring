@@ -23,6 +23,25 @@ connectors:
     <<: *injector_conn
     notes: Injector No. 4
 
+  X-COIL-1: &cop_conn
+    pincount: 4
+    pins: [GND, TRIGGER, TACH, +12V]
+    image:
+      src: ../img/90080-19019.png
+    notes: Toyota part no. 90080-19019
+  X-COIL-2:
+    <<: *cop_conn
+  X-COIL-3:
+    <<: *cop_conn
+  X-COIL-4:
+    <<: *cop_conn
+
+  X-LSU:
+    pincount: 6
+    image:
+      src: ../img/lsu49.png
+    pins: [IP, COM, HTR, LAMBDA, RCAL, VS/OS IN]
+
 cables:
   C-ECU-1:
     wirecount: 4
@@ -35,66 +54,70 @@ cables:
     wirecount: 47
   C-ECU-BULKHEAD-INJ:
     wirecount: 5
-    colors: [RD, GN, PK, YE, BU]
+    colors: [GN, PK, YE, BU, RD]
   C-BULKHEAD-INJ:
     wirecount: 5
+    colors: [GN, PK, YE, BU, RD]
+  C-BULKHEAD-SPK:
+    wirecount: 6
+    colors: [GN, PK, YE, BU, RD, YE]
+  C-ECU-BULKHEAD-SPK:
+    wirecount: 4
+    colors: [GN, PK, YE, BU]
   C-TPS:
     wirecount: 5
-    colors: [RD, GN, PK, YE, BU]
+    colors: [GN, PK, YE, BU, RD]
+  C-BULKHEAD-LSU:
+    wirecount: 6
+  C-ECU-BULKHEAD-LSU:
+    wirecount: 6
 
 connections:
+  # ECU power and comms
   -
     - X-PMU16: [9,23, 36]
     - C-ECU-1: [1, 2, 3]
-    - X-MAXXECU-RACE-1: [48, 17, 18]
+    - X-MAXXECU-RACE-1: [M4, E1, E2]
   # injectors
-  -
-    - X-MAXXECU-RACE-1: [48,37,38,45,46]
-    - C-ECU-BULKHEAD-INJ: [1,2,3,4,5]
-    - X-BULKHEAD: [5,15,16,17,18]
   -
     - B1-06: [Y, W/R]
     - C-BULKHEAD-INJ: [1, 5]
-    - X-BULKHEAD: [15, 5]
   -
     - B1-07: [Y, W/R]
     - C-BULKHEAD-INJ: [2, 5]
-    - X-BULKHEAD: [16, 5]
   -
     - B1-08: [Y, W/R]
     - C-BULKHEAD-INJ: [3, 5]
-    - X-BULKHEAD: [17, 5]
   -
     - B1-09: [Y, W/R]
     - C-BULKHEAD-INJ: [4, 5]
-    - X-BULKHEAD: [18, 5]
+  -
+    - C-BULKHEAD-INJ: [1-5]
+    - X-BULKHEAD: [15,16,17,18,5]
+    - C-ECU-BULKHEAD-INJ: [1-5]
+    - X-MAXXECU-RACE-1: [K1,K2,M1,M2,M4]
   # spark trigger
   -
-    - X-MAXXECU-RACE-1: [2,3,6,7]
-    - C-ECU-2: [11,12,13,14]
-    - X-BULKHEAD: [11,12,13,14]
+    - X-COIL-1: [TRIGGER]
+    - C-BULKHEAD-SPK: [1]
+  -
+    - X-COIL-2: [TRIGGER]
+    - C-BULKHEAD-SPK: [2]
+  -
+    - X-COIL-3: [TRIGGER]
+    - C-BULKHEAD-SPK: [3]
+  -
+    - X-COIL-4: [TRIGGER]
+    - C-BULKHEAD-SPK: [4]
+  -
+    - C-BULKHEAD-SPK: [1-4]
+    - X-BULKHEAD: [11-14]
+    - C-ECU-BULKHEAD-SPK: [1-4]
+    - X-MAXXECU-RACE-1: [A2, A3, B2, B3]
   # lsu
   -
-    - X-MAXXECU-RACE-1: [23,24,27,28,48,13]
-    - C-ECU-2: [20,21,22,23,35,36]
-    - X-BULKHEAD: [20,21,22,23,35,36]
-  # CLT Gauge
-  # -
-    # - X-MAXXECU-RACE-1:
-    # - C-ECU-2: [24]
-    # - X-BULKHEAD: [24]
-  # tps
-  -
-    - X-MAXXECU-RACE-1: [27,20,25,29]
-    - C-ECU-2: [27,28,29,30]
-    - X-BULKHEAD: [27,28,29,30]
-  # misc
-  -
-    - X-MAXXECU-RACE-1: [48,13,24,29,29,25]
-    - C-ECU-2: [35,36,37,38,41,42]
-    - X-BULKHEAD: [35,36,37,38,41,42]
-  # knock
-  -
-    - X-MAXXECU-RACE-2: [18,17]
-    - C-ECU-3: [41,42]
-    - X-BULKHEAD: [41,42]
+    - X-LSU: [IP, COM, HTR, LAMBDA, RCAL, VS/OS IN]
+    - C-BULKHEAD-LSU: [1-6]
+    - X-BULKHEAD: [22, 20, 36, 5, 23, 21]
+    - C-ECU-BULKHEAD-LSU: [1-6]
+    - X-MAXXECU-RACE-1: [G3, F3, D1, M4, G4, F4]
