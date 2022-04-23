@@ -1,0 +1,20 @@
+connectors:
+  X-ECU:
+    pincount: 4
+    pinlabels: [
+      +12V,
+      CAN HIGH,
+      CAN LOW
+    ]
+
+cables:
+  C-ECU-1:
+    wirecount: 4
+    colors: [RD, WHBU, WH]
+    notes: Power and CAN to ECU
+
+connections:
+  -
+    - X-PMU16: [9]
+    - C-ECU-1: [1]
+    - X-MAXXECU-RACE-1: [48]
