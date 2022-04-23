@@ -12,9 +12,49 @@ cables:
     wirecount: 4
     colors: [RD, WHBU, WH]
     notes: Power and CAN to ECU
+  C-ECU-2:
+    wirecount: 47
+    # colors: [RD]
+  C-ECU-3:
+    wirecount: 47
 
 connections:
   -
-    - X-PMU16: [9]
-    - C-ECU-1: [1]
-    - X-MAXXECU-RACE-1: [48]
+    - X-PMU16: [9,23, 36]
+    - C-ECU-1: [1, 2, 3]
+    - X-MAXXECU-RACE-1: [48, 17, 18]
+  # injectors
+  -
+    - X-MAXXECU-RACE-1: [48,37,38,45,46]
+    - C-ECU-2: [5,15,16,17,18]
+    - X-BULKHEAD: [5,15,16,17,18]
+  # spark trigger
+  -
+    - X-MAXXECU-RACE-1: [2,3,6,7]
+    - C-ECU-2: [11,12,13,14]
+    - X-BULKHEAD: [11,12,13,14]
+  # lsu
+  -
+    - X-MAXXECU-RACE-1: [23,24,27,28,48,13]
+    - C-ECU-2: [20,21,22,23,35,36]
+    - X-BULKHEAD: [20,21,22,23,35,36]
+  # CLT Gauge
+  # -
+    # - X-MAXXECU-RACE-1:
+    # - C-ECU-2: [24]
+    # - X-BULKHEAD: [24]
+  # tps
+  -
+    - X-MAXXECU-RACE-1: [27,20,25,29]
+    - C-ECU-2: [27,28,29,30]
+    - X-BULKHEAD: [27,28,29,30]
+  # misc
+  -
+    - X-MAXXECU-RACE-1: [48,13,24,29,29,25]
+    - C-ECU-2: [35,36,37,38,41,42]
+    - X-BULKHEAD: [35,36,37,38,41,42]
+  # knock
+  -
+    - X-MAXXECU-RACE-2: [18,17]
+    - C-ECU-3: [41,42]
+    - X-BULKHEAD: [41,42]
