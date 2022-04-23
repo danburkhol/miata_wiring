@@ -1,3 +1,4 @@
 generated/*
 .DS_Store
 !generated/merged.html
+!generated/merged.png
