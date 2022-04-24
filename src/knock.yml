@@ -1,0 +1,14 @@
+cables:
+  C-KNOCK-1:
+    colors: [WH,WHBU]
+    wirelabels: [SIGNAL,SENSOR GND]
+    shield: true
+
+connections:
+  -
+    - X-ECU-2: [E2, E1]
+    - C-KNOCK-1: [SENSOR GND, SIGNAL]
+    - X-BULK: [26, 40]
+  -
+    - X-ECU-2: [E1]
+    - C-KNOCK-1: [s]
