@@ -3,6 +3,8 @@
 # https://github.com/formatc1702/WireViz
 # https://mikefarah.gitbook.io/yq/operators/multiply-merge
 
+rm generated/*
+
 # injectors
 # yq '. *= load("src/connectors.yml")'  src/injectors.yml > generated/injectors.yml
 # wireviz generated/injectors.yml
