@@ -46,6 +46,7 @@ connections:
   -
     - C-INJ-2: [GN]
     - X-INJ-4: [TRIGGER]
+  # Power
   -
     - X-ECU-1: [M4]
     - C-INJ-1: [OG]

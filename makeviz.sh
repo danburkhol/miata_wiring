@@ -21,6 +21,12 @@
 # injectors
 yq '. *= load("src/connectors.yml")' src/connectors_efi.yml > generated/connectors_efi.yml
 yq '. *= load("generated/connectors_efi.yml")'  src/injectors.yml > generated/injectors.yml
+wireviz generated/injectors.yml
+
+# ignition
+yq '. *= load("src/connectors.yml")' src/connectors_efi.yml > generated/connectors_efi.yml
+yq '. *= load("generated/connectors_efi.yml")'  src/ignition.yml > generated/ignition.yml
+wireviz generated/ignition.yml
 
 # wireviz -o generated/injectors/ generated/injectors.yml
 # wireviz -o generated/injectors \

@@ -1,0 +1,82 @@
+connectors:
+  X-COIL-1: &cop_conn
+    pincount: 4
+    pins: [GND, TRIGGER, TACH, +12V]
+    image:
+      src: ../img/90080-19019.png
+    notes: Toyota part no. 90080-19019
+  X-COIL-2:
+    <<: *cop_conn
+  X-COIL-3:
+    <<: *cop_conn
+  X-COIL-4:
+    <<: *cop_conn
+
+cables:
+  C-SPK-1:
+    wirecount: 5
+    category: bundle
+    colors: [WH,PK,BU,GN,BUWH]
+    wirelabels: [SPK1, SPK2, SPK3, SPK4, +12V]
+  C-SPK-2:
+    wirecount: 5
+    category: bundle
+    colors: [WH,PK,BU,GN,BUWH]
+    wirelabels: [SPK1, SPK2, SPK3, SPK4, +12V]
+  C-SPK-3:
+    wirecount: 1
+    colors: [BK]
+    wirelabels: [COIL GND]
+
+connections:
+  # Trigger
+  -
+    - X-ECU-1: [A2,A3,B2,B3]
+    - C-SPK-1: [GN,BU,PK,WH]
+    - X-BULK: [15,14,13,12]
+    - C-SPK-2: [GN,BU,PK,WH]
+  -
+    - C-SPK-2: [WH]
+    - X-COIL-1: [TRIGGER]
+  -
+    - C-SPK-2: [PK]
+    - X-COIL-2: [TRIGGER]
+  -
+    - C-SPK-2: [BU]
+    - X-COIL-3: [TRIGGER]
+  -
+    - C-SPK-2: [GN]
+    - X-COIL-4: [TRIGGER]
+  # Power
+  -
+    - C-SPK-1: [BUWH]
+    - X-BULK: [6]
+    - C-SPK-2: [BUWH]
+  -
+    - C-SPK-2: [BUWH]
+    - X-COIL-1: [+12V]
+  -
+    - C-SPK-2: [BUWH]
+    - X-COIL-2: [+12V]
+  -
+    - C-SPK-2: [BUWH]
+    - X-COIL-3: [+12V]
+  -
+    - C-SPK-2: [BUWH]
+    - X-COIL-4: [+12V]
+  # grounds
+  -
+    - C-SPK-3: [BK]
+    - X-COIL-1: [GND]
+  -
+    - C-SPK-3: [BK]
+    - X-COIL-2: [GND]
+  -
+    - C-SPK-3: [BK]
+    - X-COIL-3: [GND]
+  -
+    - C-SPK-3: [BK]
+    - X-COIL-4: [GND]
+  -
+    - X-CYL-HEAD: [1]
+    - C-SPK-3: [BK]

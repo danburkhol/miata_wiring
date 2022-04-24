@@ -162,3 +162,10 @@ connectors:
     image:
       src: ../img/hd36-24-47s.png
     notes: Deutsch HD30 47-pin connector
+
+  X-CYL-HEAD:
+    type: eyelet
+    pincount: 1
+    notes: cylinder head
+    show_name: false
+    show_pincount: false
