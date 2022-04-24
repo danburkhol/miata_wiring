@@ -1,0 +1,65 @@
+connectors:
+  X-INJ-1: &injector_conn
+    pincount: 2
+    pins: [Y, W/R]
+    pinlabels: [TRIGGER, +12V]
+    image:
+      src: ../img/b1-06.png
+    notes: Injector No. 1, Mazda Conn. B1-06
+  X-INJ-2:
+    <<: *injector_conn
+    notes: Injector No. 2, Mazda Conn. B1-07
+  X-INJ-3:
+    <<: *injector_conn
+    notes: Injector No. 3, Mazda Conn. B1-08
+  X-INJ-4:
+    <<: *injector_conn
+    notes: Injector No. 4, Mazda Conn. B1-09
+
+cables:
+  C-INJ-1:
+    wirecount: 5
+    category: bundle
+    colors: [WH,PK,BU,GN, OG]
+    wirelabels: [INJ1, INJ2, INJ3, INJ4, +12V]
+  C-INJ-2:
+    wirecount: 5
+    category: bundle
+    colors: [WH,PK,BU,GN,OG]
+    wirelabels: [INJ1, INJ2, INJ3, INJ4, +12V]
+
+connections:
+  -
+    - X-ECU-1: [K1,K2,M1,M2]
+    - C-INJ-1: [GN,BU,PK,WH]
+    - X-BULK: [15,14,13,12]
+    - C-INJ-2: [GN,BU,PK,WH]
+  -
+    - C-INJ-2: [WH]
+    - X-INJ-1: [TRIGGER]
+  -
+    - C-INJ-2: [PK]
+    - X-INJ-2: [TRIGGER]
+  -
+    - C-INJ-2: [BU]
+    - X-INJ-3: [TRIGGER]
+  -
+    - C-INJ-2: [GN]
+    - X-INJ-4: [TRIGGER]
+  -
+    - X-ECU-1: [M4]
+    - C-INJ-1: [OG]
+    - X-BULK: [4]
+    - C-INJ-2: [OG]
+  -
+    - C-INJ-2: [OG]
+    - X-INJ-1: [+12V]
+  -
+    - C-INJ-2: [OG]
+    - X-INJ-2: [+12V]
+  -
+    - C-INJ-2: [OG]
+    - X-INJ-3: [+12V]
+  -
+    - C-INJ-2: [OG]
+    - X-INJ-4: [+12V]

@@ -18,5 +18,11 @@
 # cd ../..
 # wireviz generated/merged2.yml
 
+# injectors
+yq '. *= load("src/connectors.yml")' src/connectors_efi.yml > generated/connectors_efi.yml
+yq '. *= load("generated/connectors_efi.yml")'  src/injectors.yml > generated/injectors.yml
 
-wireviz --prefix-file src/connectors_efi.yml src/injectors.yml -o generated/injectors
+# wireviz -o generated/injectors/ generated/injectors.yml
+# wireviz -o generated/injectors \
+# --prepend-file generated/connectors_efi.yml \
+# src/injectors.yml

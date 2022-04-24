@@ -1,75 +1,58 @@
 connectors:
-  B1-06: &injector_conn
-    pincount: 2
-    pins: [Y, W/R]
-    pinlabels: [TRIGGER, +12V]
-    image:
-      src: ../img/b1-06.png
-    notes: Injector No. 1
-  B1-07:
-    <<: *injector_conn
-    notes: Injector No. 2
-  B1-08:
-    <<: *injector_conn
-    notes: Injector No. 3
-  B1-09:
-    <<: *injector_conn
-    notes: Injector No. 4
+  # X-COIL-1: &cop_conn
+  #   pincount: 4
+  #   pins: [GND, TRIGGER, TACH, +12V]
+  #   image:
+  #     src: ../img/90080-19019.png
+  #   notes: Toyota part no. 90080-19019
+  # X-COIL-2:
+  #   <<: *cop_conn
+  # X-COIL-3:
+  #   <<: *cop_conn
+  # X-COIL-4:
+  #   <<: *cop_conn
 
-  X-COIL-1: &cop_conn
-    pincount: 4
-    pins: [GND, TRIGGER, TACH, +12V]
-    image:
-      src: ../img/90080-19019.png
-    notes: Toyota part no. 90080-19019
-  X-COIL-2:
-    <<: *cop_conn
-  X-COIL-3:
-    <<: *cop_conn
-  X-COIL-4:
-    <<: *cop_conn
+  # X-LSU:
+  #   pincount: 6
+  #   image:
+  #     src: ../img/lsu49.png
+  #   pins: [IP, COM, HTR, LAMBDA, RCAL, VS/OS IN]
 
-  X-LSU:
-    pincount: 6
-    image:
-      src: ../img/lsu49.png
-    pins: [IP, COM, HTR, LAMBDA, RCAL, VS/OS IN]
+  # X-THROTTLE-BODY:
+  #   pins: [A,B,C,D,E,F]
+  #   pinlabels: [
+  #     Throttle +,
+  #     Throttle,
+  #     TPS Sig GND,
+  #     TPS 2 Sig,
+  #     TPS 5V,
+  #     TPS 1 Sig,
+  #   ]
+  #   image:
+  #     src: ../img/nc_throttle.png
 
-  X-THROTTLE-BODY:
-    pins: [A,B,C,D,E,F]
-    pinlabels: [
-      Throttle +,
-      Throttle,
-      TPS Sig GND,
-      TPS 2 Sig,
-      TPS 5V,
-      TPS 1 Sig,
-    ]
-    image:
-      src: ../img/nc_throttle.png
+  # X-APP:
+  #   pins: [A,B,C,D,E,F]
+  #   pinlabels: [
+  #     APP 1 Sens 5V+,
+  #     APP 2 Sig GND,
+  #     APP Sens 2 Signal,
+  #     APP 2 Sens 5V+,
+  #     APP 1 Sig GND,
+  #     APP Sens 1 Signal,
+  #   ]
+  #   image:
+  #     src: ../img/nc_throttle.png
 
-  X-APP:
-    pins: [A,B,C,D,E,F]
-    pinlabels: [
-      APP 1 Sens 5V+,
-      APP 2 Sig GND,
-      APP Sens 2 Signal,
-      APP 2 Sens 5V+,
-      APP 1 Sig GND,
-      APP Sens 1 Signal,
-    ]
-    image:
-      src: ../img/nc_throttle.png
-
-  B1-10:
-    pincount: 4
-    pins: [Y/L, W, W/R, B/LG]
-    pinlabels: [
-      Y/L,
-      W,
-      +5V,
-      SENSOR GND
-    ]
-    image:
-      src: ../img/b1-10.png
-    notes: Crank angle sensor
+  # B1-10:
+  #   pincount: 4
+  #   pins: [Y/L, W, W/R, B/LG]
+  #   pinlabels: [
+  #     Y/L,
+  #     W,
+  #     +5V,
+  #     SENSOR GND
+  #   ]
+  #   image:
+  #     src: ../img/b1-10.png
+  #   notes: Crank angle sensor
