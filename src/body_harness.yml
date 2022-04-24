@@ -10,15 +10,7 @@ cables:
 
 connections:
   # headlamps
-  -
-    - X-HEADLAMP-D1: [1,2]
-    - C-BODY-1: [1,2]
-  -
-    - X-HEADLAMP-P1: [1,2]
-    - C-BODY-1: [1,2]
-  -
-    - C-BODY-1: [1,2]
-    - X-PMU: [1, 38]
+
   # tns
   -
     - X-BODY-D1: [1]

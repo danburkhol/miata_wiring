@@ -1,0 +1,42 @@
+connectors:
+  X-HEADLAMP-D1: &template_headlamp
+    pincount: 2
+    pinlabels: [HIGH BEAM, LOW BEAM]
+    notes: Driver side body sub-harness
+
+  X-HEADLAMP-P1:
+    <<: *template_headlamp
+    notes: Passenger side body sub-harness
+
+  X-E1-01: &headlamp_conn
+    pincount: 3
+    pinlabels: [HIGH BEAM, GND, LOW BEAM]
+    image:
+      src: ../img/e1-01.png
+    notes: L Headlamp, Mazda Conn. E1-01
+  X-E1-02:
+    <<: *headlamp_conn
+    notes: R Headlamp, Mazda Conn. E1-02
+
+cables:
+  C-HEADLAMP-1:
+    colors: [RDWH,GY]
+    wirelabels: [HIGH BEAM, LOW BEAM]
+  C-HEADLAMP-2:
+    wirecount: 2
+  C-HEADLAMP-3:
+    wirecount: 2
+
+connections:
+  -
+    - X-PMU: [OUTPUT O13, OUTPUT O1]
+    - C-HEADLAMP-1: [HIGH BEAM, LOW BEAM]
+    - X-HEADLAMP-D1: [HIGH BEAM, LOW BEAM]
+    - C-HEADLAMP-2: [1-2]
+    - X-E1-01: [HIGH BEAM, LOW BEAM]
+  -
+    - X-PMU: [OUTPUT O13, OUTPUT O1]
+    - C-HEADLAMP-1: [HIGH BEAM, LOW BEAM]
+    - X-HEADLAMP-P1: [HIGH BEAM, LOW BEAM]
+    - C-HEADLAMP-3: [1-2]
+    - X-E1-02: [HIGH BEAM, LOW BEAM]
