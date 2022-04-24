@@ -78,3 +78,12 @@ connections:
   -
     - X-EASYGUARD-2: [1-20]
     - C-EASYGUARD-2: [1-20]
+
+  -
+    - X-EASYGUARD-2: [13,14]
+    - C-EASYGUARD-2: [13,14]
+    - X-GND-1
+  -
+    - X-EASYGUARD-2: [1,2]
+    - C-EASYGUARD-2: [1,2]
+    - X-PMU: [10,11]
