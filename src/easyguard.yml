@@ -2,13 +2,15 @@ connectors:
   X-EASYGUARD-1:
     pincount: 6
     pinlabels: [
-      VCC,
-      VCC,
-      IG1,
-      IG2,
       ACC,
-      ST
+      ST,
+      IGN2,
+      VCC1,
+      VCC2,
+      IGN1,
     ]
+    image:
+      src: ../img/easyguard-1.png
   X-EASYGUARD-2:
     pincount: 20
     image:
@@ -16,7 +18,16 @@ connectors:
 
 cables:
   C-EASYGUARD-1:
-    wirecount: 3
+    wirecount: 6
+    wirelabels: [
+      ACC,
+      ST,
+      IGN2,
+      VCC1,
+      VCC2,
+      IGN1,
+    ]
+    colors: [OG,YE,BN,RD,RD,WH]
     notes: IGN harness
   C-EASYGUARD-2:
     colors: [
@@ -48,6 +59,22 @@ cables:
     ]
 
 connections:
+  -
+    - X-EASYGUARD-1: [VCC1, VCC2]
+    - C-EASYGUARD-1: [4, 5]
+    - X-BATT-POS
+  -
+    - X-EASYGUARD-1: [ST]
+    - C-EASYGUARD-1: [YE]
+    - X-ECU-1: [B4]
+  -
+    - X-EASYGUARD-1: [IGN1, IGN2]
+    - C-EASYGUARD-1: [IGN1, IGN2]
+    - X-PMU: [7, 7]
+  -
+    - X-EASYGUARD-1: [ACC]
+    - C-EASYGUARD-1: [ACC]
+    - X-PMU: [29]
   -
     - X-EASYGUARD-2: [1-20]
     - C-EASYGUARD-2: [1-20]

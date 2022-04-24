@@ -156,5 +156,19 @@ connectors:
     type: eyelet
     pincount: 1
     notes: cylinder head
-    show_name: false
+    show_name: true
     show_pincount: false
+
+  X-BATT-POS:
+    type: eyelet
+    pincount: 1
+    show_name: true
+    show_pincount: false
+    notes: Battery constant
+
+  X-GND-1:
+    type: eyelet
+    pincount: 1
+    show_name: true
+    show_pincount: false
+    notes: Located under dash near clutch pedal box
