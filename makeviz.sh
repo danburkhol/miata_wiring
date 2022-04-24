@@ -21,3 +21,7 @@ wireviz generated/throttle.yml
 # knock
 yq '. *= load("generated/connectors_efi.yml")'  src/knock.yml > generated/knock.yml
 wireviz generated/knock.yml
+
+# lsu
+yq '. *= load("generated/connectors_efi.yml")'  src/lsu.yml > generated/lsu.yml
+wireviz generated/lsu.yml

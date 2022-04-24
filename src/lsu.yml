@@ -1,0 +1,35 @@
+connectors:
+  X-LSU:
+    pincount: 6
+    pinlabels: [IP, COM, HTR, +12V LAMBDA, RCAL, VS/OS IN]
+    image:
+      src: ../img/lsu49.png
+
+cables:
+  C-LSU-1:
+    colors: [WH,WHBU,WHOG,WHGN]
+    wirelabels: [IP,COM,RCAL,VS/OS IN]
+    shield: true
+  C-LSU-2:
+    colors: [RD,BK]
+    wirelabels: [+12V LAMBDA, HTR]
+
+  C-LSU-3:
+    colors: [WH,WHBU,WHOG,WHGN]
+    wirelabels: [IP,COM,RCAL,VS/OS IN]
+    shield: true
+  C-LSU-4:
+    colors: [RD,BK]
+    wirelabels: [+12V LAMBDA, HTR]
+
+connections:
+  -
+    - X-ECU-1: [G3,F3,G4,F4]
+    - C-LSU-1: [IP, COM,RCAL,VS/OS IN]
+    - X-BULK: [42, 43, 44, 45]
+    - C-LSU-3: [1-4]
+    - X-LSU: [IP, COM, RCAL, VS/OS IN]
+  -
+    # - X-BULK: [42, 43, 44, 45]
+    - C-LSU-4: [1-2]
+    - X-LSU: [+12V LAMBDA, HTR]
