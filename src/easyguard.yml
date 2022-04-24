@@ -1,0 +1,53 @@
+connectors:
+  X-EASYGUARD-1:
+    pincount: 6
+    pinlabels: [
+      VCC,
+      VCC,
+      IG1,
+      IG2,
+      ACC,
+      ST
+    ]
+  X-EASYGUARD-2:
+    pincount: 20
+    image:
+      src: ../img/easyguard-2.png
+
+cables:
+  C-EASYGUARD-1:
+    wirecount: 3
+    notes: IGN harness
+  C-EASYGUARD-2:
+    colors: [
+      BN,BN,YEBK,WHBK,OGBK,YE,WH,OG,PK,GN,
+      OG,RD,BK,BK,WH,BUBK,BU,GNBK,GN,VT
+    ]
+    wirelabels: [
+      TURN SIGNAL 1,
+      TURN SIGNAL 2,
+      door,
+      door,
+      door,
+      door,
+      door,
+      door,
+      HORN,
+      GPS,
+
+      FOOTBRAKE,
+      GPS VCC,
+      GND 1,
+      GND 2,
+      GPS,
+      DOOR SW,
+      FUEL PUMP,
+      TRUNK RELEASE
+      TRUNK OUTPUT,
+      TRUNK POSITIVE
+    ]
+
+connections:
+  -
+    - X-EASYGUARD-2: [1-20]
+    - C-EASYGUARD-2: [1-20]

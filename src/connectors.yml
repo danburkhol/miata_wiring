@@ -146,17 +146,6 @@ connectors:
       MOTOR 1+
     ]
 
-  X-EASYGUARD:
-    pincount: 6
-    pinlabels: [
-      VCC,
-      VCC,
-      IG1,
-      IG2,
-      ACC,
-      ST
-    ]
-
   X-BULK:
     pincount: 47
     image:
