@@ -18,7 +18,7 @@ connections:
     - C-BODY-1: [1,2]
   -
     - C-BODY-1: [1,2]
-    - X-PMU16: [1, 38]
+    - X-PMU: [1, 38]
   # tns
   -
     - X-BODY-D1: [1]
@@ -31,7 +31,7 @@ connections:
     - C-BODY-2: [1]
   -
     - C-BODY-2: [1]
-    - X-PMU16: [14]
+    - X-PMU: [14]
   # L Turn Signals
   -
     - X-BODY-D1: [4]
@@ -41,7 +41,7 @@ connections:
     - C-BODY-2: [4]
   -
     - C-BODY-2: [4]
-    - X-PMU16: [10]
+    - X-PMU: [10]
   # R Turn Signals
   -
     - X-BODY-P1: [4]
@@ -51,12 +51,12 @@ connections:
     - C-BODY-2: [5]
   -
     - C-BODY-2: [5]
-    - X-PMU16: [11]
+    - X-PMU: [11]
   # brake lights
   -
     - X-14: [7]
     - C-BODY-2: [6]
-    - X-PMU16: [4]
+    - X-PMU: [4]
   #fuel pump
   -
     - X-14: [2]
@@ -70,9 +70,9 @@ connections:
     - C-BODY-2: [2]
   -
     - C-BODY-2: [2]
-    - X-PMU16: [26]
+    - X-PMU: [26]
   # cooling fan
   -
     - X-BODY-D2: [5]
     - C-BODY-2: [3]
-    - X-PMU16: [28]
+    - X-PMU: [28]
