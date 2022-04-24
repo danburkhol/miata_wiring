@@ -1,4 +1,7 @@
 generated/*
 .DS_Store
+src/*
+!src/*.yml
+!src/*.yaml
 !generated/merged.html
 !generated/merged.png
