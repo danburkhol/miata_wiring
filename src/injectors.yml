@@ -32,7 +32,7 @@ connections:
   -
     - X-ECU-1: [K1,K2,M1,M2]
     - C-INJ-1: [GN,BU,PK,WH]
-    - X-BULK: [15,14,13,12]
+    - X-BULK: [12,13,14,15]
     - C-INJ-2: [GN,BU,PK,WH]
   -
     - C-INJ-2: [WH]

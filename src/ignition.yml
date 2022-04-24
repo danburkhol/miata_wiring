@@ -16,12 +16,12 @@ cables:
   C-SPK-1:
     wirecount: 5
     category: bundle
-    colors: [WH,PK,BU,GN,BUWH]
+    colors: [WH,PK,BU,GN,RD]
     wirelabels: [SPK1, SPK2, SPK3, SPK4, +12V]
   C-SPK-2:
     wirecount: 5
     category: bundle
-    colors: [WH,PK,BU,GN,BUWH]
+    colors: [WH,PK,BU,GN,RD]
     wirelabels: [SPK1, SPK2, SPK3, SPK4, +12V]
   C-SPK-3:
     wirecount: 1
@@ -33,7 +33,7 @@ connections:
   -
     - X-ECU-1: [A2,A3,B2,B3]
     - C-SPK-1: [GN,BU,PK,WH]
-    - X-BULK: [15,14,13,12]
+    - X-BULK: [16,17,18,19]
     - C-SPK-2: [GN,BU,PK,WH]
   -
     - C-SPK-2: [WH]
@@ -49,20 +49,20 @@ connections:
     - X-COIL-4: [TRIGGER]
   # Power
   -
-    - C-SPK-1: [BUWH]
+    - C-SPK-1: [RD]
     - X-BULK: [6]
-    - C-SPK-2: [BUWH]
+    - C-SPK-2: [RD]
   -
-    - C-SPK-2: [BUWH]
+    - C-SPK-2: [RD]
     - X-COIL-1: [+12V]
   -
-    - C-SPK-2: [BUWH]
+    - C-SPK-2: [RD]
     - X-COIL-2: [+12V]
   -
-    - C-SPK-2: [BUWH]
+    - C-SPK-2: [RD]
     - X-COIL-3: [+12V]
   -
-    - C-SPK-2: [BUWH]
+    - C-SPK-2: [RD]
     - X-COIL-4: [+12V]
   # grounds
   -
