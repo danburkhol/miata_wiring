@@ -1,0 +1,13 @@
+connectors:
+  X-APP:
+    pins: [A,B,C,D,E,F]
+    pinlabels: [
+      APP 1 Sens 5V+,
+      APP 2 Sig GND,
+      APP Sens 2 Signal,
+      APP 2 Sens 5V+,
+      APP 1 Sig GND,
+      APP Sens 1 Signal,
+    ]
+    image:
+      src: ../img/nc_throttle.png
