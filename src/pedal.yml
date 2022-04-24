@@ -11,3 +11,10 @@ connectors:
     ]
     image:
       src: ../img/nc_throttle.png
+
+# connections:
+  # # accel pedal
+  # -
+  #   - X-APP: [A,B,C,D,E,F]
+  #   - C-ECU-APP: [1-6]
+  #   # - X-MAXXECU-RACE-1: [H4, H2, H1, E4, G1, G3]
