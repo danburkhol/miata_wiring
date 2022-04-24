@@ -1,0 +1,36 @@
+connectors:
+  X-THROTTLE-BODY:
+    pins: [A,B,C,D,E,F]
+    pinlabels: [
+      THROTTLE+,
+      THROTTLE-,
+      TPS SENSOR GND,
+      TPS 2 SIG,
+      TPS 5V,
+      TPS 1 SIG,
+    ]
+    image:
+      src: ../img/nc_throttle.png
+
+cables:
+  C-TB-1:
+    colors: [PK, YE]
+    wirelabels: [THROTTLE+, THROTTLE-]
+  C-TB-2:
+    colors: [WH,WHBU,WHOG]
+    wirelabels: [SENSOR GND, TPS1, TPS2]
+    shield: true
+
+connections:
+  -
+    - X-ECU-2: [H4, H2]
+    - C-TB-1: [THROTTLE+, THROTTLE-]
+    - X-BULK: [27, 41]
+  -
+    - X-ECU-1: [H1]
+    - C-TB-2: [SENSOR GND]
+    - X-BULK: [39]
+  -
+    - X-ECU-2: [G3,E4]
+    - C-TB-2: [TPS1, TPS2]
+    - X-BULK: [38,25]

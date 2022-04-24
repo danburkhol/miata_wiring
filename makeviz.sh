@@ -28,6 +28,10 @@ yq '. *= load("src/connectors.yml")' src/connectors_efi.yml > generated/connecto
 yq '. *= load("generated/connectors_efi.yml")'  src/ignition.yml > generated/ignition.yml
 wireviz generated/ignition.yml
 
+yq '. *= load("src/connectors.yml")' src/connectors_efi.yml > generated/connectors_efi.yml
+yq '. *= load("generated/connectors_efi.yml")'  src/throttle.yml > generated/throttle.yml
+wireviz generated/throttle.yml
+
 # wireviz -o generated/injectors/ generated/injectors.yml
 # wireviz -o generated/injectors \
 # --prepend-file generated/connectors_efi.yml \
