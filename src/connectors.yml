@@ -105,39 +105,44 @@ connectors:
 
   X-MAXXECU-RACE-2:
     pincount: 32
+    pins: [
+      A1,A2,A3,A4,B1,B2,B3,B4,C1,C2,C3,C4,
+      D1,D2,D3,D4,E1,E2,E3,E4,F1,F2,F3,F4,
+      G1,G2,G3,G4,H1,H2,H3,H4
+    ]
     pinlabels: [
-      A1 - EGT 5+,
-      A2 - EGT 6+,
-      A3 - EGT 7+,
-      A4 - EGT 8+,
-      B1 - EGT 5,
-      B2 - EGT 6,
-      B3 - EGT 7,
-      B4 - EGT 8,
-      C1 - EGT 1+,
-      C2 - EGT 2+,
-      C3 - EGT 3+,
-      C4 - EGT 4+,
-      D1 - EGT 1,
-      D2 - EGT 2,
-      D3 - EGT 3,
-      D4 - EGT 4,
-      E1 - KNOCK GND,
-      E2 - KNOCK 1,
-      E3 - KNOCK 2,
-      E4 - AIN 6 (0-5V),
-      F1 - AIN 7 (0-5V),
-      F2 - AIN 8(0-5V),
-      F3 - DIN/VR 4,
-      F4 - DIN/VR5,
-      G1 - GPO 15(+12V),
-      G2 - GPO 16 (+12V),
-      G3 - AIN 5 (0-5V),
-      G4 - ENGINE GROUND,
-      H1 - MOTOR 2+,
-      H2 - MOTOR 1,
-      H3 - MOTOR 2,
-      H4 - MOTOR 1+
+      EGT 5+,
+      EGT 6+,
+      EGT 7+,
+      EGT 8+,
+      EGT 5,
+      EGT 6,
+      EGT 7,
+      EGT 8,
+      EGT 1+,
+      EGT 2+,
+      EGT 3+,
+      EGT 4+,
+      EGT 1,
+      EGT 2,
+      EGT 3,
+      EGT 4,
+      KNOCK GND,
+      KNOCK 1,
+      KNOCK 2,
+      AIN 6 (0-5V),
+      AIN 7 (0-5V),
+      AIN 8(0-5V),
+      DIN/VR 4,
+      DIN/VR5,
+      GPO 15(+12V),
+      GPO 16 (+12V),
+      AIN 5 (0-5V),
+      ENGINE GROUND,
+      MOTOR 2+,
+      MOTOR 1-,
+      MOTOR 2-,
+      MOTOR 1+
     ]
 
   X-EASYGUARD:
@@ -156,6 +161,8 @@ connectors:
 
   X-BULKHEAD:
     pincount: 47
+    image:
+      src: ../img/hd36-24-47s.png
     notes: Deutsch HD30 47-pin connector
 
   X-HEADLAMP-D1: &template_headlamp

@@ -87,33 +87,41 @@ cables:
     colors: [RD, WHBU, WH]
     notes: Power and CAN to ECU
   C-ECU-2:
-    wirecount: 47
-    # colors: [RD]
+    wirecount: 3
+    colors: [OG, WHBU, WH]
+    notes: Power and CAN to ECU
   C-ECU-3:
     wirecount: 47
+  C-ECU-PWR:
+    wirecount: 4
+    colors: [BN, OG, BU, YE]
   C-ECU-BULKHEAD-INJ:
     wirecount: 5
-    colors: [GN, PK, YE, BU, RD]
+    colors: [WH,PK,BU,GN,OG]
   C-BULKHEAD-INJ:
     wirecount: 5
-    colors: [GN, PK, YE, BU, RD]
+    colors: [WH,PK,BU,GN,OG]
   C-BULKHEAD-SPK:
-    wirecount: 6
-    colors: [GN, PK, YE, BU, RD, YE]
+    wirecount: 5
+    colors: [WH,PK,BU,GN,BU]
   C-ECU-BULKHEAD-SPK:
     wirecount: 4
-    colors: [GN, PK, YE, BU]
+    colors: [WH,PK,BU,GN]
   C-TPS:
     wirecount: 5
     colors: [GN, PK, YE, BU, RD]
   C-BULKHEAD-LSU:
     wirecount: 6
+    colors: [WH,WHBU,WHOG,WHGN,RD,BK]
   C-ECU-BULKHEAD-LSU:
     wirecount: 6
-  C-BULKHEAD-THROTTLE:
-    wirecount: 6
+    colors: [WH,WHBU,WHOG,WHGN,RD,BK]
+  C-BULKHEAD-THROTTLE-1:
+    wirecount: 2
+    colors: [PK,YE]
   C-ECU-BULKHEAD-THROTTLE:
-    wirecount: 6
+    wirecount: 3
+    colors: [WH,WHBU,WHOG]
   C-ECU-APP:
     wirecount: 6
   C-BULKHEAD-CAS:
@@ -122,14 +130,40 @@ cables:
   C-ECU-BULKHEAD-CAS:
     wirecount: 4
     colors: [WHBU, WH, RD, BK]
+  C-ECU-BULK-SENS-1:
+    wirecount: 3
+    colors: [WH,WHBU,WHOG]
+  C-ECU-BULK-KNOCK:
+    wirecount: 2
+    colors: [WH, WHBU]
+  C-BULK-KNOCK:
+    wirecount: 2
+    colors: [WH, WHBU]
+  C-ECU-BULK-ENG:
+    wirecount: 1
+    colors: [BK]
 
 connections:
   # ECU power and comms
   -
     - X-PMU16: [9,23, 36]
     - C-ECU-1: [1, 2, 3]
+    - X-ECU: [1-3]
+    - C-ECU-2: [1-3]
     - X-MAXXECU-RACE-1: [M4, E1, E2]
-  # injectors
+  -
+    - X-MAXXECU-RACE-1: [L4]
+    - C-ECU-BULK-ENG: [1]
+    - X-BULKHEAD: [5]
+  -
+    - X-MAXXECU-RACE-2: [G4]
+    - C-ECU-BULK-ENG: [1]
+    - X-BULKHEAD: [5]
+  # -
+  #   - X-MAXXECU-RACE-1: [L4, M4]
+  #   - C-ECU-PWR: [1,2]
+  #   - X-BULKHEAD: [5,4]
+  # INJ: injectors to bulkhead
   -
     - B1-06: [Y, W/R]
     - C-BULKHEAD-INJ: [1, 5]
@@ -142,52 +176,82 @@ connections:
   -
     - B1-09: [Y, W/R]
     - C-BULKHEAD-INJ: [4, 5]
+  # INJ: bulkhead to ecu
   -
     - C-BULKHEAD-INJ: [1-5]
-    - X-BULKHEAD: [15,16,17,18,5]
+    - X-BULKHEAD: [15,14,13,12,4]
     - C-ECU-BULKHEAD-INJ: [1-5]
     - X-MAXXECU-RACE-1: [K1,K2,M1,M2,M4]
-  # spark trigger
+  # SPK: spk to bulkhead
   -
-    - X-COIL-1: [TRIGGER]
-    - C-BULKHEAD-SPK: [1]
+    - X-COIL-1: [TRIGGER, +12V]
+    - C-BULKHEAD-SPK: [1, 5]
   -
-    - X-COIL-2: [TRIGGER]
-    - C-BULKHEAD-SPK: [2]
+    - X-COIL-2: [TRIGGER, +12V]
+    - C-BULKHEAD-SPK: [2, 5]
   -
-    - X-COIL-3: [TRIGGER]
-    - C-BULKHEAD-SPK: [3]
+    - X-COIL-3: [TRIGGER, +12V]
+    - C-BULKHEAD-SPK: [3, 5]
   -
-    - X-COIL-4: [TRIGGER]
-    - C-BULKHEAD-SPK: [4]
+    - X-COIL-4: [TRIGGER, +12V]
+    - C-BULKHEAD-SPK: [4, 5]
   -
     - C-BULKHEAD-SPK: [1-4]
-    - X-BULKHEAD: [11-14]
+    - X-BULKHEAD: [19-16]
     - C-ECU-BULKHEAD-SPK: [1-4]
     - X-MAXXECU-RACE-1: [A2, A3, B2, B3]
+  -
+    - C-BULKHEAD-SPK: [5]
+    - X-BULKHEAD: [6]
   # lsu
   -
-    - X-LSU: [IP, COM, HTR, LAMBDA, RCAL, VS/OS IN]
-    - C-BULKHEAD-LSU: [1-6]
-    - X-BULKHEAD: [22, 20, 36, 5, 23, 21]
-    - C-ECU-BULKHEAD-LSU: [1-6]
-    - X-MAXXECU-RACE-1: [G3, F3, D1, M4, G4, F4]
-  # throttle
+    - X-LSU: [IP, COM, RCAL, VS/OS IN]
+    - C-BULKHEAD-LSU: [1-4]
+    - X-BULKHEAD: [42,43,44,45]
+    - C-ECU-BULKHEAD-LSU: [1-4]
+    - X-MAXXECU-RACE-1: [G3, F3, G4, F4]
   -
-    - X-THROTTLE-BODY: [A,B,C,D,E,F]
-    - C-BULKHEAD-THROTTLE: [1-6]
-    - X-BULKHEAD: [25, 26, 30, 28, 29, 27]
-    - C-ECU-BULKHEAD-THROTTLE: [1-6]
-    - X-MAXXECU-RACE-1: [H4, H2, H1, E4, G1, G3]
-  # accel pedal
+    - X-MAXXECU-RACE-1: [G1,F1,F2]
+    - C-ECU-BULK-SENS-1: [1,2,3]
+    - X-BULKHEAD: [28,29,30]
+  # knock
   -
-    - X-APP: [A,B,C,D,E,F]
-    - C-ECU-APP: [1-6]
-    # - X-MAXXECU-RACE-1: [H4, H2, H1, E4, G1, G3]
-  # CAS
+    - X-MAXXECU-RACE-2: [E2,E1]
+    - C-ECU-BULK-KNOCK: [1-2]
+    - X-BULKHEAD: [40, 26]
+    - C-BULK-KNOCK: [1-2]
+
+
+  # throttle motor
   -
-    - B1-10: [Y/L, W, W/R, B/LG]
-    - C-BULKHEAD-CAS: [1-4]
-    - X-BULKHEAD: [43, 44, 29, 41]
-    - C-ECU-BULKHEAD-CAS: [1-4]
-    - X-MAXXECU-RACE-1: [H3, H4, G1, H1]
+    - X-MAXXECU-RACE-2: [H4,H2]
+    - C-BULKHEAD-THROTTLE-1: [1-2]
+    - X-BULKHEAD: [27,41]
+  # throttle sensor
+  -
+    - X-MAXXECU-RACE-1: [H1]
+    - C-ECU-BULKHEAD-THROTTLE: [1]
+    - X-BULKHEAD: [39]
+  -
+    - X-MAXXECU-RACE-2: [G3,E4]
+    - C-ECU-BULKHEAD-THROTTLE: [2,3]
+    - X-BULKHEAD: [38,25]
+
+  # -
+  #   - X-THROTTLE-BODY: [A,B,C,D,E,F]
+  #   - C-BULKHEAD-THROTTLE: [1-6]
+  #   - X-BULKHEAD: [25, 26, 30, 28, 29, 27]
+  #   - C-ECU-BULKHEAD-THROTTLE: [1-6]
+  #   - X-MAXXECU-RACE-1: [H4, H2, H1, E4, G1, G3]
+  # # accel pedal
+  # -
+  #   - X-APP: [A,B,C,D,E,F]
+  #   - C-ECU-APP: [1-6]
+  #   # - X-MAXXECU-RACE-1: [H4, H2, H1, E4, G1, G3]
+  # # CAS
+  # -
+  #   - B1-10: [Y/L, W, W/R, B/LG]
+  #   - C-BULKHEAD-CAS: [1-4]
+  #   - X-BULKHEAD: [43, 44, 29, 41]
+  #   - C-ECU-BULKHEAD-CAS: [1-4]
+  #   - X-MAXXECU-RACE-1: [H3, H4, G1, H1]
