@@ -1,0 +1,101 @@
+# Common connectors shared across multipl circuits
+connectors:
+  X-PWR-WINDOW:
+    pincount: 16
+
+  X-HEADLAMP-D1: &template_headlamp
+    pincount: 2
+    pinlabels: [HIGH BEAM, LOW BEAM]
+    notes: Driver side body sub-harness
+
+  X-HEADLAMP-P1:
+    <<: *template_headlamp
+    notes: Passenger side body sub-harness
+
+  X-BODY-D1: &template_front_lamps
+    pincount: 6
+    pinlabels: [
+      TNS,
+      RETRACTOR PWR,
+      RETRACTOR UP,
+      TURN SIGNAL,
+      RETRACTOR DOWN,
+      RETRACTOR ACTIVE
+    ]
+    notes: Driver's side body sub-harness
+
+  X-BODY-D2:
+    pincount: 6
+    pinlabels: [
+      WASHER,
+      A/C CLUTCH,
+      HORN,
+      BRAKE FL.,
+      COOLING FAN,
+      UNUSED
+    ]
+    notes: Driver's side body sub-harness
+
+  X-BODY-P1:
+    <<: *template_front_lamps
+    notes: Passenger's side body sub-harness
+
+  X-BODY-P2:
+    pincount: 2
+    pinlabels: [
+      A/C PRES. SW,
+      A/C FAN,
+    ]
+    notes: Driver's side body sub-harness
+
+  X-14:
+    pincount: 8
+    pinlabels: [
+      REAR RIGHT TURN SIGNAL,
+      FUEL PUMP,
+      TNS,
+      REVERSE LIGHTS,
+      REAR LEFT TURN SIGNAL,
+      FUEL LEVEL SENDER,
+      STOP LIGHTS,
+      DOOR SW
+    ]
+    notes: OEM Connector X-14 to custom connector
+
+  X-CRIMP: # this is a ferrule that will be auto-generated on demand
+    style: simple
+    autogenerate: true
+    type: Crimp ferrule
+    # subtype: 0.5 mm²
+    # color: OG
+
+  D-03:
+    pincount: 16
+    image:
+      src: ../img/d-03.png
+    notes: Located on steering column
+
+
+  E1-01: &headlamp_conn
+    pincount: 2
+    image:
+      src: ../img/e1-01.png
+    notes: L Headlamp
+  E1-02:
+    <<: *headlamp_conn
+    notes: R Headlamp
+
+  E1-04: &headlamp_actuator_conn
+    pincount: 6
+    image:
+      src: ../img/e1-04.png
+    notes: L Headlight Actuator
+  E1-05:
+    <<: *headlamp_actuator_conn
+    notes: R Headlight Actuator
+
+  E1-08:
+    pincount: 7
+    image:
+      src: ../img/e1-08.png
+    notes: Retractable headlight switch in tombstone
