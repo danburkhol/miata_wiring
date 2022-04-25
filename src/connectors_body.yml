@@ -60,8 +60,18 @@ connectors:
     # subtype: 0.5 mm²
     # color: OG
 
-  D-03:
+  X-D-03:
     pincount: 16
+    pins: [
+      B, L/W, L/O, L/Y 1, G/Y, B/Y,
+      L/R, L, R/B, R/W, B 2, G/R,
+      L/Y 2, W/B, R/L, LG
+    ]
+    pinlabels: [
+      B, L/W, L/O, L/Y 1, G/Y, B/Y,
+      L/R, L, R/B, R/W, B, G/R,
+      TNS, HIGH BEAM, FLASH TO PASS, LOW BEAM
+    ]
     image:
       src: ../img/d-03.png
     notes: Located on steering column
