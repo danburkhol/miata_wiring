@@ -77,7 +77,18 @@ connectors:
     notes: Located on steering column
 
 
-
+  X-10:
+    pins: [
+      Y, R/L, R/G,
+      B/G, B/W, B/Y
+    ]
+    pinlabels: [
+      Y, R/L, VCC TO BACKUP LT,
+      B/G, B/W, BACKUP LT SW
+    ]
+    image:
+      src: ../img/x-10.png
+    notes: Went from trans to engine fuse box from factory. Poking through trans tunnel in my application.
 
   E1-04: &headlamp_actuator_conn
     pincount: 6

@@ -1,0 +1,21 @@
+cables:
+  C-TRANS-SW-1:
+    wirecount: 2
+    wirelabels: [
+      REVERSE SW,
+      GND
+    ]
+    colors: [
+      WH,
+      BK
+    ]
+
+connections:
+  -
+    - X-10: [BACKUP LT SW]
+    - C-TRANS-SW-1: [REVERSE SW]
+    - X-PMU: [20]
+  -
+    - X-10: [R/G]
+    - C-TRANS-SW-1: [GND]
+    - X-GND-1
