@@ -11,6 +11,14 @@ connectors:
     <<: *cop_conn
   X-COIL-4:
     <<: *cop_conn
+  X-B1-13:
+    pincount: 2
+    pins: [B, L]
+    pincolors: [BK, BU]
+    pinlabels: [GND, +12V]
+    image:
+      src: ../img/b1-13.png
+    notes: IGN Coil Condenser
 
 cables:
   C-SPK-1:
@@ -27,6 +35,10 @@ cables:
     wirecount: 1
     colors: [BK]
     wirelabels: [COIL GND]
+  C-SPK-4:
+    wirecount: 2
+    colors: [BK, BU]
+    wirelabels: [GND, +12V]
 
 connections:
   # Trigger
@@ -80,3 +92,14 @@ connections:
   -
     - X-CYL-HEAD: [1]
     - C-SPK-3: [BK]
+
+  # noise filter
+  -
+    - X-B1-13: [GND, +12V]
+    - C-SPK-4: [GND, +12V]
+  -
+    - X-PMU: [OUTPUT O5]
+    - C-SPK-4: [+12V]
+  -
+    - C-SPK-4: [GND, +12V]
+    - X-BULK: [5, 6]
