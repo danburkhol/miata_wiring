@@ -99,8 +99,29 @@ connectors:
     <<: *headlamp_actuator_conn
     notes: R Headlight Actuator
 
-  E1-08:
+  X-17:
+    pins: [
+      L/W, R/Y, R/W, R/B, G/L, LG, L/R, G/W,
+      L/O, R/L, R/G, O, Y/B, G/R, L/Y, R, Y, G/B
+    ]
+    pinlabels: [
+      L/W, R/Y, R/W, R/B, G/L, LG, L/R, G/W,
+      L/O, R/L, R/G, HAZARD SW, Y/B, G/R, L/Y, R, Y, G/B
+    ]
+    image:
+      src: ../img/x-17.png
+    notes: Connector between front and instrumement panel
+
+  X-E1-08:
     pincount: 7
+    pins: [
+      O, R, R/B,
+      B, R/L, R/Y, R/G
+    ]
+    pinlabels: [
+      HAZARD SW, R, R/B,
+      GND, R/L, R/Y, R/G
+    ]
     image:
       src: ../img/e1-08.png
     notes: Retractable headlight switch in tombstone
