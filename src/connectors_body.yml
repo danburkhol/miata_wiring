@@ -68,8 +68,8 @@ connectors:
       L/Y 2, W/B, R/L, LG
     ]
     pinlabels: [
-      B, L/W, L/O, L/Y 1, G/Y, B/Y,
-      L/R, L, R/B, R/W, B, G/R,
+      B, L/W, L/O, L/Y 1, TURN SIGNAL 1, TURN SIGNAL COM,
+      L/R, L, R/B, R/W, B, TURN SIGNAL 2,
       TNS, HIGH BEAM, FLASH TO PASS, LOW BEAM
     ]
     image:
