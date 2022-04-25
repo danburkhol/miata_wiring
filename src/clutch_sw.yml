@@ -8,13 +8,13 @@ connectors:
 cables:
   C-CLUTCH:
     wirecount: 2
-    colors: [YE,BK]
+    colors: [BN,BK]
 
 connections:
   -
     - X-CLUTCH: [VCC]
-    - C-CLUTCH: [YE]
-    - X-ECU-1: [J3]
+    - C-CLUTCH: [BN]
+    - X-PMU: [30]
   -
     - X-CLUTCH: [GND]
     - C-CLUTCH: [BK]
