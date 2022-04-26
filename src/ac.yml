@@ -1,0 +1,23 @@
+cables:
+  C-AC-1:
+    wirecount: 2
+    wirelabels: [A/C CLUTCH, A/C FAN]
+    # colors: [BU, YE]
+  C-AC-2:
+    wirecount: 1
+    wirelabels: [A/C PRES. SW]
+
+connections:
+  -
+    - X-BODY-D2: [A/C CLUTCH]
+    - C-AC-1: [A/C CLUTCH]
+    - X-PMU: [OUTPUT O3]
+  -
+    - X-BODY-P2: [A/C FAN]
+    - C-AC-1: [A/C FAN]
+    - X-PMU: [OUTPUT O3]
+
+  -
+    - X-BODY-P2: [A/C PRES. SW]
+    - C-AC-2: [A/C PRES. SW]
+    - X-PMU: [INPUT A13]
