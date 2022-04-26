@@ -20,8 +20,3 @@ connections:
   -
     - C-BODY-2: [2]
     - X-PMU: [26]
-  # cooling fan
-  -
-    - X-BODY-D2: [5]
-    - C-BODY-2: [3]
-    - X-PMU: [28]
