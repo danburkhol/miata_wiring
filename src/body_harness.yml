@@ -1,7 +1,4 @@
 cables:
-  C-BODY-1:
-    # wirecount: 2
-    colors: [RDWH, RDBK]
   C-BODY-2:
     wirecount: 10
 
@@ -9,12 +6,6 @@ cables:
   #   wirecount: 10
 
 connections:
-
-  # brake lights
-  -
-    - X-14: [7]
-    - C-BODY-2: [6]
-    - X-PMU: [4]
   #fuel pump
   -
     - X-14: [2]
