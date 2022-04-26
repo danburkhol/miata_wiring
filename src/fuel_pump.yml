@@ -1,0 +1,10 @@
+cables:
+  C-FUEL-PUMP-1:
+    wirecount: 1
+    wirelabels: [FUEL PUMP]
+
+connections:
+  -
+    - X-14: [FUEL PUMP]
+    - C-FUEL-PUMP-1: [FUEL PUMP]
+    - X-PMU: [OUTPUT O9]

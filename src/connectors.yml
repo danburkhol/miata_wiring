@@ -43,6 +43,48 @@ connectors:
       OUTPUT O1,
       OUTPUT O2
     ]
+    pincolors: [
+      VT,
+      VT,
+      IV,
+      IV,
+      IV,
+      BU,
+      RD,
+      BU,
+      IV,
+      IV,
+      IV,
+      VT,
+      VT,
+      VT,
+      RD,
+      BU,
+      BU,
+      BU,
+      BU,
+      BU,
+      BU,
+      BU,
+      WHBU,
+      WHBU,
+      BK,
+      VT,
+      VT,
+      VT,
+      BU,
+      BU,
+      BU,
+      BU,
+      BU,
+      BU,
+      BU,
+      WH,
+      WH,
+      VT,
+      VT,
+    ]
+    notes: VT = High AMP, IV = Low AMP
 
   X-ECU-1:
     pincount: 48
