@@ -1,0 +1,28 @@
+cables:
+  C-TURN-1:
+    wirecount: 2
+    wirelabels: [LEFT TURN SIGNAL, RIGHT TURN SIGNAL]
+    # colors: [GNBU, GNWH]
+
+connections:
+  # L Turn Signals
+  -
+    - X-BODY-D1: [4]
+    - C-TURN-1: [LEFT TURN SIGNAL]
+  -
+    - X-14: [5]
+    - C-TURN-1: [LEFT TURN SIGNAL]
+  -
+    - C-TURN-1: [LEFT TURN SIGNAL]
+    - X-PMU: [10]
+
+  # R Turn Signals
+  -
+    - X-BODY-P1: [4]
+    - C-TURN-1: [RIGHT TURN SIGNAL]
+  -
+    - X-14: [1]
+    - C-TURN-1: [RIGHT TURN SIGNAL]
+  -
+    - C-TURN-1: [RIGHT TURN SIGNAL]
+    - X-PMU: [OUTPUT O6]

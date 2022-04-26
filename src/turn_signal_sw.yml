@@ -1,14 +1,14 @@
 cables:
-  C-TURN-SIG:
+  C-TURN-SW-1:
     wirecount: 3
     wirelabels: [TURN SIGNAL 1, TURN SIGNAL 2, TURN SIGNAL COM]
 
 connections:
   -
     - X-D-03: [TURN SIGNAL 1, TURN SIGNAL 2]
-    - C-TURN-SIG: [TURN SIGNAL 1, TURN SIGNAL 2]
+    - C-TURN-SW-1: [TURN SIGNAL 1, TURN SIGNAL 2]
     - X-PMU: [19, 33]
   -
     - X-D-03: [TURN SIGNAL COM]
-    - C-TURN-SIG: [TURN SIGNAL COM]
+    - C-TURN-SW-1: [TURN SIGNAL COM]
     - X-GND-1

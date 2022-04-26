@@ -9,26 +9,7 @@ cables:
   #   wirecount: 10
 
 connections:
-  # L Turn Signals
-  -
-    - X-BODY-D1: [4]
-    - C-BODY-2: [4]
-  -
-    - X-14: [5]
-    - C-BODY-2: [4]
-  -
-    - C-BODY-2: [4]
-    - X-PMU: [10]
-  # R Turn Signals
-  -
-    - X-BODY-P1: [4]
-    - C-BODY-2: [5]
-  -
-    - X-14: [1]
-    - C-BODY-2: [5]
-  -
-    - C-BODY-2: [5]
-    - X-PMU: [11]
+
   # brake lights
   -
     - X-14: [7]
