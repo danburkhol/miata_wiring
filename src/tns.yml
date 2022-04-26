@@ -1,0 +1,18 @@
+cables:
+  C-TNS:
+    wirecount: 1
+    wirelabels: [TNS]
+
+connections:
+  -
+    - X-BODY-D1: [TNS]
+    - C-TNS: [TNS]
+  -
+    - X-BODY-P1: [TNS]
+    - C-TNS: [TNS]
+  -
+    - X-14: [TNS]
+    - C-TNS: [TNS]
+  -
+    - C-TNS: [TNS]
+    - X-PMU: [OUTPUT O14]

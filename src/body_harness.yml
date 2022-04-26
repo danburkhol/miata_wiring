@@ -9,21 +9,6 @@ cables:
   #   wirecount: 10
 
 connections:
-  # headlamps
-
-  # tns
-  -
-    - X-BODY-D1: [1]
-    - C-BODY-2: [1]
-  -
-    - X-BODY-P1: [1]
-    - C-BODY-2: [1]
-  -
-    - X-14: [3]
-    - C-BODY-2: [1]
-  -
-    - C-BODY-2: [1]
-    - X-PMU: [14]
   # L Turn Signals
   -
     - X-BODY-D1: [4]
