@@ -201,6 +201,12 @@ connectors:
     show_name: true
     show_pincount: false
 
+  X-5V:
+    type: ferrule
+    pincount: 1
+    show_pincount: false
+    notes: 5V supply post-bulkhead
+
   X-BATT-POS:
     type: eyelet
     pincount: 1

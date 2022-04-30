@@ -20,12 +20,23 @@ cables:
     colors: [WH,WHBU,WHOG]
     wirelabels: [SENSOR GND, TPS1, TPS2]
     shield: true
+  C-TB-3:
+    colors: [PK, YE]
+    wirelabels: [THROTTLE+, THROTTLE-]
+    notes: Bulkhead to throttle
+  C-TB-4:
+    colors: [WH,WHBU,WHOG,WHGN]
+    wirelabels: [SENSOR GND, TPS1, TPS2, +5V]
+    shield: true
+    notes: Bulkhead to throttle
 
 connections:
   -
     - X-ECU-2: [H4, H2]
     - C-TB-1: [THROTTLE+, THROTTLE-]
     - X-BULK: [27, 41]
+    - C-TB-3: [THROTTLE+, THROTTLE-]
+    - X-THROTTLE-BODY: [THROTTLE+, THROTTLE-]
   -
     - X-ECU-1: [H1]
     - C-TB-2: [SENSOR GND]
@@ -34,3 +45,11 @@ connections:
     - X-ECU-2: [G3,E4]
     - C-TB-2: [TPS1, TPS2]
     - X-BULK: [38,25]
+    - C-TB-4: [TPS1, TPS2]
+    - X-THROTTLE-BODY: [TPS 1 SIG, TPS 2 SIG]
+  -
+    - C-TB-4: [SENSOR GND, +5V]
+    - X-THROTTLE-BODY: [TPS SENSOR GND, TPS 5V]
+  -
+    - X-5V: [1]
+    - C-TB-4: [+5V]
