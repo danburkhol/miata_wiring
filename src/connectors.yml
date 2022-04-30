@@ -207,6 +207,12 @@ connectors:
     show_pincount: false
     notes: 5V supply post-bulkhead
 
+  X-SENSOR-GND:
+    type: ferrule
+    pincount: 1
+    show_pincount: false
+    notes: sensor ground, post bulkhead
+
   X-BATT-POS:
     type: eyelet
     pincount: 1
