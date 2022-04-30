@@ -3,8 +3,8 @@ connectors:
     pincount: 4
     pins: [Y/L, W, W/R, B/LG]
     pinlabels: [
-      Y/L,
-      W,
+      CAM1,
+      CAM2,
       +5V,
       SENSOR GND
     ]
@@ -12,11 +12,16 @@ connectors:
       src: ../img/b1-10.png
     notes: Crank angle sensor. Mazda Conn. B1-10
 
-# connections:
-  # # CAS
-  # -
-  #   - B1-10: [Y/L, W, W/R, B/LG]
-  #   - C-BULKHEAD-CAS: [1-4]
-  #   - X-BULKHEAD: [43, 44, 29, 41]
-  #   - C-ECU-BULKHEAD-CAS: [1-4]
-  #   - X-MAXXECU-RACE-1: [H3, H4, G1, H1]
+cables:
+  C-CAS-2:
+    wirecount: 4
+    colors: [WH, WHBU, WHOG, WHGN]
+    wirelabels: [CAM1, CAM2, +5V, SENSOR GND]
+
+connections:
+  -
+    - C-CAS-2: [WH, WHBU, WHOG, WHGN]
+    - X-CAS: [Y/L, W, W/R, B/LG]
+  -
+    - X-BULK: [29, 30, 4]
+    - C-CAS-2: [WH, WHBU, WHOG]
