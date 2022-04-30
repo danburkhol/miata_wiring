@@ -5,23 +5,30 @@ connectors:
     pinlabels: [CLT SIGNAL, SENSOR GND]
     image:
       src: ../img/b1-17.png
+  X-CLT-GAUGE:
+    pincount: 1
+
 
 cables:
   C-CLT-1:
-    wirecount: 2
-    wirelabels: [CLT SIGNAL, SENSOR GND]
+    wirecount: 3
+    wirelabels: [CLT SIGNAL, SENSOR GND, CLT GAUGE]
   C-CLT-2:
-    wirecount: 2
-    wirelabels: [CLT SIGNAL, SENSOR GND]
+    wirecount: 3
+    wirelabels: [CLT SIGNAL, SENSOR GND, CLT GAUGE]
+    colors: [GN, BU, BKRD]
 
 connections:
   -
     - X-ECU-1: [F1]
     - C-CLT-1: [CLT SIGNAL]
-    - X-BULK: [37]
+    - X-BULK: [35]
     - C-CLT-2: [CLT SIGNAL]
     - X-CLT: [CLT SIGNAL]
-
+  -
+    - X-BULK: [36]
+    - C-CLT-2: [CLT GAUGE]
+    - X-CLT-GAUGE: [1]
   -
     - X-SENSOR-GND: [1]
     - C-CLT-2: [SENSOR GND]
