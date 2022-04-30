@@ -26,6 +26,14 @@ cables:
     wirecount: 1
     colors: [BK]
     wirelabels: [COIL GND]
+  C-ECU-5:
+    wirecount: 1
+    colors: [RD]
+    wirelabels: [+5V]
+  C-ECU-6:
+    wirecount: 1
+    colors: [RD]
+    wirelabels: [+5V]
 
 connections:
   # ECU power and comms
@@ -50,3 +58,10 @@ connections:
     - X-BULK: [5]
     - C-ECU-4: [BK]
     - X-CYL-HEAD: [1]
+
+  -
+    - X-ECU-1: [G1]
+    - C-ECU-5: [RD]
+    - X-BULK: [1]
+    - C-ECU-6: [RD]
+    - X-5V: [1]
