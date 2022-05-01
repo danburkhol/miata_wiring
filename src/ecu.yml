@@ -34,6 +34,14 @@ cables:
     wirecount: 1
     colors: [RD]
     wirelabels: [+5V]
+  C-ECU-7:
+    wirecount: 1
+    colors: [BN]
+    wirelabels: [SHIELD DRAIN]
+  C-ECU-8:
+    wirecount: 1
+    colors: [BN]
+    wirelabels: [SHIELD DRAIN]
 
 connections:
   # ECU power and comms
@@ -65,3 +73,9 @@ connections:
     - X-BULK: [1]
     - C-ECU-6: [RD]
     - X-5V: [1]
+
+  -
+    - X-ECU-1: [E3]
+    - C-ECU-7: [SHIELD DRAIN]
+    - X-BULK: [39]
+    - C-ECU-8: [SHIELD DRAIN]
