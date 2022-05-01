@@ -30,6 +30,6 @@ connections:
     - C-LSU-3: [1-4]
     - X-LSU: [IP, COM, RCAL, VS/OS IN]
   -
-    # - X-BULK: [42, 43, 44, 45]
+    - X-BULK: [28, 31]
     - C-LSU-4: [1-2]
     - X-LSU: [+12V LAMBDA, HTR]
