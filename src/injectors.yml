@@ -25,7 +25,7 @@ cables:
   C-INJ-2:
     wirecount: 5
     category: bundle
-    colors: [WH,PK,BU,GN,OG]
+    colors: [WH,PK,BU,GN,RD]
     wirelabels: [INJ1, INJ2, INJ3, INJ4, +12V]
 
 connections:
@@ -51,16 +51,16 @@ connections:
     - X-ECU-1: [M4]
     - C-INJ-1: [OG]
     - X-BULK: [4]
-    - C-INJ-2: [OG]
+    - C-INJ-2: [RD]
   -
-    - C-INJ-2: [OG]
+    - C-INJ-2: [RD]
     - X-INJ-1: [+12V]
   -
-    - C-INJ-2: [OG]
+    - C-INJ-2: [RD]
     - X-INJ-2: [+12V]
   -
-    - C-INJ-2: [OG]
+    - C-INJ-2: [RD]
     - X-INJ-3: [+12V]
   -
-    - C-INJ-2: [OG]
+    - C-INJ-2: [RD]
     - X-INJ-4: [+12V]
