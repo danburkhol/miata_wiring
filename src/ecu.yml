@@ -42,6 +42,14 @@ cables:
     wirecount: 1
     colors: [BN]
     wirelabels: [SHIELD DRAIN]
+  C-ECU-9:
+    wirecount: 1
+    colors: [BN]
+    wirelabels: [SENSOR GND]
+  C-ECU-10:
+    wirecount: 1
+    colors: [BN]
+    wirelabels: [SENSOR GND]
 
 connections:
   # ECU power and comms
@@ -79,3 +87,8 @@ connections:
     - C-ECU-7: [SHIELD DRAIN]
     - X-BULK: [39]
     - C-ECU-8: [SHIELD DRAIN]
+  -
+    - X-ECU-1: [H1]
+    - C-ECU-9: [SENSOR GND]
+    - X-BULK: [24]
+    - C-ECU-10: [SENSOR GND]

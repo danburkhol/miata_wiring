@@ -25,3 +25,6 @@ connections:
   -
     - X-BULK: [29, 30, 4]
     - C-CAS-2: [WH, WHBU, WHOG]
+  -
+    - X-BULK: [24]
+    - C-CAS-2: [WHGN]

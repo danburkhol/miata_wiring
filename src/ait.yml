@@ -1,0 +1,13 @@
+# connectors:
+
+cables:
+  C-AIT-1:
+    wirecount: 2
+    shield: true
+    colors: [WH, WHBU]
+    wirelabels: [SIGNAL GND, SIGNAL]
+
+connections:
+  -
+    - X-BULK: [37, 24]
+    - C-AIT-1: [WHBU, WH]
