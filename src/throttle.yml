@@ -14,9 +14,8 @@ connectors:
 
 cables:
   C-TB-1:
-    colors: [PK, YE, WH,WHBU,WHOG]
-    wirelabels: [THROTTLE+, THROTTLE-, SENSOR GND, TPS1, TPS2]
-    shield: true
+    colors: [PK, YE, WHBU, WHOG]
+    wirelabels: [THROTTLE+, THROTTLE-, TPS1, TPS2]
   C-TB-2:
     colors: [
       PK,
@@ -41,18 +40,14 @@ connections:
   -
     - X-ECU-2: [H4, H2]
     - C-TB-1: [THROTTLE+, THROTTLE-]
-    - X-BULK: [27, 41]
+    - X-BULK: [THROTTLE+, THROTTLE-]
     - C-TB-2: [THROTTLE+, THROTTLE-]
     - X-THROTTLE-BODY: [THROTTLE+, THROTTLE-]
   -
-    - X-ECU-1: [H1]
-    - C-TB-1: [SENSOR GND]
-    - X-BULK: [39]
-  -
     - X-ECU-2: [G3,E4]
-    - C-TB-1: [TPS1, TPS2]
-    - X-BULK: [38,25]
-    - C-TB-2: [TPS1, TPS2]
+    - C-TB-1: [TPS1,TPS2]
+    - X-BULK: [TPS1,TPS2]
+    - C-TB-2: [TPS1,TPS2]
     - X-THROTTLE-BODY: [TPS 1 SIG, TPS 2 SIG]
   -
     - C-TB-2: [SENSOR GND, +5V]
