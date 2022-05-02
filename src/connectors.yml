@@ -210,6 +210,13 @@ connectors:
     show_pincount: false
     notes: sensor ground, post bulkhead
 
+  X-SHIELD-DRAIN:
+    style: simple
+    type: Crimp ferrule
+    pincount: 1
+    show_pincount: false
+    notes: sheild drain, post bulkhead
+
   X-BATT-POS:
     type: eyelet
     pincount: 1

@@ -87,6 +87,7 @@ connections:
     - C-ECU-7: [SHIELD DRAIN]
     - X-BULK: [39]
     - C-ECU-8: [SHIELD DRAIN]
+    - X-SHIELD-DRAIN
   -
     - X-ECU-1: [H1]
     - C-ECU-9: [SENSOR GND]

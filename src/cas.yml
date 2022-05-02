@@ -17,6 +17,7 @@ cables:
     wirecount: 4
     colors: [WH, WHBU, WHOG, WHGN]
     wirelabels: [CAM1, CAM2, +5V, SENSOR GND]
+    shield: true
 
 connections:
   -
@@ -31,3 +32,6 @@ connections:
   -
     - X-SENSOR-GND
     - C-CAS-2: [SENSOR GND]
+  -
+    - X-SHIELD-DRAIN
+    - C-CAS-2: s

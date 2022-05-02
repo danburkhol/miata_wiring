@@ -56,3 +56,6 @@ connections:
   -
     - X-SENSOR-GND
     - C-TB-4: [SENSOR GND]
+  -
+    - X-SHIELD-DRAIN
+    - C-TB-4: s

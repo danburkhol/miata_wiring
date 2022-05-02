@@ -33,3 +33,6 @@ connections:
     - X-BULK: [28, 31]
     - C-LSU-4: [1-2]
     - X-LSU: [+12V LAMBDA, HTR]
+  -
+    - X-SHIELD-DRAIN
+    - C-LSU-3: s
