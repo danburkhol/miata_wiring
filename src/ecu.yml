@@ -27,6 +27,9 @@ cables:
   C-ECU-5:
     colors: [BN]
     wirelabels: [SHIELD GND]
+  C-ECU-6:
+    colors: [RD]
+    wirelabels: [+5V SENSOR SUPPLY]
 
 connections:
   # ECU power and comms
@@ -52,3 +55,7 @@ connections:
     - X-BULK: [SHIELD DRAIN]
     - C-ECU-5: [BN]
     - X-SHIELD-DRAIN-1
+  -
+    - X-BULK: [+5V SENSOR SUPPLY]
+    - C-ECU-6: [+5V SENSOR SUPPLY]
+    - X-5V
