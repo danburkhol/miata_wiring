@@ -40,7 +40,7 @@ connectors:
       UNDEFINED PIN 33,
       UNDEFINED PIN 34,
       CLT SIGNAL,
-      UNDEFINED PIN 36,
+      CLT GAUGE,
       AIT SIGNAL,
       TPS 1,
       SHIELD DRAIN,
