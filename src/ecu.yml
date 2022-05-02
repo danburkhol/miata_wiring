@@ -10,7 +10,7 @@ connectors:
 cables:
   C-ECU-1:
     wirecount: 4
-    colors: [RD, WHBU, WH]
+    colors: [OG, WHBU, WH]
     wirelabels: [+12V, CAN H, CAN L]
     notes: Power and CAN to ECU
   C-ECU-2:
