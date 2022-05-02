@@ -22,10 +22,9 @@ connectors:
 
 cables:
   C-SPK-1:
-    wirecount: 5
     category: bundle
-    colors: [WH,PK,BU,GN,RD]
-    wirelabels: [SPK1, SPK2, SPK3, SPK4, +12V]
+    colors: [WH,PK,BU,GN]
+    wirelabels: [SPK1, SPK2, SPK3, SPK4]
   C-SPK-2:
     category: bundle
     colors: [WH,PK,BU,GN,RD,BK]
@@ -59,10 +58,6 @@ connections:
     - C-SPK-2: [GN]
     - X-COIL-4: [TRIGGER]
   # Power
-  -
-    - C-SPK-1: [RD]
-    - X-BULK: [6]
-    - C-SPK-2: [RD]
   -
     - C-SPK-2: [RD]
     - X-COIL-1: [+12V]
