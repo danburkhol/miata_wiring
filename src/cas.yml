@@ -29,5 +29,5 @@ connections:
     - X-5V
     - C-CAS-2: [WHOG]
   -
-    - X-BULK: [24]
-    - C-CAS-2: [WHGN]
+    - X-SENSOR-GND
+    - C-CAS-2: [SENSOR GND]

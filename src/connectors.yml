@@ -189,6 +189,7 @@ connectors:
     ]
 
   X-CYL-HEAD:
+    style: simple
     type: eyelet
     pincount: 1
     notes: cylinder head
@@ -196,13 +197,15 @@ connectors:
     show_pincount: false
 
   X-5V:
-    type: ferrule
+    style: simple
+    type: Crimp ferrule
     pincount: 1
     show_pincount: false
     notes: 5V supply post-bulkhead
 
   X-SENSOR-GND:
-    type: ferrule
+    style: simple
+    type: Crimp ferrule
     pincount: 1
     show_pincount: false
     notes: sensor ground, post bulkhead

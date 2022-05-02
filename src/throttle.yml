@@ -53,3 +53,6 @@ connections:
   -
     - X-5V: [1]
     - C-TB-4: [+5V]
+  -
+    - X-SENSOR-GND
+    - C-TB-4: [SENSOR GND]

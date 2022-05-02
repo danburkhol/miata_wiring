@@ -9,5 +9,8 @@ cables:
 
 connections:
   -
-    - X-BULK: [37, 24]
-    - C-AIT-1: [WHBU, WH]
+    - X-BULK: [37]
+    - C-AIT-1: [WHBU]
+  -
+    - X-SENSOR-GND
+    - C-AIT-1: [WH]

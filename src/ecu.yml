@@ -90,5 +90,6 @@ connections:
   -
     - X-ECU-1: [H1]
     - C-ECU-9: [SENSOR GND]
-    - X-BULK: [24]
+    - X-BULK: [SENSOR GND]
     - C-ECU-10: [SENSOR GND]
+    - X-SENSOR-GND
