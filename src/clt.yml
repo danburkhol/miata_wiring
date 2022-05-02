@@ -33,3 +33,4 @@ connections:
     - X-SENSOR-GND: [1]
     - C-CLT-2: [SENSOR GND]
     - X-CLT: [SENSOR GND]
+  

@@ -196,7 +196,7 @@ connectors:
     show_name: true
     show_pincount: false
 
-  X-5V:
+  X-5V: &x_crimp
     style: simple
     type: Crimp ferrule
     pincount: 1
@@ -204,17 +204,11 @@ connectors:
     notes: 5V supply post-bulkhead
 
   X-SENSOR-GND:
-    style: simple
-    type: Crimp ferrule
-    pincount: 1
-    show_pincount: false
+    <<: *x_crimp
     notes: sensor ground, post bulkhead
 
   X-SHIELD-DRAIN:
-    style: simple
-    type: Crimp ferrule
-    pincount: 1
-    show_pincount: false
+    <<: *x_crimp
     notes: sheild drain, post bulkhead
 
   X-BATT-POS:
