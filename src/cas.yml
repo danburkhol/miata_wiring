@@ -33,5 +33,5 @@ connections:
     - X-SENSOR-GND
     - C-CAS-2: [SENSOR GND]
   -
-    - X-SHIELD-DRAIN
+    - X-SHIELD-DRAIN-1
     - C-CAS-2: s

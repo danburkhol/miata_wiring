@@ -20,7 +20,13 @@ cables:
     notes: Power and CAN to ECU
   C-ECU-3:
     colors: [RD, BK, BN, BK]
-    wirelabels: [+5V, SENSOR GND, SHEILD GND, ENG GND]
+    wirelabels: [+5V, SENSOR GND, SHIELD GND, ENG GND]
+  C-ECU-4:
+    colors: [BN]
+    wirelabels: [SHIELD GND]
+  C-ECU-5:
+    colors: [BN]
+    wirelabels: [SHIELD GND]
 
 connections:
   # ECU power and comms
@@ -32,8 +38,17 @@ connections:
     - X-ECU-1: [M4, E1, E2]
   -
     - X-ECU-1: [G1, H1, E3, L4]
-    - C-ECU-3: [+5V, SENSOR GND, SHEILD GND, ENG GND]
-    - X-BULK: [+5V SENSOR SUPPLY, SENSOR GND, SHIELD DRAIN, ENGINE GND]
+    - C-ECU-3: [+5V, SENSOR GND, SHIELD GND, ENG GND]
+  -
+    - C-ECU-3: [+5V, SENSOR GND, ENG GND]
+    - X-BULK: [+5V SENSOR SUPPLY, SENSOR GND, ENGINE GND]
+
   -
     - X-ECU-2: [G4]
     - C-ECU-3: [ENG GND]
+  -
+    - X-SHIELD-DRAIN-2
+    - C-ECU-4: [BN]
+    - X-BULK: [SHIELD DRAIN]
+    - C-ECU-5: [BN]
+    - X-SHIELD-DRAIN-1

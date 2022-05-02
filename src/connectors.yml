@@ -207,9 +207,16 @@ connectors:
     <<: *x_crimp
     notes: sensor ground, post bulkhead
 
-  X-SHIELD-DRAIN:
+  X-SHIELD-DRAIN-1:
     <<: *x_crimp
     notes: sheild drain, post bulkhead
+
+  X-SHIELD-DRAIN-2:
+    <<: *x_crimp
+    notes: sheild drain, to the ECU
+  X-SHIELD-DRAIN-3:
+    <<: *x_crimp
+    notes: sheild drain, to the ECU
 
   X-BATT-POS:
     type: eyelet

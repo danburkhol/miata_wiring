@@ -7,8 +7,8 @@ connectors:
 
 cables:
   C-LSU-1:
-    colors: [WH,WHBU,WHOG,WHGN,RD,BK]
-    wirelabels: [IP,COM,RCAL,VS/OS IN,+12V LAMBDA, HTR]
+    colors: [WH,WHBU,WHOG,WHGN,BK]
+    wirelabels: [IP,COM,RCAL,VS/OS IN, HTR]
     shield: true
   C-LSU-2:
     colors: [WH,WHBU,WHOG,WHGN,RD,GN]
@@ -27,5 +27,17 @@ connections:
     - C-LSU-2: [+12V LAMBDA, HTR]
     - X-LSU: [+12V LAMBDA, HTR]
   -
-    - X-SHIELD-DRAIN
+    - X-ECU-1: [D1]
+    - C-LSU-1: [HTR]
+    - X-BULK: [LSU HEATER]
+  -
+    - C-ECU-2: [+12V]
+    - X-BULK: [LSU LAMBDA +12V]
+  -
+    - X-SHIELD-DRAIN-1
     - C-LSU-2: s
+  -
+    - C-ECU-3: [SHIELD GND]
+    - X-SHIELD-DRAIN-3
+    - C-LSU-1: s
+    - X-SHIELD-DRAIN-2
