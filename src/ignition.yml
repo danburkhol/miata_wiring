@@ -1,7 +1,7 @@
 connectors:
   X-COIL-1: &cop_conn
     pincount: 4
-    pins: [GND, TRIGGER, TACH, +12V]
+    pinlabels: [GND, TRIGGER, TACH, +12V]
     image:
       src: ../img/90080-19019.png
     notes: Toyota part no. 90080-19019
@@ -27,10 +27,9 @@ cables:
     colors: [WH,PK,BU,GN,RD]
     wirelabels: [SPK1, SPK2, SPK3, SPK4, +12V]
   C-SPK-2:
-    wirecount: 5
     category: bundle
-    colors: [WH,PK,BU,GN,RD]
-    wirelabels: [SPK1, SPK2, SPK3, SPK4, +12V]
+    colors: [WH,PK,BU,GN,RD,BK]
+    wirelabels: [SPK1, SPK2, SPK3, SPK4, +12V,GND]
   C-SPK-3:
     wirecount: 1
     colors: [BK]
@@ -78,20 +77,20 @@ connections:
     - X-COIL-4: [+12V]
   # grounds
   -
-    - C-SPK-3: [BK]
+    - X-CYL-HEAD
+    - C-SPK-2: [GND]
+  -
+    - C-SPK-2: [BK]
     - X-COIL-1: [GND]
   -
-    - C-SPK-3: [BK]
+    - C-SPK-2: [BK]
     - X-COIL-2: [GND]
   -
-    - C-SPK-3: [BK]
+    - C-SPK-2: [BK]
     - X-COIL-3: [GND]
   -
-    - C-SPK-3: [BK]
+    - C-SPK-2: [BK]
     - X-COIL-4: [GND]
-  -
-    - X-CYL-HEAD: [1]
-    - C-SPK-3: [BK]
 
   # noise filter
   -
