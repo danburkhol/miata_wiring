@@ -1,4 +1,10 @@
-# connectors:
+connectors:
+  X-AIT:
+    pins: [A, B]
+    pinlabels: [SIGNAL, SIGNAL GND]
+    image:
+      src: ../img/gm-ait.png
+    notes: GM AIT sensor
 
 cables:
   C-AIT-1:
@@ -10,6 +16,8 @@ connections:
   -
     - X-BULK: [37]
     - C-AIT-1: [SIGNAL]
+    - X-AIT: [SIGNAL]
   -
     - X-SENSOR-GND
     - C-AIT-1: [SIGNAL GND]
+    - X-AIT: [SIGNAL GND]
