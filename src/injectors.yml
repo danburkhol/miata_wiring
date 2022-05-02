@@ -18,10 +18,10 @@ connectors:
 
 cables:
   C-INJ-1:
-    wirecount: 5
+    wirecount: 4
     category: bundle
-    colors: [WH,PK,BU,GN, OG]
-    wirelabels: [INJ1, INJ2, INJ3, INJ4, +12V]
+    colors: [WH,PK,BU,GN]
+    wirelabels: [INJ1, INJ2, INJ3, INJ4]
   C-INJ-2:
     wirecount: 5
     category: bundle
