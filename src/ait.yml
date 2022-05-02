@@ -3,17 +3,13 @@
 cables:
   C-AIT-1:
     wirecount: 2
-    shield: true
-    colors: [WH, WHBU]
+    colors: [BN, BU]
     wirelabels: [SIGNAL GND, SIGNAL]
 
 connections:
   -
     - X-BULK: [37]
-    - C-AIT-1: [WHBU]
+    - C-AIT-1: [SIGNAL]
   -
     - X-SENSOR-GND
-    - C-AIT-1: [WH]
-  -
-    - X-SHIELD-DRAIN
-    - C-AIT-1: s
+    - C-AIT-1: [SIGNAL GND]
