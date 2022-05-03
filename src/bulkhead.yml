@@ -11,7 +11,7 @@ connectors:
       INJ +12V,
       ENGINE GND,
       IGN +12V,
-      UNDEFINED PIN 7,
+      OIL PRES SENDER,
       UNDEFINED PIN 8,
       UNDEFINED PIN 9,
       UNDEFINED PIN 10,

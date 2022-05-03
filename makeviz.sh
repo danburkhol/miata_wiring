@@ -45,6 +45,7 @@ src/knock.yml \
 src/lsu.yml \
 src/sensors.yml \
 src/throttle.yml \
+src/oil_pres_sender.yml \
 > generated/efi.yml
 
 wireviz generated/efi.yml

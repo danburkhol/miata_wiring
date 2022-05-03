@@ -1,0 +1,17 @@
+connectors:
+  X-OIL-PRES:
+    pincount: 1
+
+cables:
+  C-OIL-PRES-1: &c_oilpres
+    colors: [YERD]
+    wirelabels: [OIL PRES SENDER]
+  C-OIL-PRES-2:
+    <<: *c_oilpres
+
+
+connections:
+  -
+    - X-BULK: [OIL PRES SENDER]
+    - C-OIL-PRES-2: [OIL PRES SENDER]
+    - X-OIL-PRES
