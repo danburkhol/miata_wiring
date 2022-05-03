@@ -1,14 +1,26 @@
+connectors:
+  X-KNOCK:
+    pincount: 2
+    pinlabels: [SIGNAL, SENSOR GND]
+
 cables:
-  C-KNOCK-1:
+  C-KNOCK-1: &c_knock
     colors: [WH,WHBU]
     wirelabels: [SIGNAL,SENSOR GND]
     shield: true
+  C-KNOCK-2:
+    <<: *c_knock
 
 connections:
   -
     - X-ECU-2: [E2, E1]
-    - C-KNOCK-1: [SENSOR GND, SIGNAL]
+    - C-KNOCK-1: [SIGNAL,SENSOR GND]
     - X-BULK: [26, 40]
+    - C-KNOCK-2: [SIGNAL,SENSOR GND]
+    - X-KNOCK: [1-2]
   -
     - X-ECU-2: [E1]
     - C-KNOCK-1: [s]
+  -
+    - X-BULK: [40]
+    - C-KNOCK-2: [s]
