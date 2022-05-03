@@ -1,0 +1,37 @@
+connectors:
+  X-ALT-1:
+    pincount: 3
+    pinlabels: [BATT CHARGE, ALT REF, CHARGE IND]
+    image:
+      src: ../img/a-o3.png
+
+  X-ALT-2:
+    style: simple
+    type: Crimp ferrule
+    pincount: 1
+    show_pincount: false
+    autogenerate: true
+    notes: extension of oem alt charge connector
+
+cables:
+  C-ALT-1:
+    colors: [WH]
+    wirelabels: [BATT CHARGE]
+  C-ALT-2:
+    colors: [WHGN, WHBK]
+    wirelabels: [ALT REF, CHARGE IND]
+  C-ALT-3:
+    colors: [GN, VT]
+    wirelabels: [ALT REF, CHARGE IND]
+
+connections:
+  -
+    - C-ALT-3: [ALT REF]
+    - X-ALT-2
+    - C-ALT-2: [ALT REF]
+    - X-ALT-1: [ALT REF]
+  -
+    - C-ALT-3: [CHARGE IND]
+    - X-ALT-2
+    - C-ALT-2: [CHARGE IND]
+    - X-ALT-1: [CHARGE IND]
