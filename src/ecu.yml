@@ -28,7 +28,7 @@ cables:
     colors: [BN]
     wirelabels: [SHIELD GND]
   C-ECU-6:
-    colors: [RD]
+    colors: [BU]
     wirelabels: [+5V SENSOR SUPPLY]
   C-ECU-7:
     colors: [YE]
