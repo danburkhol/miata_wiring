@@ -33,7 +33,18 @@ rm generated/*
 yq eval-all '. as $item ireduce ({}; . *+ $item )' src/*.yml > generated/master.yml
 wireviz generated/master.yml
 
-# cleanup
-rm generated/*.gv > /dev/null
-rm generated/*.svg > /dev/null
-rm generated/*.bom.tsv > /dev/null
+yq eval-all '. as $item ireduce ({}; . *+ $item )' \
+src/bulkhead.yml \
+src/connectors.yml \
+src/ecu.yml \
+src/cas.yml \
+src/clt.yml \
+src/ignition.yml \
+src/injectors.yml \
+src/knock.yml \
+src/lsu.yml \
+src/sensors.yml \
+src/throttle.yml \
+> generated/efi.yml
+
+wireviz generated/efi.yml
