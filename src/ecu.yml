@@ -30,6 +30,9 @@ cables:
   C-ECU-6:
     colors: [RD]
     wirelabels: [+5V SENSOR SUPPLY]
+  C-ECU-7:
+    colors: [YE]
+    wirelabels: [SENSOR GND]
 
 connections:
   # ECU power and comms
@@ -59,3 +62,8 @@ connections:
     - X-BULK: [+5V SENSOR SUPPLY]
     - C-ECU-6: [+5V SENSOR SUPPLY]
     - X-5V
+
+  -
+    - X-BULK: [SENSOR GND]
+    - C-ECU-7: [YE]
+    - X-SENSOR-GND
