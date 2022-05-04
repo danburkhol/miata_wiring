@@ -1,4 +1,7 @@
 connectors:
+  X-BATT:
+    pincount: 2
+    pinlabels: [POS, NEG]
   X-ALT-1:
     pincount: 3
     pinlabels: [BATT CHARGE, ALT REF, CHARGE IND]
@@ -23,15 +26,31 @@ cables:
   C-ALT-3:
     colors: [GN, VT]
     wirelabels: [ALT REF, CHARGE IND]
+  C-PWR-1:
+    colors: [BK]
+    wirelabels: [POS]
+    notes: main line running along ppf
 
 connections:
   -
+    - C-ALT-1: [WH]
+    - X-ALT-1: [BATT CHARGE]
+  -
+    - C-ALT-1: [WH]
+    - X-PMU-PWR: [1]
+  -
+    - X-BATT: [POS]
     - C-ALT-3: [ALT REF]
     - X-ALT-2
     - C-ALT-2: [ALT REF]
     - X-ALT-1: [ALT REF]
   -
+    - X-19: [CHARGE LAMP]
     - C-ALT-3: [CHARGE IND]
     - X-ALT-2
     - C-ALT-2: [CHARGE IND]
     - X-ALT-1: [CHARGE IND]
+  -
+    - X-BATT: [POS]
+    - C-PWR-1: [BK]
+    - X-PMU-PWR: [1]

@@ -10,6 +10,19 @@ cables:
     wirecount: 2
     colors: [BN, BU]
     wirelabels: [SIGNAL GND, SIGNAL]
+  C-ALT-1:
+    colors: [WH]
+    wirelabels: [BATT CHARGE]
+  C-ALT-2:
+    colors: [WHGN, WHBK]
+    wirelabels: [ALT REF, CHARGE IND]
+  C-ALT-3:
+    colors: [GN, VT]
+    wirelabels: [ALT REF, CHARGE IND]
+  C-PWR-1:
+    colors: [BK]
+    wirelabels: [POS]
+    notes: main line running along ppf
   C-BRAKE-LT-1:
     wirecount: 1
     wirelabels: [STOP LIGHTS]
@@ -27,7 +40,7 @@ cables:
   C-CLT-2:
     wirecount: 3
     wirelabels: [CLT SIGNAL, SENSOR GND, CLT GAUGE]
-    colors: [GN, BU, BKRD]
+    colors: [GN, BN, BKRD]
   C-CLUTCH:
     wirecount: 2
     colors: [BN, BK]
@@ -59,8 +72,11 @@ cables:
     colors: [BN]
     wirelabels: [SHIELD GND]
   C-ECU-6:
-    colors: [RD]
+    colors: [BU]
     wirelabels: [+5V SENSOR SUPPLY]
+  C-ECU-7:
+    colors: [YE]
+    wirelabels: [SENSOR GND]
   C-FAN-1:
     wirecount: 1
     wirelabels: [COOLING FAN]
@@ -111,10 +127,12 @@ cables:
     category: bundle
     colors: [WH, PK, BU, GN, RD]
     wirelabels: [INJ1, INJ2, INJ3, INJ4, +12V]
-  C-KNOCK-1:
+  C-KNOCK-1: &c_knock
     colors: [WH, WHBU]
     wirelabels: [SIGNAL, SENSOR GND]
     shield: true
+  C-KNOCK-2:
+    <<: *c_knock
   C-LSU-1:
     colors: [WH, WHBU, WHOG, WHGN, BK]
     wirelabels: [IP, COM, RCAL, VS/OS IN, HTR]
@@ -123,6 +141,11 @@ cables:
     colors: [WH, WHBU, WHOG, WHGN, RD, GN]
     wirelabels: [IP, COM, RCAL, VS/OS IN, +12V LAMBDA, HTR]
     shield: true
+  C-OIL-PRES-1: &c_oilpres
+    colors: [YERD]
+    wirelabels: [OIL PRES SENDER]
+  C-OIL-PRES-2:
+    <<: *c_oilpres
   C-TB-1:
     colors: [PK, YE, WHBU, WHOG]
     wirelabels: [THROTTLE+, THROTTLE-, TPS1, TPS2]
@@ -161,6 +184,23 @@ connections:
   - - X-SENSOR-GND
     - C-AIT-1: [SIGNAL GND]
     - X-AIT: [SIGNAL GND]
+  - - C-ALT-1: [WH]
+    - X-ALT-1: [BATT CHARGE]
+  - - C-ALT-1: [WH]
+    - X-PMU-PWR: [1]
+  - - X-BATT: [POS]
+    - C-ALT-3: [ALT REF]
+    - X-ALT-2
+    - C-ALT-2: [ALT REF]
+    - X-ALT-1: [ALT REF]
+  - - X-19: [CHARGE LAMP]
+    - C-ALT-3: [CHARGE IND]
+    - X-ALT-2
+    - C-ALT-2: [CHARGE IND]
+    - X-ALT-1: [CHARGE IND]
+  - - X-BATT: [POS]
+    - C-PWR-1: [BK]
+    - X-PMU-PWR: [1]
   - - X-14: [STOP LIGHTS]
     - C-BRAKE-LT-1: [STOP LIGHTS]
     - X-PMU: [OUTPUT O10]
@@ -239,6 +279,9 @@ connections:
   - - X-BULK: [+5V SENSOR SUPPLY]
     - C-ECU-6: [+5V SENSOR SUPPLY]
     - X-5V
+  - - X-BULK: [SENSOR GND]
+    - C-ECU-7: [YE]
+    - X-SENSOR-GND
   - - X-BODY-D2: [COOLING FAN]
     - C-FAN-1: [COOLING FAN]
     - X-PMU: [OUTPUT O16]
@@ -332,10 +375,14 @@ connections:
   - - C-INJ-2: [RD]
     - X-INJ-4: [+12V]
   - - X-ECU-2: [E2, E1]
-    - C-KNOCK-1: [SENSOR GND, SIGNAL]
+    - C-KNOCK-1: [SIGNAL, SENSOR GND]
     - X-BULK: [26, 40]
+    - C-KNOCK-2: [SIGNAL, SENSOR GND]
+    - X-KNOCK: [1-2]
   - - X-ECU-2: [E1]
     - C-KNOCK-1: [s]
+  - - X-BULK: [40]
+    - C-KNOCK-2: [s]
   - - X-ECU-1: [G3, F3, G4, F4]
     - C-LSU-1: [IP, COM, RCAL, VS/OS IN]
     - X-BULK: [LSU IP, LSU COM, LSU RCAL, LSU VS/OS IN]
@@ -355,6 +402,9 @@ connections:
     - X-SHIELD-DRAIN-3
     - C-LSU-1: s
     - X-SHIELD-DRAIN-2
+  - - X-BULK: [OIL PRES SENDER]
+    - C-OIL-PRES-2: [OIL PRES SENDER]
+    - X-OIL-PRES
   - - X-ECU-2: [H4, H2]
     - C-TB-1: [THROTTLE+, THROTTLE-]
     - X-BULK: [THROTTLE+, THROTTLE-]
@@ -415,6 +465,21 @@ connectors:
     image:
       src: ../img/gm-ait.png
     notes: GM AIT sensor
+  X-BATT:
+    pincount: 2
+    pinlabels: [POS, NEG]
+  X-ALT-1:
+    pincount: 3
+    pinlabels: [BATT CHARGE, ALT REF, CHARGE IND]
+    image:
+      src: ../img/a-o3.png
+  X-ALT-2:
+    style: simple
+    type: Crimp ferrule
+    pincount: 1
+    show_pincount: false
+    autogenerate: true
+    notes: extension of oem alt charge connector
   X-BRAKE:
     pincount: 2
     pinlabels: [VCC, GND]
@@ -425,7 +490,7 @@ connectors:
     image:
       src: ../img/hd36-24-47se.png
     notes: Deutsch HD30 47-pin connector
-    pinlabels: [+5V SENSOR SUPPLY, UNDEFINED PIN 2, UNDEFINED PIN 3, INJ +12V, ENGINE GND, IGN +12V, UNDEFINED PIN 7, UNDEFINED PIN 8, UNDEFINED PIN 9, UNDEFINED PIN 10, UNDEFINED PIN 11, INJ 4, INJ 3, INJ 2, INJ 1, IGN 4, IGN 3, IGN 2, IGN 1, UNDEFINED PIN 20, UNDEFINED PIN 21, UNDEFINED PIN 22, UNDEFINED PIN 23, SENSOR GND, TPS2, UNDEFINED PIN 26, THROTTLE+, LSU LAMBDA +12V, CAS 1, CAS 2, LSU HEATER, UNDEFINED PIN 32, UNDEFINED PIN 33, UNDEFINED PIN 34, CLT SIGNAL, CLT GAUGE, AIT SIGNAL, TPS1, SHIELD DRAIN, UNDEFINED PIN 40, THROTTLE-, LSU IP, LSU COM, LSU RCAL, LSU VS/OS IN, UNDEFINED PIN 46, UNDEFINED PIN 47]
+    pinlabels: [+5V SENSOR SUPPLY, UNDEFINED PIN 2, UNDEFINED PIN 3, INJ +12V, ENGINE GND, IGN +12V, OIL PRES SENDER, UNDEFINED PIN 8, UNDEFINED PIN 9, UNDEFINED PIN 10, UNDEFINED PIN 11, INJ 4, INJ 3, INJ 2, INJ 1, IGN 4, IGN 3, IGN 2, IGN 1, UNDEFINED PIN 20, UNDEFINED PIN 21, UNDEFINED PIN 22, UNDEFINED PIN 23, SENSOR GND, TPS2, KNOCK SIGNAL, THROTTLE+, LSU LAMBDA +12V, CAS 1, CAS 2, LSU HEATER, UNDEFINED PIN 32, UNDEFINED PIN 33, UNDEFINED PIN 34, CLT SIGNAL, CLT GAUGE, AIT SIGNAL, TPS1, SHIELD DRAIN, KNOCK GND, THROTTLE-, LSU IP, LSU COM, LSU RCAL, LSU VS/OS IN, UNDEFINED PIN 46, UNDEFINED PIN 47]
   X-CAS:
     pincount: 4
     pins: [Y/L, W, W/R, B/LG]
@@ -441,11 +506,19 @@ connectors:
       src: ../img/b1-17.png
   X-CLT-GAUGE:
     pincount: 1
+  X-19:
+    pincount: 14
+    pinlabels: [G, LG/B, Y/B, R/B, Y/R, L, L/Y, L/O, CHARGE LAMP, Y/L, L/B, R/G, B/L, L/Y]
+    image:
+      src: ../img/x-19.png
   X-CLUTCH:
     pincount: 2
     pinlabels: [VCC, GND]
     image:
       src: ../img/b1-20.png
+  X-PMU-PWR:
+    pincount: 1
+    notes: M6 stud on PMU-16
   X-PMU:
     pincount: 39
     pinlabels: [OUTPUT O13, OUTPUT O12, OUTPUT O11, OUTPUT O10, OUTPUT O9, INPUT A9, +12V SW, INPUT A14, OUTPUT O8, OUTPUT O7, OUTPUT O6, OUTPUT O5, OUTPUT O4, OUTPUT O14, +5V OUTPUT, INPUT A2, INPUT A4, INPUT A6, INPUT A8, INPUT A11, INPUT A13, INPUT A16, CAN1H, CAN2H, GROUND, OUTPUT O3, OUTPUT O15, OUTPUT O16, INPUT A1, INPUT A3, INPUT A5, INPUT A7, INPUT A10, INPUT A12, INPUT A15, CAN1L, CAN2L, OUTPUT O1, OUTPUT O2]
@@ -621,11 +694,16 @@ connectors:
   X-INJ-4:
     <<: *injector_conn
     notes: Injector No. 4, Mazda Conn. B1-09
+  X-KNOCK:
+    pincount: 2
+    pinlabels: [SIGNAL, SENSOR GND]
   X-LSU:
     pincount: 6
     pinlabels: [IP, COM, HTR, +12V LAMBDA, RCAL, VS/OS IN]
     image:
       src: ../img/lsu49.png
+  X-OIL-PRES:
+    pincount: 1
   X-APP:
     pins: [A, B, C, D, E, F]
     pinlabels: [APP 1 Sens 5V+, APP 2 Sig GND, APP Sens 2 Signal, APP 2 Sens 5V+, APP 1 Sig GND, APP Sens 1 Signal]

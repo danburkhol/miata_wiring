@@ -1,5 +1,9 @@
 # Common connectors shared across multipl circuits
 connectors:
+  X-PMU-PWR:
+    pincount: 1
+    notes: M6 stud on PMU-16
+
   X-PMU:
     pincount: 39
     pinlabels: [
