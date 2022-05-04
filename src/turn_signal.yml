@@ -2,7 +2,7 @@ cables:
   C-TURN-1:
     wirecount: 2
     wirelabels: [LEFT TURN SIGNAL, RIGHT TURN SIGNAL]
-    # colors: [GNBU, GNWH]
+    colors: [YE,BU]
 
 connections:
   # L Turn Signals

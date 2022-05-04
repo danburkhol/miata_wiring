@@ -19,13 +19,14 @@ connectors:
     notes: R Headlamp, Mazda Conn. E1-02
 
 cables:
-  C-HEADLAMP-1:
+  C-HEADLAMP-1: &c_headlamp
+    wirecount: 2
     colors: [RDWH,GY]
     wirelabels: [HIGH BEAM, LOW BEAM]
   C-HEADLAMP-2:
-    wirecount: 2
+    <<: *c_headlamp
   C-HEADLAMP-3:
-    wirecount: 2
+    <<: *c_headlamp
 
 connections:
   -

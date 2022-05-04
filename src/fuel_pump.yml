@@ -2,6 +2,7 @@ cables:
   C-FUEL-PUMP-1:
     wirecount: 1
     wirelabels: [FUEL PUMP]
+    colors: [VT]
 
 connections:
   -

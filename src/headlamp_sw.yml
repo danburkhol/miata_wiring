@@ -2,9 +2,11 @@ cables:
   C-HEADLAMP-SW-1:
     wirecount: 3
     wirelabels: [TNS, HIGH BEAM, LOW BEAM]
+    colors: [GN,RD,PK]
   C-HEADLAMP-SW-2:
     wirecount: 1
     wirelabels: [GND]
+    colors: [BK]
 
 connections:
   -

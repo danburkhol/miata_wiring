@@ -2,10 +2,11 @@ cables:
   C-AC-1:
     wirecount: 2
     wirelabels: [A/C CLUTCH, A/C FAN]
-    # colors: [BU, YE]
+    colors: [YERD, YE]
   C-AC-2:
     wirecount: 1
     wirelabels: [A/C PRES. SW]
+    colors: [PK]
 
 connections:
   -

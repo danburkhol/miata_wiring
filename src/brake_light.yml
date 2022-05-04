@@ -2,6 +2,7 @@ cables:
   C-BRAKE-LT-1:
     wirecount: 1
     wirelabels: [STOP LIGHTS]
+    colors: [PK]
 
 connections:
   -

@@ -60,10 +60,6 @@ cables:
 
 connections:
   -
-    - X-EASYGUARD-1: [VCC1, VCC2]
-    - C-EASYGUARD-1: [4, 5]
-    - X-BATT-POS
-  -
     - X-EASYGUARD-1: [ST]
     - C-EASYGUARD-1: [YE]
     - X-ECU-1: [B4]
@@ -87,3 +83,9 @@ connections:
     - X-EASYGUARD-2: [1,2]
     - C-EASYGUARD-2: [1,2]
     - X-PMU: [10,11]
+  -
+    - C-PWR-1: [1]
+    - X-EASYGUARD-1: [VCC1]
+  -
+    - C-PWR-1: [1]
+    - X-EASYGUARD-1: [VCC2]
