@@ -13,6 +13,7 @@ cables:
   C-CLT-1:
     wirecount: 3
     wirelabels: [CLT SIGNAL, SENSOR GND, CLT GAUGE]
+    colors: [GN, BN, BKRD]
   C-CLT-2:
     wirecount: 3
     wirelabels: [CLT SIGNAL, SENSOR GND, CLT GAUGE]
@@ -22,7 +23,7 @@ connections:
   -
     - X-ECU-1: [F1]
     - C-CLT-1: [CLT SIGNAL]
-    - X-BULK: [35]
+    - X-BULK: [CLT SIGNAL]
     - C-CLT-2: [CLT SIGNAL]
     - X-CLT: [CLT SIGNAL]
   -

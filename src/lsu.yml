@@ -7,7 +7,7 @@ connectors:
 
 cables:
   C-LSU-1:
-    colors: [WH,WHBU,WHOG,WHGN,BK]
+    colors: [WH,WHBU,WHOG,WHGN,GN]
     wirelabels: [IP,COM,RCAL,VS/OS IN, HTR]
     shield: true
   C-LSU-2:
