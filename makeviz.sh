@@ -52,6 +52,6 @@ src/oil_pres_sender.yml \
 wireviz generated/efi.yml
 
 # cleanup
-rm generated/*.gv > /dev/null
-rm generated/*.svg > /dev/null
-rm generated/*.bom.tsv > /dev/null
+rm generated/*.gv &> /dev/null
+rm generated/*.svg &> /dev/null
+rm generated/*.bom.tsv &> /dev/null
