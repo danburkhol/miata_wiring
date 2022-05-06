@@ -36,6 +36,7 @@ wireviz generated/master.yml
 yq eval-all '. as $item ireduce ({}; . *+ $item )' \
 src/bulkhead.yml \
 src/connectors.yml \
+src/pmu.yml \
 src/ecu.yml \
 src/cas.yml \
 src/clt.yml \
