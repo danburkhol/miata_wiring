@@ -38,6 +38,9 @@ cables:
     wirecount: 2
     colors: [BK, BU]
     wirelabels: [GND, +12V]
+  C-SPK-4:
+    wirecount: 2
+    colors: [BU, BU]
 
 connections:
   # Trigger
@@ -89,17 +92,31 @@ connections:
     - X-COIL-4: [GND]
 
   # noise filter
+
   -
     - X-IGN-VCC
-    - C-SPK-3: [+12V]
+    - C-SPK-4: [1-2]
+  -
+    - C-SPK-4: [1]
     - X-BULK: [IGN +12V]
   -
-    - C-SPK-3: [+12V, GND]
-    - X-B1-13: [+12V, GND]
-
+    - C-SPK-4: [2]
+    - X-B1-13: [+12V]
   -
     - C-ECU-3: [ENGINE GND]
     - X-B1-13: [GND]
+
+  # -
+  #   - X-IGN-VCC
+  #   - C-SPK-3: [+12V]
+  #   - X-BULK: [IGN +12V]
+  # -
+  #   - C-SPK-3: [+12V, GND]
+  #   - X-B1-13: [+12V, GND]
+
+  # -
+  #   - C-ECU-3: [ENGINE GND]
+  #   - X-B1-13: [GND]
 
 
 
