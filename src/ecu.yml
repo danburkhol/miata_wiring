@@ -81,3 +81,7 @@ connections:
   -
     - X-ECU-1: [G1, H1, E3]
     - C-ECU-3: [+5V, SENSOR GND, SHIELD GND]
+
+  -
+    - C-ECU-3: [+5V]
+    - X-BULK: [1]
