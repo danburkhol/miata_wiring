@@ -115,7 +115,15 @@ connectors:
     type: Crimp ferrule
     pincount: 1
     show_pincount: false
-    notes: 5V supply post-bulkhead
+
+  X-ECU-VCC:
+    <<: *x_crimp
+    notes: crimp to distribute power to ecu, lambda, inj
+  X-IGN-VCC:
+    <<: *x_crimp
+    notes: crimp to distribute power between coils and noise filter
+  X-ECU-GND:
+    <<: *x_crimp
 
   X-SENSOR-GND:
     <<: *x_crimp

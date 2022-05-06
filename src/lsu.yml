@@ -31,7 +31,7 @@ connections:
     - C-LSU-1: [HTR]
     - X-BULK: [LSU HEATER]
   -
-    - C-ECU-2: [+12V]
+    - C-ECU-8: [LAMBDA HEATER]
     - X-BULK: [LSU LAMBDA +12V]
   -
     - X-SHIELD-DRAIN-1

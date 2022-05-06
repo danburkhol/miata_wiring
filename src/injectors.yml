@@ -48,7 +48,7 @@ connections:
     - X-INJ-4: [TRIGGER]
   # Power
   -
-    - C-ECU-2: [+12V]
+    - C-ECU-8: [INJ VCC]
     - X-BULK: [INJ +12V]
   -
     - C-INJ-2: [RD]

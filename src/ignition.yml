@@ -19,6 +19,10 @@ connectors:
     image:
       src: ../img/b1-13.png
     notes: IGN Coil Condenser
+  X-COIL-COND:
+    pins: [B, L]
+    pincolors: [BK, BU]
+    pinlabels: [GND, +12V]
 
 cables:
   C-SPK-1:
@@ -29,7 +33,8 @@ cables:
     category: bundle
     colors: [WH,PK,BU,GN,RD,BK]
     wirelabels: [SPK1, SPK2, SPK3, SPK4, +12V,GND]
-  C-SPK-3:
+
+  C-SPK-3: &c_ign_pwr
     wirecount: 2
     colors: [BK, BU]
     wirelabels: [GND, +12V]
@@ -85,11 +90,43 @@ connections:
 
   # noise filter
   -
-    - X-B1-13: [GND, +12V]
-    - C-SPK-3: [GND, +12V]
-  -
-    - X-PMU: [OUTPUT O5]
+    - X-IGN-VCC
     - C-SPK-3: [+12V]
+    - X-BULK: [IGN +12V]
   -
-    - C-SPK-3: [GND, +12V]
-    - X-BULK: [5, 6]
+    - C-SPK-3: [+12V, GND]
+    - X-B1-13: [+12V, GND]
+
+  -
+    - C-ECU-3: [ENGINE GND]
+    - X-B1-13: [GND]
+
+
+
+  # -
+  #   - C-SPK-4: [GND]
+  #   - X-ECU-GND
+
+
+  # -
+  #   - X-B1-13: [GND, +12V]
+  #   - C-SPK-3: [GND, +12V]
+  # -
+  #   - C-ECU-2: [IGN VCC]
+  #   - X-IGN-VCC
+  # -
+  #   - X-IGN-VCC
+  #   - C-SPK-3: [+12V]
+  # -
+  #   - X-IGN-VCC
+  #   - C-SPK-3: [+12V]
+  # -
+  #   - X-IGN-VCC
+  #   - C-SPK-4: [+12V]
+
+  # -
+    # - X-PMU: [OUTPUT O5]
+    # - C-SPK-3: [+12V]
+  # -
+  #   - C-SPK-3: [GND, +12V]
+  #   - X-BULK: [5, 6]
