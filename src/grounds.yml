@@ -1,0 +1,74 @@
+connectors:
+  X-ENGINE-GND-CRIMP-1: &gnd_crimp
+    style: simple
+    type: crimp
+    pincount: 1
+    show_pincount: false
+    bgcolor: IV
+  X-ENGINE-GND-CRIMP-2:
+    <<: *gnd_crimp
+  X-ENGINE-GND-CRIMP-21:
+    <<: *gnd_crimp
+  X-CYL-HEAD:
+    style: simple
+    type: eyelet
+    pincount: 1
+    notes: cylinder head
+    show_name: true
+    show_pincount: false
+
+cables:
+  C-ENGINE-GND-1: &c_gnd
+    wirecount: 1
+    colors: [BK]
+  C-ENGINE-GND-11:
+    <<: *c_gnd
+    wirecount: 4
+
+  C-ENGINE-GND-2:
+    <<: *c_gnd
+  C-ENGINE-GND-21:
+    <<: *c_gnd
+    wirecount: 5
+
+
+connections:
+  -
+    - X-ENGINE-GND-CRIMP-1
+    - C-ENGINE-GND-1: [1]
+    - X-BULK: [5]
+    - C-ENGINE-GND-2: [1]
+    - X-ENGINE-GND-CRIMP-2
+    - C-ENGINE-GND-21: [5]
+    - X-CYL-HEAD
+
+  # ECU
+  -
+    - C-ENGINE-GND-11: [1-4]
+    - X-ENGINE-GND-CRIMP-1
+  -
+    - X-ECU-1: [L4]
+    - C-ENGINE-GND-11: [1]
+  -
+    - X-ECU-2: [G4]
+    - C-ENGINE-GND-11: [2]
+  -
+    - C-ENGINE-GND-11: [3]
+    - X-B1-13: [GND]
+
+  # COILS
+  -
+    - X-ENGINE-GND-CRIMP-2
+    - C-ENGINE-GND-21: [1-4]
+  -
+    - C-ENGINE-GND-21: [1]
+    - X-COIL-1: [GND]
+  -
+    - C-ENGINE-GND-21: [2]
+    - X-COIL-2: [GND]
+  -
+    - C-ENGINE-GND-21: [3]
+    - X-COIL-3: [GND]
+  -
+    - C-ENGINE-GND-21: [4]
+    - X-COIL-4: [GND]

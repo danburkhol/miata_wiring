@@ -1,0 +1,36 @@
+connectors:
+  X-SENSOR-GND-CRIMP:
+    style: simple
+    type: crimp
+    pincount: 1
+    show_pincount: false
+    bgcolor: IV
+
+cables:
+  CE-SENSOR-GND-1: &C-SENSOR-GND
+    wirecount: 1
+    colors: [BN]
+  CI-SENSOR-GND-1:
+    <<: *C-SENSOR-GND
+
+connections:
+  -
+    - X-BULK: [SENSOR GND]
+    - CE-SENSOR-GND-1: [1]
+    - X-SENSOR-GND-CRIMP
+
+  -
+    - X-SENSOR-GND-CRIMP
+    - C-CLT-2: [SENSOR GND]
+
+  -
+    - X-SENSOR-GND-CRIMP
+    - C-CAS-2: [SENSOR GND]
+  -
+    - X-SENSOR-GND-CRIMP
+    - C-TB-2: [SENSOR GND]
+
+  -
+    - X-ECU-1: [H1]
+    - CI-SENSOR-GND-1: [1]
+    - X-BULK: [SENSOR GND]
