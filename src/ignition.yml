@@ -19,10 +19,6 @@ connectors:
     image:
       src: ../img/b1-13.png
     notes: IGN Coil Condenser
-  X-COIL-COND:
-    pins: [B, L]
-    pincolors: [BK, BU]
-    pinlabels: [GND, +12V]
 
 cables:
   C-SPK-1:
@@ -34,10 +30,6 @@ cables:
     colors: [WH,PK,BU,GN,RD]
     wirelabels: [SPK1, SPK2, SPK3, SPK4, +12V]
 
-  C-SPK-3: &c_ign_pwr
-    wirecount: 2
-    colors: [BK, BU]
-    wirelabels: [GND, +12V]
   C-SPK-4:
     wirecount: 2
     colors: [BU, BU]

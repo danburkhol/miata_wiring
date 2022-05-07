@@ -16,8 +16,6 @@ cables:
     colors: [BN]
   C-SHIELD-DRAIN-11:
     <<: *c-shield-drain
-  C-SHIELD-DRAIN-21:
-    <<: *c-shield-drain
   C-SHIELD-DRAIN-2:
     <<: *c-shield-drain
 

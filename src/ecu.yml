@@ -13,33 +13,9 @@ cables:
   C-ECU-2:
     <<: *c_ecu_pwr
     notes: Located in passenger foot well with ECU
-  C-ECU-4:
-    colors: [BN]
-    wirelabels: [SHIELD GND]
-  C-ECU-5:
-    colors: [BN]
-    wirelabels: [SHIELD GND]
-  C-ECU-6:
-    colors: [BU]
-    wirelabels: [+5V SENSOR SUPPLY]
-  C-ECU-7:
-    colors: [YE]
-    wirelabels: [SENSOR GND]
   C-ECU-8: &c_ecu_vcc
     colors: [OG, OG, OG]
     wirelabels: [ECU VCC, INJ VCC, LAMBDA HEATER]
-  C-ECU-9:
-    <<: *c_ecu_vcc
-  C-ECU-10:
-    <<: *c_ecu_vcc
-  C-ECU-11:
-    colors: [BN]
-    wirelabels: [SENSOR GND]
-  C-ECU-12: &c_shield_drain
-    colors: [BN]
-    wirelabels: [SHIELD DRAIN]
-  C-ECU-13:
-    <<: *c_shield_drain
 
 connections:
   # ECU power and comms
