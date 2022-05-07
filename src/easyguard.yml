@@ -62,6 +62,8 @@ connections:
   -
     - X-EASYGUARD-1: [ST]
     - C-EASYGUARD-1: [YE]
+    - X-ECU-BODY-11: [START REQ]
+    - C-ECU-AUX-2: [START REQ]
     - X-ECU-1: [B4]
   -
     - X-EASYGUARD-1: [IGN1, IGN2]

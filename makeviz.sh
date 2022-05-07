@@ -51,6 +51,8 @@ src/oil_pres_sender.yml \
 src/shield_drains.yml \
 src/sensor_gnd.yml \
 src/grounds.yml \
+src/5v_supply.yml \
+src/instruments.yml \
 > generated/efi.yml
 
 wireviz generated/efi.yml

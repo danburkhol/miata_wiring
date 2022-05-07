@@ -1,464 +1,15 @@
-cables:
-  C-AC-1:
-    wirecount: 2
-    wirelabels: [A/C CLUTCH, A/C FAN]
-    # colors: [BU, YE]
-  C-AC-2:
-    wirecount: 1
-    wirelabels: [A/C PRES. SW]
-  C-AIT-1:
-    wirecount: 2
-    colors: [BN, BU]
-    wirelabels: [SIGNAL GND, SIGNAL]
-  C-ALT-1:
-    colors: [WH]
-    wirelabels: [BATT CHARGE]
-  C-ALT-2:
-    colors: [WHGN, WHBK]
-    wirelabels: [ALT REF, CHARGE IND]
-  C-ALT-3:
-    colors: [GN, VT]
-    wirelabels: [ALT REF, CHARGE IND]
-  C-PWR-1:
-    colors: [BK]
-    wirelabels: [POS]
-    notes: main line running along ppf
-  C-BRAKE-LT-1:
-    wirecount: 1
-    wirelabels: [STOP LIGHTS]
-  C-BRAKE:
-    wirecount: 2
-    colors: [PK, BK]
-  C-CAS-2:
-    wirecount: 4
-    colors: [WH, WHBU, WHOG, WHGN]
-    wirelabels: [CAM1, CAM2, +5V, SENSOR GND]
-    shield: true
-  C-CLT-1:
-    wirecount: 3
-    wirelabels: [CLT SIGNAL, SENSOR GND, CLT GAUGE]
-  C-CLT-2:
-    wirecount: 3
-    wirelabels: [CLT SIGNAL, SENSOR GND, CLT GAUGE]
-    colors: [GN, BN, BKRD]
-  C-CLUTCH:
-    wirecount: 2
-    colors: [BN, BK]
-  C-EASYGUARD-1:
-    wirecount: 6
-    wirelabels: [ACC, ST, IGN2, VCC1, VCC2, IGN1]
-    colors: [OG, YE, BN, RD, RD, WH]
-    notes: IGN harness
-  C-EASYGUARD-2:
-    colors: [BN, BN, YEBK, WHBK, OGBK, YE, WH, OG, PK, GN, OG, RD, BK, BK, WH, BUBK, BU, GNBK, GN, VT]
-    wirelabels: [TURN SIGNAL 1, TURN SIGNAL 2, door, door, door, door, door, door, HORN, GPS, FOOTBRAKE, GPS VCC, GND 1, GND 2, GPS, DOOR SW, FUEL PUMP, TRUNK RELEASE TRUNK OUTPUT, TRUNK POSITIVE]
-  C-ECU-1:
-    wirecount: 4
-    colors: [OG, WHBU, WH]
-    wirelabels: [+12V, CAN H, CAN L]
-    notes: Power and CAN to ECU
-  C-ECU-2:
-    wirecount: 3
-    colors: [OG, WHBU, WH]
-    wirelabels: [+12V, CAN H, CAN L]
-    notes: Power and CAN to ECU
-  C-ECU-3:
-    colors: [RD, BK, BN, BK]
-    wirelabels: [+5V, SENSOR GND, SHIELD GND, ENG GND]
-  C-ECU-4:
-    colors: [BN]
-    wirelabels: [SHIELD GND]
-  C-ECU-5:
-    colors: [BN]
-    wirelabels: [SHIELD GND]
-  C-ECU-6:
-    colors: [BU]
-    wirelabels: [+5V SENSOR SUPPLY]
-  C-ECU-7:
-    colors: [YE]
-    wirelabels: [SENSOR GND]
-  C-FAN-1:
-    wirecount: 1
-    wirelabels: [COOLING FAN]
-    colors: [YE]
-  C-FUEL-PUMP-1:
-    wirecount: 1
-    wirelabels: [FUEL PUMP]
-  C-HAZARD-SW-1:
-    wirecount: 1
-    wirelabels: [HAZARD SW]
-    colors: [OG]
-  C-HAZARD-SW-2:
-    wirecount: 2
-    wirelabels: [HAZARD SW, GND]
-    colors: [OG, BK]
-  C-HEADLAMP-SW-1:
-    wirecount: 3
-    wirelabels: [TNS, HIGH BEAM, LOW BEAM]
-  C-HEADLAMP-SW-2:
-    wirecount: 1
-    wirelabels: [GND]
-  C-HEADLAMP-1:
-    colors: [RDWH, GY]
-    wirelabels: [HIGH BEAM, LOW BEAM]
-  C-HEADLAMP-2:
-    wirecount: 2
-  C-HEADLAMP-3:
-    wirecount: 2
-  C-SPK-1:
-    category: bundle
-    colors: [WH, PK, BU, GN]
-    wirelabels: [SPK1, SPK2, SPK3, SPK4]
-  C-SPK-2:
-    category: bundle
-    colors: [WH, PK, BU, GN, RD, BK]
-    wirelabels: [SPK1, SPK2, SPK3, SPK4, +12V, GND]
-  C-SPK-3:
-    wirecount: 2
-    colors: [BK, BU]
-    wirelabels: [GND, +12V]
-  C-INJ-1:
-    wirecount: 4
-    category: bundle
-    colors: [WH, PK, BU, GN]
-    wirelabels: [INJ1, INJ2, INJ3, INJ4]
-  C-INJ-2:
-    wirecount: 5
-    category: bundle
-    colors: [WH, PK, BU, GN, RD]
-    wirelabels: [INJ1, INJ2, INJ3, INJ4, +12V]
-  C-KNOCK-1: &c_knock
-    colors: [WH, WHBU]
-    wirelabels: [SIGNAL, SENSOR GND]
-    shield: true
-  C-KNOCK-2:
-    <<: *c_knock
-  C-LSU-1:
-    colors: [WH, WHBU, WHOG, WHGN, BK]
-    wirelabels: [IP, COM, RCAL, VS/OS IN, HTR]
-    shield: true
-  C-LSU-2:
-    colors: [WH, WHBU, WHOG, WHGN, RD, GN]
-    wirelabels: [IP, COM, RCAL, VS/OS IN, +12V LAMBDA, HTR]
-    shield: true
-  C-OIL-PRES-1: &c_oilpres
-    colors: [YERD]
-    wirelabels: [OIL PRES SENDER]
-  C-OIL-PRES-2:
-    <<: *c_oilpres
-  C-TB-1:
-    colors: [PK, YE, WHBU, WHOG]
-    wirelabels: [THROTTLE+, THROTTLE-, TPS1, TPS2]
-  C-TB-2:
-    colors: [PK, YE, WH, WHBU, WHOG, WHGN]
-    wirelabels: [THROTTLE+, THROTTLE-, SENSOR GND, TPS1, TPS2, +5V]
-    shield: true
-    notes: Bulkhead to throttle
-  C-TNS:
-    wirecount: 1
-    wirelabels: [TNS]
-  C-TRANS-SW-1:
-    wirecount: 2
-    wirelabels: [REVERSE SW, GND]
-    colors: [WH, BK]
-  C-TURN-1:
-    wirecount: 2
-    wirelabels: [LEFT TURN SIGNAL, RIGHT TURN SIGNAL]
-    # colors: [GNBU, GNWH]
-  C-TURN-SW-1:
-    wirecount: 3
-    wirelabels: [TURN SIGNAL 1, TURN SIGNAL 2, TURN SIGNAL COM]
-connections:
-  - - X-BODY-D2: [A/C CLUTCH]
-    - C-AC-1: [A/C CLUTCH]
-    - X-PMU: [OUTPUT O3]
-  - - X-BODY-P2: [A/C FAN]
-    - C-AC-1: [A/C FAN]
-    - X-PMU: [OUTPUT O3]
-  - - X-BODY-P2: [A/C PRES. SW]
-    - C-AC-2: [A/C PRES. SW]
-    - X-PMU: [INPUT A13]
-  - - X-BULK: [37]
-    - C-AIT-1: [SIGNAL]
-    - X-AIT: [SIGNAL]
-  - - X-SENSOR-GND
-    - C-AIT-1: [SIGNAL GND]
-    - X-AIT: [SIGNAL GND]
-  - - C-ALT-1: [WH]
-    - X-ALT-1: [BATT CHARGE]
-  - - C-ALT-1: [WH]
-    - X-PMU-PWR: [1]
-  - - X-BATT: [POS]
-    - C-ALT-3: [ALT REF]
-    - X-ALT-2
-    - C-ALT-2: [ALT REF]
-    - X-ALT-1: [ALT REF]
-  - - X-19: [CHARGE LAMP]
-    - C-ALT-3: [CHARGE IND]
-    - X-ALT-2
-    - C-ALT-2: [CHARGE IND]
-    - X-ALT-1: [CHARGE IND]
-  - - X-BATT: [POS]
-    - C-PWR-1: [BK]
-    - X-PMU-PWR: [1]
-  - - X-14: [STOP LIGHTS]
-    - C-BRAKE-LT-1: [STOP LIGHTS]
-    - X-PMU: [OUTPUT O10]
-  - - X-BRAKE: [VCC]
-    - C-BRAKE: [PK]
-    - X-PMU: [16]
-  - - X-BRAKE: [VCC]
-    - C-EASYGUARD-2: [11]
-  - - X-BRAKE: [GND]
-    - C-BRAKE: [BK]
-    - X-GND-1
-  - - C-CAS-2: [WH, WHBU, WHOG, WHGN]
-    - X-CAS: [Y/L, W, W/R, B/LG]
-  - - X-BULK: [29, 30]
-    - C-CAS-2: [WH, WHBU]
-  - - X-5V
-    - C-CAS-2: [WHOG]
-  - - X-SENSOR-GND
-    - C-CAS-2: [SENSOR GND]
-  - - X-SHIELD-DRAIN-1
-    - C-CAS-2: s
-  - - X-ECU-1: [F1]
-    - C-CLT-1: [CLT SIGNAL]
-    - X-BULK: [35]
-    - C-CLT-2: [CLT SIGNAL]
-    - X-CLT: [CLT SIGNAL]
-  - - X-BULK: [36]
-    - C-CLT-2: [CLT GAUGE]
-    - X-CLT-GAUGE: [1]
-  - - X-SENSOR-GND: [1]
-    - C-CLT-2: [SENSOR GND]
-    - X-CLT: [SENSOR GND]
-  - - X-CLUTCH: [VCC]
-    - C-CLUTCH: [BN]
-    - X-PMU: [30]
-  - - X-CLUTCH: [GND]
-    - C-CLUTCH: [BK]
-    - X-GND-1
-  - - X-EASYGUARD-1: [VCC1, VCC2]
-    - C-EASYGUARD-1: [4, 5]
-    - X-BATT-POS
-  - - X-EASYGUARD-1: [ST]
-    - C-EASYGUARD-1: [YE]
-    - X-ECU-1: [B4]
-  - - X-EASYGUARD-1: [IGN1, IGN2]
-    - C-EASYGUARD-1: [IGN1, IGN2]
-    - X-PMU: [7, 7]
-  - - X-EASYGUARD-1: [ACC]
-    - C-EASYGUARD-1: [ACC]
-    - X-PMU: [29]
-  - - X-EASYGUARD-2: [1-20]
-    - C-EASYGUARD-2: [1-20]
-  - - X-EASYGUARD-2: [13, 14]
-    - C-EASYGUARD-2: [13, 14]
-    - X-GND-1
-  - - X-EASYGUARD-2: [1, 2]
-    - C-EASYGUARD-2: [1, 2]
-    - X-PMU: [10, 11]
-  # ECU power and comms
-  - - X-PMU: [9, 23, 36]
-    - C-ECU-1: [+12V, CAN H, CAN L]
-    - X-ECU: [+12V, CAN H, CAN L]
-    - C-ECU-2: [+12V, CAN H, CAN L]
-    - X-ECU-1: [M4, E1, E2]
-  - - X-ECU-1: [G1, H1, E3, L4]
-    - C-ECU-3: [+5V, SENSOR GND, SHIELD GND, ENG GND]
-  - - C-ECU-3: [+5V, SENSOR GND, ENG GND]
-    - X-BULK: [+5V SENSOR SUPPLY, SENSOR GND, ENGINE GND]
-  - - X-ECU-2: [G4]
-    - C-ECU-3: [ENG GND]
-  - - X-SHIELD-DRAIN-2
-    - C-ECU-4: [BN]
-    - X-BULK: [SHIELD DRAIN]
-    - C-ECU-5: [BN]
-    - X-SHIELD-DRAIN-1
-  - - X-BULK: [+5V SENSOR SUPPLY]
-    - C-ECU-6: [+5V SENSOR SUPPLY]
-    - X-5V
-  - - X-BULK: [SENSOR GND]
-    - C-ECU-7: [YE]
-    - X-SENSOR-GND
-  - - X-BODY-D2: [COOLING FAN]
-    - C-FAN-1: [COOLING FAN]
-    - X-PMU: [OUTPUT O16]
-  - - X-14: [FUEL PUMP]
-    - C-FUEL-PUMP-1: [FUEL PUMP]
-    - X-PMU: [OUTPUT O9]
-  - - X-E1-08: [HAZARD SW]
-    - C-HAZARD-SW-1: [HAZARD SW]
-    - X-17: [HAZARD SW]
-    - C-HAZARD-SW-2: [HAZARD SW]
-    - X-PMU: [34]
-  - - X-D-03: [TNS, HIGH BEAM, FLASH TO PASS, LOW BEAM]
-    - C-HEADLAMP-SW-1: [TNS, HIGH BEAM, HIGH BEAM, LOW BEAM]
-  - - C-HEADLAMP-SW-1: [TNS, HIGH BEAM, LOW BEAM]
-    - X-PMU: [31, 18, 32]
-  - - X-D-03: [R/W, R/B, B 2]
-    - C-HEADLAMP-SW-2: [1, 1, 1]
-  - - C-HEADLAMP-SW-2: [1]
-    - X-GND-1
-  - - X-PMU: [OUTPUT O13, OUTPUT O1]
-    - C-HEADLAMP-1: [HIGH BEAM, LOW BEAM]
-    - X-HEADLAMP-D1: [HIGH BEAM, LOW BEAM]
-    - C-HEADLAMP-2: [1-2]
-    - X-E1-01: [HIGH BEAM, LOW BEAM]
-  - - X-PMU: [OUTPUT O13, OUTPUT O1]
-    - C-HEADLAMP-1: [HIGH BEAM, LOW BEAM]
-    - X-HEADLAMP-P1: [HIGH BEAM, LOW BEAM]
-    - C-HEADLAMP-3: [1-2]
-    - X-E1-02: [HIGH BEAM, LOW BEAM]
-  # Trigger
-  - - X-ECU-1: [A2, A3, B2, B3]
-    - C-SPK-1: [GN, BU, PK, WH]
-    - X-BULK: [16, 17, 18, 19]
-    - C-SPK-2: [GN, BU, PK, WH]
-  - - C-SPK-2: [WH]
-    - X-COIL-1: [TRIGGER]
-  - - C-SPK-2: [PK]
-    - X-COIL-2: [TRIGGER]
-  - - C-SPK-2: [BU]
-    - X-COIL-3: [TRIGGER]
-  - - C-SPK-2: [GN]
-    - X-COIL-4: [TRIGGER]
-  # Power
-  - - C-SPK-2: [RD]
-    - X-COIL-1: [+12V]
-  - - C-SPK-2: [RD]
-    - X-COIL-2: [+12V]
-  - - C-SPK-2: [RD]
-    - X-COIL-3: [+12V]
-  - - C-SPK-2: [RD]
-    - X-COIL-4: [+12V]
-  # grounds
-  - - X-CYL-HEAD
-    - C-SPK-2: [GND]
-  - - C-SPK-2: [BK]
-    - X-COIL-1: [GND]
-  - - C-SPK-2: [BK]
-    - X-COIL-2: [GND]
-  - - C-SPK-2: [BK]
-    - X-COIL-3: [GND]
-  - - C-SPK-2: [BK]
-    - X-COIL-4: [GND]
-  # noise filter
-  - - X-B1-13: [GND, +12V]
-    - C-SPK-3: [GND, +12V]
-  - - X-PMU: [OUTPUT O5]
-    - C-SPK-3: [+12V]
-  - - C-SPK-3: [GND, +12V]
-    - X-BULK: [5, 6]
-  - - X-ECU-1: [K1, K2, M1, M2]
-    - C-INJ-1: [GN, BU, PK, WH]
-    - X-BULK: [12, 13, 14, 15]
-    - C-INJ-2: [GN, BU, PK, WH]
-  - - C-INJ-2: [WH]
-    - X-INJ-1: [TRIGGER]
-  - - C-INJ-2: [PK]
-    - X-INJ-2: [TRIGGER]
-  - - C-INJ-2: [BU]
-    - X-INJ-3: [TRIGGER]
-  - - C-INJ-2: [GN]
-    - X-INJ-4: [TRIGGER]
-  # Power
-  - - C-ECU-2: [+12V]
-    - X-BULK: [INJ +12V]
-  - - C-INJ-2: [RD]
-    - X-INJ-1: [+12V]
-  - - C-INJ-2: [RD]
-    - X-INJ-2: [+12V]
-  - - C-INJ-2: [RD]
-    - X-INJ-3: [+12V]
-  - - C-INJ-2: [RD]
-    - X-INJ-4: [+12V]
-  - - X-ECU-2: [E2, E1]
-    - C-KNOCK-1: [SIGNAL, SENSOR GND]
-    - X-BULK: [26, 40]
-    - C-KNOCK-2: [SIGNAL, SENSOR GND]
-    - X-KNOCK: [1-2]
-  - - X-ECU-2: [E1]
-    - C-KNOCK-1: [s]
-  - - X-BULK: [40]
-    - C-KNOCK-2: [s]
-  - - X-ECU-1: [G3, F3, G4, F4]
-    - C-LSU-1: [IP, COM, RCAL, VS/OS IN]
-    - X-BULK: [LSU IP, LSU COM, LSU RCAL, LSU VS/OS IN]
-    - C-LSU-2: [IP, COM, RCAL, VS/OS IN]
-    - X-LSU: [IP, COM, RCAL, VS/OS IN]
-  - - X-BULK: [28, 31]
-    - C-LSU-2: [+12V LAMBDA, HTR]
-    - X-LSU: [+12V LAMBDA, HTR]
-  - - X-ECU-1: [D1]
-    - C-LSU-1: [HTR]
-    - X-BULK: [LSU HEATER]
-  - - C-ECU-2: [+12V]
-    - X-BULK: [LSU LAMBDA +12V]
-  - - X-SHIELD-DRAIN-1
-    - C-LSU-2: s
-  - - C-ECU-3: [SHIELD GND]
-    - X-SHIELD-DRAIN-3
-    - C-LSU-1: s
-    - X-SHIELD-DRAIN-2
-  - - X-BULK: [OIL PRES SENDER]
-    - C-OIL-PRES-2: [OIL PRES SENDER]
-    - X-OIL-PRES
-  - - X-ECU-2: [H4, H2]
-    - C-TB-1: [THROTTLE+, THROTTLE-]
-    - X-BULK: [THROTTLE+, THROTTLE-]
-    - C-TB-2: [THROTTLE+, THROTTLE-]
-    - X-THROTTLE-BODY: [THROTTLE+, THROTTLE-]
-  - - X-ECU-2: [G3, E4]
-    - C-TB-1: [TPS1, TPS2]
-    - X-BULK: [TPS1, TPS2]
-    - C-TB-2: [TPS1, TPS2]
-    - X-THROTTLE-BODY: [TPS 1 SIG, TPS 2 SIG]
-  - - C-TB-2: [SENSOR GND, +5V]
-    - X-THROTTLE-BODY: [TPS SENSOR GND, TPS 5V]
-  - - X-5V: [1]
-    - C-TB-2: [+5V]
-  - - X-SENSOR-GND
-    - C-TB-2: [SENSOR GND]
-  - - X-SHIELD-DRAIN-1
-    - C-TB-2: s
-  - - X-BODY-D1: [TNS]
-    - C-TNS: [TNS]
-  - - X-BODY-P1: [TNS]
-    - C-TNS: [TNS]
-  - - X-14: [TNS]
-    - C-TNS: [TNS]
-  - - C-TNS: [TNS]
-    - X-PMU: [OUTPUT O14]
-  - - X-10: [BACKUP LT SW]
-    - C-TRANS-SW-1: [REVERSE SW]
-    - X-PMU: [20]
-  - - X-10: [R/G]
-    - C-TRANS-SW-1: [GND]
-    - X-GND-1
-  # L Turn Signals
-  - - X-BODY-D1: [4]
-    - C-TURN-1: [LEFT TURN SIGNAL]
-  - - X-14: [5]
-    - C-TURN-1: [LEFT TURN SIGNAL]
-  - - C-TURN-1: [LEFT TURN SIGNAL]
-    - X-PMU: [10]
-  # R Turn Signals
-  - - X-BODY-P1: [4]
-    - C-TURN-1: [RIGHT TURN SIGNAL]
-  - - X-14: [1]
-    - C-TURN-1: [RIGHT TURN SIGNAL]
-  - - C-TURN-1: [RIGHT TURN SIGNAL]
-    - X-PMU: [OUTPUT O6]
-  - - X-D-03: [TURN SIGNAL 1, TURN SIGNAL 2]
-    - C-TURN-SW-1: [TURN SIGNAL 1, TURN SIGNAL 2]
-    - X-PMU: [19, 33]
-  - - X-D-03: [TURN SIGNAL COM]
-    - C-TURN-SW-1: [TURN SIGNAL COM]
-    - X-GND-1
 # Common connectors shared across multipl circuits
 connectors:
+  X-5V-CRIMP-1: &X-5V-CRIMP
+    style: simple
+    type: crimp
+    pincount: 1
+    show_pincount: false
+    bgcolor: IV
+  X-5V-CRIMP-11:
+    <<: *X-5V-CRIMP
+  X-5V-CRIMP-2:
+    <<: *X-5V-CRIMP
   X-AIT:
     pins: [A, B]
     pinlabels: [SIGNAL, SIGNAL GND]
@@ -506,24 +57,11 @@ connectors:
       src: ../img/b1-17.png
   X-CLT-GAUGE:
     pincount: 1
-  X-19:
-    pincount: 14
-    pinlabels: [G, LG/B, Y/B, R/B, Y/R, L, L/Y, L/O, CHARGE LAMP, Y/L, L/B, R/G, B/L, L/Y]
-    image:
-      src: ../img/x-19.png
   X-CLUTCH:
     pincount: 2
     pinlabels: [VCC, GND]
     image:
       src: ../img/b1-20.png
-  X-PMU-PWR:
-    pincount: 1
-    notes: M6 stud on PMU-16
-  X-PMU:
-    pincount: 39
-    pinlabels: [OUTPUT O13, OUTPUT O12, OUTPUT O11, OUTPUT O10, OUTPUT O9, INPUT A9, +12V SW, INPUT A14, OUTPUT O8, OUTPUT O7, OUTPUT O6, OUTPUT O5, OUTPUT O4, OUTPUT O14, +5V OUTPUT, INPUT A2, INPUT A4, INPUT A6, INPUT A8, INPUT A11, INPUT A13, INPUT A16, CAN1H, CAN2H, GROUND, OUTPUT O3, OUTPUT O15, OUTPUT O16, INPUT A1, INPUT A3, INPUT A5, INPUT A7, INPUT A10, INPUT A12, INPUT A15, CAN1L, CAN2L, OUTPUT O1, OUTPUT O2]
-    pincolors: [VT, VT, IV, IV, IV, BU, RD, BU, IV, IV, IV, VT, VT, VT, RD, BU, BU, BU, BU, BU, BU, BU, WHBU, WHBU, BK, VT, VT, VT, BU, BU, BU, BU, BU, BU, BU, WH, WH, VT, VT]
-    notes: VT = High AMP, IV = Low AMP
   X-ECU-1:
     pincount: 48
     pins: [A1, A2, A3, A4, B1, B2, B3, B4, C1, C2, C3, C4, D1, D2, D3, D4, E1, E2, E3, E4, F1, F2, F3, F4, G1, G2, G3, G4, H1, H2, H3, H4, J1, J2, J3, J4, K1, K2, K3, K4, L1, L2, L3, L4, M1, M2, M3, M4]
@@ -532,31 +70,20 @@ connectors:
     pincount: 32
     pins: [A1, A2, A3, A4, B1, B2, B3, B4, C1, C2, C3, C4, D1, D2, D3, D4, E1, E2, E3, E4, F1, F2, F3, F4, G1, G2, G3, G4, H1, H2, H3, H4]
     pinlabels: [EGT 5+, EGT 6+, EGT 7+, EGT 8+, EGT 5, EGT 6, EGT 7, EGT 8, EGT 1+, EGT 2+, EGT 3+, EGT 4+, EGT 1, EGT 2, EGT 3, EGT 4, KNOCK GND, KNOCK 1, KNOCK 2, AIN 6 (0-5V), AIN 7 (0-5V), AIN 8(0-5V), DIN/VR 4, DIN/VR5, GPO 15(+12V), GPO 16 (+12V), AIN 5 (0-5V), ENGINE GROUND, MOTOR 2+, MOTOR 1-, MOTOR 2-, MOTOR 1+]
-  X-CYL-HEAD:
-    style: simple
-    type: eyelet
-    pincount: 1
-    notes: cylinder head
-    show_name: true
-    show_pincount: false
   X-5V: &x_crimp
     style: simple
     type: Crimp ferrule
     pincount: 1
     show_pincount: false
-    notes: 5V supply post-bulkhead
-  X-SENSOR-GND:
+    bgcolor: IV
+  X-ECU-VCC:
     <<: *x_crimp
-    notes: sensor ground, post bulkhead
-  X-SHIELD-DRAIN-1:
+    notes: crimp to distribute power to ecu, lambda, inj
+  X-IGN-VCC:
     <<: *x_crimp
-    notes: sheild drain, post bulkhead
-  X-SHIELD-DRAIN-2:
+    notes: crimp to distribute power between coils and noise filter
+  X-ECU-GND:
     <<: *x_crimp
-    notes: sheild drain, to the ECU
-  X-SHIELD-DRAIN-3:
-    <<: *x_crimp
-    notes: sheild drain, to the ECU
   X-BATT-POS:
     type: eyelet
     pincount: 1
@@ -639,9 +166,31 @@ connectors:
     pincount: 20
     image:
       src: ../img/easyguard-2.png
-  X-ECU:
+  X-ECU-BODY-1: &x_ecu_body
     pincount: 4
-    pinlabels: [+12V, CAN H, CAN L]
+    pinlabels: [ECU VCC, CAN H, CAN L, IGN VCC]
+    notes: Connector between the chassis and ECU
+  X-ECU-BODY-11:
+    pincount: 8
+    pinlabels: [ECU VCC, CAN H, CAN L, IGN VCC, OIL PRES, CLT GAUGE, START REQ, TACH]
+    notes: Connector between the chassis and ECU
+  X-ENGINE-GND-CRIMP-1: &gnd_crimp
+    style: simple
+    type: crimp
+    pincount: 1
+    show_pincount: false
+    bgcolor: IV
+  X-ENGINE-GND-CRIMP-2:
+    <<: *gnd_crimp
+  X-ENGINE-GND-CRIMP-21:
+    <<: *gnd_crimp
+  X-CYL-HEAD:
+    style: simple
+    type: eyelet
+    pincount: 1
+    notes: cylinder head
+    show_name: true
+    show_pincount: false
   X-HEADLAMP-D1: &template_headlamp
     pincount: 2
     pinlabels: [HIGH BEAM, LOW BEAM]
@@ -694,6 +243,11 @@ connectors:
   X-INJ-4:
     <<: *injector_conn
     notes: Injector No. 4, Mazda Conn. B1-09
+  X-19:
+    pincount: 14
+    pinlabels: [G, LG/B, Y/B, R/B, Y/R, L, L/Y, L/O, CHARGE LAMP, Y/L, L/B, R/G, B/L, L/Y]
+    image:
+      src: ../img/x-19.png
   X-KNOCK:
     pincount: 2
     pinlabels: [SIGNAL, SENSOR GND]
@@ -710,11 +264,571 @@ connectors:
     image:
       src: ../img/nc_throttle.png
       # connections:
+  X-PMU-PWR:
+    pincount: 1
+    notes: M6 stud on PMU-16
+  X-PMU:
+    pincount: 39
+    pinlabels: [OUTPUT O13, OUTPUT O12, OUTPUT O11, OUTPUT O10, OUTPUT O9, INPUT A9, +12V SW, INPUT A14, OUTPUT O8, OUTPUT O7, OUTPUT O6, OUTPUT O5, OUTPUT O4, OUTPUT O14, +5V OUTPUT, INPUT A2, INPUT A4, INPUT A6, INPUT A8, INPUT A11, INPUT A13, INPUT A16, CAN1H, CAN2H, GROUND, OUTPUT O3, OUTPUT O15, OUTPUT O16, INPUT A1, INPUT A3, INPUT A5, INPUT A7, INPUT A10, INPUT A12, INPUT A15, CAN1L, CAN2L, OUTPUT O1, OUTPUT O2]
+    pincolors: [VT, VT, IV, IV, IV, BU, RD, BU, IV, IV, IV, VT, VT, VT, RD, BU, BU, BU, BU, BU, BU, BU, WHBU, WHBU, BK, VT, VT, VT, BU, BU, BU, BU, BU, BU, BU, WH, WH, VT, VT]
+    notes: VT = High AMP, IV = Low AMP
+  X-SENSOR-GND-CRIMP:
+    style: simple
+    type: crimp
+    pincount: 1
+    show_pincount: false
+    bgcolor: IV
+  X-SHIELD-DRAIN-CRIMP-1: &X-SHIELD-DRAIN-CRIMP
+    style: simple
+    type: crimp
+    pincount: 1
+    show_pincount: false
+    bgcolor: IV
+  X-SHIELD-DRAIN-CRIMP-11:
+    <<: *X-SHIELD-DRAIN-CRIMP
+  X-SHIELD-DRAIN-CRIMP-2:
+    <<: *X-SHIELD-DRAIN-CRIMP
   X-THROTTLE-BODY:
     pins: [A, B, C, D, E, F]
     pinlabels: [THROTTLE+, THROTTLE-, TPS SENSOR GND, TPS 2 SIG, TPS 5V, TPS 1 SIG]
     image:
       src: ../img/nc_throttle.png
+cables:
+  C-5V-1: &c-5V
+    wirecount: 1
+    colors: [RD]
+  C-5V-2:
+    <<: *c-5V
+  C-AC-1:
+    wirecount: 2
+    wirelabels: [A/C CLUTCH, A/C FAN]
+    colors: [YERD, YE]
+  C-AC-2:
+    wirecount: 1
+    wirelabels: [A/C PRES. SW]
+    colors: [PK]
+  C-AIT-1:
+    wirecount: 2
+    colors: [BN, BU]
+    wirelabels: [SIGNAL GND, SIGNAL]
+  C-ALT-1:
+    colors: [WH]
+    wirelabels: [BATT CHARGE]
+  C-ALT-2:
+    colors: [WHGN, WHBK]
+    wirelabels: [ALT REF, CHARGE IND]
+  C-ALT-3:
+    colors: [GN, VT]
+    wirelabels: [ALT REF, CHARGE IND]
+  C-PWR-1:
+    colors: [BK]
+    wirelabels: [POS]
+    notes: main line running along ppf
+  C-BRAKE-LT-1:
+    wirecount: 1
+    wirelabels: [STOP LIGHTS]
+    colors: [PK]
+  C-BRAKE:
+    wirecount: 2
+    colors: [PK, BK]
+  C-CAS-1: &C-CAS
+    wirecount: 4
+    colors: [WH, WHBU, WHOG, WHGN]
+    wirelabels: [CAM1, CAM2, +5V, SENSOR GND]
+    shield: true
+  C-CAS-2:
+    <<: *C-CAS
+  C-CLT-1:
+    wirecount: 3
+    wirelabels: [CLT SIGNAL, SENSOR GND, CLT GAUGE]
+    colors: [GN, BN, BKRD]
+  C-CLT-2:
+    wirecount: 3
+    wirelabels: [CLT SIGNAL, SENSOR GND, CLT GAUGE]
+    colors: [GN, BN, BKRD]
+  C-CLUTCH:
+    wirecount: 2
+    colors: [BN, BK]
+  C-EASYGUARD-1:
+    wirecount: 6
+    wirelabels: [ACC, ST, IGN2, VCC1, VCC2, IGN1]
+    colors: [OG, YE, BN, RD, RD, WH]
+    notes: IGN harness
+  C-EASYGUARD-2:
+    colors: [BN, BN, YEBK, WHBK, OGBK, YE, WH, OG, PK, GN, OG, RD, BK, BK, WH, BUBK, BU, GNBK, GN, VT]
+    wirelabels: [TURN SIGNAL 1, TURN SIGNAL 2, door, door, door, door, door, door, HORN, GPS, FOOTBRAKE, GPS VCC, GND 1, GND 2, GPS, DOOR SW, FUEL PUMP, TRUNK RELEASE TRUNK OUTPUT, TRUNK POSITIVE]
+  C-ECU-1: &c_ecu_pwr
+    wirecount: 4
+    colors: [OG, WHBU, WH, BU]
+    wirelabels: [ECU VCC, CAN H, CAN L, IGN VCC]
+    notes: Power and CAN to ECU
+  C-ECU-2:
+    <<: *c_ecu_pwr
+    notes: Located in passenger foot well with ECU
+  C-ECU-8: &c_ecu_vcc
+    colors: [OG, OG, OG]
+    wirelabels: [ECU VCC, INJ VCC, LAMBDA HEATER]
+  C-ECU-AUX-1: &c_ecu_aux
+    colors: [YERD, RD, YE, BU]
+    wirelabels: [OIL PRES, CLT GAUGE, START REQ, TACH]
+  C-ECU-AUX-2:
+    <<: *c_ecu_aux
+  C-FAN-1:
+    wirecount: 1
+    wirelabels: [COOLING FAN]
+    colors: [YE]
+  C-FUEL-PUMP-1:
+    wirecount: 1
+    wirelabels: [FUEL PUMP]
+    colors: [VT]
+  C-ENGINE-GND-1: &c_gnd
+    wirecount: 1
+    colors: [BK]
+  C-ENGINE-GND-11:
+    <<: *c_gnd
+    wirecount: 4
+  C-ENGINE-GND-2:
+    <<: *c_gnd
+  C-ENGINE-GND-21:
+    <<: *c_gnd
+    wirecount: 5
+  C-HAZARD-SW-1:
+    wirecount: 1
+    wirelabels: [HAZARD SW]
+    colors: [OG]
+  C-HAZARD-SW-2:
+    wirecount: 2
+    wirelabels: [HAZARD SW, GND]
+    colors: [OG, BK]
+  C-HEADLAMP-SW-1:
+    wirecount: 3
+    wirelabels: [TNS, HIGH BEAM, LOW BEAM]
+    colors: [GN, RD, PK]
+  C-HEADLAMP-SW-2:
+    wirecount: 1
+    wirelabels: [GND]
+    colors: [BK]
+  C-HEADLAMP-1: &c_headlamp
+    wirecount: 2
+    colors: [RDWH, GY]
+    wirelabels: [HIGH BEAM, LOW BEAM]
+  C-HEADLAMP-2:
+    <<: *c_headlamp
+  C-HEADLAMP-3:
+    <<: *c_headlamp
+  C-SPK-1:
+    category: bundle
+    colors: [WH, PK, BU, GN]
+    wirelabels: [SPK1, SPK2, SPK3, SPK4]
+  C-SPK-2:
+    category: bundle
+    colors: [WH, PK, BU, GN, RD]
+    wirelabels: [SPK1, SPK2, SPK3, SPK4, +12V]
+  C-SPK-4:
+    wirecount: 2
+    colors: [BU, BU]
+  C-INJ-1:
+    wirecount: 4
+    category: bundle
+    colors: [WH, PK, BU, GN]
+    wirelabels: [INJ1, INJ2, INJ3, INJ4]
+  C-INJ-2:
+    wirecount: 5
+    category: bundle
+    colors: [WH, PK, BU, GN, RD]
+    wirelabels: [INJ1, INJ2, INJ3, INJ4, +12V]
+  C-KNOCK-1: &c_knock
+    colors: [WH, WHBU]
+    wirelabels: [SIGNAL, SENSOR GND]
+    shield: true
+  C-KNOCK-2:
+    <<: *c_knock
+  C-LSU-1:
+    colors: [WH, WHBU, WHOG, WHGN, GN]
+    wirelabels: [IP, COM, RCAL, VS/OS IN, HTR]
+    shield: true
+  C-LSU-2:
+    colors: [WH, WHBU, WHOG, WHGN, RD, GN]
+    wirelabels: [IP, COM, RCAL, VS/OS IN, +12V LAMBDA, HTR]
+    shield: true
+  C-OIL-PRES-1: &c_oilpres
+    colors: [YERD]
+    wirelabels: [OIL PRES SENDER]
+  C-OIL-PRES-2:
+    <<: *c_oilpres
+  CE-SENSOR-GND-1: &C-SENSOR-GND
+    wirecount: 1
+    colors: [BN]
+  CI-SENSOR-GND-1:
+    <<: *C-SENSOR-GND
+  C-SHIELD-DRAIN-1: &c-shield-drain
+    wirecount: 1
+    colors: [BN]
+  C-SHIELD-DRAIN-11:
+    <<: *c-shield-drain
+  C-SHIELD-DRAIN-2:
+    <<: *c-shield-drain
+  C-TB-1:
+    colors: [PK, YE, WHBU, WHOG]
+    wirelabels: [THROTTLE+, THROTTLE-, TPS1, TPS2]
+    shield: true
+  C-TB-2:
+    colors: [PK, YE, WH, WHBU, WHOG, WHGN]
+    wirelabels: [THROTTLE+, THROTTLE-, SENSOR GND, TPS1, TPS2, +5V]
+    shield: true
+    notes: Bulkhead to throttle
+  C-TNS:
+    wirecount: 1
+    wirelabels: [TNS]
+    colors: [GN]
+  C-TRANS-SW-1:
+    wirecount: 2
+    wirelabels: [REVERSE SW, GND]
+    colors: [YE, BK]
+  C-TURN-1:
+    wirecount: 2
+    wirelabels: [LEFT TURN SIGNAL, RIGHT TURN SIGNAL]
+    colors: [YE, BU]
+  C-TURN-SW-1:
+    wirecount: 3
+    wirelabels: [TURN SIGNAL 1, TURN SIGNAL 2, TURN SIGNAL COM]
+    colors: [YE, BU, RD]
+connections:
+  - - X-BULK: [+5V SENSOR SUPPLY]
+    - C-5V-2: [1]
+    - X-5V-CRIMP-2
+  - - X-5V-CRIMP-2
+    - C-TB-2: [+5V]
+  - - X-5V-CRIMP-2
+    - C-CAS-2: [+5V]
+  - - X-BODY-D2: [A/C CLUTCH]
+    - C-AC-1: [A/C CLUTCH]
+    - X-PMU: [OUTPUT O3]
+  - - X-BODY-P2: [A/C FAN]
+    - C-AC-1: [A/C FAN]
+    - X-PMU: [OUTPUT O3]
+  - - X-BODY-P2: [A/C PRES. SW]
+    - C-AC-2: [A/C PRES. SW]
+    - X-PMU: [INPUT A13]
+  - - X-BULK: [37]
+    - C-AIT-1: [SIGNAL]
+    - X-AIT: [SIGNAL]
+  - - C-ALT-1: [WH]
+    - X-ALT-1: [BATT CHARGE]
+  - - C-ALT-1: [WH]
+    - X-PMU-PWR: [1]
+  - - X-BATT: [POS]
+    - C-ALT-3: [ALT REF]
+    - X-ALT-2
+    - C-ALT-2: [ALT REF]
+    - X-ALT-1: [ALT REF]
+  - - X-19: [CHARGE LAMP]
+    - C-ALT-3: [CHARGE IND]
+    - X-ALT-2
+    - C-ALT-2: [CHARGE IND]
+    - X-ALT-1: [CHARGE IND]
+  - - X-BATT: [POS]
+    - C-PWR-1: [BK]
+    - X-PMU-PWR: [1]
+  - - X-14: [STOP LIGHTS]
+    - C-BRAKE-LT-1: [STOP LIGHTS]
+    - X-PMU: [OUTPUT O10]
+  - - X-BRAKE: [VCC]
+    - C-BRAKE: [PK]
+    - X-PMU: [16]
+  - - X-BRAKE: [VCC]
+    - C-EASYGUARD-2: [11]
+  - - X-BRAKE: [GND]
+    - C-BRAKE: [BK]
+    - X-GND-1
+  - - C-CAS-2: [WH, WHBU, WHOG, WHGN]
+    - X-CAS: [Y/L, W, W/R, B/LG]
+  - - X-BULK: [29, 30]
+    - C-CAS-2: [WH, WHBU]
+  - - C-CLT-2: [CLT SIGNAL, SENSOR GND]
+    - X-CLT: [CLT SIGNAL, SENSOR GND]
+  - - X-ECU-1: [F1]
+    - C-CLT-1: [CLT SIGNAL]
+    - X-BULK: [CLT SIGNAL]
+    - C-CLT-2: [CLT SIGNAL]
+  - - X-BULK: [CLT GAUGE]
+    - C-CLT-2: [CLT GAUGE]
+    - X-CLT-GAUGE: [1]
+  - - X-CLUTCH: [VCC]
+    - C-CLUTCH: [BN]
+    - X-PMU: [30]
+  - - X-CLUTCH: [GND]
+    - C-CLUTCH: [BK]
+    - X-GND-1
+  - - X-EASYGUARD-1: [ST]
+    - C-EASYGUARD-1: [YE]
+    - X-ECU-BODY-11: [START REQ]
+    - C-ECU-AUX-2: [START REQ]
+    - X-ECU-1: [B4]
+  - - X-EASYGUARD-1: [IGN1, IGN2]
+    - C-EASYGUARD-1: [IGN1, IGN2]
+    - X-PMU: [7, 7]
+  - - X-EASYGUARD-1: [ACC]
+    - C-EASYGUARD-1: [ACC]
+    - X-PMU: [29]
+  - - X-EASYGUARD-2: [1-20]
+    - C-EASYGUARD-2: [1-20]
+  - - X-EASYGUARD-2: [13, 14]
+    - C-EASYGUARD-2: [13, 14]
+    - X-GND-1
+  - - X-EASYGUARD-2: [1, 2]
+    - C-EASYGUARD-2: [1, 2]
+    - X-PMU: [10, 11]
+  - - C-PWR-1: [1]
+    - X-EASYGUARD-1: [VCC1]
+  - - C-PWR-1: [1]
+    - X-EASYGUARD-1: [VCC2]
+  - - X-PMU: [OUTPUT O8, CAN1H, CAN1L, OUTPUT O11]
+    - C-ECU-1: [ECU VCC, CAN H, CAN L, IGN VCC]
+    - X-ECU-BODY-11: [ECU VCC, CAN H, CAN L, IGN VCC]
+  - - C-ECU-AUX-1: [OIL PRES, CLT GAUGE, START REQ, TACH]
+    - X-ECU-BODY-11: [OIL PRES, CLT GAUGE, START REQ, TACH]
+    - C-ECU-AUX-2: [OIL PRES, CLT GAUGE, START REQ, TACH]
+  - - X-ECU-BODY-11: [CAN H, CAN L]
+    - C-ECU-2: [CAN H, CAN L]
+    - X-ECU-1: [E1, E2]
+  - - X-ECU-BODY-11: [ECU VCC]
+    - C-ECU-2: [ECU VCC]
+    - X-ECU-VCC
+  - - X-ECU-VCC
+    - C-ECU-8: [1-3]
+  - - C-ECU-8: [ECU VCC]
+    - X-ECU-1: [M4]
+  - - X-ECU-BODY-11: [IGN VCC]
+    - C-ECU-2: [IGN VCC]
+    - X-IGN-VCC
+  - - X-BODY-D2: [COOLING FAN]
+    - C-FAN-1: [COOLING FAN]
+    - X-PMU: [OUTPUT O16]
+  - - X-14: [FUEL PUMP]
+    - C-FUEL-PUMP-1: [FUEL PUMP]
+    - X-PMU: [OUTPUT O9]
+  - - X-ENGINE-GND-CRIMP-1
+    - C-ENGINE-GND-1: [1]
+    - X-BULK: [5]
+    - C-ENGINE-GND-2: [1]
+    - X-ENGINE-GND-CRIMP-2
+    - C-ENGINE-GND-21: [5]
+    - X-CYL-HEAD
+  # ECU
+  - - C-ENGINE-GND-11: [1-4]
+    - X-ENGINE-GND-CRIMP-1
+  - - X-ECU-1: [L4]
+    - C-ENGINE-GND-11: [1]
+  - - X-ECU-2: [G4]
+    - C-ENGINE-GND-11: [2]
+  - - C-ENGINE-GND-11: [3]
+    - X-B1-13: [GND]
+  # COILS
+  - - X-ENGINE-GND-CRIMP-2
+    - C-ENGINE-GND-21: [1-4]
+  - - C-ENGINE-GND-21: [1]
+    - X-COIL-1: [GND]
+  - - C-ENGINE-GND-21: [2]
+    - X-COIL-2: [GND]
+  - - C-ENGINE-GND-21: [3]
+    - X-COIL-3: [GND]
+  - - C-ENGINE-GND-21: [4]
+    - X-COIL-4: [GND]
+  - - X-E1-08: [HAZARD SW]
+    - C-HAZARD-SW-1: [HAZARD SW]
+    - X-17: [HAZARD SW]
+    - C-HAZARD-SW-2: [HAZARD SW]
+    - X-PMU: [34]
+  - - X-D-03: [TNS, HIGH BEAM, FLASH TO PASS, LOW BEAM]
+    - C-HEADLAMP-SW-1: [TNS, HIGH BEAM, HIGH BEAM, LOW BEAM]
+  - - C-HEADLAMP-SW-1: [TNS, HIGH BEAM, LOW BEAM]
+    - X-PMU: [31, 18, 32]
+  - - X-D-03: [R/W, R/B, B 2]
+    - C-HEADLAMP-SW-2: [1, 1, 1]
+  - - C-HEADLAMP-SW-2: [1]
+    - X-GND-1
+  - - X-PMU: [OUTPUT O13, OUTPUT O1]
+    - C-HEADLAMP-1: [HIGH BEAM, LOW BEAM]
+    - X-HEADLAMP-D1: [HIGH BEAM, LOW BEAM]
+    - C-HEADLAMP-2: [1-2]
+    - X-E1-01: [HIGH BEAM, LOW BEAM]
+  - - X-PMU: [OUTPUT O13, OUTPUT O1]
+    - C-HEADLAMP-1: [HIGH BEAM, LOW BEAM]
+    - X-HEADLAMP-P1: [HIGH BEAM, LOW BEAM]
+    - C-HEADLAMP-3: [1-2]
+    - X-E1-02: [HIGH BEAM, LOW BEAM]
+  # Trigger
+  - - X-ECU-1: [A2, A3, B2, B3]
+    - C-SPK-1: [GN, BU, PK, WH]
+    - X-BULK: [16, 17, 18, 19]
+    - C-SPK-2: [GN, BU, PK, WH]
+  - - C-SPK-2: [WH]
+    - X-COIL-1: [TRIGGER]
+  - - C-SPK-2: [PK]
+    - X-COIL-2: [TRIGGER]
+  - - C-SPK-2: [BU]
+    - X-COIL-3: [TRIGGER]
+  - - C-SPK-2: [GN]
+    - X-COIL-4: [TRIGGER]
+  # Power
+  - - C-SPK-2: [RD]
+    - X-COIL-1: [+12V]
+  - - C-SPK-2: [RD]
+    - X-COIL-2: [+12V]
+  - - C-SPK-2: [RD]
+    - X-COIL-3: [+12V]
+  - - C-SPK-2: [RD]
+    - X-COIL-4: [+12V]
+  - - X-BULK: [IGN +12V]
+    - C-SPK-2: [+12V]
+  # noise filter
+  - - X-IGN-VCC
+    - C-SPK-4: [1-2]
+  - - C-SPK-4: [1]
+    - X-BULK: [IGN +12V]
+  - - C-SPK-4: [2]
+    - X-B1-13: [+12V]
+  - - X-ECU-1: [K1, K2, M1, M2]
+    - C-INJ-1: [GN, BU, PK, WH]
+    - X-BULK: [12, 13, 14, 15]
+    - C-INJ-2: [GN, BU, PK, WH]
+  - - C-INJ-2: [WH]
+    - X-INJ-1: [TRIGGER]
+  - - C-INJ-2: [PK]
+    - X-INJ-2: [TRIGGER]
+  - - C-INJ-2: [BU]
+    - X-INJ-3: [TRIGGER]
+  - - C-INJ-2: [GN]
+    - X-INJ-4: [TRIGGER]
+  # Power
+  - - C-ECU-8: [INJ VCC]
+    - X-BULK: [INJ +12V]
+  - - C-INJ-2: [RD]
+    - X-INJ-1: [+12V]
+  - - C-INJ-2: [RD]
+    - X-INJ-2: [+12V]
+  - - C-INJ-2: [RD]
+    - X-INJ-3: [+12V]
+  - - C-INJ-2: [RD]
+    - X-INJ-4: [+12V]
+  - - C-ECU-AUX-2: [TACH]
+    - X-ECU-1: [A4]
+  - - C-ECU-AUX-2: [CLT GAUGE, OIL PRES]
+    - X-BULK: [CLT GAUGE, OIL PRES SENDER]
+  - - X-ECU-2: [E2, E1]
+    - C-KNOCK-1: [SIGNAL, SENSOR GND]
+    - X-BULK: [26, 40]
+    - C-KNOCK-2: [SIGNAL, SENSOR GND]
+    - X-KNOCK: [1-2]
+  - - X-ECU-2: [E1]
+    - C-KNOCK-1: [s]
+  - - X-BULK: [40]
+    - C-KNOCK-2: [s]
+  - - X-ECU-1: [G3, F3, G4, F4]
+    - C-LSU-1: [IP, COM, RCAL, VS/OS IN]
+    - X-BULK: [LSU IP, LSU COM, LSU RCAL, LSU VS/OS IN]
+    - C-LSU-2: [IP, COM, RCAL, VS/OS IN]
+    - X-LSU: [IP, COM, RCAL, VS/OS IN]
+  - - X-BULK: [28, 31]
+    - C-LSU-2: [+12V LAMBDA, HTR]
+    - X-LSU: [+12V LAMBDA, HTR]
+  - - X-ECU-1: [D1]
+    - C-LSU-1: [HTR]
+    - X-BULK: [LSU HEATER]
+  - - C-ECU-8: [LAMBDA HEATER]
+    - X-BULK: [LSU LAMBDA +12V]
+  - - X-BULK: [OIL PRES SENDER]
+    - C-OIL-PRES-2: [OIL PRES SENDER]
+    - X-OIL-PRES
+  - - X-BULK: [SENSOR GND]
+    - CE-SENSOR-GND-1: [1]
+    - X-SENSOR-GND-CRIMP
+  - - X-SENSOR-GND-CRIMP
+    - C-CLT-2: [SENSOR GND]
+  - - X-SENSOR-GND-CRIMP
+    - C-CAS-2: [SENSOR GND]
+  - - X-SENSOR-GND-CRIMP
+    - C-TB-2: [SENSOR GND]
+  - - X-ECU-1: [H1]
+    - CI-SENSOR-GND-1: [1]
+    - X-BULK: [SENSOR GND]
+  - - X-BULK: [SHIELD DRAIN]
+    - C-SHIELD-DRAIN-2: [1]
+    - X-SHIELD-DRAIN-CRIMP-2
+  - - X-SHIELD-DRAIN-CRIMP-2
+    - C-TB-2: s
+  - - X-SHIELD-DRAIN-CRIMP-2
+    - C-CAS-2: s
+  - - X-SHIELD-DRAIN-CRIMP-2
+    - C-LSU-2: s
+  - - X-ECU-1: [E3]
+    - C-SHIELD-DRAIN-1: [1]
+    - X-SHIELD-DRAIN-CRIMP-1
+  - - X-SHIELD-DRAIN-CRIMP-11
+    - C-SHIELD-DRAIN-11: [1]
+    - X-BULK: [SHIELD DRAIN]
+  - - X-SHIELD-DRAIN-CRIMP-1
+    - C-TB-1: s
+    - X-SHIELD-DRAIN-CRIMP-11
+  - - X-SHIELD-DRAIN-CRIMP-1
+    - C-CAS-1: s
+    - X-SHIELD-DRAIN-CRIMP-11
+  - - X-SHIELD-DRAIN-CRIMP-1
+    - C-LSU-1: s
+    - X-SHIELD-DRAIN-CRIMP-11
+  - - X-ECU-2: [H4, H2]
+    - C-TB-1: [THROTTLE+, THROTTLE-]
+    - X-BULK: [THROTTLE+, THROTTLE-]
+    - C-TB-2: [THROTTLE+, THROTTLE-]
+    - X-THROTTLE-BODY: [THROTTLE+, THROTTLE-]
+  - - X-ECU-2: [G3, E4]
+    - C-TB-1: [TPS1, TPS2]
+    - X-BULK: [TPS1, TPS2]
+    - C-TB-2: [TPS1, TPS2]
+    - X-THROTTLE-BODY: [TPS 1 SIG, TPS 2 SIG]
+  - - C-TB-2: [SENSOR GND, +5V]
+    - X-THROTTLE-BODY: [TPS SENSOR GND, TPS 5V]
+  - - X-BODY-D1: [TNS]
+    - C-TNS: [TNS]
+  - - X-BODY-P1: [TNS]
+    - C-TNS: [TNS]
+  - - X-14: [TNS]
+    - C-TNS: [TNS]
+  - - C-TNS: [TNS]
+    - X-PMU: [OUTPUT O14]
+  - - X-10: [BACKUP LT SW]
+    - C-TRANS-SW-1: [REVERSE SW]
+    - X-PMU: [20]
+  - - X-10: [R/G]
+    - C-TRANS-SW-1: [GND]
+    - X-GND-1
+  # L Turn Signals
+  - - X-BODY-D1: [4]
+    - C-TURN-1: [LEFT TURN SIGNAL]
+  - - X-14: [5]
+    - C-TURN-1: [LEFT TURN SIGNAL]
+  - - C-TURN-1: [LEFT TURN SIGNAL]
+    - X-PMU: [10]
+  # R Turn Signals
+  - - X-BODY-P1: [4]
+    - C-TURN-1: [RIGHT TURN SIGNAL]
+  - - X-14: [1]
+    - C-TURN-1: [RIGHT TURN SIGNAL]
+  - - C-TURN-1: [RIGHT TURN SIGNAL]
+    - X-PMU: [OUTPUT O6]
+  - - X-D-03: [TURN SIGNAL 1, TURN SIGNAL 2]
+    - C-TURN-SW-1: [TURN SIGNAL 1, TURN SIGNAL 2]
+    - X-PMU: [19, 33]
+  - - X-D-03: [TURN SIGNAL COM]
+    - C-TURN-SW-1: [TURN SIGNAL COM]
+    - X-GND-1
+options:
+  # https://github.com/formatc1702/WireViz/blob/master/docs/syntax.md
+  bgcolor_node: WH # Default = 'WH'
+  bgcolor_connector: IV # Default = bgcolor_node
+  bgcolor_cable: WH # Default = bgcolor_node
+  bgcolor_bundle: WH # Default = bgcolor_cable
 
 # # accel pedal
 # -
