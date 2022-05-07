@@ -11,9 +11,9 @@ connectors:
 
 cables:
   C-CLT-1:
-    wirecount: 3
-    wirelabels: [CLT SIGNAL, SENSOR GND, CLT GAUGE]
-    colors: [GN, BN, BKRD]
+    wirecount: 1
+    wirelabels: [CLT SIGNAL]
+    colors: [GN]
   C-CLT-2:
     wirecount: 3
     wirelabels: [CLT SIGNAL, SENSOR GND, CLT GAUGE]
