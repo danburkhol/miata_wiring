@@ -4,7 +4,7 @@ connectors:
     pinlabels: [ ECU VCC, CAN H, CAN L, IGN VCC ]
     notes: Connector between the chassis and ECU
   X-ECU-BODY-11:
-    pincount: 8
+    pincount: 12
     pinlabels: [
       ECU VCC,
       CAN H,
@@ -13,7 +13,8 @@ connectors:
       OIL PRES,
       CLT GAUGE,
       START REQ,
-      TACH
+      TACH,
+      VSS
     ]
     notes: Connector between the chassis and ECU
 cables:
@@ -30,10 +31,11 @@ cables:
     wirelabels: [ECU VCC, INJ VCC, LAMBDA HEATER]
 
   C-ECU-AUX-1: &c_ecu_aux
-    colors: [YERD, RD, YE, BU]
-    wirelabels: [OIL PRES, CLT GAUGE, START REQ, TACH]
+    colors: [YERD, RD, YE, BU, BN]
+    wirelabels: [OIL PRES, CLT GAUGE, START REQ, TACH, VSS]
   C-ECU-AUX-2:
     <<: *c_ecu_aux
+    colors: [YE, RD, YE, BU, BN]
 
 connections:
   -
@@ -41,9 +43,9 @@ connections:
     - C-ECU-1: [ECU VCC, CAN H, CAN L, IGN VCC]
     - X-ECU-BODY-11: [ECU VCC, CAN H, CAN L, IGN VCC]
   -
-    - C-ECU-AUX-1: [OIL PRES, CLT GAUGE, START REQ, TACH]
-    - X-ECU-BODY-11: [OIL PRES, CLT GAUGE, START REQ, TACH]
-    - C-ECU-AUX-2: [OIL PRES, CLT GAUGE, START REQ, TACH]
+    - C-ECU-AUX-1: [OIL PRES, CLT GAUGE, START REQ, TACH, VSS]
+    - X-ECU-BODY-11: [OIL PRES, CLT GAUGE, START REQ, TACH, VSS]
+    - C-ECU-AUX-2: [OIL PRES, CLT GAUGE, START REQ, TACH, VSS]
 
   -
     - X-ECU-BODY-11: [CAN H, CAN L]

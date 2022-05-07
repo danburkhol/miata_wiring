@@ -14,7 +14,7 @@ connectors:
 
 cables:
   C-TB-1:
-    colors: [PK, YE, WHBU, WHOG]
+    colors: [PK, YE, WHBU, WH]
     wirelabels: [THROTTLE+, THROTTLE-, TPS1, TPS2]
     shield: true
   C-TB-2:

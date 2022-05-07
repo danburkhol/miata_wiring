@@ -25,5 +25,8 @@ connections:
     - C-ECU-AUX-2: [TACH]
     - X-ECU-1: [A4]
   -
+    - C-ECU-AUX-2: [VSS]
+    - X-ECU-2: [F3]
+  -
     - C-ECU-AUX-2: [CLT GAUGE, OIL PRES]
     - X-BULK: [CLT GAUGE, OIL PRES SENDER]
