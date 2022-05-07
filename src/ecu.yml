@@ -36,6 +36,9 @@ cables:
   C-ECU-AUX-2:
     <<: *c_ecu_aux
     colors: [YE, RD, YE, BU, BN]
+  C-ECU-11:
+    colors: [RD]
+    wirelabels: [+5V SENSOR SUPPLY]
 
 connections:
   -
@@ -65,3 +68,8 @@ connections:
     - X-ECU-BODY-11: [IGN VCC]
     - C-ECU-2: [IGN VCC]
     - X-IGN-VCC
+
+  -
+    - X-ECU-1: [G1]
+    - C-ECU-11: [1]
+    - X-BULK: [1]
