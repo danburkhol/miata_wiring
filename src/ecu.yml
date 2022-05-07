@@ -19,14 +19,14 @@ connectors:
 cables:
   C-ECU-1: &c_ecu_pwr
     wirecount: 4
-    colors: [OG, WHBU, WH, BU]
+    colors: [RD, WHBU, WH, BU]
     wirelabels: [ECU VCC, CAN H, CAN L, IGN VCC]
     notes: Power and CAN to ECU
   C-ECU-2:
     <<: *c_ecu_pwr
     notes: Located in passenger foot well with ECU
   C-ECU-8: &c_ecu_vcc
-    colors: [OG, OG, OG]
+    colors: [RD, RD, RD]
     wirelabels: [ECU VCC, INJ VCC, LAMBDA HEATER]
 
   C-ECU-AUX-1: &c_ecu_aux
