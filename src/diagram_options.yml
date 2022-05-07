@@ -1,0 +1,6 @@
+options:
+  # https://github.com/formatc1702/WireViz/blob/master/docs/syntax.md
+  bgcolor_node: WH        # Default = 'WH'
+  bgcolor_connector: IV   # Default = bgcolor_node
+  bgcolor_cable: WH      # Default = bgcolor_node
+  bgcolor_bundle: WH      # Default = bgcolor_cable

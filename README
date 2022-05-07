@@ -1,3 +1,9 @@
 # Wiring for my 1992 Mazda Miata
 
-![master diagram](generated/master.png)
+## Schema
+- {TYPE}-{NAME}-{LOCATION}{INDEX?}
+
+### Examples
+C-ECU-POWER-1 => {Cable} for {ECU Power} located in the {interior}, there is the {first} cable with this designation
+
+X-CLT-21 => {Connector} for {CLT} located in the {Engine bay}, this is the {second} cable with this designation

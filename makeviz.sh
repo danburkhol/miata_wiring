@@ -34,6 +34,7 @@ yq eval-all '. as $item ireduce ({}; . *+ $item )' src/*.yml > generated/master.
 wireviz generated/master.yml
 
 yq eval-all '. as $item ireduce ({}; . *+ $item )' \
+src/diagram_options.yml \
 src/bulkhead.yml \
 src/connectors.yml \
 src/pmu.yml \

@@ -74,6 +74,9 @@ connections:
   -
     - C-SPK-2: [RD]
     - X-COIL-4: [+12V]
+  -
+    - X-BULK: [IGN +12V]
+    - C-SPK-2: [+12V]
   # grounds
   -
     - X-CYL-HEAD

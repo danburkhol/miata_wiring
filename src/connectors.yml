@@ -115,6 +115,7 @@ connectors:
     type: Crimp ferrule
     pincount: 1
     show_pincount: false
+    bgcolor: IV
 
   X-ECU-VCC:
     <<: *x_crimp
