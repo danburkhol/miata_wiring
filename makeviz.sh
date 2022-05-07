@@ -47,6 +47,8 @@ src/lsu.yml \
 src/sensors.yml \
 src/throttle.yml \
 src/oil_pres_sender.yml \
+src/shield_drains.yml \
+src/sensor_gnd.yml \
 > generated/efi.yml
 
 wireviz generated/efi.yml

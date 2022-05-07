@@ -20,17 +20,13 @@ cables:
     colors: [GN, BN, BKRD]
 
 connections:
-  -
-    - X-ECU-1: [F1]
-    - C-CLT-1: [CLT SIGNAL]
-    - X-BULK: [CLT SIGNAL]
-    - C-CLT-2: [CLT SIGNAL]
-    - X-CLT: [CLT SIGNAL]
-  -
-    - X-BULK: [36]
-    - C-CLT-2: [CLT GAUGE]
-    - X-CLT-GAUGE: [1]
-  -
-    - X-SENSOR-GND: [1]
-    - C-CLT-2: [SENSOR GND]
-    - X-CLT: [SENSOR GND]
+  # -
+  #   - X-ECU-1: [F1]
+  #   - C-CLT-1: [CLT SIGNAL]
+  #   - X-BULK: [CLT SIGNAL]
+  #   - C-CLT-2: [CLT SIGNAL]
+  #   - X-CLT: [CLT SIGNAL]
+  # -
+  #   - X-BULK: [36]
+  #   - C-CLT-2: [CLT GAUGE]
+  #   - X-CLT-GAUGE: [1]

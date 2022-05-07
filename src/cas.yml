@@ -13,11 +13,13 @@ connectors:
     notes: Crank angle sensor. Mazda Conn. B1-10
 
 cables:
-  C-CAS-2:
+  C-CAS-1: &C-CAS
     wirecount: 4
     colors: [WH, WHBU, WHOG, WHGN]
     wirelabels: [CAM1, CAM2, +5V, SENSOR GND]
     shield: true
+  C-CAS-2:
+    <<: *C-CAS
 
 connections:
   -
@@ -29,9 +31,3 @@ connections:
   -
     - X-5V
     - C-CAS-2: [WHOG]
-  -
-    - X-SENSOR-GND
-    - C-CAS-2: [SENSOR GND]
-  -
-    - X-SHIELD-DRAIN-1
-    - C-CAS-2: s

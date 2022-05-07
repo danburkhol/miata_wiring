@@ -17,7 +17,3 @@ connections:
     - X-BULK: [37]
     - C-AIT-1: [SIGNAL]
     - X-AIT: [SIGNAL]
-  -
-    - X-SENSOR-GND
-    - C-AIT-1: [SIGNAL GND]
-    - X-AIT: [SIGNAL GND]

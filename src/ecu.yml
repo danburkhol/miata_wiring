@@ -83,27 +83,12 @@ connections:
     - X-BULK: [ENGINE GND]
 
   -
-    - C-ECU-3: [SENSOR GND]
-    - X-BULK: [SENSOR GND]
-
-  -
-    - X-ECU-1: [G1, H1, E3]
-    - C-ECU-3: [+5V, SENSOR GND, SHIELD GND]
-
-  -
     - C-ECU-3: [+5V]
     - X-BULK: [1]
 
-  -
-    - X-ECU-1: [SENSOR GND]
-    - C-CLT-1: [SENSOR GND]
-    - X-BULK: [SENSOR GND]
-    - C-ECU-11: [SENSOR GND]
-    - X-SENSOR-GND
-
-  -
-    - X-SHIELD-DRAIN-2
-    - C-ECU-12: [SHIELD DRAIN]
-    - X-BULK: [SHIELD DRAIN]
-    - C-ECU-11: [SHIELD DRAIN]
-    - X-SHIELD-DRAIN-1
+  # -
+  #   - X-ECU-1: [SENSOR GND]
+  #   - C-CLT-1: [SENSOR GND]
+  #   - X-BULK: [SENSOR GND]
+  #   - C-ECU-11: [SENSOR GND]
+  #   - X-SENSOR-GND
