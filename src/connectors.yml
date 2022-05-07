@@ -102,14 +102,6 @@ connectors:
       MOTOR 1+
     ]
 
-  X-CYL-HEAD:
-    style: simple
-    type: eyelet
-    pincount: 1
-    notes: cylinder head
-    show_name: true
-    show_pincount: false
-
   X-5V: &x_crimp
     style: simple
     type: Crimp ferrule
