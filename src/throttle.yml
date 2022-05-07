@@ -53,6 +53,3 @@ connections:
   -
     - C-TB-2: [SENSOR GND, +5V]
     - X-THROTTLE-BODY: [TPS SENSOR GND, TPS 5V]
-  -
-    - X-5V: [1]
-    - C-TB-2: [+5V]

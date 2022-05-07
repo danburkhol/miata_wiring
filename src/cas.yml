@@ -28,6 +28,3 @@ connections:
   -
     - X-BULK: [29, 30]
     - C-CAS-2: [WH, WHBU]
-  -
-    - X-5V
-    - C-CAS-2: [WHOG]
