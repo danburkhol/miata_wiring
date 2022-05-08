@@ -11,11 +11,12 @@ connectors:
     <<: *X-5V-CRIMP
 
 cables:
-  C-5V-1: &c-5V
+  C-5V-1: &c-5v
     wirecount: 1
     colors: [RD]
   C-5V-2:
-    <<: *c-5V
+    <<: *c-5v
+    colors: [BU]
 
 connections:
   -

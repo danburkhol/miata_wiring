@@ -9,9 +9,10 @@ connectors:
 cables:
   CE-SENSOR-GND-1: &C-SENSOR-GND
     wirecount: 1
-    colors: [BN]
+    colors: [YE]
   CI-SENSOR-GND-1:
     <<: *C-SENSOR-GND
+    colors: [BN]
 
 connections:
   -

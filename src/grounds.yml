@@ -20,13 +20,14 @@ connectors:
 cables:
   C-ENGINE-GND-1: &c_gnd
     wirecount: 1
-    colors: [BK]
+    colors: [IV]
   C-ENGINE-GND-11:
     <<: *c_gnd
     wirecount: 4
 
   C-ENGINE-GND-2:
     <<: *c_gnd
+    colors: [BK]
   C-ENGINE-GND-21:
     <<: *c_gnd
     wirecount: 5
