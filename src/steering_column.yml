@@ -1,0 +1,103 @@
+connectors:
+  X-D-03:
+    pincount: 16
+    pins: [
+      B,
+      L/W,
+      L/O,
+      L/Y 1,
+      G/Y,
+      B/Y,
+      L/R,
+      L,
+      R/B,
+      R/W,
+      B 2,
+      G/R,
+      L/Y 2,
+      W/B,
+      R/L,
+      LG,
+    ]
+    pinlabels: [
+      TNS GND,
+      L/W,
+      L/O,
+      L/Y 1,
+      TURN SIGNAL 1,
+      TURN SIGNAL GND,
+      L/R,
+      L,
+      LOW BEAM SW GND,
+      HIGH BEAM SW GND,
+      B,
+      TURN SIGNAL 2,
+      TNS,
+      HIGH BEAM,
+      FLASH TO PASS,
+      LOW BEAM,
+    ]
+    image:
+      src: ../img/d-03.png
+    notes: Located on steering column
+
+  X-SW-GND-CRIMP: &x_steering_col_crimp
+    style: simple
+    pincount: 1
+    type: crimp
+  X-HIGHBEAM-CRIMP:
+    <<: *x_steering_col_crimp
+
+cables:
+  C-STEERING-1:
+    colors: [
+      # RD,
+      RDBU,
+      GNYE,
+      GNRD,
+      # WHBK,
+      BUYE,
+      # LTGN,
+      BK,
+    ]
+    wirelabels: [
+      # LOW BEAM,
+      HIGH BEAM SW,
+      TURN SIGNAL 1,
+      TURN SIGNAL 2,
+      # WHBK,
+      TNS,
+      # LTGN,
+      LT SW GND
+    ]
+  C-STEERING-2:
+    colors: [BK, RDBK, RDWH, BKYE]
+
+  C-STEERING-3:
+    colors: [RDBU, WHBK]
+    notes: highbeam SW
+
+connections:
+  -
+    - X-D-03: [TURN SIGNAL 1,TURN SIGNAL 2]
+    - C-STEERING-1: [TURN SIGNAL 1,TURN SIGNAL 2]
+
+  -
+    - X-D-03: [TNS]
+    - C-STEERING-1: [TNS]
+  -
+    - X-D-03: [R/B, R/W, TNS GND, TURN SIGNAL GND]
+    - C-STEERING-2: [RDBK, RDWH, 1, 4]
+  -
+    - C-STEERING-2: [1-4]
+    - X-SW-GND-CRIMP
+  -
+    - X-SW-GND-CRIMP
+    - C-STEERING-1: [LT SW GND]
+  -
+    - X-D-03: [HIGH BEAM, FLASH TO PASS]
+    - C-STEERING-3: [1-2]
+    - X-HIGHBEAM-CRIMP
+  -
+    - X-HIGHBEAM-CRIMP
+    - C-STEERING-1: [HIGH BEAM SW]

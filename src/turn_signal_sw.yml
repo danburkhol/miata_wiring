@@ -4,12 +4,12 @@ cables:
     wirelabels: [TURN SIGNAL 1, TURN SIGNAL 2, TURN SIGNAL COM]
     colors: [YE,BU,RD]
 
-connections:
-  -
-    - X-D-03: [TURN SIGNAL 1, TURN SIGNAL 2]
-    - C-TURN-SW-1: [TURN SIGNAL 1, TURN SIGNAL 2]
-    - X-PMU: [19, 33]
-  -
-    - X-D-03: [TURN SIGNAL COM]
-    - C-TURN-SW-1: [TURN SIGNAL COM]
-    - X-GND-1
+# connections:
+  # -
+  #   - X-D-03: [TURN SIGNAL 1, TURN SIGNAL 2]
+  #   - C-TURN-SW-1: [TURN SIGNAL 1, TURN SIGNAL 2]
+  #   - X-PMU: [19, 33]
+  # -
+  #   - X-D-03: [TURN SIGNAL COM]
+  #   - C-TURN-SW-1: [TURN SIGNAL COM]
+  #   - X-GND-1
