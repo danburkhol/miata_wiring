@@ -62,3 +62,6 @@ connections:
   -
     - C-INJ-2: [RD]
     - X-INJ-4: [+12V]
+  -
+    - X-BULK: [INJ +12V]
+    - C-INJ-2: [+12V]
