@@ -1,0 +1,74 @@
+connectors:
+  X-16:
+    pincount: 15
+    # pins: [
+    #   L,
+    #   L/B,
+    #   R/Y,
+    #   R/G,
+    #   R/L,
+    #   L/Y,
+    #   B/W,
+    #   G/R,
+    #   G,
+    #   L2,
+    #   R,
+    #   R/B,
+    #   G/Y
+    # ]
+    pinlabels: [
+      A/C REQ,
+      CIG LIGHTER,
+      RETRACTOR UP,
+      RETRACTOR DOWN,
+      RETRACTOR SW,
+      PARKING BRAKE LT,
+      POWER WINDOW VCC,
+      L POWER WINDOW CLOSE,
+      L POWER WINDOW OPEN,
+      # WASHER FL SENSOR,
+      # AIR BAG,
+      # FOG LAMP SW,
+      # FOG LAMP VCC
+    ]
+
+    notes: The green connector between the dash and body
+
+cables:
+  C-X-16-1:
+    colors: [
+      BU,
+      BUBK,
+      RDYE,
+      RDGN,
+      RDBU,
+      BUYE,
+      BKWH,
+      GNRD,
+      GN,
+      # BU,
+      # RD,
+      # RDBK,
+      # GNYE
+    ]
+    wirelabels: [
+      A/C REQ,
+      CIG LIGHTER,
+      RETRACTOR UP,
+      RETRACTOR DOWN,
+      RETRACTOR SW,
+      PARKING BRAKE LT,
+      POWER WINDOW VCC,
+      L POWER WINDOW CLOSE,
+      L POWER WINDOW OPEN,
+      # WASHER FL SENSOR,
+      # AIR BAG,
+      # FOG LAMP SW,
+      # FOG LAMP VCC
+    ]
+
+
+connections:
+  -
+    - X-16: [1-9]
+    - C-X-16-1: [1-9]

@@ -123,13 +123,6 @@ connectors:
     type: Crimp ferrule
     # subtype: 0.5 mm²
     # color: OG
-  X-D-03:
-    pincount: 16
-    pins: [B, L/W, L/O, L/Y 1, G/Y, B/Y, L/R, L, R/B, R/W, B 2, G/R, L/Y 2, W/B, R/L, LG]
-    pinlabels: [B, L/W, L/O, L/Y 1, TURN SIGNAL 1, TURN SIGNAL COM, L/R, L, R/B, R/W, B, TURN SIGNAL 2, TNS, HIGH BEAM, FLASH TO PASS, LOW BEAM]
-    image:
-      src: ../img/d-03.png
-    notes: Located on steering column
   X-10:
     pins: [Y, R/L, R/G, B/G, B/W, B/Y]
     pinlabels: [Y, R/L, VCC TO BACKUP LT, B/G, B/W, BACKUP LT SW]
@@ -157,6 +150,30 @@ connectors:
     image:
       src: ../img/e1-08.png
     notes: Retractable headlight switch in tombstone
+  X-16:
+    pincount: 15
+    # pins: [
+    #   L,
+    #   L/B,
+    #   R/Y,
+    #   R/G,
+    #   R/L,
+    #   L/Y,
+    #   B/W,
+    #   G/R,
+    #   G,
+    #   L2,
+    #   R,
+    #   R/B,
+    #   G/Y
+    # ]
+    pinlabels: [A/C REQ, CIG LIGHTER, RETRACTOR UP, RETRACTOR DOWN, RETRACTOR SW, PARKING BRAKE LT, POWER WINDOW VCC, L POWER WINDOW CLOSE, L POWER WINDOW OPEN,
+      # WASHER FL SENSOR,
+      # AIR BAG,
+      # FOG LAMP SW,
+      # FOG LAMP VCC
+    ]
+    notes: The green connector between the dash and body
   X-EASYGUARD-1:
     pincount: 6
     pinlabels: [ACC, ST, IGN2, VCC1, VCC2, IGN1]
@@ -171,8 +188,8 @@ connectors:
     pinlabels: [ECU VCC, CAN H, CAN L, IGN VCC]
     notes: Connector between the chassis and ECU
   X-ECU-BODY-11:
-    pincount: 8
-    pinlabels: [ECU VCC, CAN H, CAN L, IGN VCC, OIL PRES, CLT GAUGE, START REQ, TACH]
+    pincount: 12
+    pinlabels: [ECU VCC, CAN H, CAN L, IGN VCC, OIL PRES, CLT GAUGE, START REQ, TACH, VSS]
     notes: Connector between the chassis and ECU
   X-ENGINE-GND-CRIMP-1: &gnd_crimp
     style: simple
@@ -288,17 +305,31 @@ connectors:
     <<: *X-SHIELD-DRAIN-CRIMP
   X-SHIELD-DRAIN-CRIMP-2:
     <<: *X-SHIELD-DRAIN-CRIMP
+  X-D-03:
+    pincount: 16
+    pins: [B, L/W, L/O, L/Y 1, G/Y, B/Y, L/R, L, R/B, R/W, B 2, G/R, L/Y 2, W/B, R/L, LG]
+    pinlabels: [TNS GND, L/W, L/O, L/Y 1, TURN SIGNAL 1, TURN SIGNAL GND, L/R, L, LOW BEAM SW GND, HIGH BEAM SW GND, B, TURN SIGNAL 2, TNS, HIGH BEAM, FLASH TO PASS, LOW BEAM]
+    image:
+      src: ../img/d-03.png
+    notes: Located on steering column
+  X-SW-GND-CRIMP: &x_steering_col_crimp
+    style: simple
+    pincount: 1
+    type: crimp
+  X-HIGHBEAM-CRIMP:
+    <<: *x_steering_col_crimp
   X-THROTTLE-BODY:
     pins: [A, B, C, D, E, F]
     pinlabels: [THROTTLE+, THROTTLE-, TPS SENSOR GND, TPS 2 SIG, TPS 5V, TPS 1 SIG]
     image:
       src: ../img/nc_throttle.png
 cables:
-  C-5V-1: &c-5V
+  C-5V-1: &c-5v
     wirecount: 1
     colors: [RD]
   C-5V-2:
-    <<: *c-5V
+    <<: *c-5v
+    colors: [BU]
   C-AC-1:
     wirecount: 2
     wirelabels: [A/C CLUTCH, A/C FAN]
@@ -331,17 +362,20 @@ cables:
   C-BRAKE:
     wirecount: 2
     colors: [PK, BK]
-  C-CAS-1: &C-CAS
+  C-CAS-1:
+    wirecount: 2
+    colors: [WH, WHBU]
+    wirelabels: [CAM1, CAM2]
+    shield: true
+  C-CAS-2:
     wirecount: 4
     colors: [WH, WHBU, WHOG, WHGN]
     wirelabels: [CAM1, CAM2, +5V, SENSOR GND]
     shield: true
-  C-CAS-2:
-    <<: *C-CAS
   C-CLT-1:
-    wirecount: 3
-    wirelabels: [CLT SIGNAL, SENSOR GND, CLT GAUGE]
-    colors: [GN, BN, BKRD]
+    wirecount: 1
+    wirelabels: [CLT SIGNAL]
+    colors: [GN]
   C-CLT-2:
     wirecount: 3
     wirelabels: [CLT SIGNAL, SENSOR GND, CLT GAUGE]
@@ -349,6 +383,19 @@ cables:
   C-CLUTCH:
     wirecount: 2
     colors: [BN, BK]
+  C-X-16-1:
+    colors: [BU, BUBK, RDYE, RDGN, RDBU, BUYE, BKWH, GNRD, GN,
+      # BU,
+      # RD,
+      # RDBK,
+      # GNYE
+    ]
+    wirelabels: [A/C REQ, CIG LIGHTER, RETRACTOR UP, RETRACTOR DOWN, RETRACTOR SW, PARKING BRAKE LT, POWER WINDOW VCC, L POWER WINDOW CLOSE, L POWER WINDOW OPEN,
+      # WASHER FL SENSOR,
+      # AIR BAG,
+      # FOG LAMP SW,
+      # FOG LAMP VCC
+    ]
   C-EASYGUARD-1:
     wirecount: 6
     wirelabels: [ACC, ST, IGN2, VCC1, VCC2, IGN1]
@@ -359,20 +406,24 @@ cables:
     wirelabels: [TURN SIGNAL 1, TURN SIGNAL 2, door, door, door, door, door, door, HORN, GPS, FOOTBRAKE, GPS VCC, GND 1, GND 2, GPS, DOOR SW, FUEL PUMP, TRUNK RELEASE TRUNK OUTPUT, TRUNK POSITIVE]
   C-ECU-1: &c_ecu_pwr
     wirecount: 4
-    colors: [OG, WHBU, WH, BU]
+    colors: [RD, WHBU, WH, BU]
     wirelabels: [ECU VCC, CAN H, CAN L, IGN VCC]
     notes: Power and CAN to ECU
   C-ECU-2:
     <<: *c_ecu_pwr
     notes: Located in passenger foot well with ECU
   C-ECU-8: &c_ecu_vcc
-    colors: [OG, OG, OG]
+    colors: [RD, RD, RD]
     wirelabels: [ECU VCC, INJ VCC, LAMBDA HEATER]
   C-ECU-AUX-1: &c_ecu_aux
-    colors: [YERD, RD, YE, BU]
-    wirelabels: [OIL PRES, CLT GAUGE, START REQ, TACH]
+    colors: [YERD, RD, YE, BU, BN]
+    wirelabels: [OIL PRES, CLT GAUGE, START REQ, TACH, VSS]
   C-ECU-AUX-2:
     <<: *c_ecu_aux
+    colors: [YE, RD, YE, BU, BN]
+  C-ECU-11:
+    colors: [RD]
+    wirelabels: [+5V SENSOR SUPPLY]
   C-FAN-1:
     wirecount: 1
     wirelabels: [COOLING FAN]
@@ -383,12 +434,13 @@ cables:
     colors: [VT]
   C-ENGINE-GND-1: &c_gnd
     wirecount: 1
-    colors: [BK]
+    colors: [IV]
   C-ENGINE-GND-11:
     <<: *c_gnd
     wirecount: 4
   C-ENGINE-GND-2:
     <<: *c_gnd
+    colors: [BK]
   C-ENGINE-GND-21:
     <<: *c_gnd
     wirecount: 5
@@ -408,6 +460,7 @@ cables:
     wirecount: 1
     wirelabels: [GND]
     colors: [BK]
+    # connections:
   C-HEADLAMP-1: &c_headlamp
     wirecount: 2
     colors: [RDWH, GY]
@@ -458,9 +511,10 @@ cables:
     <<: *c_oilpres
   CE-SENSOR-GND-1: &C-SENSOR-GND
     wirecount: 1
-    colors: [BN]
+    colors: [YE]
   CI-SENSOR-GND-1:
     <<: *C-SENSOR-GND
+    colors: [BN]
   C-SHIELD-DRAIN-1: &c-shield-drain
     wirecount: 1
     colors: [BN]
@@ -468,8 +522,28 @@ cables:
     <<: *c-shield-drain
   C-SHIELD-DRAIN-2:
     <<: *c-shield-drain
+  C-STEERING-1:
+    colors: [
+      # RD,
+      RDBU, GNYE, GNRD,
+      # WHBK,
+      BUYE,
+      # LTGN,
+      BK]
+    wirelabels: [
+      # LOW BEAM,
+      HIGH BEAM SW, TURN SIGNAL 1, TURN SIGNAL 2,
+      # WHBK,
+      TNS,
+      # LTGN,
+      LT SW GND]
+  C-STEERING-2:
+    colors: [BK, RDBK, RDWH, BKYE]
+  C-STEERING-3:
+    colors: [RDBU, WHBK]
+    notes: highbeam SW
   C-TB-1:
-    colors: [PK, YE, WHBU, WHOG]
+    colors: [PK, YE, WHBU, WH]
     wirelabels: [THROTTLE+, THROTTLE-, TPS1, TPS2]
     shield: true
   C-TB-2:
@@ -482,9 +556,12 @@ cables:
     wirelabels: [TNS]
     colors: [GN]
   C-TRANS-SW-1:
-    wirecount: 2
-    wirelabels: [REVERSE SW, GND]
-    colors: [YE, BK]
+    # wirecount: 2
+    colors: [BK, BKYE BKWH, RDGN]
+    # wirelabels: [
+    #   REVERSE SW,
+    #   GND
+    # ]
   C-TURN-1:
     wirecount: 2
     wirelabels: [LEFT TURN SIGNAL, RIGHT TURN SIGNAL]
@@ -493,6 +570,7 @@ cables:
     wirecount: 3
     wirelabels: [TURN SIGNAL 1, TURN SIGNAL 2, TURN SIGNAL COM]
     colors: [YE, BU, RD]
+    # connections:
 connections:
   - - X-BULK: [+5V SENSOR SUPPLY]
     - C-5V-2: [1]
@@ -543,7 +621,9 @@ connections:
     - X-GND-1
   - - C-CAS-2: [WH, WHBU, WHOG, WHGN]
     - X-CAS: [Y/L, W, W/R, B/LG]
-  - - X-BULK: [29, 30]
+  - - X-ECU-1: [H4, H2]
+    - C-CAS-1: [CAM1, CAM2]
+    - X-BULK: [29, 30]
     - C-CAS-2: [WH, WHBU]
   - - C-CLT-2: [CLT SIGNAL, SENSOR GND]
     - X-CLT: [CLT SIGNAL, SENSOR GND]
@@ -560,6 +640,8 @@ connections:
   - - X-CLUTCH: [GND]
     - C-CLUTCH: [BK]
     - X-GND-1
+  - - X-16: [1-9]
+    - C-X-16-1: [1-9]
   - - X-EASYGUARD-1: [ST]
     - C-EASYGUARD-1: [YE]
     - X-ECU-BODY-11: [START REQ]
@@ -586,9 +668,9 @@ connections:
   - - X-PMU: [OUTPUT O8, CAN1H, CAN1L, OUTPUT O11]
     - C-ECU-1: [ECU VCC, CAN H, CAN L, IGN VCC]
     - X-ECU-BODY-11: [ECU VCC, CAN H, CAN L, IGN VCC]
-  - - C-ECU-AUX-1: [OIL PRES, CLT GAUGE, START REQ, TACH]
-    - X-ECU-BODY-11: [OIL PRES, CLT GAUGE, START REQ, TACH]
-    - C-ECU-AUX-2: [OIL PRES, CLT GAUGE, START REQ, TACH]
+  - - C-ECU-AUX-1: [OIL PRES, CLT GAUGE, START REQ, TACH, VSS]
+    - X-ECU-BODY-11: [OIL PRES, CLT GAUGE, START REQ, TACH, VSS]
+    - C-ECU-AUX-2: [OIL PRES, CLT GAUGE, START REQ, TACH, VSS]
   - - X-ECU-BODY-11: [CAN H, CAN L]
     - C-ECU-2: [CAN H, CAN L]
     - X-ECU-1: [E1, E2]
@@ -602,6 +684,9 @@ connections:
   - - X-ECU-BODY-11: [IGN VCC]
     - C-ECU-2: [IGN VCC]
     - X-IGN-VCC
+  - - X-ECU-1: [G1]
+    - C-ECU-11: [1]
+    - X-BULK: [1]
   - - X-BODY-D2: [COOLING FAN]
     - C-FAN-1: [COOLING FAN]
     - X-PMU: [OUTPUT O16]
@@ -640,14 +725,6 @@ connections:
     - X-17: [HAZARD SW]
     - C-HAZARD-SW-2: [HAZARD SW]
     - X-PMU: [34]
-  - - X-D-03: [TNS, HIGH BEAM, FLASH TO PASS, LOW BEAM]
-    - C-HEADLAMP-SW-1: [TNS, HIGH BEAM, HIGH BEAM, LOW BEAM]
-  - - C-HEADLAMP-SW-1: [TNS, HIGH BEAM, LOW BEAM]
-    - X-PMU: [31, 18, 32]
-  - - X-D-03: [R/W, R/B, B 2]
-    - C-HEADLAMP-SW-2: [1, 1, 1]
-  - - C-HEADLAMP-SW-2: [1]
-    - X-GND-1
   - - X-PMU: [OUTPUT O13, OUTPUT O1]
     - C-HEADLAMP-1: [HIGH BEAM, LOW BEAM]
     - X-HEADLAMP-D1: [HIGH BEAM, LOW BEAM]
@@ -712,8 +789,12 @@ connections:
     - X-INJ-3: [+12V]
   - - C-INJ-2: [RD]
     - X-INJ-4: [+12V]
+  - - X-BULK: [INJ +12V]
+    - C-INJ-2: [+12V]
   - - C-ECU-AUX-2: [TACH]
     - X-ECU-1: [A4]
+  - - C-ECU-AUX-2: [VSS]
+    - X-ECU-2: [F3]
   - - C-ECU-AUX-2: [CLT GAUGE, OIL PRES]
     - X-BULK: [CLT GAUGE, OIL PRES SENDER]
   - - X-ECU-2: [E2, E1]
@@ -777,6 +858,21 @@ connections:
   - - X-SHIELD-DRAIN-CRIMP-1
     - C-LSU-1: s
     - X-SHIELD-DRAIN-CRIMP-11
+  - - X-D-03: [TURN SIGNAL 1, TURN SIGNAL 2]
+    - C-STEERING-1: [TURN SIGNAL 1, TURN SIGNAL 2]
+  - - X-D-03: [TNS]
+    - C-STEERING-1: [TNS]
+  - - X-D-03: [R/B, R/W, TNS GND, TURN SIGNAL GND]
+    - C-STEERING-2: [RDBK, RDWH, 1, 4]
+  - - C-STEERING-2: [1-4]
+    - X-SW-GND-CRIMP
+  - - X-SW-GND-CRIMP
+    - C-STEERING-1: [LT SW GND]
+  - - X-D-03: [HIGH BEAM, FLASH TO PASS]
+    - C-STEERING-3: [1-2]
+    - X-HIGHBEAM-CRIMP
+  - - X-HIGHBEAM-CRIMP
+    - C-STEERING-1: [HIGH BEAM SW]
   - - X-ECU-2: [H4, H2]
     - C-TB-1: [THROTTLE+, THROTTLE-]
     - X-BULK: [THROTTLE+, THROTTLE-]
@@ -797,12 +893,6 @@ connections:
     - C-TNS: [TNS]
   - - C-TNS: [TNS]
     - X-PMU: [OUTPUT O14]
-  - - X-10: [BACKUP LT SW]
-    - C-TRANS-SW-1: [REVERSE SW]
-    - X-PMU: [20]
-  - - X-10: [R/G]
-    - C-TRANS-SW-1: [GND]
-    - X-GND-1
   # L Turn Signals
   - - X-BODY-D1: [4]
     - C-TURN-1: [LEFT TURN SIGNAL]
@@ -817,12 +907,6 @@ connections:
     - C-TURN-1: [RIGHT TURN SIGNAL]
   - - C-TURN-1: [RIGHT TURN SIGNAL]
     - X-PMU: [OUTPUT O6]
-  - - X-D-03: [TURN SIGNAL 1, TURN SIGNAL 2]
-    - C-TURN-SW-1: [TURN SIGNAL 1, TURN SIGNAL 2]
-    - X-PMU: [19, 33]
-  - - X-D-03: [TURN SIGNAL COM]
-    - C-TURN-SW-1: [TURN SIGNAL COM]
-    - X-GND-1
 options:
   # https://github.com/formatc1702/WireViz/blob/master/docs/syntax.md
   bgcolor_node: WH # Default = 'WH'
@@ -830,8 +914,15 @@ options:
   bgcolor_cable: WH # Default = bgcolor_node
   bgcolor_bundle: WH # Default = bgcolor_cable
 
-# # accel pedal
 # -
-#   - X-APP: [A,B,C,D,E,F]
-#   - C-ECU-APP: [1-6]
-#   # - X-MAXXECU-RACE-1: [H4, H2, H1, E4, G1, G3]
+#   - X-D-03: [TNS, HIGH BEAM, FLASH TO PASS, LOW BEAM]
+#   - C-HEADLAMP-SW-1: [TNS, HIGH BEAM, HIGH BEAM, LOW BEAM]
+# -
+#   - C-HEADLAMP-SW-1: [TNS, HIGH BEAM, LOW BEAM]
+#   - X-PMU: [31, 18, 32]
+# -
+#   - X-D-03: [R/W, R/B, B 2]
+#   - C-HEADLAMP-SW-2: [1,1,1]
+# -
+#   - C-HEADLAMP-SW-2: [1]
+#   - X-GND-1
