@@ -3,5 +3,7 @@ generated/*
 src/*
 !src/*.yml
 !src/*.yaml
+!src/common/*.yml
+!src/common/*.yaml
 !generated/merged.html
 !generated/merged.png

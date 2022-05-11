@@ -3,61 +3,36 @@
 # https://github.com/formatc1702/WireViz
 # https://mikefarah.gitbook.io/yq/operators/multiply-merge
 
-rm generated/*
 
-# injectors
-# yq '. *= load("src/connectors.yml")'  src/injectors.yml > generated/injectors.yml
-# wireviz generated/injectors.yml
+setup() {
+    mkdir generated &> /dev/null
+    rm generated/*
+    mkdir tmp &> /dev/null
+}
 
-# # ignition
-# yq '. *= load("src/connectors.yml")'  src/ignition.yml > generated/ignition.yml
-# wireviz generated/ignition.yml
+cleanup() {
+    rm generated/*.gv &> /dev/null
+    rm generated/*.svg &> /dev/null
+    rm generated/*.bom.tsv &> /dev/null
+    rm -r tmp/ &> /dev/null
+}
 
-# # throttle
-# yq '. *= load("src/connectors.yml")'  src/throttle.yml > generated/throttle.yml
-# wireviz generated/throttle.yml
+export_master () {
+    for src_file in src/*.yml; do
+        # make a copy of the source file to inject common items into
+        tmp_file_path=tmp/$(basename $src_file)
 
-# # knock
-# yq '. *= load("src/connectors.yml")'  src/knock.yml > generated/knock.yml
-# wireviz generated/knock.yml
+        cp $src_file $tmp_file_path
 
-# # lsu
-# yq '. *= load("src/connectors.yml")'  src/lsu.yml > generated/lsu.yml
-# wireviz generated/lsu.yml
+        # merges the content of src/common/connector_templates.yml into $tmp_file_path
+        sed -i -e '/connectors:/{r src/common/connector_templates.yml' -e 'd}' $tmp_file_path
+        # sed -i -e '/cables:/{r src/common/cable_templates.yml' -e 'd}' $tmp_file_path
+    done
 
-# # ecu
-# yq '. *= load("src/connectors.yml")'  src/ecu.yml > generated/ecu.yml
-# wireviz generated/ecu.yml
+    yq eval-all '. as $item ireduce ({}; . *+ $item )' tmp/*.yml > generated/master.yml
+    wireviz generated/master.yml
+}
 
-# master
-yq eval-all '. as $item ireduce ({}; . *+ $item )' src/*.yml > generated/master.yml
-wireviz generated/master.yml
-
-yq eval-all '. as $item ireduce ({}; . *+ $item )' \
-src/diagram_options.yml \
-src/bulkhead.yml \
-src/connectors.yml \
-src/pmu.yml \
-src/ecu.yml \
-src/cas.yml \
-src/clt.yml \
-src/ignition.yml \
-src/injectors.yml \
-src/knock.yml \
-src/lsu.yml \
-src/sensors.yml \
-src/throttle.yml \
-src/oil_pres_sender.yml \
-src/shield_drains.yml \
-src/sensor_gnd.yml \
-src/grounds.yml \
-src/5v_supply.yml \
-src/instruments.yml \
-> generated/efi.yml
-
-wireviz generated/efi.yml
-
-# cleanup
-rm generated/*.gv &> /dev/null
-rm generated/*.svg &> /dev/null
-rm generated/*.bom.tsv &> /dev/null
+setup
+export_master
+cleanup
