@@ -8,7 +8,8 @@ connectors:
       HIGH BEAM IND,
       LT SW GND,
       TURN SIGNAL 1 SW,
-      TURN SIGNAL 2 SW
+      TURN SIGNAL 2 SW,
+      HORN SW,
     ]
     notes: Replacement for OEM D-03
   X-LT-SW-GND-CRIMP:
@@ -50,7 +51,7 @@ cables:
     colors: [BK]
     wirelabels: [LT SW GND]
   C-STEERING-1:
-    wirecount: 7
+    wirecount: 8
     # colors: [
     #     LOW BEAM SW,
     #     TNS SW,
@@ -66,7 +67,11 @@ cables:
         LT SW GND,
         TURN SIGNAL 1 SW,
         TURN SIGNAL 2 SW,
+        HORN SW,
     ]
+  C-HORN-OEM:
+    colors: [GNRD]
+    wirelabels: [HORN SW]
 
 
 connections:
@@ -113,6 +118,13 @@ connections:
         TURN SIGNAL 1 SW,
         TURN SIGNAL 2 SW,
       ]
+  # Horn
+  -
+    - C-HORN-OEM: [1]
+    - X-STEERING-1: [HORN SW]
+    - C-STEERING-1: [HORN SW]
+    - X-PMU: [INPUT A9]
+
   # To PMU
   -
     - C-STEERING-1: [
