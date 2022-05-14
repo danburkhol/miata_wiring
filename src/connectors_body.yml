@@ -53,16 +53,6 @@ connectors:
     ]
     notes: OEM Connector X-14 to custom connector
 
-  X-CRIMP: # this is a ferrule that will be auto-generated on demand
-    style: simple
-    autogenerate: true
-    type: Crimp ferrule
-    # subtype: 0.5 mm²
-    # color: OG
-
-
-
-
   X-10:
     pins: [
       Y, R/L, R/G,

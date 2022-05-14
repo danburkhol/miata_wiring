@@ -102,21 +102,17 @@ connectors:
       MOTOR 1+
     ]
 
-  X-5V: &x_crimp
-    style: simple
-    type: Crimp ferrule
-    pincount: 1
-    show_pincount: false
-    bgcolor: IV
+  X-5V:
+    <<: *x-crimp
 
   X-ECU-VCC:
-    <<: *x_crimp
+    <<: *x-crimp
     notes: crimp to distribute power to ecu, lambda, inj
   X-IGN-VCC:
-    <<: *x_crimp
+    <<: *x-crimp
     notes: crimp to distribute power between coils and noise filter
   X-ECU-GND:
-    <<: *x_crimp
+    <<: *x-crimp
 
   X-BATT-POS:
     type: eyelet

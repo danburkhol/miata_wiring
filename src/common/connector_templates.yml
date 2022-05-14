@@ -14,4 +14,11 @@ connectors:
     image:
       src: ../img/dt06-04s.png
       width: 128
+  X-CRIMP: &x-crimp
+    style: simple
+    type: Crimp ferrule
+    pincount: 1
+    show_pincount: false
+    bgcolor: IV
+    autogenerate: true
   # end common connectors
