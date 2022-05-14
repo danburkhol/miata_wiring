@@ -1,103 +1,98 @@
 connectors:
-  X-D-03:
-    pincount: 16
-    pins: [
-      B,
-      L/W,
-      L/O,
-      L/Y 1,
-      G/Y,
-      B/Y,
-      L/R,
-      L,
-      R/B,
-      R/W,
-      B 2,
-      G/R,
-      L/Y 2,
-      W/B,
-      R/L,
-      LG,
-    ]
+  X-STEERING-1:
+    <<: *x-dt06-12s
     pinlabels: [
-      TNS GND,
-      L/W,
-      L/O,
-      L/Y 1,
-      TURN SIGNAL 1,
-      TURN SIGNAL GND,
-      L/R,
-      L,
-      LOW BEAM SW GND,
-      HIGH BEAM SW GND,
-      B,
-      TURN SIGNAL 2,
-      TNS,
-      HIGH BEAM,
-      FLASH TO PASS,
-      LOW BEAM,
+      LOW BEAM SW,
+      TNS SW,
+      HIGH BEAM SW,
+      HIGH BEAM IND,
+      TNS LOW BEAM SW GND
     ]
-    image:
-      src: ../img/d-03.png
-    notes: Located on steering column
-
+    notes: Replacement for OEM D-03
   X-SW-GND-CRIMP: &x_steering_col_crimp
     style: simple
     pincount: 1
     type: crimp
   X-HIGHBEAM-CRIMP:
-    <<: *x_steering_col_crimp
+    <<: *x-crimp
+    autogenerate: false
 
 cables:
-  C-STEERING-1:
+  C-STEERING-OEM:
     colors: [
-      # RD,
-      RDBU,
-      GNYE,
-      GNRD,
-      # WHBK,
       BUYE,
-      # LTGN,
+      GN,
+      RDBU,
+      WHBK,
+      RDWH,
       BK,
     ]
     wirelabels: [
-      # LOW BEAM,
+      LOW BEAM SW,
+      TNS SW,
+      PASS SW,
       HIGH BEAM SW,
-      TURN SIGNAL 1,
-      TURN SIGNAL 2,
-      # WHBK,
-      TNS,
-      # LTGN,
-      LT SW GND
+      HIGH BEAM IND,
+      TNS LOW BEAM SW GND
     ]
-  C-STEERING-2:
-    colors: [BK, RDBK, RDWH, BKYE]
+    notes: OEM wiring into connector OEM Connector D-03 on the steering column
+  C-HIGH-BEAM-SW:
+    colors: [RDBU]
+    wirelabels: [HIGH BEAM SW]
+  C-STEERING-1:
+    wirecount: 5
+    # colors: [
+    #     LOW BEAM SW,
+    #     TNS SW,
+    #     HIGH BEAM SW,
+    #     HIGH BEAM IND,
+    #     TNS LOW BEAM SW GND
+    # ]
+    wirelabels: [
+        LOW BEAM SW,
+        TNS SW,
+        HIGH BEAM SW,
+        HIGH BEAM IND,
+        TNS LOW BEAM SW GND
+    ]
 
-  C-STEERING-3:
-    colors: [RDBU, WHBK]
-    notes: highbeam SW
 
 connections:
   -
-    - X-D-03: [TURN SIGNAL 1,TURN SIGNAL 2]
-    - C-STEERING-1: [TURN SIGNAL 1,TURN SIGNAL 2]
-
-  -
-    - X-D-03: [TNS]
-    - C-STEERING-1: [TNS]
-  -
-    - X-D-03: [R/B, R/W, TNS GND, TURN SIGNAL GND]
-    - C-STEERING-2: [RDBK, RDWH, 1, 4]
-  -
-    - C-STEERING-2: [1-4]
-    - X-SW-GND-CRIMP
-  -
-    - X-SW-GND-CRIMP
-    - C-STEERING-1: [LT SW GND]
-  -
-    - X-D-03: [HIGH BEAM, FLASH TO PASS]
-    - C-STEERING-3: [1-2]
+    - C-STEERING-OEM: [HIGH BEAM SW, PASS SW]
     - X-HIGHBEAM-CRIMP
   -
     - X-HIGHBEAM-CRIMP
+    - C-HIGH-BEAM-SW: [HIGH BEAM SW]
+    - X-STEERING-1: [HIGH BEAM SW]
     - C-STEERING-1: [HIGH BEAM SW]
+  -
+    - C-STEERING-OEM: [
+        LOW BEAM SW,
+        TNS SW,
+        HIGH BEAM IND,
+        TNS LOW BEAM SW GND
+      ]
+    - X-STEERING-1: [
+        LOW BEAM SW,
+        TNS SW,
+        HIGH BEAM IND,
+        TNS LOW BEAM SW GND
+      ]
+    - C-STEERING-1: [
+        LOW BEAM SW,
+        TNS SW,
+        HIGH BEAM IND,
+        TNS LOW BEAM SW GND
+      ]
+  -
+    - C-STEERING-1: [
+        LOW BEAM SW,
+        TNS SW,
+        HIGH BEAM SW,
+      ]
+    - X-PMU: [
+        INPUT A4,
+        INPUT A6,
+        INPUT A8
+      ]
