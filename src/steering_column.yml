@@ -6,13 +6,14 @@ connectors:
       TNS SW,
       HIGH BEAM SW,
       HIGH BEAM IND,
-      TNS LOW BEAM SW GND
+      LT SW GND,
+      TURN SIGNAL 1 SW,
+      TURN SIGNAL 2 SW
     ]
     notes: Replacement for OEM D-03
-  X-SW-GND-CRIMP: &x_steering_col_crimp
-    style: simple
-    pincount: 1
-    type: crimp
+  X-LT-SW-GND-CRIMP:
+    <<: *x-crimp
+    autogenerate: false
   X-HIGHBEAM-CRIMP:
     <<: *x-crimp
     autogenerate: false
@@ -26,6 +27,9 @@ cables:
       WHBK,
       RDWH,
       BK,
+      GNRD,
+      GNYE,
+      BKYE,
     ]
     wirelabels: [
       LOW BEAM SW,
@@ -33,31 +37,40 @@ cables:
       PASS SW,
       HIGH BEAM SW,
       HIGH BEAM IND,
-      TNS LOW BEAM SW GND
+      LT SW GND,
+      TURN SIGNAL 1 SW,
+      TURN SIGNAL 2 SW,
+      TURN SIGNAL COMMON,
     ]
     notes: OEM wiring into connector OEM Connector D-03 on the steering column
   C-HIGH-BEAM-SW:
     colors: [RDBU]
     wirelabels: [HIGH BEAM SW]
+  C-LT-SW-GND:
+    colors: [BK]
+    wirelabels: [LT SW GND]
   C-STEERING-1:
-    wirecount: 5
+    wirecount: 7
     # colors: [
     #     LOW BEAM SW,
     #     TNS SW,
     #     HIGH BEAM SW,
     #     HIGH BEAM IND,
-    #     TNS LOW BEAM SW GND
+    #     LT SW GND
     # ]
     wirelabels: [
         LOW BEAM SW,
         TNS SW,
         HIGH BEAM SW,
         HIGH BEAM IND,
-        TNS LOW BEAM SW GND
+        LT SW GND,
+        TURN SIGNAL 1 SW,
+        TURN SIGNAL 2 SW,
     ]
 
 
 connections:
+  # High beam join
   -
     - C-STEERING-OEM: [HIGH BEAM SW, PASS SW]
     - X-HIGHBEAM-CRIMP
@@ -66,33 +79,53 @@ connections:
     - C-HIGH-BEAM-SW: [HIGH BEAM SW]
     - X-STEERING-1: [HIGH BEAM SW]
     - C-STEERING-1: [HIGH BEAM SW]
+
+  # Switch grounds
+  -
+    - C-STEERING-OEM: [LT SW GND, TURN SIGNAL COMMON]
+    - X-LT-SW-GND-CRIMP
+  -
+    - X-LT-SW-GND-CRIMP
+    - C-LT-SW-GND: [LT SW GND]
+    - X-STEERING-1: [LT SW GND]
+    - C-STEERING-1: [LT SW GND]
+
+  # connector to pmu side
   -
     - C-STEERING-OEM: [
         LOW BEAM SW,
         TNS SW,
         HIGH BEAM IND,
-        TNS LOW BEAM SW GND
+        TURN SIGNAL 1 SW,
+        TURN SIGNAL 2 SW,
       ]
     - X-STEERING-1: [
         LOW BEAM SW,
         TNS SW,
         HIGH BEAM IND,
-        TNS LOW BEAM SW GND
+        TURN SIGNAL 1 SW,
+        TURN SIGNAL 2 SW,
       ]
     - C-STEERING-1: [
         LOW BEAM SW,
         TNS SW,
         HIGH BEAM IND,
-        TNS LOW BEAM SW GND
+        TURN SIGNAL 1 SW,
+        TURN SIGNAL 2 SW,
       ]
+  # To PMU
   -
     - C-STEERING-1: [
         LOW BEAM SW,
         TNS SW,
         HIGH BEAM SW,
+        TURN SIGNAL 1 SW,
+        TURN SIGNAL 2 SW,
       ]
     - X-PMU: [
         INPUT A4,
         INPUT A6,
-        INPUT A8
+        INPUT A8,
+        INPUT A11,
+        INPUT A16
       ]
