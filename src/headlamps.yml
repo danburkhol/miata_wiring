@@ -1,13 +1,4 @@
 connectors:
-  X-HEADLAMP-D1: &template_headlamp
-    pincount: 2
-    pinlabels: [HIGH BEAM, LOW BEAM]
-    notes: Driver side body sub-harness
-
-  X-HEADLAMP-P1:
-    <<: *template_headlamp
-    notes: Passenger side body sub-harness
-
   X-E1-01: &headlamp_conn
     pincount: 3
     pinlabels: [HIGH BEAM, GND, LOW BEAM]
@@ -32,12 +23,12 @@ connections:
   -
     - X-PMU: [OUTPUT O13, OUTPUT O1]
     - C-HEADLAMP-1: [HIGH BEAM, LOW BEAM]
-    - X-HEADLAMP-D1: [HIGH BEAM, LOW BEAM]
+    - X-BODY-1: [HIGH BEAM, LOW BEAM]
     - C-HEADLAMP-2: [1-2]
     - X-E1-01: [HIGH BEAM, LOW BEAM]
   -
     - X-PMU: [OUTPUT O13, OUTPUT O1]
     - C-HEADLAMP-1: [HIGH BEAM, LOW BEAM]
-    - X-HEADLAMP-P1: [HIGH BEAM, LOW BEAM]
+    - X-BODY-3: [HIGH BEAM, LOW BEAM]
     - C-HEADLAMP-3: [1-2]
     - X-E1-02: [HIGH BEAM, LOW BEAM]

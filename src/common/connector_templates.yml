@@ -4,16 +4,20 @@ connectors:
     image:
       src: ../img/dt06-12s.png
       width: 128
+    autogenerate: false
   X-DT06-8S: &x-dt06-8s
     pincount: 8
     image:
       src: ../img/dt06-8s.png
       width: 128
+    autogenerate: false
   X-DT06-04S: &x-dt06-04s
     pincount: 4
     image:
       src: ../img/dt06-04s.png
       width: 128
+    autogenerate: false
+
   X-CRIMP: &x-crimp
     style: simple
     type: Crimp ferrule

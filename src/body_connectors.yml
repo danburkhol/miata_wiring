@@ -1,0 +1,67 @@
+connectors:
+  X-BODY-1: &x-body
+    <<: *x-dt06-04s
+    pincolors: [
+      RDWH,
+      RDBK,
+      GY,
+      BU
+    ]
+    pinlabels: [
+      HIGH BEAM,
+      LOW BEAM,
+      RETRACTOR VCC,
+      COOLING FAN,
+    ]
+    notes: Driver side, just inside the firewall post-grommet
+
+
+
+
+  X-BODY-3:
+    <<: *x-body
+    pincolors: [
+      RDWH,
+      RDBK,
+      GY,
+      BU
+    ]
+    pinlabels: [
+      HIGH BEAM,
+      LOW BEAM,
+      RETRACTOR VCC,
+      A/C FAN,
+    ]
+    notes: Pass side, just inside the firewall post-grommet
+
+  X-BODY-4:
+    <<: *x-dt06-12s
+    # colors: [
+    #   BU, #AIT SIGNAL,
+    #   BK, #AIT SENSOR GND,
+    #   YE, #A/C PRES SW,
+    #   RDYE, #RDYE,
+    #   WHRD, #WHRD,
+    #   GNWH, #GNWH,
+    #   RDBK, #RDBK,
+    #   GNBU, #GNBU,
+    #   BU, #WIPER 1,
+    #   BUWH, #WIPER 2,
+    #   BUYE, #WIPER 3,
+    #   BURD, #WIPER 4,
+    # ]
+    pinlabels: [
+      AIT SIGNAL,
+      AIT SENSOR GND,
+      A/C PRES SW,
+      RDYE,
+      WHRD,
+      GNWH,
+      RDBK,
+      GNBU,
+      WIPER 1,
+      WIPER 2,
+      WIPER 3,
+      WIPER 4,
+    ]
+    notes: Pass side, just inside the firewall post-grommet
