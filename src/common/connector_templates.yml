@@ -24,5 +24,5 @@ connectors:
     pincount: 1
     show_pincount: false
     bgcolor: IV
-    autogenerate: true
+    autogenerate: false
   # end common connectors

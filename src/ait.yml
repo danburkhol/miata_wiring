@@ -23,10 +23,6 @@ connections:
     - X-AIT: [A, B]
 
   -
-    - X-SENSOR-GND-CRIMP
-    - C-AIT-2: [BK]
-    - X-BODY-4: [AIT SENSOR GND]
-  -
     - X-ECU-1: [F2]
     - C-AIT-2: [BU]
     - X-BODY-4: [AIT SIGNAL]
