@@ -14,6 +14,19 @@ connectors:
       HORN SW
     ]
     notes: Replacement for OEM D-03
+  X-STEERING-2:
+    <<: *x-dt06-12s
+    pinlabels: [
+       CRUISE 1, # YE,
+       CRUISE 2, # BU,
+       CRUISE 3, # BK,
+       WASHER 1, # BK,
+       WASHER 2, # BUBK,
+       WASHER 3, # BUWH,
+       WASHER 4, # BUOG,
+       WASHER 5, # BU,
+       WASHER 6, # GNDR,
+    ]
   X-LT-SW-GND-CRIMP:
     <<: *x-crimp
     autogenerate: false
@@ -30,6 +43,16 @@ cables:
       GNYE,
       GNBK,
       RDGN,
+
+      YE,
+      BU,
+      BK,
+      BK,
+      BUBK,
+      BUWH,
+      BUOG,
+      BU,
+      GNDR,
     ]
     wirelabels: [
       TNS SW,
@@ -41,6 +64,16 @@ cables:
       TURN SIGNAL R SW,
       TURN SIGNAL COMMON,
       HEADLIGHT SW UNKNOWN 1,
+
+      CRUISE 1,
+      CRUISE 2,
+      CRUISE 3,
+      WASHER 1,
+      WASHER 2,
+      WASHER 3,
+      WASHER 4,
+      WASHER 5,
+      WASHER 6,
     ]
     notes: OEM wiring into connector OEM Connector D-03 on the steering column
 
@@ -96,6 +129,29 @@ connections:
         TURN SIGNAL R SW,
         TURN SIGNAL COMMON,
         HEADLIGHT SW UNKNOWN 1,
+      ]
+  -
+    - C-STEERING-OEM: [
+        CRUISE 1,
+        CRUISE 2,
+        CRUISE 3,
+        WASHER 1,
+        WASHER 2,
+        WASHER 3,
+        WASHER 4,
+        WASHER 5,
+        WASHER 6,
+      ]
+    - X-STEERING-2: [
+        CRUISE 1,
+        CRUISE 2,
+        CRUISE 3,
+        WASHER 1,
+        WASHER 2,
+        WASHER 3,
+        WASHER 4,
+        WASHER 5,
+        WASHER 6,
       ]
 
   # Grounding of switches
