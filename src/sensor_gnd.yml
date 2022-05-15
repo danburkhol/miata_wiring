@@ -12,10 +12,10 @@ cables:
     colors: [YE]
   CI-SENSOR-GND-1:
     <<: *C-SENSOR-GND
-    colors: [BN]
+    colors: [BK]
   CI-SENSOR-GND-2:
     <<: *C-SENSOR-GND
-    colors: [BN]
+    colors: [BK]
 
 connections:
   -
