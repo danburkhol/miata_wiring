@@ -1,0 +1,58 @@
+connectors:
+  E1-04: &x-retractor
+    pincount: 6
+    pins: [
+      G/L, R/Y, B,
+      BR, W/R, 6
+    ]
+    pinlabels: [
+      ACTIVE, UP, GND,
+      VCC, DOWN,
+    ]
+    image:
+      src: ../img/e1-04.png
+    notes: Driver Headlight Actuator
+  E1-05:
+    <<: *x-retractor
+    notes: Pass Headlight Actuator
+
+cables:
+  C-RETRACTOR-1: &c-retractor
+    colors: [
+      GNBU, YE, BK,
+      BN, SHRD
+    ]
+    wirelabels: [
+      ACTIVE, UP, GND,
+      VCC, DOWN,
+    ]
+    notes: Driver side
+  C-RETRACTOR-2:
+    <<: *c-retractor
+    colors: [
+      GNBU, RDYE, BK,
+      GNWH, GY,
+    ]
+    notes: Pass side
+
+connections:
+
+  # Driver retractor
+  -
+    - X-BODY-1: [RETRACTOR VCC]
+    - C-RETRACTOR-1: [VCC]
+    - E1-04: [VCC]
+  -
+    - X-BODY-2: [RETRACTOR UP, RETRACTOR DOWN, RETRACTOR ACTIVE]
+    - C-RETRACTOR-1: [UP, DOWN, ACTIVE]
+    - E1-04: [UP, DOWN, ACTIVE]
+
+  # Pass retractor
+  -
+    - X-BODY-3: [RETRACTOR VCC]
+    - C-RETRACTOR-2: [VCC]
+    - E1-05: [VCC]
+  -
+    - X-BODY-4: [RETRACTOR UP, RETRACTOR DOWN, RETRACTOR ACTIVE]
+    - C-RETRACTOR-2: [UP, DOWN, ACTIVE]
+    - E1-05: [UP, DOWN, ACTIVE]
