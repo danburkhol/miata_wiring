@@ -4,8 +4,8 @@ connectors:
     pincolors: [
       RDWH,
       RDBK,
-      GY,
-      BU
+      BN,
+      YE
     ]
     pinlabels: [
       HIGH BEAM,
@@ -15,8 +15,23 @@ connectors:
     ]
     notes: Driver side, just inside the firewall post-grommet
 
-
-
+  X-BODY-2:
+    <<: *x-dt06-12s
+    pinlabels: [
+      A/C CLUTCH,
+      HORN,
+      WASHER,
+      RETRACTOR UP,
+      RETRACTOR DOWN,
+      L TURN SIGNAL,
+      TNS,
+      RETRACTOR ACTIVE,
+      BRAKE FL,
+      # UNUSED,
+      # UNUSED,
+      # UNUSED,
+    ]
+    notes: Driver side, just inside the firewall post-grommet
 
   X-BODY-3:
     <<: *x-body
