@@ -20,7 +20,7 @@ cables:
   C-RETRACTOR-1: &c-retractor
     colors: [
       GNBU, YE, BK,
-      BN, SHRD
+      BN, WHRD
     ]
     wirelabels: [
       ACTIVE, UP, GND,
