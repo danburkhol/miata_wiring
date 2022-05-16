@@ -1,5 +1,31 @@
 # Common connectors shared across multipl circuits
 connectors:
+  X-DT06-12S: &x-dt06-12s
+    pincount: 12
+    image:
+      src: ../img/dt06-12s.png
+      width: 128
+    autogenerate: false
+  X-DT06-8S: &x-dt06-8s
+    pincount: 8
+    image:
+      src: ../img/dt06-8s.png
+      width: 128
+    autogenerate: false
+  X-DT06-04S: &x-dt06-04s
+    pincount: 4
+    image:
+      src: ../img/dt06-04s.png
+      width: 128
+    autogenerate: false
+  X-CRIMP: &x-crimp
+    style: simple
+    type: Crimp ferrule
+    pincount: 1
+    show_pincount: false
+    bgcolor: IV
+    autogenerate: false
+  # end common connectors
   X-5V-CRIMP-1: &X-5V-CRIMP
     style: simple
     type: crimp
@@ -10,12 +36,14 @@ connectors:
     <<: *X-5V-CRIMP
   X-5V-CRIMP-2:
     <<: *X-5V-CRIMP
+  # end common connectors
   X-AIT:
     pins: [A, B]
     pinlabels: [SIGNAL, SIGNAL GND]
     image:
       src: ../img/gm-ait.png
     notes: GM AIT sensor
+  # end common connectors
   X-BATT:
     pincount: 2
     pinlabels: [POS, NEG]
@@ -31,17 +59,50 @@ connectors:
     show_pincount: false
     autogenerate: true
     notes: extension of oem alt charge connector
+  # end common connectors
+  X-BODY-1: &x-body
+    <<: *x-dt06-04s
+    pincolors: [RDWH, RDBK, BN, YE]
+    pinlabels: [HIGH BEAM, LOW BEAM, RETRACTOR VCC, COOLING FAN]
+    notes: Driver side, just inside the firewall post-grommet
+  X-BODY-2:
+    <<: *x-dt06-12s
+    pinlabels: [A/C CLUTCH, HORN, WASHER, RETRACTOR UP, RETRACTOR DOWN, L TURN SIGNAL, TNS, RETRACTOR ACTIVE, BRAKE FL,
+      # UNUSED,
+      # UNUSED,
+      # UNUSED,
+    ]
+    notes: Driver side, just inside the firewall post-grommet
+  X-BODY-3:
+    <<: *x-body
+    pincolors: [RDWH, RDBK, GY, BU]
+    pinlabels: [HIGH BEAM, LOW BEAM, RETRACTOR VCC, A/C FAN]
+    notes: Pass side, just inside the firewall post-grommet
+  X-BODY-4:
+    <<: *x-dt06-12s
+    pinlabels: [AIT SIGNAL, AIT SENSOR GND, A/C PRES SW, RETRACTOR UP, RETRACTOR DOWN, R TURN SIGNAL, TNS, RETRACTOR ACTIVE, WIPER 1, WIPER 2, WIPER 3, WIPER 4]
+    notes: Pass side, just inside the firewall post-grommet
+  # end common connectors
+  X-BODY-GND-1:
+    <<: *x-crimp
+    notes: Driver side body harness GND
+  X-BODY-GND-2:
+    <<: *x-crimp
+    notes: Pass side body harness GND
+  # end common connectors
   X-BRAKE:
     pincount: 2
     pinlabels: [VCC, GND]
     image:
       src: ../img/f-03.png
+  # end common connectors
   X-BULK:
     pincount: 47
     image:
       src: ../img/hd36-24-47se.png
     notes: Deutsch HD30 47-pin connector
     pinlabels: [+5V SENSOR SUPPLY, UNDEFINED PIN 2, UNDEFINED PIN 3, INJ +12V, ENGINE GND, IGN +12V, OIL PRES SENDER, UNDEFINED PIN 8, UNDEFINED PIN 9, UNDEFINED PIN 10, UNDEFINED PIN 11, INJ 4, INJ 3, INJ 2, INJ 1, IGN 4, IGN 3, IGN 2, IGN 1, UNDEFINED PIN 20, UNDEFINED PIN 21, UNDEFINED PIN 22, UNDEFINED PIN 23, SENSOR GND, TPS2, KNOCK SIGNAL, THROTTLE+, LSU LAMBDA +12V, CAS 1, CAS 2, LSU HEATER, UNDEFINED PIN 32, UNDEFINED PIN 33, UNDEFINED PIN 34, CLT SIGNAL, CLT GAUGE, AIT SIGNAL, TPS1, SHIELD DRAIN, KNOCK GND, THROTTLE-, LSU IP, LSU COM, LSU RCAL, LSU VS/OS IN, UNDEFINED PIN 46, UNDEFINED PIN 47]
+  # end common connectors
   X-CAS:
     pincount: 4
     pins: [Y/L, W, W/R, B/LG]
@@ -49,6 +110,7 @@ connectors:
     image:
       src: ../img/b1-10.png
     notes: Crank angle sensor. Mazda Conn. B1-10
+  # end common connectors
   X-CLT:
     pincount: 2
     pincolors: [BUWH, BKGN]
@@ -57,11 +119,13 @@ connectors:
       src: ../img/b1-17.png
   X-CLT-GAUGE:
     pincount: 1
+  # end common connectors
   X-CLUTCH:
     pincount: 2
     pinlabels: [VCC, GND]
     image:
       src: ../img/b1-20.png
+  # end common connectors
   X-ECU-1:
     pincount: 48
     pins: [A1, A2, A3, A4, B1, B2, B3, B4, C1, C2, C3, C4, D1, D2, D3, D4, E1, E2, E3, E4, F1, F2, F3, F4, G1, G2, G3, G4, H1, H2, H3, H4, J1, J2, J3, J4, K1, K2, K3, K4, L1, L2, L3, L4, M1, M2, M3, M4]
@@ -70,20 +134,16 @@ connectors:
     pincount: 32
     pins: [A1, A2, A3, A4, B1, B2, B3, B4, C1, C2, C3, C4, D1, D2, D3, D4, E1, E2, E3, E4, F1, F2, F3, F4, G1, G2, G3, G4, H1, H2, H3, H4]
     pinlabels: [EGT 5+, EGT 6+, EGT 7+, EGT 8+, EGT 5, EGT 6, EGT 7, EGT 8, EGT 1+, EGT 2+, EGT 3+, EGT 4+, EGT 1, EGT 2, EGT 3, EGT 4, KNOCK GND, KNOCK 1, KNOCK 2, AIN 6 (0-5V), AIN 7 (0-5V), AIN 8(0-5V), DIN/VR 4, DIN/VR5, GPO 15(+12V), GPO 16 (+12V), AIN 5 (0-5V), ENGINE GROUND, MOTOR 2+, MOTOR 1-, MOTOR 2-, MOTOR 1+]
-  X-5V: &x_crimp
-    style: simple
-    type: Crimp ferrule
-    pincount: 1
-    show_pincount: false
-    bgcolor: IV
+  X-5V:
+    <<: *x-crimp
   X-ECU-VCC:
-    <<: *x_crimp
+    <<: *x-crimp
     notes: crimp to distribute power to ecu, lambda, inj
   X-IGN-VCC:
-    <<: *x_crimp
+    <<: *x-crimp
     notes: crimp to distribute power between coils and noise filter
   X-ECU-GND:
-    <<: *x_crimp
+    <<: *x-crimp
   X-BATT-POS:
     type: eyelet
     pincount: 1
@@ -96,6 +156,7 @@ connectors:
     show_name: true
     show_pincount: false
     notes: Located under dash near clutch pedal box
+  # end common connectors
   X-PWR-WINDOW:
     pincount: 16
   X-BODY-D1: &template_front_lamps
@@ -117,26 +178,12 @@ connectors:
     pincount: 8
     pinlabels: [REAR RIGHT TURN SIGNAL, FUEL PUMP, TNS, REVERSE LIGHTS, REAR LEFT TURN SIGNAL, FUEL LEVEL SENDER, STOP LIGHTS, DOOR SW]
     notes: OEM Connector X-14 to custom connector
-  X-CRIMP: # this is a ferrule that will be auto-generated on demand
-    style: simple
-    autogenerate: true
-    type: Crimp ferrule
-    # subtype: 0.5 mm²
-    # color: OG
   X-10:
     pins: [Y, R/L, R/G, B/G, B/W, B/Y]
     pinlabels: [Y, R/L, VCC TO BACKUP LT, B/G, B/W, BACKUP LT SW]
     image:
       src: ../img/x-10.png
     notes: Went from trans to engine fuse box from factory. Poking through trans tunnel in my application.
-  E1-04: &headlamp_actuator_conn
-    pincount: 6
-    image:
-      src: ../img/e1-04.png
-    notes: L Headlight Actuator
-  E1-05:
-    <<: *headlamp_actuator_conn
-    notes: R Headlight Actuator
   X-17:
     pins: [L/W, R/Y, R/W, R/B, G/L, LG, L/R, G/W, L/O, R/L, R/G, O, Y/B, G/R, L/Y, R, Y, G/B]
     pinlabels: [L/W, R/Y, R/W, R/B, G/L, LG, L/R, G/W, L/O, R/L, R/G, HAZARD SW, Y/B, G/R, L/Y, R, Y, G/B]
@@ -150,6 +197,7 @@ connectors:
     image:
       src: ../img/e1-08.png
     notes: Retractable headlight switch in tombstone
+  # end common connectors
   X-16:
     pincount: 15
     # pins: [
@@ -174,6 +222,7 @@ connectors:
       # FOG LAMP VCC
     ]
     notes: The green connector between the dash and body
+  # end common connectors
   X-EASYGUARD-1:
     pincount: 6
     pinlabels: [ACC, ST, IGN2, VCC1, VCC2, IGN1]
@@ -183,6 +232,7 @@ connectors:
     pincount: 20
     image:
       src: ../img/easyguard-2.png
+  # end common connectors
   X-ECU-BODY-1: &x_ecu_body
     pincount: 4
     pinlabels: [ECU VCC, CAN H, CAN L, IGN VCC]
@@ -191,6 +241,7 @@ connectors:
     pincount: 12
     pinlabels: [ECU VCC, CAN H, CAN L, IGN VCC, OIL PRES, CLT GAUGE, START REQ, TACH, VSS]
     notes: Connector between the chassis and ECU
+  # end common connectors
   X-ENGINE-GND-CRIMP-1: &gnd_crimp
     style: simple
     type: crimp
@@ -208,13 +259,7 @@ connectors:
     notes: cylinder head
     show_name: true
     show_pincount: false
-  X-HEADLAMP-D1: &template_headlamp
-    pincount: 2
-    pinlabels: [HIGH BEAM, LOW BEAM]
-    notes: Driver side body sub-harness
-  X-HEADLAMP-P1:
-    <<: *template_headlamp
-    notes: Passenger side body sub-harness
+  # end common connectors
   X-E1-01: &headlamp_conn
     pincount: 3
     pinlabels: [HIGH BEAM, GND, LOW BEAM]
@@ -224,6 +269,7 @@ connectors:
   X-E1-02:
     <<: *headlamp_conn
     notes: R Headlamp, Mazda Conn. E1-02
+  # end common connectors
   X-COIL-1: &cop_conn
     pincount: 4
     pinlabels: [GND, TRIGGER, TACH, +12V]
@@ -244,6 +290,7 @@ connectors:
     image:
       src: ../img/b1-13.png
     notes: IGN Coil Condenser
+  # end common connectors
   X-INJ-1: &injector_conn
     pincount: 2
     pins: [Y, W/R]
@@ -260,27 +307,33 @@ connectors:
   X-INJ-4:
     <<: *injector_conn
     notes: Injector No. 4, Mazda Conn. B1-09
+  # end common connectors
   X-19:
     pincount: 14
     pinlabels: [G, LG/B, Y/B, R/B, Y/R, L, L/Y, L/O, CHARGE LAMP, Y/L, L/B, R/G, B/L, L/Y]
     image:
       src: ../img/x-19.png
+  # end common connectors
   X-KNOCK:
     pincount: 2
     pinlabels: [SIGNAL, SENSOR GND]
+  # end common connectors
   X-LSU:
     pincount: 6
     pinlabels: [IP, COM, HTR, +12V LAMBDA, RCAL, VS/OS IN]
     image:
       src: ../img/lsu49.png
+  # end common connectors
   X-OIL-PRES:
     pincount: 1
+  # end common connectors
   X-APP:
     pins: [A, B, C, D, E, F]
     pinlabels: [APP 1 Sens 5V+, APP 2 Sig GND, APP Sens 2 Signal, APP 2 Sens 5V+, APP 1 Sig GND, APP Sens 1 Signal]
     image:
       src: ../img/nc_throttle.png
       # connections:
+  # end common connectors
   X-PMU-PWR:
     pincount: 1
     notes: M6 stud on PMU-16
@@ -289,12 +342,25 @@ connectors:
     pinlabels: [OUTPUT O13, OUTPUT O12, OUTPUT O11, OUTPUT O10, OUTPUT O9, INPUT A9, +12V SW, INPUT A14, OUTPUT O8, OUTPUT O7, OUTPUT O6, OUTPUT O5, OUTPUT O4, OUTPUT O14, +5V OUTPUT, INPUT A2, INPUT A4, INPUT A6, INPUT A8, INPUT A11, INPUT A13, INPUT A16, CAN1H, CAN2H, GROUND, OUTPUT O3, OUTPUT O15, OUTPUT O16, INPUT A1, INPUT A3, INPUT A5, INPUT A7, INPUT A10, INPUT A12, INPUT A15, CAN1L, CAN2L, OUTPUT O1, OUTPUT O2]
     pincolors: [VT, VT, IV, IV, IV, BU, RD, BU, IV, IV, IV, VT, VT, VT, RD, BU, BU, BU, BU, BU, BU, BU, WHBU, WHBU, BK, VT, VT, VT, BU, BU, BU, BU, BU, BU, BU, WH, WH, VT, VT]
     notes: VT = High AMP, IV = Low AMP
-  X-SENSOR-GND-CRIMP:
-    style: simple
-    type: crimp
-    pincount: 1
-    show_pincount: false
-    bgcolor: IV
+  # end common connectors
+  E1-04: &x-retractor
+    pincount: 6
+    pins: [G/L, R/Y, B, BR, W/R, 6]
+    pinlabels: [ACTIVE, UP, GND, VCC, DOWN]
+    image:
+      src: ../img/e1-04.png
+    notes: Driver Headlight Actuator
+  E1-05:
+    <<: *x-retractor
+    notes: Pass Headlight Actuator
+  # end common connectors
+  X-SENSOR-GND-CRIMP-1:
+    <<: *x-crimp
+    autogenerate: false
+  X-SENSOR-GND-CRIMP-2:
+    <<: *x-crimp
+    autogenerate: false
+  # end common connectors
   X-SHIELD-DRAIN-CRIMP-1: &X-SHIELD-DRAIN-CRIMP
     style: simple
     type: crimp
@@ -305,19 +371,29 @@ connectors:
     <<: *X-SHIELD-DRAIN-CRIMP
   X-SHIELD-DRAIN-CRIMP-2:
     <<: *X-SHIELD-DRAIN-CRIMP
-  X-D-03:
-    pincount: 16
-    pins: [B, L/W, L/O, L/Y 1, G/Y, B/Y, L/R, L, R/B, R/W, B 2, G/R, L/Y 2, W/B, R/L, LG]
-    pinlabels: [TNS GND, L/W, L/O, L/Y 1, TURN SIGNAL 1, TURN SIGNAL GND, L/R, L, LOW BEAM SW GND, HIGH BEAM SW GND, B, TURN SIGNAL 2, TNS, HIGH BEAM, FLASH TO PASS, LOW BEAM]
-    image:
-      src: ../img/d-03.png
-    notes: Located on steering column
-  X-SW-GND-CRIMP: &x_steering_col_crimp
-    style: simple
-    pincount: 1
-    type: crimp
-  X-HIGHBEAM-CRIMP:
-    <<: *x_steering_col_crimp
+  # end common connectors
+  X-STEERING-1:
+    <<: *x-dt06-12s
+    pinlabels: [TNS SW, LOW BEAM SW, LOW BEAM SW GND, # and TNS
+      HIGH BEAM SW, HIGH BEAM SW GND, TURN SIGNAL L SW, TURN SIGNAL R SW, TURN SIGNAL COMMON, HEADLIGHT SW UNKNOWN 1, # RDGN
+      HORN SW]
+    notes: Replacement for OEM D-03
+  X-STEERING-2:
+    <<: *x-dt06-12s
+    pinlabels: [CRUISE 1, # YE,
+      CRUISE 2, # BU,
+      CRUISE 3, # BK,
+      WASHER 1, # BK,
+      WASHER 2, # BUBK,
+      WASHER 3, # BUWH,
+      WASHER 4, # BUOG,
+      WASHER 5, # BU,
+      WASHER 6, # GNDR,
+    ]
+  X-LT-SW-GND-CRIMP:
+    <<: *x-crimp
+    autogenerate: false
+  # end common connectors
   X-THROTTLE-BODY:
     pins: [A, B, C, D, E, F]
     pinlabels: [THROTTLE+, THROTTLE-, TPS SENSOR GND, TPS 2 SIG, TPS 5V, TPS 1 SIG]
@@ -338,10 +414,14 @@ cables:
     wirecount: 1
     wirelabels: [A/C PRES. SW]
     colors: [PK]
-  C-AIT-1:
+  C-AIT-1: &c-ait
     wirecount: 2
-    colors: [BN, BU]
-    wirelabels: [SIGNAL GND, SIGNAL]
+    colors: [BU, BK]
+    wirelabels: [SIGNAL, SIGNAL GND]
+    notes: Runs along passenger side of chassis, post-intercooler
+  C-AIT-2:
+    <<: *c-ait
+    notes: From connector to ECU
   C-ALT-1:
     colors: [WH]
     wirelabels: [BATT CHARGE]
@@ -461,12 +541,13 @@ cables:
     wirelabels: [GND]
     colors: [BK]
     # connections:
-  C-HEADLAMP-1: &c_headlamp
-    wirecount: 2
-    colors: [RDWH, GY]
+  C-HEADLAMP-1:
+    colors: [RDWH, GY, BK]
     wirelabels: [HIGH BEAM, LOW BEAM]
-  C-HEADLAMP-2:
-    <<: *c_headlamp
+    notes: interior to pmu
+  C-HEADLAMP-2: &c_headlamp
+    colors: [RDWH, GY, BK]
+    wirelabels: [HIGH BEAM, LOW BEAM, GND]
   C-HEADLAMP-3:
     <<: *c_headlamp
   C-SPK-1:
@@ -509,12 +590,23 @@ cables:
     wirelabels: [OIL PRES SENDER]
   C-OIL-PRES-2:
     <<: *c_oilpres
+  C-RETRACTOR-1: &c-retractor
+    colors: [GNBU, YE, BK, BN, WHRD]
+    wirelabels: [ACTIVE, UP, GND, VCC, DOWN]
+    notes: Driver side
+  C-RETRACTOR-2:
+    <<: *c-retractor
+    colors: [GNBU, RDYE, BK, GNWH, GY]
+    notes: Pass side
   CE-SENSOR-GND-1: &C-SENSOR-GND
     wirecount: 1
     colors: [YE]
   CI-SENSOR-GND-1:
     <<: *C-SENSOR-GND
-    colors: [BN]
+    colors: [BK]
+  CI-SENSOR-GND-2:
+    <<: *C-SENSOR-GND
+    colors: [BK]
   C-SHIELD-DRAIN-1: &c-shield-drain
     wirecount: 1
     colors: [BN]
@@ -522,26 +614,20 @@ cables:
     <<: *c-shield-drain
   C-SHIELD-DRAIN-2:
     <<: *c-shield-drain
+  C-STEERING-OEM:
+    colors: [WH, WH, RD, RDYE, RDWH, GNBK, GNYE, GNBK, RDGN, YE, BU, BK, BK, BUBK, BUWH, BUOG, BU, GNDR]
+    wirelabels: [TNS SW, LOW BEAM SW, LOW BEAM SW GND, HIGH BEAM SW, HIGH BEAM SW GND, TURN SIGNAL L SW, TURN SIGNAL R SW, TURN SIGNAL COMMON, HEADLIGHT SW UNKNOWN 1, CRUISE 1, CRUISE 2, CRUISE 3, WASHER 1, WASHER 2, WASHER 3, WASHER 4, WASHER 5, WASHER 6]
+    notes: OEM wiring into connector OEM Connector D-03 on the steering column
   C-STEERING-1:
-    colors: [
-      # RD,
-      RDBU, GNYE, GNRD,
-      # WHBK,
-      BUYE,
-      # LTGN,
-      BK]
-    wirelabels: [
-      # LOW BEAM,
-      HIGH BEAM SW, TURN SIGNAL 1, TURN SIGNAL 2,
-      # WHBK,
-      TNS,
-      # LTGN,
-      LT SW GND]
-  C-STEERING-2:
-    colors: [BK, RDBK, RDWH, BKYE]
-  C-STEERING-3:
-    colors: [RDBU, WHBK]
-    notes: highbeam SW
+    colors: [WH, WH, BK, RDYE, BK, GNBK, GNYE, BK,
+      # RDGN,
+    ]
+    wirelabels: [TNS SW, LOW BEAM SW, LOW BEAM SW GND, HIGH BEAM SW, HIGH BEAM SW GND, TURN SIGNAL L SW, TURN SIGNAL R SW, TURN SIGNAL COMMON,
+      # HEADLIGHT SW UNKNOWN 1,
+    ]
+  C-LT-SW-GND:
+    colors: [BK]
+    wirelabels: [LT SW GND]
   C-TB-1:
     colors: [PK, YE, WHBU, WH]
     wirelabels: [THROTTLE+, THROTTLE-, TPS1, TPS2]
@@ -566,11 +652,6 @@ cables:
     wirecount: 2
     wirelabels: [LEFT TURN SIGNAL, RIGHT TURN SIGNAL]
     colors: [YE, BU]
-  C-TURN-SW-1:
-    wirecount: 3
-    wirelabels: [TURN SIGNAL 1, TURN SIGNAL 2, TURN SIGNAL COM]
-    colors: [YE, BU, RD]
-    # connections:
 connections:
   - - X-BULK: [+5V SENSOR SUPPLY]
     - C-5V-2: [1]
@@ -588,9 +669,12 @@ connections:
   - - X-BODY-P2: [A/C PRES. SW]
     - C-AC-2: [A/C PRES. SW]
     - X-PMU: [INPUT A13]
-  - - X-BULK: [37]
-    - C-AIT-1: [SIGNAL]
-    - X-AIT: [SIGNAL]
+  - - X-BODY-4: [AIT SIGNAL, AIT SENSOR GND]
+    - C-AIT-1: [BU, BK]
+    - X-AIT: [A, B]
+  - - X-ECU-1: [F2]
+    - C-AIT-2: [BU]
+    - X-BODY-4: [AIT SIGNAL]
   - - C-ALT-1: [WH]
     - X-ALT-1: [BATT CHARGE]
   - - C-ALT-1: [WH]
@@ -608,6 +692,22 @@ connections:
   - - X-BATT: [POS]
     - C-PWR-1: [BK]
     - X-PMU-PWR: [1]
+  # Driver headlamp
+  - - X-BODY-GND-1
+    - C-HEADLAMP-2: [GND]
+    - X-E1-01: [GND]
+  # Pass headlamp
+  - - X-BODY-GND-2
+    - C-HEADLAMP-3: [GND]
+    - X-E1-02: [GND]
+  # Driver retractor
+  - - X-BODY-GND-1
+    - C-RETRACTOR-1: [GND]
+    - E1-04: [GND]
+  # Pass retractor
+  - - X-BODY-GND-2
+    - C-RETRACTOR-2: [GND]
+    - E1-05: [GND]
   - - X-14: [STOP LIGHTS]
     - C-BRAKE-LT-1: [STOP LIGHTS]
     - X-PMU: [OUTPUT O10]
@@ -727,12 +827,12 @@ connections:
     - X-PMU: [34]
   - - X-PMU: [OUTPUT O13, OUTPUT O1]
     - C-HEADLAMP-1: [HIGH BEAM, LOW BEAM]
-    - X-HEADLAMP-D1: [HIGH BEAM, LOW BEAM]
+    - X-BODY-1: [HIGH BEAM, LOW BEAM]
     - C-HEADLAMP-2: [1-2]
     - X-E1-01: [HIGH BEAM, LOW BEAM]
   - - X-PMU: [OUTPUT O13, OUTPUT O1]
     - C-HEADLAMP-1: [HIGH BEAM, LOW BEAM]
-    - X-HEADLAMP-P1: [HIGH BEAM, LOW BEAM]
+    - X-BODY-3: [HIGH BEAM, LOW BEAM]
     - C-HEADLAMP-3: [1-2]
     - X-E1-02: [HIGH BEAM, LOW BEAM]
   # Trigger
@@ -822,18 +922,37 @@ connections:
   - - X-BULK: [OIL PRES SENDER]
     - C-OIL-PRES-2: [OIL PRES SENDER]
     - X-OIL-PRES
+  # Driver retractor
+  - - X-BODY-1: [RETRACTOR VCC]
+    - C-RETRACTOR-1: [VCC]
+    - E1-04: [VCC]
+  - - X-BODY-2: [RETRACTOR UP, RETRACTOR DOWN, RETRACTOR ACTIVE]
+    - C-RETRACTOR-1: [UP, DOWN, ACTIVE]
+    - E1-04: [UP, DOWN, ACTIVE]
+  # Pass retractor
+  - - X-BODY-3: [RETRACTOR VCC]
+    - C-RETRACTOR-2: [VCC]
+    - E1-05: [VCC]
+  - - X-BODY-4: [RETRACTOR UP, RETRACTOR DOWN, RETRACTOR ACTIVE]
+    - C-RETRACTOR-2: [UP, DOWN, ACTIVE]
+    - E1-05: [UP, DOWN, ACTIVE]
   - - X-BULK: [SENSOR GND]
     - CE-SENSOR-GND-1: [1]
-    - X-SENSOR-GND-CRIMP
-  - - X-SENSOR-GND-CRIMP
+    - X-SENSOR-GND-CRIMP-2
+  - - X-SENSOR-GND-CRIMP-2
     - C-CLT-2: [SENSOR GND]
-  - - X-SENSOR-GND-CRIMP
+  - - X-SENSOR-GND-CRIMP-2
     - C-CAS-2: [SENSOR GND]
-  - - X-SENSOR-GND-CRIMP
+  - - X-SENSOR-GND-CRIMP-2
     - C-TB-2: [SENSOR GND]
   - - X-ECU-1: [H1]
     - CI-SENSOR-GND-1: [1]
+    - X-SENSOR-GND-CRIMP-1
+    - CI-SENSOR-GND-2: [1]
     - X-BULK: [SENSOR GND]
+  - - X-SENSOR-GND-CRIMP-1
+    - C-AIT-2: [SIGNAL GND]
+    - X-BODY-4: [AIT SENSOR GND]
   - - X-BULK: [SHIELD DRAIN]
     - C-SHIELD-DRAIN-2: [1]
     - X-SHIELD-DRAIN-CRIMP-2
@@ -858,21 +977,21 @@ connections:
   - - X-SHIELD-DRAIN-CRIMP-1
     - C-LSU-1: s
     - X-SHIELD-DRAIN-CRIMP-11
-  - - X-D-03: [TURN SIGNAL 1, TURN SIGNAL 2]
-    - C-STEERING-1: [TURN SIGNAL 1, TURN SIGNAL 2]
-  - - X-D-03: [TNS]
-    - C-STEERING-1: [TNS]
-  - - X-D-03: [R/B, R/W, TNS GND, TURN SIGNAL GND]
-    - C-STEERING-2: [RDBK, RDWH, 1, 4]
-  - - C-STEERING-2: [1-4]
-    - X-SW-GND-CRIMP
-  - - X-SW-GND-CRIMP
-    - C-STEERING-1: [LT SW GND]
-  - - X-D-03: [HIGH BEAM, FLASH TO PASS]
-    - C-STEERING-3: [1-2]
-    - X-HIGHBEAM-CRIMP
-  - - X-HIGHBEAM-CRIMP
-    - C-STEERING-1: [HIGH BEAM SW]
+  - - C-STEERING-OEM: [TNS SW, LOW BEAM SW, LOW BEAM SW GND, HIGH BEAM SW, HIGH BEAM SW GND, TURN SIGNAL L SW, TURN SIGNAL R SW, TURN SIGNAL COMMON, HEADLIGHT SW UNKNOWN 1]
+    - X-STEERING-1: [TNS SW, LOW BEAM SW, LOW BEAM SW GND, HIGH BEAM SW, HIGH BEAM SW GND, TURN SIGNAL L SW, TURN SIGNAL R SW, TURN SIGNAL COMMON, HEADLIGHT SW UNKNOWN 1]
+  - - C-STEERING-OEM: [CRUISE 1, CRUISE 2, CRUISE 3, WASHER 1, WASHER 2, WASHER 3, WASHER 4, WASHER 5, WASHER 6]
+    - X-STEERING-2: [CRUISE 1, CRUISE 2, CRUISE 3, WASHER 1, WASHER 2, WASHER 3, WASHER 4, WASHER 5, WASHER 6]
+  # Grounding of switches
+  - - X-STEERING-1: [LOW BEAM SW GND, HIGH BEAM SW GND, TURN SIGNAL COMMON]
+    - C-STEERING-1: [LOW BEAM SW GND, HIGH BEAM SW GND, TURN SIGNAL COMMON]
+    - X-LT-SW-GND-CRIMP
+  - - X-LT-SW-GND-CRIMP
+    - C-LT-SW-GND: [1]
+    - X-GND-1
+  # To PMU
+  - - X-STEERING-1: [LOW BEAM SW, TNS SW, HIGH BEAM SW, TURN SIGNAL L SW, TURN SIGNAL R SW]
+    - C-STEERING-1: [LOW BEAM SW, TNS SW, HIGH BEAM SW, TURN SIGNAL L SW, TURN SIGNAL R SW]
+    - X-PMU: [INPUT A4, INPUT A6, INPUT A8, INPUT A11, INPUT A16]
   - - X-ECU-2: [H4, H2]
     - C-TB-1: [THROTTLE+, THROTTLE-]
     - X-BULK: [THROTTLE+, THROTTLE-]
