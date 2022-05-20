@@ -6,8 +6,9 @@
 
 setup() {
     mkdir generated &> /dev/null
-    rm generated/*
+    rm generated/* &> /dev/null
     mkdir tmp &> /dev/null
+    rm -r tmp/* &> /dev/null
 }
 
 cleanup() {
