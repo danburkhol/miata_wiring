@@ -66,3 +66,89 @@ connectors:
       WIPER 4,
     ]
     notes: Pass side, just inside the firewall post-grommet
+
+cables:
+
+  C-BODY-TEST:
+    colors: *c-body-common-colors
+  C-BODY-TEST-2:
+    colors: [
+      # <<: *c-body-common-colors,
+      GY, # A/C FAN,
+      GNWH, # R TURN SIGNAL,
+      BU, # WIPER 1,
+      WH, # WIPER 2,
+      RD, # WIPER 3,
+      YE, # WIPER 4
+    ]
+    wirelabels: [
+      # <<: *c-body-common-labels,
+      A/C FAN,
+      R TURN SIGNAL,
+      WIPER 1,
+      WIPER 2,
+      WIPER 3,
+      WIPER 4
+    ]
+    notes: From driver footwell to passenger footwell
+  C-BODY-2:
+    colors: [
+      GY, # LOW BEAM,
+      RDBK, # HIGH BEAM,
+      GY, # A/C FAN,
+      YE, # RETRACTOR UP,
+      WH, # RETRACTOR DOWN,
+      VT, # RETRACTOR VCC,
+      PK, # RETRACTOR ACTIVE,
+      GNWH, # R TURN SIGNAL,
+      RD, # TNS,
+      BU, # WIPER 1,
+      WH, # WIPER 2,
+      RD, # WIPER 3,
+      YE, # WIPER 4
+    ]
+    wirelabels: [
+      LOW BEAM,
+      HIGH BEAM,
+      A/C FAN,
+      RETRACTOR UP,
+      RETRACTOR DOWN,
+      RETRACTOR VCC,
+      RETRACTOR ACTIVE,
+      R TURN SIGNAL,
+      TNS,
+      WIPER 1,
+      WIPER 2,
+      WIPER 3,
+      WIPER 4
+    ]
+    notes: From driver footwell to passenger footwell
+
+
+connections:
+  -
+    - C-BODY-2: [A/C FAN, RETRACTOR VCC, LOW BEAM, HIGH BEAM]
+    - X-BODY-3: [A/C FAN, RETRACTOR VCC, LOW BEAM, HIGH BEAM]
+  -
+    - C-BODY-2: [
+        RETRACTOR UP,
+        RETRACTOR DOWN,
+        R TURN SIGNAL,
+        TNS,
+        RETRACTOR ACTIVE,
+        WIPER 1,
+        WIPER 2,
+        WIPER 3,
+        WIPER 4,
+      ]
+    - X-BODY-4: [
+        RETRACTOR UP,
+        RETRACTOR DOWN,
+        R TURN SIGNAL,
+        TNS,
+        RETRACTOR ACTIVE,
+        WIPER 1,
+        WIPER 2,
+        WIPER 3,
+        WIPER 4,
+      ]

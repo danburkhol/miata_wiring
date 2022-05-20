@@ -1,0 +1,15 @@
+connectors:
+  X-WIPER-OEM:
+    pincount: 4
+    pinlabels: [BU, BUWH, BURD, BUYE]
+
+cables:
+  C-WIPER-OEM:
+    colors: [BU, BUWH, BURD, BUYE]
+
+connections:
+  -
+    # - C-BODY-2: [WIPER 1, WIPER 2, WIPER 3, WIPER 4]
+    - X-BODY-4: [WIPER 1, WIPER 2, WIPER 3, WIPER 4]
+    - C-WIPER-OEM: [1-4]
+    - X-WIPER-OEM: [1-4]
