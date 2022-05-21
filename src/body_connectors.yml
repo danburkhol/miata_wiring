@@ -68,40 +68,50 @@ connectors:
     notes: Pass side, just inside the firewall post-grommet
 
 cables:
-
-  C-BODY-TEST:
-    colors: *c-body-common-colors
-  C-BODY-TEST-2:
-    colors: [
-      # <<: *c-body-common-colors,
-      GY, # A/C FAN,
-      GNWH, # R TURN SIGNAL,
-      BU, # WIPER 1,
-      WH, # WIPER 2,
-      RD, # WIPER 3,
-      YE, # WIPER 4
-    ]
-    wirelabels: [
-      # <<: *c-body-common-labels,
-      A/C FAN,
-      R TURN SIGNAL,
-      WIPER 1,
-      WIPER 2,
-      WIPER 3,
-      WIPER 4
-    ]
-    notes: From driver footwell to passenger footwell
-  C-BODY-2:
+  C-BODY-1:
     colors: [
       GY, # LOW BEAM,
       RDBK, # HIGH BEAM,
-      GY, # A/C FAN,
       YE, # RETRACTOR UP,
       WH, # RETRACTOR DOWN,
       VT, # RETRACTOR VCC,
       PK, # RETRACTOR ACTIVE,
-      GNWH, # R TURN SIGNAL,
       RD, # TNS,
+      GNBK, # R TURN SIGNAL,
+      GY, # COOLING FAN,
+      RD, # A/C CLUTCH,
+      RD, # WASHER,
+      RD, # HORN,
+      RD, # BRAKE FL,
+    ]
+    wirelabels: [
+      LOW BEAM,
+      HIGH BEAM,
+      RETRACTOR UP,
+      RETRACTOR DOWN,
+      RETRACTOR VCC,
+      RETRACTOR ACTIVE,
+      TNS,
+      L TURN SIGNAL,
+      COOLING FAN,
+      A/C CLUTCH,
+      WASHER,
+      HORN,
+      BRAKE FL,
+    ]
+    notes: Driver footwell
+
+  C-BODY-2:
+    colors: [
+      GY, # LOW BEAM,
+      RDBK, # HIGH BEAM,
+      YE, # RETRACTOR UP,
+      WH, # RETRACTOR DOWN,
+      VT, # RETRACTOR VCC,
+      PK, # RETRACTOR ACTIVE,
+      RD, # TNS,
+      GNWH, # R TURN SIGNAL,
+      GY, # A/C FAN,
       BU, # WIPER 1,
       WH, # WIPER 2,
       RD, # WIPER 3,
@@ -110,13 +120,13 @@ cables:
     wirelabels: [
       LOW BEAM,
       HIGH BEAM,
-      A/C FAN,
       RETRACTOR UP,
       RETRACTOR DOWN,
       RETRACTOR VCC,
       RETRACTOR ACTIVE,
-      R TURN SIGNAL,
       TNS,
+      R TURN SIGNAL,
+      A/C FAN,
       WIPER 1,
       WIPER 2,
       WIPER 3,
@@ -126,6 +136,32 @@ cables:
 
 
 connections:
+  -
+    - C-BODY-1: [COOLING FAN, RETRACTOR VCC, LOW BEAM, HIGH BEAM]
+    - X-BODY-1: [COOLING FAN, RETRACTOR VCC, LOW BEAM, HIGH BEAM]
+  -
+    - C-BODY-1: [
+        RETRACTOR UP,
+        RETRACTOR DOWN,
+        TNS,
+        RETRACTOR ACTIVE,
+        L TURN SIGNAL,
+        A/C CLUTCH,
+        BRAKE FL,
+        WASHER,
+        HORN,
+      ]
+    - X-BODY-2: [
+        RETRACTOR UP,
+        RETRACTOR DOWN,
+        TNS,
+        RETRACTOR ACTIVE,
+        L TURN SIGNAL,
+        A/C CLUTCH,
+        BRAKE FL,
+        WASHER,
+        HORN,
+      ]
   -
     - C-BODY-2: [A/C FAN, RETRACTOR VCC, LOW BEAM, HIGH BEAM]
     - X-BODY-3: [A/C FAN, RETRACTOR VCC, LOW BEAM, HIGH BEAM]

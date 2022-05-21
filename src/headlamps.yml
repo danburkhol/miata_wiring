@@ -22,8 +22,8 @@ cables:
 
 connections:
   -
-    - X-PMU: [OUTPUT O13, OUTPUT O1]
-    - C-HEADLAMP-1: [HIGH BEAM, LOW BEAM]
+    # - X-PMU: [OUTPUT O13, OUTPUT O1]
+    # - C-HEADLAMP-1: [HIGH BEAM, LOW BEAM]
     - X-BODY-1: [HIGH BEAM, LOW BEAM]
     - C-HEADLAMP-2: [1-2]
     - X-E1-01: [HIGH BEAM, LOW BEAM]
