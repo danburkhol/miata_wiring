@@ -1,0 +1,18 @@
+templates:
+  c-body-common-colors: &c-body-common-colors
+    [
+      GY, # LOW BEAM,
+      RDBK, # HIGH BEAM,
+      YE, # RETRACTOR UP,
+      WH, # RETRACTOR DOWN,
+      VT, # RETRACTOR VCC,
+      PK, # RETRACTOR ACTIVE,
+      RD, # TNS,
+    ]
+  X-CRIMP: &x-crimp
+    style: simple
+    type: Crimp ferrule
+    pincount: 1
+    show_pincount: false
+    bgcolor: IV
+    autogenerate: false
