@@ -62,13 +62,14 @@ cables:
       GY, # LOW BEAM,
       GY, # COOLING FAN,
       GY, # A/C FAN,
-      RD, # A/C CLUTCH,
-      WH, # L TURN SIGNAL,
-      WH, # R TURN SIGNAL,
-      WH, # STOP LIGHTS,
+      BU, # A/C CLUTCH,
+      GNGY, # L TURN SIGNAL,
+      GN, # R TURN SIGNAL,
+      GN, # STOP LIGHTS,
       WH, # FUEL PUMP,
       WH, # TNS,
       VT, # RETRACTOR VCC,
+      RDGN, # REVERSE LIGHTS,
     ]
     wirelabels: [
       HIGH BEAM,
@@ -82,6 +83,7 @@ cables:
       FUEL PUMP,
       TNS,
       RETRACTOR VCC,
+      REVERSE LIGHTS,
     ]
 
 connections:

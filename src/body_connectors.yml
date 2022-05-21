@@ -78,10 +78,10 @@ cables:
       PK, # RETRACTOR ACTIVE,
       RD, # TNS,
       GNBK, # R TURN SIGNAL,
-      # GY, # COOLING FAN,
-      RD, # A/C CLUTCH,
+      GY, # COOLING FAN,
+      BU, # A/C CLUTCH,
       RD, # WASHER,
-      RD, # HORN,
+      GN, # HORN,
       RD, # BRAKE FL,
     ]
     wirelabels: [
@@ -93,7 +93,7 @@ cables:
       RETRACTOR ACTIVE,
       TNS,
       L TURN SIGNAL,
-      # COOLING FAN,
+      COOLING FAN,
       A/C CLUTCH,
       WASHER,
       HORN,

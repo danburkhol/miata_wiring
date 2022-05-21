@@ -79,15 +79,16 @@ cables:
 
   C-STEERING-1:
     colors: [
-      WH,
-      WH,
+      PK,
+      RDBU,
       BK,
-      RDYE,
+      RDWH,
       BK,
-      GNBK,
+      GNWH,
       GNYE,
       BK,
-      # RDGN,
+      RDGN,
+      GN,
     ]
     wirelabels: [
       TNS SW,
@@ -98,7 +99,8 @@ cables:
       TURN SIGNAL L SW,
       TURN SIGNAL R SW,
       TURN SIGNAL COMMON,
-      # HEADLIGHT SW UNKNOWN 1,
+      HEADLIGHT SW UNKNOWN 1,
+      HORN SW
     ]
 
   C-LT-SW-GND:
@@ -181,6 +183,7 @@ connections:
         HIGH BEAM SW,
         TURN SIGNAL L SW,
         TURN SIGNAL R SW,
+        HORN SW,
       ]
     - C-STEERING-1: [
         LOW BEAM SW,
@@ -188,11 +191,13 @@ connections:
         HIGH BEAM SW,
         TURN SIGNAL L SW,
         TURN SIGNAL R SW,
+        HORN SW,
       ]
     - X-PMU: [
         INPUT A4,
         INPUT A6,
         INPUT A8,
         INPUT A11,
-        INPUT A16
+        INPUT A16,
+        INPUT A5,
       ]
