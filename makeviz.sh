@@ -24,6 +24,7 @@ export_master () {
         tmp_file_path=tmp/$(basename $src_file)
 
         sed -r 's/\*/42069/g' $src_file > $tmp_file_path
+        echo -e '\n' >> $tmp_file_path
         # cp $src_file $tmp_file_path
 
         # merges the content of src/common/connector_templates.yml into $tmp_file_path
@@ -33,6 +34,7 @@ export_master () {
 
     sed -ri 's/\*/42069/g' src/common/cable_templates.yml
     cp src/common/cable_templates.yml generated/master.yml
+    echo -e '\n' >> generated/master.yml
 
     yq eval-all '. as $item ireduce ({}; . *+ $item )' tmp/*.yml >> generated/master.yml
     sed -ri 's/42069/\*/g' generated/master.yml
