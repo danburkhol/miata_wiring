@@ -1,3 +1,6 @@
+connectors:
+  X-TNS-CRIMP-1:
+    <<: *x-crimp
 cables:
   C-TNS:
     wirecount: 1
@@ -5,6 +8,14 @@ cables:
     colors: [GN]
 
 connections:
+  # Pairing of both side crimps
+  -
+    - X-TNS-CRIMP-1
+    - C-BODY-1: [TNS]
+  -
+    - X-TNS-CRIMP-1
+    - C-BODY-2: [TNS]
+
   -
     - X-BODY-D1: [TNS]
     - C-TNS: [TNS]

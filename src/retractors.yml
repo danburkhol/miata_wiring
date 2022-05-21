@@ -15,6 +15,14 @@ connectors:
   E1-05:
     <<: *x-retractor
     notes: Pass Headlight Actuator
+  X-RETRACTOR-CRIMP-1:
+    <<: *x-crimp
+  X-RETRACTOR-CRIMP-2:
+    <<: *x-crimp
+  X-RETRACTOR-CRIMP-3:
+    <<: *x-crimp
+  X-RETRACTOR-CRIMP-4:
+    <<: *x-crimp
 
 cables:
   C-RETRACTOR-1: &c-retractor
@@ -36,6 +44,34 @@ cables:
     notes: Pass side
 
 connections:
+  # Pairing of both side crimps
+  -
+    - X-RETRACTOR-CRIMP-1
+    - C-BODY-1: [RETRACTOR VCC]
+  -
+    - X-RETRACTOR-CRIMP-1
+    - C-BODY-2: [RETRACTOR VCC]
+
+  -
+    - X-RETRACTOR-CRIMP-2
+    - C-BODY-1: [RETRACTOR UP]
+  -
+    - X-RETRACTOR-CRIMP-2
+    - C-BODY-2: [RETRACTOR UP]
+
+  -
+    - X-RETRACTOR-CRIMP-3
+    - C-BODY-1: [RETRACTOR DOWN]
+  -
+    - X-RETRACTOR-CRIMP-3
+    - C-BODY-2: [RETRACTOR DOWN]
+
+  -
+    - X-RETRACTOR-CRIMP-4
+    - C-BODY-1: [RETRACTOR ACTIVE]
+  -
+    - X-RETRACTOR-CRIMP-4
+    - C-BODY-2: [RETRACTOR ACTIVE]
 
   # Driver retractor
   -
