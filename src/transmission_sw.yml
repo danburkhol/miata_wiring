@@ -1,24 +1,67 @@
+connectors:
+  X-NEUTRAL-SW:
+    pincount: 2
+    pinlabels: [NEUTRAL SW, NEUTRAL SW GND]
+  X-REVERSE-SW:
+    pincount: 2
+    pinlabels: [REVERSE SW, REVERSE SW GND]
+  X-TRANS-1:
+    pincount: 6
+    pinlabels: [
+      NEUTRAL SW,
+      NEUTRAL SW GND,
+      REVERSE SW,
+      REVERSE SW GND,
+      VSS,
+      VSS GND
+    ]
+
 cables:
-  C-TRANS-SW-1:
-    # wirecount: 2
+  C-TRANS-SW-1: &c-trans
+    colors: [
+      RD,
+      RD,
+      BU,
+      BU,
+      GN,
+      BN
+    ]
+    wirelabels: [
+      NEUTRAL SW,
+      NEUTRAL SW GND,
+      REVERSE SW,
+      REVERSE SW GND,
+      VSS,
+      VSS GND
+    ]
+    notes: Located on the transmission
+  C-TRANS-SW-2:
     colors: [
       BK,
-      BKYE
+      BKYE,
       BKWH,
-      RDGN
+      RDGN,
+      GN,
+      BN
     ]
-    # wirelabels: [
-    #   REVERSE SW,
-    #   GND
-    # ]
+    wirelabels: [
+      NEUTRAL SW,
+      NEUTRAL SW GND,
+      REVERSE SW,
+      REVERSE SW GND,
+      VSS,
+      VSS GND
+    ]
+    notes: Located from trans tunnel going up to firewall
 
-
-# connections:
-#   -
-#     - X-10: [BACKUP LT SW]
-#     - C-TRANS-SW-1: [REVERSE SW]
-#     - X-PMU: [20]
-#   -
-#     - X-10: [R/G]
-#     - C-TRANS-SW-1: [GND]
-#     - X-GND-1
+connections:
+  -
+    - X-NEUTRAL-SW: [NEUTRAL SW, NEUTRAL SW GND]
+    - C-TRANS-SW-1: [NEUTRAL SW, NEUTRAL SW GND]
+  -
+    - X-REVERSE-SW: [REVERSE SW, REVERSE SW GND]
+    - C-TRANS-SW-1: [REVERSE SW, REVERSE SW GND]
+  -
+    - C-TRANS-SW-1: [1-6]
+    - X-TRANS-1: [1-6]
+    - C-TRANS-SW-2: [1-6]
