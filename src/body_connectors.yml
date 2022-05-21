@@ -78,7 +78,7 @@ cables:
       PK, # RETRACTOR ACTIVE,
       RD, # TNS,
       GNBK, # R TURN SIGNAL,
-      GY, # COOLING FAN,
+      # GY, # COOLING FAN,
       RD, # A/C CLUTCH,
       RD, # WASHER,
       RD, # HORN,
@@ -93,7 +93,7 @@ cables:
       RETRACTOR ACTIVE,
       TNS,
       L TURN SIGNAL,
-      COOLING FAN,
+      # COOLING FAN,
       A/C CLUTCH,
       WASHER,
       HORN,
@@ -137,8 +137,8 @@ cables:
 
 connections:
   -
-    - C-BODY-1: [COOLING FAN, RETRACTOR VCC, LOW BEAM, HIGH BEAM]
-    - X-BODY-1: [COOLING FAN, RETRACTOR VCC, LOW BEAM, HIGH BEAM]
+    - C-BODY-1: [RETRACTOR VCC, LOW BEAM, HIGH BEAM]
+    - X-BODY-1: [RETRACTOR VCC, LOW BEAM, HIGH BEAM]
   -
     - C-BODY-1: [
         RETRACTOR UP,

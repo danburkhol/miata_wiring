@@ -1,11 +1,4 @@
-cables:
-  C-FAN-1:
-    wirecount: 1
-    wirelabels: [COOLING FAN]
-    colors: [YE]
-
 connections:
   -
-    - X-BODY-D2: [COOLING FAN]
-    - C-FAN-1: [COOLING FAN]
-    - X-PMU: [OUTPUT O16]
+    - C-PMU-1: [COOLING FAN]
+    - X-BODY-1: [COOLING FAN]

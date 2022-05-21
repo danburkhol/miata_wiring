@@ -8,6 +8,13 @@ cables:
     colors: [GN]
 
 connections:
+  -
+    - C-PMU-1: [TNS]
+    - X-TNS-CRIMP-1
+  -
+    - X-14: [TNS]
+    - C-PMU-1: [TNS]
+
   # Pairing of both side crimps
   -
     - X-TNS-CRIMP-1
@@ -15,16 +22,3 @@ connections:
   -
     - X-TNS-CRIMP-1
     - C-BODY-2: [TNS]
-
-  -
-    - X-BODY-D1: [TNS]
-    - C-TNS: [TNS]
-  -
-    - X-BODY-P1: [TNS]
-    - C-TNS: [TNS]
-  -
-    - X-14: [TNS]
-    - C-TNS: [TNS]
-  -
-    - C-TNS: [TNS]
-    - X-PMU: [OUTPUT O14]

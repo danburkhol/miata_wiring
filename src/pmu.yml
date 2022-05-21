@@ -54,3 +54,61 @@ connectors:
       VT,VT,BU,BU,BU,BU,BU,BU,BU,WH,WH,VT,VT,
     ]
     notes: VT = High AMP, IV = Low AMP
+
+cables:
+  C-PMU-1:
+    colors: [
+      RDWH, # HIGH BEAM,
+      GY, # LOW BEAM,
+      GY, # COOLING FAN,
+      GY, # A/C FAN,
+      RD, # A/C CLUTCH,
+      WH, # L TURN SIGNAL,
+      WH, # R TURN SIGNAL,
+      WH, # STOP LIGHTS,
+      WH, # FUEL PUMP,
+      WH, # TNS,
+      VT, # RETRACTOR VCC,
+    ]
+    wirelabels: [
+      HIGH BEAM,
+      LOW BEAM,
+      COOLING FAN,
+      A/C FAN,
+      A/C CLUTCH,
+      L TURN SIGNAL,
+      R TURN SIGNAL,
+      STOP LIGHTS,
+      FUEL PUMP,
+      TNS,
+      RETRACTOR VCC,
+    ]
+
+connections:
+  -
+    - X-PMU: [
+        OUTPUT O13, # HIGH BEAM,
+        OUTPUT O1, # LOW BEAM,
+        OUTPUT O16, # COOLING FAN,
+        OUTPUT O3, # A/C FAN,
+        OUTPUT O3, # A/C CLUTCH,
+        OUTPUT O7, # L TURN SIGNAL,
+        OUTPUT O6, # R TURN SIGNAL,
+        OUTPUT O10, # STOP LIGHTS,
+        OUTPUT O9, # FUEL PUMP,
+        OUTPUT O14, # TNS,
+        # RETRACTOR VCC,
+      ]
+    - C-PMU-1: [
+        HIGH BEAM,
+        LOW BEAM,
+        COOLING FAN,
+        A/C FAN,
+        A/C CLUTCH,
+        L TURN SIGNAL,
+        R TURN SIGNAL,
+        STOP LIGHTS,
+        FUEL PUMP,
+        TNS,
+        # RETRACTOR VCC,
+      ]

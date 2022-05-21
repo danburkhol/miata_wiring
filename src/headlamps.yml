@@ -14,10 +14,6 @@ connectors:
     <<: *x-crimp
 
 cables:
-  C-HEADLAMP-1:
-    colors: [RDWH,GY]
-    wirelabels: [HIGH BEAM, LOW BEAM]
-    notes: interior to pmu
   C-HEADLAMP-2: &c_headlamp
     colors: [RDWH,GY, BK]
     wirelabels: [HIGH BEAM, LOW BEAM, GND]
@@ -26,8 +22,7 @@ cables:
 
 connections:
   -
-    - X-PMU: [OUTPUT O13]
-    - C-HEADLAMP-1: [HIGH BEAM]
+    - C-PMU-1: [HIGH BEAM]
     - X-LT-CRIMP-1
   -
     - X-LT-CRIMP-1
@@ -37,8 +32,7 @@ connections:
     - C-BODY-2: [HIGH BEAM]
 
   -
-    - X-PMU: [OUTPUT O1]
-    - C-HEADLAMP-1: [LOW BEAM]
+    - C-PMU-1: [LOW BEAM]
     - X-LT-CRIMP-2
   -
     - X-LT-CRIMP-2

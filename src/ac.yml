@@ -9,14 +9,14 @@ cables:
     colors: [PK]
 
 connections:
-  -
-    - X-BODY-D2: [A/C CLUTCH]
-    - C-AC-1: [A/C CLUTCH]
-    - X-PMU: [OUTPUT O3]
-  -
-    - X-BODY-P2: [A/C FAN]
-    - C-AC-1: [A/C FAN]
-    - X-PMU: [OUTPUT O3]
+  # -
+  #   - X-BODY-D2: [A/C CLUTCH]
+  #   - C-AC-1: [A/C CLUTCH]
+  #   - X-PMU: [OUTPUT O3]
+  # -
+    # - X-BODY-P2: [A/C FAN]
+    # - C-AC-1: [A/C FAN]
+    # - X-PMU: [OUTPUT O3]
 
   -
     - X-BODY-P2: [A/C PRES. SW]

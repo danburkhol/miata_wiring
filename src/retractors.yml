@@ -17,12 +17,16 @@ connectors:
     notes: Pass Headlight Actuator
   X-RETRACTOR-CRIMP-1:
     <<: *x-crimp
+    notes: VCC
   X-RETRACTOR-CRIMP-2:
     <<: *x-crimp
+    notes: UP
   X-RETRACTOR-CRIMP-3:
     <<: *x-crimp
+    notes: DOWN
   X-RETRACTOR-CRIMP-4:
     <<: *x-crimp
+    notes: ACTIVE
 
 cables:
   C-RETRACTOR-1: &c-retractor
@@ -45,6 +49,9 @@ cables:
 
 connections:
   # Pairing of both side crimps
+  -
+    - C-PMU-1: [RETRACTOR VCC]
+    - X-RETRACTOR-CRIMP-1
   -
     - X-RETRACTOR-CRIMP-1
     - C-BODY-1: [RETRACTOR VCC]
