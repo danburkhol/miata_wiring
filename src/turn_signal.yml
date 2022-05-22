@@ -1,4 +1,16 @@
+connectors:
+  X-CRIMP-R-TURN-SIGNAL:
+    <<: *x-crimp
+
 connections:
+  -
+    - C-PMU-1: [R TURN SIGNAL]
+    - X-CRIMP-R-TURN-SIGNAL
+
   -
     - C-PMU-1: [L TURN SIGNAL, R TURN SIGNAL]
     - X-BODY-6: [L TURN SIGNAL, R TURN SIGNAL]
+
+  # -
+  #   - X-PMU:
+  #   - C-BODY-2: [R TURN SIGNAL]
