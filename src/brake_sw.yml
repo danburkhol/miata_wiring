@@ -15,9 +15,9 @@ connections:
     - X-BRAKE: [VCC]
     - C-BRAKE: [PK]
     - X-PMU: [16]
-  -
-    - X-BRAKE: [VCC]
-    - C-EASYGUARD-2: [11]
+  # -
+  #   - X-BRAKE: [VCC]
+  #   - C-EASYGUARD-2: [11]
   -
     - X-BRAKE: [GND]
     - C-BRAKE: [BK]

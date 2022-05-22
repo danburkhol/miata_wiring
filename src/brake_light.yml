@@ -3,9 +3,3 @@ cables:
     wirecount: 1
     wirelabels: [STOP LIGHTS]
     colors: [PK]
-
-connections:
-  -
-    - X-14: [STOP LIGHTS]
-    - C-BRAKE-LT-1: [STOP LIGHTS]
-    - X-PMU: [OUTPUT O10]
