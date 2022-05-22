@@ -1,3 +1,6 @@
+connectors:
+  X-AC-CRIMP-1:
+    <<: *x-crimp
 cables:
   C-AC-1:
     wirecount: 2
@@ -9,6 +12,15 @@ cables:
     colors: [PK]
 
 connections:
+  -
+    - C-PMU-1: [A/C FAN, A/C CLUTCH]
+    - X-AC-CRIMP-1
+  -
+    - X-AC-CRIMP-1
+    - C-BODY-1: [A/C CLUTCH]
+  -
+    - X-AC-CRIMP-1
+    - C-BODY-2: [A/C FAN]
   # -
   #   - X-BODY-D2: [A/C CLUTCH]
   #   - C-AC-1: [A/C CLUTCH]
