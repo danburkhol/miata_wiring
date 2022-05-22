@@ -80,7 +80,7 @@ cables:
       GNBK, # R TURN SIGNAL,
       GY, # COOLING FAN,
       BU, # A/C CLUTCH,
-      RD, # WASHER,
+      GN, # WASHER,
       GN, # HORN,
       RD, # BRAKE FL,
     ]
