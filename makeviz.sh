@@ -28,7 +28,7 @@ export_master () {
         # cp $src_file $tmp_file_path
 
         # merges the content of src/common/connector_templates.yml into $tmp_file_path
-        sed -i -e '/connectors:/{r src/common/connector_templates.yml' -e 'd}' $tmp_file_path
+        # sed -i -e '/connectors:/{r src/common/connector_templates.yml' -e 'd}' $tmp_file_path
         # sed -i -e '/cables:/{r src/common/cable_templates.yml' -e 'd}' $tmp_file_path
     done
 
