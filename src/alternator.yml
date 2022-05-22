@@ -12,8 +12,8 @@ connectors:
     <<: *x-dt06-04s
     pinlabels: [
       STARTER,
-      ALT REF,
-      CHANGE IND,
+      ALT REF, # WHGN,
+      CHANGE IND, # WHBK,
     ]
 
   X-ALT-2:
