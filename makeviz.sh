@@ -12,7 +12,7 @@ setup() {
 }
 
 cleanup() {
-    rm generated/*.gv &> /dev/null
+    # rm generated/*.gv &> /dev/null
     rm generated/*.svg &> /dev/null
     rm generated/*.bom.tsv &> /dev/null
     rm -r tmp/ &> /dev/null
