@@ -8,6 +8,14 @@ connectors:
     image:
       src: ../img/a-o3.png
 
+  X-ST-1:
+    <<: *x-dt06-04s
+    pinlabels: [
+      STARTER,
+      ALT REF,
+      CHANGE IND,
+    ]
+
   X-ALT-2:
     style: simple
     type: Crimp ferrule
