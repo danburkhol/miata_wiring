@@ -43,3 +43,13 @@ templates:
     show_pincount: false
     bgcolor: IV
     autogenerate: false
+
+  C-SHIELD-4: &c-shield-4
+    colors: [WH, WHBU, WHOG, WHGN]
+    shield: true
+  C-SHIELD-3: &c-shield-3
+    colors: [WH, WHBU, WHOG]
+    shield: true
+  C-SHIELD-2: &c-shield-2
+    colors: [WH, WHBU]
+    shield: true

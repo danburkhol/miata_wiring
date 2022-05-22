@@ -1,20 +1,49 @@
 connectors:
-  X-APP:
+  X-APP-1:
     pins: [A,B,C,D,E,F]
     pinlabels: [
       APP 1 Sens 5V+,
       APP 2 Sig GND,
-      APP Sens 2 Signal,
+      APP 2,
       APP 2 Sens 5V+,
       APP 1 Sig GND,
-      APP Sens 1 Signal,
+      APP 1,
     ]
     image:
       src: ../img/nc_throttle.png
+  X-APP-2:
+    <<: *x-dt06-04s
+    pinlabels: [
+      APP 1,
+      APP 2,
+      5V,
+      SENSOR GND,
+    ]
 
-# connections:
+cables:
+  C-APP-1:
+    <<: *c-shield-3
+    wirelabels: [SENSOR GND, APP 1, APP 2]
+  C-APP-2:
+    colors: [RDWH]
+    wirelabels: [5V]
+
+connections:
+  -
+    - C-APP-1: [APP 1, APP 2, SENSOR GND]
+    - X-APP-2: [APP 1, APP 2, SENSOR GND]
+  # -
+    # - C-APP-1: [s]
+    # - X-ECU-BODY-11: [12]
+  -
+    - C-APP-2: [5V]
+    - X-APP-2: [5V]
+  -
+    - X-APP-1: [APP 1, APP 2]
+    - C-APP-1: [APP 1, APP 2]
+
   # # accel pedal
   # -
-  #   - X-APP: [A,B,C,D,E,F]
-  #   - C-ECU-APP: [1-6]
-  #   # - X-MAXXECU-RACE-1: [H4, H2, H1, E4, G1, G3]
+    # - X-APP: [A,B,C,D,E,F]
+    # - C-ECU-APP: [1-6]
+    # - X-MAXXECU-RACE-1: [H4, H2, H1, E4, G1, G3]
