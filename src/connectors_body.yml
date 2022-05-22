@@ -39,20 +39,6 @@ connectors:
     ]
     notes: Driver's side body sub-harness
 
-  X-14:
-    pincount: 8
-    pinlabels: [
-      REAR RIGHT TURN SIGNAL,
-      FUEL PUMP,
-      TNS,
-      REVERSE LIGHTS,
-      REAR LEFT TURN SIGNAL,
-      FUEL LEVEL SENDER,
-      STOP LIGHTS,
-      DOOR SW
-    ]
-    notes: OEM Connector X-14 to custom connector
-
   X-10:
     pins: [
       Y, R/L, R/G,

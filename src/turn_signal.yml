@@ -1,0 +1,4 @@
+connections:
+  -
+    - C-PMU-1: [L TURN SIGNAL, R TURN SIGNAL]
+    - X-BODY-6: [L TURN SIGNAL, R TURN SIGNAL]

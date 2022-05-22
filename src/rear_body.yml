@@ -1,0 +1,85 @@
+connectors:
+  X-14:
+    pincount: 8
+    pinlabels: [
+      R TURN SIGNAL,
+      FUEL PUMP,
+      TNS,
+      REVERSE LT,
+      L TURN SIGNAL,
+      FUEL SENDER,
+      BRAKE LT,
+      DOOR SW
+    ]
+    notes: OEM Connector X-14
+
+  X-BODY-6:
+    <<: *x-dt06-8s
+    pinlabels: [
+      TNS,
+      BRAKE LT,
+      R TURN SIGNAL,
+      REVERSE LT,
+      FUEL PUMP,
+      L TURN SIGNAL,
+      FUEL SENDER,
+      DOOR SW,
+    ]
+    notes: Interface between OEM X-14 and rest of system
+
+cables:
+
+  C-BODY-3:
+    colors: [
+      PK, # TNS,
+      GN, # BRAKE LT,
+      GNWH, # R TURN SIGNAL,
+      RDGN, # REVERSE LT,
+      WH, # FUEL PUMP,
+      GNGY, # L TURN SIGNAL,
+      YE, # FUEL SENDER,
+      GN, # DOOR SW,
+    ]
+    wirelabels: [
+      TNS,
+      BRAKE LT,
+      R TURN SIGNAL,
+      REVERSE LT,
+      FUEL PUMP,
+      L TURN SIGNAL,
+      FUEL SENDER,
+      DOOR SW,
+    ]
+
+connections:
+  -
+    - X-BODY-6: [
+        TNS,
+        BRAKE LT,
+        R TURN SIGNAL,
+        REVERSE LT,
+        FUEL PUMP,
+        L TURN SIGNAL,
+        FUEL SENDER,
+        DOOR SW,
+      ]
+    - C-BODY-3: [
+        TNS,
+        BRAKE LT,
+        R TURN SIGNAL,
+        REVERSE LT,
+        FUEL PUMP,
+        L TURN SIGNAL,
+        FUEL SENDER,
+        DOOR SW,
+      ]
+    - X-14: [
+        TNS,
+        BRAKE LT,
+        R TURN SIGNAL,
+        REVERSE LT,
+        FUEL PUMP,
+        L TURN SIGNAL,
+        FUEL SENDER,
+        DOOR SW,
+      ]

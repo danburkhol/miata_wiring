@@ -3,3 +3,8 @@ cables:
     wirecount: 1
     wirelabels: [FUEL PUMP]
     colors: [VT]
+
+connections:
+  -
+    - C-PMU-1: [FUEL PUMP]
+    - X-BODY-6: [FUEL PUMP]

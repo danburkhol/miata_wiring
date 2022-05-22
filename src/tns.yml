@@ -12,8 +12,8 @@ connections:
     - C-PMU-1: [TNS]
     - X-TNS-CRIMP-1
   -
-    - X-14: [TNS]
     - C-PMU-1: [TNS]
+    - X-BODY-6: [TNS]
 
   # Pairing of both side crimps
   -
