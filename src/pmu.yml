@@ -60,9 +60,7 @@ cables:
     colors: [
       RDWH, # HIGH BEAM,
       GY, # LOW BEAM,
-      GY, # COOLING FAN,
       GY, # A/C FAN,
-      BU, # A/C CLUTCH,
       GNGY, # L TURN SIGNAL,
       GN, # R TURN SIGNAL,
       GN, # STOP LIGHTS,
@@ -74,9 +72,7 @@ cables:
     wirelabels: [
       HIGH BEAM,
       LOW BEAM,
-      COOLING FAN,
       A/C FAN,
-      A/C CLUTCH,
       L TURN SIGNAL,
       R TURN SIGNAL,
       STOP LIGHTS,
@@ -91,9 +87,7 @@ connections:
     - X-PMU: [
         OUTPUT O13, # HIGH BEAM,
         OUTPUT O1, # LOW BEAM,
-        OUTPUT O16, # COOLING FAN,
         OUTPUT O3, # A/C FAN,
-        OUTPUT O3, # A/C CLUTCH,
         OUTPUT O7, # L TURN SIGNAL,
         OUTPUT O6, # R TURN SIGNAL,
         OUTPUT O10, # STOP LIGHTS,
@@ -104,9 +98,7 @@ connections:
     - C-PMU-1: [
         HIGH BEAM,
         LOW BEAM,
-        COOLING FAN,
         A/C FAN,
-        A/C CLUTCH,
         L TURN SIGNAL,
         R TURN SIGNAL,
         STOP LIGHTS,

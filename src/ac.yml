@@ -13,7 +13,7 @@ cables:
 
 connections:
   -
-    - C-PMU-1: [A/C FAN, A/C CLUTCH]
+    - C-PMU-1: [A/C FAN]
     - X-AC-CRIMP-1
   -
     - X-AC-CRIMP-1

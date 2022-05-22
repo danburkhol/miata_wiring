@@ -1,4 +1,5 @@
 connections:
   -
-    - C-PMU-1: [COOLING FAN]
-    - X-BODY-1: [COOLING FAN]
+    - X-PMU: [OUTPUT O16]
+    - C-BODY-1: [COOLING FAN]
+    # - X-BODY-1: [COOLING FAN]
