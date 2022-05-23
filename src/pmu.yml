@@ -56,33 +56,150 @@ connectors:
     notes: VT = High AMP, IV = Low AMP
 
 cables:
-  C-PMU-1:
+  C-PMU-OUT:
+    wirecount: 17
     colors: [
-      RDWH, # HIGH BEAM,
-      GY, # LOW BEAM,
-      GY, # A/C FAN,
-      GNGY, # L TURN SIGNAL,
-      GN, # R TURN SIGNAL,
-      GN, # STOP LIGHTS,
-      WH, # FUEL PUMP,
-      WH, # TNS,
-      VT, # RETRACTOR VCC,
-      RDGN, # REVERSE LIGHTS,
-    ]
+        RDWH, #OUTPUT O13,
+        WH, # OUTPUT O12,
+        WH, # OUTPUT O11,
+        GN, # OUTPUT O10,
+        WH, # OUTPUT O9,
+        WH, # OUTPUT O8,
+        GNGY, #OUTPUT O7,
+        GN, # OUTPUT O6,
+        WH, # OUTPUT O5,
+        WH, # OUTPUT O4,
+        WH, # OUTPUT O14,
+        WH, # +5V OUTPUT,
+        GY, #OUTPUT O3,
+        WH, # OUTPUT O15,
+        WH, # OUTPUT O16,
+        GY, #OUTPUT O1,
+        WH, # OUTPUT O2
+      ]
     wirelabels: [
       HIGH BEAM,
-      LOW BEAM,
-      A/C FAN,
-      L TURN SIGNAL,
-      R TURN SIGNAL,
+      OUTPUT O12,
+      OUTPUT O11,
       STOP LIGHTS,
       FUEL PUMP,
+      OUTPUT O8,
+      L TURN SIGNAL,
+      R TURN SIGNAL,
+      OUTPUT O5,
+      OUTPUT O4,
       TNS,
-      RETRACTOR VCC,
-      REVERSE LIGHTS,
+      +5V OUTPUT,
+      A/C FAN,
+      OUTPUT O15,
+      OUTPUT O16,
+      LOW BEAM,
+      OUTPUT O2
     ]
+    notes: PMU outputs
+  C-PMU-IN:
+    wirecount: 16
+    wirelabels: [
+      INPUT A9,
+      INPUT A14,
+      INPUT A2,
+      INPUT A4,
+      INPUT A6,
+      INPUT A8,
+      INPUT A11,
+      INPUT A13,
+      INPUT A16,
+      INPUT A1,
+      INPUT A3,
+      INPUT A5,
+      INPUT A7,
+      INPUT A10,
+      INPUT A12,
+      INPUT A15,
+    ]
+    notes: PMU inputs
 
 connections:
+  -
+    - X-PMU: [
+        OUTPUT O13,
+        OUTPUT O12,
+        OUTPUT O11,
+        OUTPUT O10,
+        OUTPUT O9,
+        OUTPUT O8,
+        OUTPUT O7,
+        OUTPUT O6,
+        OUTPUT O5,
+        OUTPUT O4,
+        OUTPUT O14,
+        +5V OUTPUT,
+        OUTPUT O3,
+        OUTPUT O15,
+        OUTPUT O16,
+        OUTPUT O1,
+        OUTPUT O2
+      ]
+    - C-PMU-OUT: [1-17]
+    # - C-PMU-OUT: [
+    #     OUTPUT O13,
+    #     OUTPUT O12,
+    #     OUTPUT O11,
+    #     OUTPUT O10,
+    #     OUTPUT O9,
+    #     OUTPUT O8,
+    #     OUTPUT O7,
+    #     OUTPUT O6,
+    #     OUTPUT O5,
+    #     OUTPUT O4,
+    #     OUTPUT O14,
+    #     +5V OUTPUT,
+    #     OUTPUT O3,
+    #     OUTPUT O15,
+    #     OUTPUT O16,
+    #     OUTPUT O1,
+    #     OUTPUT O2
+    #   ]
+
+  -
+    - C-PMU-IN: [
+        INPUT A9,
+        INPUT A14,
+        INPUT A2,
+        INPUT A4,
+        INPUT A6,
+        INPUT A8,
+        INPUT A11,
+        INPUT A13,
+        INPUT A16,
+        INPUT A1,
+        INPUT A3,
+        INPUT A5,
+        INPUT A7,
+        INPUT A10,
+        INPUT A12,
+        INPUT A15,
+      ]
+    - X-PMU: [
+        INPUT A9,
+        INPUT A14,
+        INPUT A2,
+        INPUT A4,
+        INPUT A6,
+        INPUT A8,
+        INPUT A11,
+        INPUT A13,
+        INPUT A16,
+        INPUT A1,
+        INPUT A3,
+        INPUT A5,
+        INPUT A7,
+        INPUT A10,
+        INPUT A12,
+        INPUT A15,
+      ]
+
+
   -
     - X-PMU: [
         OUTPUT O13, # HIGH BEAM,
@@ -95,7 +212,7 @@ connections:
         OUTPUT O14, # TNS,
         # RETRACTOR VCC,
       ]
-    - C-PMU-1: [
+    - C-PMU-OUT: [
         HIGH BEAM,
         LOW BEAM,
         A/C FAN,

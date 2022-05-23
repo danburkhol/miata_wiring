@@ -6,5 +6,5 @@ cables:
 
 connections:
   -
-    - C-PMU-1: [STOP LIGHTS]
+    - C-PMU-OUT: [STOP LIGHTS]
     - X-BODY-6: [BRAKE LT]

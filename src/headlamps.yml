@@ -22,7 +22,7 @@ cables:
 
 connections:
   -
-    - C-PMU-1: [HIGH BEAM]
+    - C-PMU-OUT: [OUTPUT O13]
     - X-LT-CRIMP-1
   -
     - X-LT-CRIMP-1
@@ -32,7 +32,7 @@ connections:
     - C-BODY-2: [HIGH BEAM]
 
   -
-    - C-PMU-1: [LOW BEAM]
+    - C-PMU-OUT: [LOW BEAM]
     - X-LT-CRIMP-2
   -
     - X-LT-CRIMP-2

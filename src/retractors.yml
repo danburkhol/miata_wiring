@@ -50,7 +50,7 @@ cables:
 connections:
   # Pairing of both side crimps
   -
-    - C-PMU-1: [RETRACTOR VCC]
+    - C-PMU-OUT: [RETRACTOR VCC]
     - X-RETRACTOR-CRIMP-1
   -
     - X-RETRACTOR-CRIMP-1

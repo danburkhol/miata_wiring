@@ -6,5 +6,5 @@ cables:
 
 connections:
   -
-    - C-PMU-1: [FUEL PUMP]
+    - C-PMU-OUT: [FUEL PUMP]
     - X-BODY-6: [FUEL PUMP]

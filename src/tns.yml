@@ -9,10 +9,10 @@ cables:
 
 connections:
   -
-    - C-PMU-1: [TNS]
+    - C-PMU-OUT: [TNS]
     - X-TNS-CRIMP-1
   -
-    - C-PMU-1: [TNS]
+    - C-PMU-OUT: [TNS]
     - X-BODY-6: [TNS]
 
   # Pairing of both side crimps

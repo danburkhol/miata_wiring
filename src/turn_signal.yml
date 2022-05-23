@@ -4,11 +4,11 @@ connectors:
 
 connections:
   -
-    - C-PMU-1: [R TURN SIGNAL]
+    - C-PMU-OUT: [R TURN SIGNAL]
     - X-CRIMP-R-TURN-SIGNAL
 
   -
-    - C-PMU-1: [L TURN SIGNAL, R TURN SIGNAL]
+    - C-PMU-OUT: [L TURN SIGNAL, R TURN SIGNAL]
     - X-BODY-6: [L TURN SIGNAL, R TURN SIGNAL]
 
   # -
