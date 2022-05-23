@@ -1,74 +1,95 @@
 connectors:
-  X-16:
-    pincount: 15
-    # pins: [
-    #   L,
-    #   L/B,
-    #   R/Y,
-    #   R/G,
-    #   R/L,
-    #   L/Y,
-    #   B/W,
-    #   G/R,
-    #   G,
-    #   L2,
-    #   R,
-    #   R/B,
-    #   G/Y
-    # ]
+  X-DASH-2:
+    <<: *x-dt06-12s
     pinlabels: [
-      A/C REQ,
-      CIG LIGHTER,
-      RETRACTOR UP,
-      RETRACTOR DOWN,
-      RETRACTOR SW,
-      PARKING BRAKE LT,
-      POWER WINDOW VCC,
-      L POWER WINDOW CLOSE,
-      L POWER WINDOW OPEN,
-      # WASHER FL SENSOR,
-      # AIR BAG,
-      # FOG LAMP SW,
-      # FOG LAMP VCC
+      CEL,
+      OIL PRES,
+      CHARGE IND,
+      CLT GAUGE,
+      ABS LT,
+      TACH,
+
+      PASS PWR WINDOW 1,
+      PASS PWR WINDOW 2,
+
+      BUYE,
+      GNBK,
+      BUYE,
+      BU,
     ]
 
-    notes: The green connector between the dash and body
+
 
 cables:
-  C-X-16-1:
+  C-DASH-OEM-1:
     colors: [
-      BU,
-      BUBK,
-      RDYE,
-      RDGN,
-      RDBU,
+      YEBK, # CEL,
+      YERD, # OIL PRES,
+      WHBK, # CHARGE IND,
+      BKBU, # CLT GAUGE,
+      BUYE, # ABS LT,
+      YEBU, # TACH
+
+      RDBK, # PASS PWR WINDOW 1,
+      RDGN, # PASS PWR WINDOW 2,
+
       BUYE,
-      BKWH,
-      GNRD,
-      GN,
-      # BU,
-      # RD,
-      # RDBK,
-      # GNYE
+      GNBK,
+      BUYE,
+      BU,
+    ]
+    notes: On dashboard, OEM wiring to connector
+
+  C-CLUSTER-2:
+    colors: [
+      PKGN, # CEL,
+      YERD, # OIL PRES,
+      WH, # CHARGE IND,
+      RD, # CLT GAUGE,
+      # BUYE, # ABS LT,
+      BU, # TACH
     ]
     wirelabels: [
-      A/C REQ,
-      CIG LIGHTER,
-      RETRACTOR UP,
-      RETRACTOR DOWN,
-      RETRACTOR SW,
-      PARKING BRAKE LT,
-      POWER WINDOW VCC,
-      L POWER WINDOW CLOSE,
-      L POWER WINDOW OPEN,
-      # WASHER FL SENSOR,
-      # AIR BAG,
-      # FOG LAMP SW,
-      # FOG LAMP VCC
+      CEL,
+      OIL PRES,
+      CHARGE IND,
+      CLT GAUGE,
+      # ABS LT,
+      TACH
     ]
-
+    notes: To dashboard
 
 connections:
   -
-    - X-16: [1-9]
-    - C-X-16-1: [1-9]
+    - X-DASH-2: [1-12]
+    - C-DASH-OEM-1: [1-12]
+  -
+    - C-CLUSTER-2: [
+        CEL,
+        OIL PRES,
+        CHARGE IND,
+        CLT GAUGE,
+        # ABS LT,
+        TACH
+      ]
+    - X-DASH-2: [
+        CEL,
+        OIL PRES,
+        CHARGE IND,
+        CLT GAUGE,
+        # ABS LT,
+        TACH
+      ]
+  -
+    - X-ECU-BODY-11: [
+        CEL,
+        OIL PRES,
+        CLT GAUGE,
+        TACH,
+      ]
+    - C-CLUSTER-2: [
+        CEL,
+        OIL PRES,
+        CLT GAUGE,
+        TACH
+      ]
