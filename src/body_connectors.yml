@@ -105,6 +105,7 @@ cables:
     colors: [
       GY, # LOW BEAM,
       RDBK, # HIGH BEAM,
+      WHBU, # A/C PRES SW,
       YE, # RETRACTOR UP,
       WH, # RETRACTOR DOWN,
       VT, # RETRACTOR VCC,
@@ -120,6 +121,7 @@ cables:
     wirelabels: [
       LOW BEAM,
       HIGH BEAM,
+      A/C PRES SW,
       RETRACTOR UP,
       RETRACTOR DOWN,
       RETRACTOR VCC,
