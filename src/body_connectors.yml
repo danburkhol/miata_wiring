@@ -171,6 +171,7 @@ connections:
     - C-BODY-2: [
         RETRACTOR UP,
         RETRACTOR DOWN,
+        A/C PRES SW,
         R TURN SIGNAL,
         TNS,
         RETRACTOR ACTIVE,
@@ -182,6 +183,7 @@ connections:
     - X-BODY-4: [
         RETRACTOR UP,
         RETRACTOR DOWN,
+        A/C PRES SW,
         R TURN SIGNAL,
         TNS,
         RETRACTOR ACTIVE,
