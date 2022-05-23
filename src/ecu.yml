@@ -15,7 +15,9 @@ connectors:
       START REQ,
       TACH,
       VSS,
-      CEL
+      CEL,
+      AIT SIGNAL,
+      SENSOR GND,
     ]
     notes: Connector between the chassis and ECU
 cables:

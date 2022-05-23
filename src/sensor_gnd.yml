@@ -40,8 +40,3 @@ connections:
     - X-SENSOR-GND-CRIMP-1
     - CI-SENSOR-GND-2: [1]
     - X-BULK: [SENSOR GND]
-
-  -
-    - X-SENSOR-GND-CRIMP-1
-    - C-AIT-2: [SIGNAL GND]
-    - X-BODY-4: [AIT SENSOR GND]
