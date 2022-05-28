@@ -1,13 +1,13 @@
-connectors:
-  X-CRIMP-L-TURN-SIGNAL:
-    <<: *x-crimp
-  X-CRIMP-R-TURN-SIGNAL:
-    <<: *x-crimp
+# connectors:
+#   X-CRIMP-L-TURN-SIGNAL:
+#     <<: *x-crimp
+#   X-CRIMP-R-TURN-SIGNAL:
+#     <<: *x-crimp
 
-cables:
-  C-TURN-SIGNAL-REAR:
-    colors: [GNBK, GNGY]
-    wirelabels: [L TURN SIGNAL, R TURN SIGNAL]
+# cables:
+#   C-TURN-SIGNAL-REAR:
+#     colors: [GNBK, GNGY]
+#     wirelabels: [L TURN SIGNAL, R TURN SIGNAL]
 
 # connections:
 #   -

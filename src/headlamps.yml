@@ -12,6 +12,8 @@ connectors:
     <<: *x-crimp
   X-LT-CRIMP-2:
     <<: *x-crimp
+  X-LT-CRIMP-GND:
+    <<: *x-crimp
 
 cables:
   C-HEADLAMP-1: &c_headlamp
@@ -27,9 +29,11 @@ connections:
   -
     - X-LT-CRIMP-1
     - C-HEADLAMP-1: [HIGH BEAM]
+    - X-E1-01: [HIGH BEAM]
   -
     - X-LT-CRIMP-1
     - C-HEADLAMP-2: [HIGH BEAM]
+    - X-E1-02: [HIGH BEAM]
 
   -
     - C-PMU-OUT: [LOW BEAM]
@@ -37,6 +41,17 @@ connections:
   -
     - X-LT-CRIMP-2
     - C-HEADLAMP-1: [LOW BEAM]
+    - X-E1-01: [LOW BEAM]
   -
     - X-LT-CRIMP-2
     - C-HEADLAMP-2: [LOW BEAM]
+    - X-E1-02: [LOW BEAM]
+
+  -
+    - X-LT-CRIMP-GND
+    - C-HEADLAMP-1: [GND]
+    - X-E1-01: [GND]
+  -
+    - X-LT-CRIMP-GND
+    - C-HEADLAMP-2: [GND]
+    - X-E1-02: [GND]

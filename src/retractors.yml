@@ -23,6 +23,8 @@ connectors:
     <<: *x-crimp
   X-RETRACTOR-CRIMP-ACTIVE:
     <<: *x-crimp
+  X-RETRACTOR-CRIMP-GND:
+    <<: *x-crimp
 
 cables:
   C-RETRACTOR-1: &c-retractor
@@ -89,23 +91,11 @@ connections:
     - C-RETRACTOR-2: [ACTIVE]
     - E1-05: [ACTIVE]
 
-
-  # # Driver retractor
-  # -
-  #   # - X-BODY-1: [RETRACTOR VCC]
-  #   - C-RETRACTOR-1: [VCC]
-  #   - E1-04: [VCC]
-  # -
-  #   # - X-BODY-2: [RETRACTOR UP, RETRACTOR DOWN, RETRACTOR ACTIVE]
-  #   - C-RETRACTOR-1: [UP, DOWN, ACTIVE]
-  #   - E1-04: [UP, DOWN, ACTIVE]
-
-  # # Pass retractor
-  # -
-  #   # - X-BODY-3: [RETRACTOR VCC]
-  #   - C-RETRACTOR-2: [VCC]
-  #   - E1-05: [VCC]
-  # -
-  #   # - X-BODY-4: [RETRACTOR UP, RETRACTOR DOWN, RETRACTOR ACTIVE]
-  #   - C-RETRACTOR-2: [UP, DOWN, ACTIVE]
-  #   - E1-05: [UP, DOWN, ACTIVE]
+  -
+    - X-RETRACTOR-CRIMP-GND
+    - C-RETRACTOR-1: [GND]
+    - E1-04: [GND]
+  -
+    - X-RETRACTOR-CRIMP-GND
+    - C-RETRACTOR-2: [GND]
+    - E1-05: [GND]
