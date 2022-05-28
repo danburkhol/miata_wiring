@@ -2,23 +2,26 @@ connectors:
   X-TNS-CRIMP-1:
     <<: *x-crimp
 cables:
-  C-TNS:
+  C-TNS-1: &c-tns
     wirecount: 1
     wirelabels: [TNS]
-    colors: [GN]
+    colors: [RDBK]
+  C-TNS-2:
+    <<: *c-tns
 
 connections:
   -
     - C-PMU-OUT: [TNS]
     - X-TNS-CRIMP-1
+  # front tns
   -
-    - C-PMU-OUT: [TNS]
-    - X-BODY-6: [TNS]
+    - X-TNS-CRIMP-1
+    - C-TNS-1: [TNS]
+  -
+    - X-TNS-CRIMP-1
+    - C-TNS-2: [TNS]
 
-  # Pairing of both side crimps
-  -
-    - X-TNS-CRIMP-1
-    - C-BODY-1: [TNS]
-  -
-    - X-TNS-CRIMP-1
-    - C-BODY-2: [TNS]
+# Rear TNS
+ # -
+  #   - C-PMU-OUT: [TNS]
+  #   - X-BODY-6: [TNS]

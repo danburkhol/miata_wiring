@@ -4,7 +4,7 @@ cables:
     wirelabels: [STOP LIGHTS]
     colors: [PK]
 
-connections:
-  -
-    - C-PMU-OUT: [STOP LIGHTS]
-    - X-BODY-6: [BRAKE LT]
+# connections:
+#   -
+#     - C-PMU-OUT: [STOP LIGHTS]
+#     - X-BODY-6: [BRAKE LT]

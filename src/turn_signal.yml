@@ -9,26 +9,26 @@ cables:
     colors: [GNBK, GNGY]
     wirelabels: [L TURN SIGNAL, R TURN SIGNAL]
 
-connections:
-  -
-    - C-PMU-OUT: [L TURN SIGNAL]
-    - X-CRIMP-L-TURN-SIGNAL
-  -
-    - C-PMU-OUT: [R TURN SIGNAL]
-    - X-CRIMP-R-TURN-SIGNAL
+# connections:
+#   -
+#     - C-PMU-OUT: [L TURN SIGNAL]
+#     - X-CRIMP-L-TURN-SIGNAL
+#   -
+#     - C-PMU-OUT: [R TURN SIGNAL]
+#     - X-CRIMP-R-TURN-SIGNAL
 
-  -
-    - X-CRIMP-L-TURN-SIGNAL
-    - C-BODY-1: [L TURN SIGNAL]
-  -
-    - X-CRIMP-L-TURN-SIGNAL
-    - C-TURN-SIGNAL-REAR: [L TURN SIGNAL]
-    - X-BODY-6: [L TURN SIGNAL]
+#   -
+#     - X-CRIMP-L-TURN-SIGNAL
+#     - C-BODY-1: [L TURN SIGNAL]
+#   -
+#     - X-CRIMP-L-TURN-SIGNAL
+#     - C-TURN-SIGNAL-REAR: [L TURN SIGNAL]
+#     - X-BODY-6: [L TURN SIGNAL]
 
-  -
-    - X-CRIMP-R-TURN-SIGNAL
-    - C-BODY-2: [R TURN SIGNAL]
-  -
-    - X-CRIMP-R-TURN-SIGNAL
-    - C-TURN-SIGNAL-REAR: [R TURN SIGNAL]
-    - X-BODY-6: [R TURN SIGNAL]
+#   -
+#     - X-CRIMP-R-TURN-SIGNAL
+#     - C-BODY-2: [R TURN SIGNAL]
+#   -
+#     - X-CRIMP-R-TURN-SIGNAL
+#     - C-TURN-SIGNAL-REAR: [R TURN SIGNAL]
+#     - X-BODY-6: [R TURN SIGNAL]

@@ -14,38 +14,29 @@ connectors:
     <<: *x-crimp
 
 cables:
-  C-HEADLAMP-2: &c_headlamp
+  C-HEADLAMP-1: &c_headlamp
     colors: [RDWH,GY, BK]
     wirelabels: [HIGH BEAM, LOW BEAM, GND]
-  C-HEADLAMP-3:
+  C-HEADLAMP-2:
     <<: *c_headlamp
 
 connections:
   -
-    - C-PMU-OUT: [OUTPUT O13]
+    - C-PMU-OUT: [HIGH BEAM]
     - X-LT-CRIMP-1
   -
     - X-LT-CRIMP-1
-    - C-BODY-1: [HIGH BEAM]
+    - C-HEADLAMP-1: [HIGH BEAM]
   -
     - X-LT-CRIMP-1
-    - C-BODY-2: [HIGH BEAM]
+    - C-HEADLAMP-2: [HIGH BEAM]
 
   -
     - C-PMU-OUT: [LOW BEAM]
     - X-LT-CRIMP-2
   -
     - X-LT-CRIMP-2
-    - C-BODY-1: [LOW BEAM]
+    - C-HEADLAMP-1: [LOW BEAM]
   -
     - X-LT-CRIMP-2
-    - C-BODY-2: [LOW BEAM]
-
-  -
-    - X-BODY-1: [HIGH BEAM, LOW BEAM]
-    - C-HEADLAMP-2: [1-2]
-    - X-E1-01: [HIGH BEAM, LOW BEAM]
-  -
-    - X-BODY-3: [HIGH BEAM, LOW BEAM]
-    - C-HEADLAMP-3: [1-2]
-    - X-E1-02: [HIGH BEAM, LOW BEAM]
+    - C-HEADLAMP-2: [LOW BEAM]

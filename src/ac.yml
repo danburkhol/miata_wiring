@@ -1,4 +1,15 @@
 connectors:
+  X-AC-1:
+    <<: *x-dt06-04s
+    pinlabels: [
+      A/C FAN VCC,
+      A/C PRES SW,
+      A/C FAN GND,
+      A/C PRES SW GND,
+    ]
+  X-AC-CLUTCH:
+    pincount: 1
+    pinlabels: [A/C CLUTCH]
   X-AC-CRIMP-1:
     <<: *x-crimp
 cables:
@@ -10,6 +21,10 @@ cables:
     wirecount: 1
     wirelabels: [A/C PRES. SW]
     colors: [PK]
+  C-AC-3:
+    colors: [WHBK]
+  C-AC-4:
+    colors: [WH]
 
 connections:
   -
@@ -17,20 +32,17 @@ connections:
     - X-AC-CRIMP-1
   -
     - X-AC-CRIMP-1
-    - C-BODY-1: [A/C CLUTCH]
+    - C-AC-3: [WHBK]
+    - X-AC-1: [A/C FAN VCC]
   -
     - X-AC-CRIMP-1
-    - C-BODY-2: [A/C FAN]
-  # -
-  #   - X-BODY-D2: [A/C CLUTCH]
-  #   - C-AC-1: [A/C CLUTCH]
-  #   - X-PMU: [OUTPUT O3]
-  # -
-    # - X-BODY-P2: [A/C FAN]
-    # - C-AC-1: [A/C FAN]
-    # - X-PMU: [OUTPUT O3]
-
+    - C-AC-4: [1]
+    - X-AC-CLUTCH: [1]
   -
     - X-BODY-P2: [A/C PRES. SW]
     - C-AC-2: [A/C PRES. SW]
     - X-PMU: [INPUT A13]
+
+  -
+    - C-PMU-OUT: [A/C PRES SW]
+    - X-AC-1: [A/C PRES SW]

@@ -137,58 +137,58 @@ cables:
     notes: From driver footwell to passenger footwell
 
 
-connections:
-  -
-    - C-BODY-1: [RETRACTOR VCC, LOW BEAM, HIGH BEAM]
-    - X-BODY-1: [RETRACTOR VCC, LOW BEAM, HIGH BEAM]
-  -
-    - C-BODY-1: [
-        RETRACTOR UP,
-        RETRACTOR DOWN,
-        TNS,
-        RETRACTOR ACTIVE,
-        L TURN SIGNAL,
-        A/C CLUTCH,
-        BRAKE FL,
-        WASHER,
-        HORN,
-      ]
-    - X-BODY-2: [
-        RETRACTOR UP,
-        RETRACTOR DOWN,
-        TNS,
-        RETRACTOR ACTIVE,
-        L TURN SIGNAL,
-        A/C CLUTCH,
-        BRAKE FL,
-        WASHER,
-        HORN,
-      ]
-  -
-    - C-BODY-2: [A/C FAN, RETRACTOR VCC, LOW BEAM, HIGH BEAM]
-    - X-BODY-3: [A/C FAN, RETRACTOR VCC, LOW BEAM, HIGH BEAM]
-  -
-    - C-BODY-2: [
-        RETRACTOR UP,
-        RETRACTOR DOWN,
-        A/C PRES SW,
-        R TURN SIGNAL,
-        TNS,
-        RETRACTOR ACTIVE,
-        WIPER 1,
-        WIPER 2,
-        WIPER 3,
-        WIPER 4,
-      ]
-    - X-BODY-4: [
-        RETRACTOR UP,
-        RETRACTOR DOWN,
-        A/C PRES SW,
-        R TURN SIGNAL,
-        TNS,
-        RETRACTOR ACTIVE,
-        WIPER 1,
-        WIPER 2,
-        WIPER 3,
-        WIPER 4,
-      ]
+# connections:
+#   -
+#     - C-BODY-1: [RETRACTOR VCC, LOW BEAM, HIGH BEAM]
+#     - X-BODY-1: [RETRACTOR VCC, LOW BEAM, HIGH BEAM]
+#   -
+#     - C-BODY-1: [
+#         RETRACTOR UP,
+#         RETRACTOR DOWN,
+#         TNS,
+#         RETRACTOR ACTIVE,
+#         L TURN SIGNAL,
+#         A/C CLUTCH,
+#         BRAKE FL,
+#         WASHER,
+#         HORN,
+#       ]
+#     - X-BODY-2: [
+#         RETRACTOR UP,
+#         RETRACTOR DOWN,
+#         TNS,
+#         RETRACTOR ACTIVE,
+#         L TURN SIGNAL,
+#         A/C CLUTCH,
+#         BRAKE FL,
+#         WASHER,
+#         HORN,
+#       ]
+#   -
+#     - C-BODY-2: [A/C FAN, RETRACTOR VCC, LOW BEAM, HIGH BEAM]
+#     - X-BODY-3: [A/C FAN, RETRACTOR VCC, LOW BEAM, HIGH BEAM]
+#   -
+#     - C-BODY-2: [
+#         RETRACTOR UP,
+#         RETRACTOR DOWN,
+#         A/C PRES SW,
+#         R TURN SIGNAL,
+#         TNS,
+#         RETRACTOR ACTIVE,
+#         WIPER 1,
+#         WIPER 2,
+#         WIPER 3,
+#         WIPER 4,
+#       ]
+#     - X-BODY-4: [
+#         RETRACTOR UP,
+#         RETRACTOR DOWN,
+#         A/C PRES SW,
+#         R TURN SIGNAL,
+#         TNS,
+#         RETRACTOR ACTIVE,
+#         WIPER 1,
+#         WIPER 2,
+#         WIPER 3,
+#         WIPER 4,
+#       ]
