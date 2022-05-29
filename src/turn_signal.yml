@@ -1,15 +1,20 @@
-# connectors:
-#   X-CRIMP-L-TURN-SIGNAL:
-#     <<: *x-crimp
-#   X-CRIMP-R-TURN-SIGNAL:
-#     <<: *x-crimp
+connectors:
+  X-CRIMP-L-TURN-SIGNAL:
+    <<: *x-crimp
+  X-CRIMP-R-TURN-SIGNAL:
+    <<: *x-crimp
 
-# cables:
-#   C-TURN-SIGNAL-REAR:
-#     colors: [GNBK, GNGY]
-#     wirelabels: [L TURN SIGNAL, R TURN SIGNAL]
+connections:
+  -
+    - C-PMU-OUT: [L TURN SIGNAL]
+    - X-CRIMP-L-TURN-SIGNAL
+    - C-REAR: [L TURN SIGNAL]
+  -
+    - C-PMU-OUT: [R TURN SIGNAL]
+    - X-CRIMP-R-TURN-SIGNAL
+    - C-REAR: [R TURN SIGNAL]
 
-# connections:
+
 #   -
 #     - C-PMU-OUT: [L TURN SIGNAL]
 #     - X-CRIMP-L-TURN-SIGNAL

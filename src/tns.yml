@@ -1,6 +1,7 @@
 connectors:
   X-TNS-CRIMP-1:
     <<: *x-crimp
+
 cables:
   C-TNS-1: &c-tns
     wirecount: 1
@@ -13,13 +14,17 @@ connections:
   -
     - C-PMU-OUT: [TNS]
     - X-TNS-CRIMP-1
-  # front tns
-  -
-    - X-TNS-CRIMP-1
-    - C-TNS-1: [TNS]
-  -
-    - X-TNS-CRIMP-1
-    - C-TNS-2: [TNS]
+    - C-REAR: [TNS]
+  # -
+  #   - C-PMU-OUT: [TNS]
+  #   - X-TNS-CRIMP-1
+  # # front tns
+  # -
+  #   - X-TNS-CRIMP-1
+  #   - C-TNS-1: [TNS]
+  # -
+  #   - X-TNS-CRIMP-1
+  #   - C-TNS-2: [TNS]
 
 # Rear TNS
  # -

@@ -17,6 +17,18 @@ connectors:
       src: ../img/easyguard-2.png
 
 cables:
+  C-EASY-1:
+    colors: [
+      GN, # L TURN SIGNAL,
+      PK, # R TURN SIGNAL,
+      PKGN, # DOOR SW,
+    ]
+    wirelabels: [
+      L TURN SIGNAL,
+      R TURN SIGNAL,
+      DOOR SW,
+    ]
+
   C-EASYGUARD-1:
     wirecount: 6
     wirelabels: [

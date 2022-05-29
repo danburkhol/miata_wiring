@@ -25,8 +25,20 @@ cables:
     colors: [WHBK]
   C-AC-4:
     colors: [WH]
+  C-AC-FAN: &c-ac
+    colors: [BU, BK]
+    wirelabels: [VCC, GND]
+  C-AC-PRES-SW:
+    <<: *c-ac
 
 connections:
+  -
+    - X-AC-1: [A/C FAN VCC, A/C FAN GND]
+    - C-AC-FAN: [VCC, GND]
+  -
+    - X-AC-1: [A/C PRES SW, A/C PRES SW GND]
+    - C-AC-PRES-SW: [VCC, GND]
+
   -
     - C-PMU-OUT: [A/C FAN]
     - X-AC-CRIMP-1
