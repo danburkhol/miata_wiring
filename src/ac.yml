@@ -40,9 +40,6 @@ connections:
     - C-AC-PRES-SW: [VCC, GND]
 
   -
-    - C-PMU-OUT: [A/C FAN]
-    - X-AC-CRIMP-1
-  -
     - X-AC-CRIMP-1
     - C-AC-3: [WHBK]
     - X-AC-1: [A/C FAN VCC]
@@ -58,3 +55,7 @@ connections:
   -
     - C-PMU-OUT: [A/C PRES SW]
     - X-AC-1: [A/C PRES SW]
+
+  -
+    - C-PMU-OUT: [A/C FAN]
+    - X-AC-CRIMP-1

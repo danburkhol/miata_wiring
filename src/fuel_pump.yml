@@ -4,7 +4,7 @@ cables:
     wirelabels: [FUEL PUMP]
     colors: [VT]
 
-# connections:
-#   -
-#     - C-PMU-OUT: [FUEL PUMP]
-#     - X-BODY-6: [FUEL PUMP]
+connections:
+  -
+    - C-PMU-OUT: [FUEL PUMP]
+    - X-14: [FUEL PUMP]

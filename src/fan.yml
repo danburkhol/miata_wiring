@@ -1,5 +1,14 @@
+connectors:
+  X-COOLING-FAN:
+    <<: *x-dt06-04s
+    pinlabels: [
+      COOLING FAN VCC,
+      COOLING FAN GND,
+      A/C CLUTCH,
+      P/S PUMP,
+    ]
+
 connections:
   -
-    - X-PMU: [OUTPUT O16]
-    - C-BODY-1: [COOLING FAN]
-    # - X-BODY-1: [COOLING FAN]
+    - C-PMU-OUT: [COOLING FAN]
+    - X-COOLING-FAN: [COOLING FAN VCC]

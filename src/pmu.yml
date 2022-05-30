@@ -71,6 +71,8 @@ cables:
       PK, # RETRACTOR ACTIVE,
       GN, # HORN,
       WH, # A/C PRES SW
+      WHBU, # FUEL PUMP
+      BKRD, # STARTER
     ]
     wirelabels: [
       HIGH BEAM,
@@ -86,6 +88,8 @@ cables:
       RETRACTOR ACTIVE,
       HORN,
       A/C PRES SW,
+      FUEL PUMP,
+      STARTER,
     ]
     notes: PMU outputs
   C-PMU-IN:
@@ -110,107 +114,27 @@ cables:
     ]
     notes: PMU inputs
 
-# connections:
-  # -
-  #   - X-PMU: [
-  #       OUTPUT O13,
-  #       OUTPUT O12,
-  #       OUTPUT O11,
-  #       OUTPUT O10,
-  #       OUTPUT O9,
-  #       OUTPUT O8,
-  #       OUTPUT O7,
-  #       OUTPUT O6,
-  #       OUTPUT O5,
-  #       OUTPUT O4,
-  #       OUTPUT O14,
-  #       +5V OUTPUT,
-  #       OUTPUT O3,
-  #       OUTPUT O15,
-  #       OUTPUT O16,
-  #       OUTPUT O1,
-  #       OUTPUT O2
-  #     ]
-  #   - C-PMU-OUT: [1-17]
-  #   # - C-PMU-OUT: [
-  #   #     OUTPUT O13,
-  #   #     OUTPUT O12,
-  #   #     OUTPUT O11,
-  #   #     OUTPUT O10,
-  #   #     OUTPUT O9,
-  #   #     OUTPUT O8,
-  #   #     OUTPUT O7,
-  #   #     OUTPUT O6,
-  #   #     OUTPUT O5,
-  #   #     OUTPUT O4,
-  #   #     OUTPUT O14,
-  #   #     +5V OUTPUT,
-  #   #     OUTPUT O3,
-  #   #     OUTPUT O15,
-  #   #     OUTPUT O16,
-  #   #     OUTPUT O1,
-  #   #     OUTPUT O2
-  #   #   ]
-
-  # -
-  #   - C-PMU-IN: [
-  #       INPUT A9,
-  #       INPUT A14,
-  #       INPUT A2,
-  #       INPUT A4,
-  #       INPUT A6,
-  #       INPUT A8,
-  #       INPUT A11,
-  #       INPUT A13,
-  #       INPUT A16,
-  #       INPUT A1,
-  #       INPUT A3,
-  #       INPUT A5,
-  #       INPUT A7,
-  #       INPUT A10,
-  #       INPUT A12,
-  #       INPUT A15,
-  #     ]
-  #   - X-PMU: [
-  #       INPUT A9,
-  #       INPUT A14,
-  #       INPUT A2,
-  #       INPUT A4,
-  #       INPUT A6,
-  #       INPUT A8,
-  #       INPUT A11,
-  #       INPUT A13,
-  #       INPUT A16,
-  #       INPUT A1,
-  #       INPUT A3,
-  #       INPUT A5,
-  #       INPUT A7,
-  #       INPUT A10,
-  #       INPUT A12,
-  #       INPUT A15,
-  #     ]
-
-
-  # -
-  #   - X-PMU: [
-  #       OUTPUT O13, # HIGH BEAM,
-  #       OUTPUT O1, # LOW BEAM,
-  #       OUTPUT O3, # A/C FAN,
-  #       OUTPUT O7, # L TURN SIGNAL,
-  #       OUTPUT O6, # R TURN SIGNAL,
-  #       OUTPUT O10, # STOP LIGHTS,
-  #       OUTPUT O9, # FUEL PUMP,
-  #       OUTPUT O14, # TNS,
-  #       # RETRACTOR VCC,
-  #     ]
-  #   - C-PMU-OUT: [
-  #       HIGH BEAM,
-  #       LOW BEAM,
-  #       A/C FAN,
-  #       L TURN SIGNAL,
-  #       R TURN SIGNAL,
-  #       STOP LIGHTS,
-  #       FUEL PUMP,
-  #       TNS,
-  #       # RETRACTOR VCC,
-  #     ]
+connections:
+  -
+    - X-PMU: [
+        OUTPUT O15, # HIGH BEAM,
+        OUTPUT O16, # LOW BEAM,
+        OUTPUT O9, # L TURN SIGNAL,
+        OUTPUT O10, # R TURN SIGNAL,
+        OUTPUT O3, # TNS,
+        OUTPUT O14, # COOLING FAN,
+        OUTPUT O2, # A/C FAN,
+        OUTPUT O6, # FUEL PUMP,
+        OUTPUT O5, # STARTER,
+      ]
+    - C-PMU-OUT: [
+        HIGH BEAM,
+        LOW BEAM,
+        L TURN SIGNAL,
+        R TURN SIGNAL,
+        TNS,
+        COOLING FAN,
+        A/C FAN,
+        FUEL PUMP,
+        STARTER,
+      ]
