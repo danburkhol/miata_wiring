@@ -1,4 +1,43 @@
 connectors:
+  X-EASY-1:
+    <<: *x-dt06-04s
+    pinlabels: [
+      VCC,
+      IGN 1,
+      START REQ
+    ]
+    notes: primary power and start
+  X-EASY-2:
+    <<: *x-dt06-8s
+    pinlabels: [
+      L TURN SIGNAL,
+      R TURN SIGNAL,
+      BRAKE SW (+),
+      DOOR SW (-),
+      TRUNK (+)(V),
+      TRUNK RELEASE (GNBK),
+      TRUNK MOTOR OUTPUT (GN),
+      GND,
+    ]
+  X-EASY-3:
+    <<: *x-dt06-8s
+    pinlabels: [
+      LOCKING (WH),
+      UNLOKCING (WHBK),
+      LOCKING (YE), # +12V
+      LOCKING (YEBK), # +12V
+      LOCKING (OG), # GND
+      LOCKING (OGBK), # GND
+    ]
+  X-EASY-4:
+    <<: *x-dt06-04s
+    pinlabels: [
+      SENSOR 1,
+      SENSOR 2,
+      SENSOR 11,
+      SENSOR 12,
+    ]
+    notes: Connector for fob sensors
   X-EASYGUARD-1:
     pincount: 6
     pinlabels: [
@@ -19,86 +58,28 @@ connectors:
 cables:
   C-EASY-1:
     colors: [
-      GN, # L TURN SIGNAL,
-      PK, # R TURN SIGNAL,
-      PKGN, # DOOR SW,
+      RD, # +12V CONST,
+      RD, # IGN ON,
+      YE, # START REQ,
     ]
     wirelabels: [
-      L TURN SIGNAL,
-      R TURN SIGNAL,
-      DOOR SW,
+      +12V CONST,
+      IGN ON,
+      START REQ,
     ]
 
-  C-EASYGUARD-1:
-    wirecount: 6
-    wirelabels: [
-      ACC,
-      ST,
-      IGN2,
-      VCC1,
-      VCC2,
-      IGN1,
-    ]
-    colors: [OG,YE,BN,RD,RD,WH]
-    notes: IGN harness
-  C-EASYGUARD-2:
-    colors: [
-      BN,BN,YEBK,WHBK,OGBK,YE,WH,OG,PK,GN,
-      OG,RD,BK,BK,WH,BUBK,BU,GNBK,GN,VT
-    ]
-    wirelabels: [
-      TURN SIGNAL 1,
-      TURN SIGNAL 2,
-      door,
-      door,
-      door,
-      door,
-      door,
-      door,
-      HORN,
-      GPS,
-
-      FOOTBRAKE,
-      GPS VCC,
-      GND 1,
-      GND 2,
-      GPS,
-      DOOR SW,
-      FUEL PUMP,
-      TRUNK RELEASE
-      TRUNK OUTPUT,
-      TRUNK POSITIVE
-    ]
 
 connections:
   -
-    - X-EASYGUARD-1: [ST]
-    - C-EASYGUARD-1: [YE]
-    - X-ECU-BODY-11: [START REQ]
-    - C-ECU-AUX-2: [START REQ]
-    - X-ECU-1: [B4]
-  -
-    - X-EASYGUARD-1: [IGN1, IGN2]
-    - C-EASYGUARD-1: [IGN1, IGN2]
-    - X-PMU: [7, 7]
-  -
-    - X-EASYGUARD-1: [ACC]
-    - C-EASYGUARD-1: [ACC]
-    - X-PMU: [29]
-  -
-    - C-EASYGUARD-2: [1-20]
-    - X-EASYGUARD-2: [1-20]
-  -
-    - X-GND-1
-    - C-EASYGUARD-2: [13,14]
-    - X-EASYGUARD-2: [13,14]
-  -
-    # - X-PMU: [10,11]
-    - C-EASYGUARD-2: [1,2]
-    - X-EASYGUARD-2: [1,2]
-  -
-    - C-PWR-1: [1]
-    - X-EASYGUARD-1: [VCC1]
-  -
-    - C-PWR-1: [1]
-    - X-EASYGUARD-1: [VCC2]
+    - X-EASY-1: [
+        IGN 1,
+        START REQ,
+      ]
+    - C-EASY-1: [
+        IGN ON,
+        START REQ,
+      ]
+    - X-PMU: [
+        +12V SW,
+        INPUT A9,
+      ]
