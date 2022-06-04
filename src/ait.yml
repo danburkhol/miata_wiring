@@ -7,29 +7,23 @@ connectors:
     notes: GM AIT sensor
 
 cables:
-  C-AIT-1: &c-ait
+  C-AIT-1:
+    wirecount: 1
+    colors: [BU]
+    wirelabels: [SIGNAL]
+  C-AIT-2:
     wirecount: 2
     colors: [BU, BK]
     wirelabels: [SIGNAL, SIGNAL GND]
-    notes: Runs along passenger side of chassis, post-intercooler
-  C-AIT-2:
-    <<: *c-ait
-  C-AIT-3:
-    <<: *c-ait
+    notes:
+
 connections:
   -
     - X-ECU-1: [F2]
-    - C-AIT-2: [BU]
-    - X-ECU-BODY-11: [AIT SIGNAL]
-    - C-AIT-3: [BU]
-    - X-BODY-4: [AIT SIGNAL]
     - C-AIT-1: [BU]
+    - X-BULK: [23]
+    - C-AIT-2: [BU]
     - X-AIT: [A]
   -
-    - X-SENSOR-GND-CRIMP-1
-    - C-AIT-2: [SIGNAL GND]
-    - X-ECU-BODY-11: [SENSOR GND]
-    - C-AIT-3: [BK]
-    - X-BODY-4: [AIT SENSOR GND]
-    - C-AIT-1: [BK]
+    - C-AIT-2: [BK]
     - X-AIT: [B]

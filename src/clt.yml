@@ -23,7 +23,3 @@ connections:
   -
     - C-CLT-1: [CLT SIGNAL, CLT GAUGE, SENSOR GND]
     - X-CLT-1: [CLT SIGNAL, CLT GAUGE, SENSOR GND]
-
-  -
-    - X-BULK: [23]
-    - C-CLT-1: [CLT SIGNAL]
