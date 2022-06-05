@@ -40,6 +40,11 @@ export_master () {
     sed -ri 's/42069/\*/g' generated/master.yml
 
     wireviz generated/master.yml
+
+    if whoami | grep -q "danburkhol"; then
+        # Copy to dropbox for an accessible copy on mobile
+        cp generated/master.png ~/Dropbox/master_wiring_digram.png
+    fi
 }
 
 setup
