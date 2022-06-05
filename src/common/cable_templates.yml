@@ -50,3 +50,46 @@ templates:
   C-SHIELD-2: &c-shield-2
     colors: [WH, WHBU]
     shield: true
+
+  C-X-16:
+    colors: [
+      RDWH, # HIGH BEAM IND
+      BU, # WASHER FL IND,
+      BU, # A/C REQ
+    ]
+  C-X-17:
+    colors: [
+      GNBU, # RETRACTOR ACTIVE,
+      GNBK, # L TURN SIGNAL,
+      GNWH, # R TURN SINGAL,
+      GNRD, # VSS,
+      BUYE, # BRAKE FL SW / PARKING BRAKE SW,
+      YE, # FUEL GAUGE,
+      LTGN, # SEAT BELTS,
+      RDBK, # TNS
+      RDWH, # L DOOR SPEAKER 1,
+      RDGN, # L DOOR SPEAKER 2,
+      RDYE, # L DRIVER HEADREST SPEAKER 1,
+      RDBU, # L DRIVER HEADREST SPEAKER 2,
+      BUWH, # R DRIVER HEADREST SPEAKER 1,
+      BUOG, # R DRIVER HEADREST SPEAKER 2,
+    ]
+    notes: Dashboard connector; driver side
+  C-X-18:
+    colors: [
+      BKYE, # METER,
+
+    ]
+  C-X-19:
+    colors: [
+      YEBU, # TACH,
+      BKBU, # CLT GAUGE,
+      YERD, # OIL GAUGE,
+      YEBK, # CEL,
+      WHBK, # CHARGE IND,
+      BUYE, # ABS IND,
+      BU, # R DOOR SPEAKER 1,
+      BUYE, # R DOOR SPEAKER 2,
+      BUOG, # HEATER CONTROL
+    ]
+    note: Dashboard connector; passenger side
