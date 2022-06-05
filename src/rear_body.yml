@@ -65,28 +65,6 @@ cables:
       # TRUNK (BK),
     ]
 
-  C-BODY-3:
-    colors: [
-      PK, # TNS,
-      GN, # BRAKE LT,
-      GNWH, # R TURN SIGNAL,
-      RDGN, # REVERSE LT,
-      WH, # FUEL PUMP,
-      GNGY, # L TURN SIGNAL,
-      YE, # FUEL SENDER,
-      GN, # DOOR SW,
-    ]
-    wirelabels: [
-      TNS,
-      BRAKE LT,
-      R TURN SIGNAL,
-      REVERSE LT,
-      FUEL PUMP,
-      L TURN SIGNAL,
-      FUEL SENDER,
-      DOOR SW,
-    ]
-
 connections:
   -
     - C-REAR: [

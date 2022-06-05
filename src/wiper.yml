@@ -9,7 +9,5 @@ cables:
 
 connections:
   -
-    # - C-BODY-2: [WIPER 1, WIPER 2, WIPER 3, WIPER 4]
-    - X-BODY-4: [WIPER 1, WIPER 2, WIPER 3, WIPER 4]
     - C-WIPER-OEM: [1-4]
     - X-WIPER-OEM: [1-4]

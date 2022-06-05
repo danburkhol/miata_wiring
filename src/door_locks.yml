@@ -1,7 +1,4 @@
 connectors:
-  X-DOOR-HUB:
-    pincount: 10
-    notes: Door lock control module, driver foot well
   X-DOOR-1:
     <<: *x-dt06-6s
     notes: Driver side

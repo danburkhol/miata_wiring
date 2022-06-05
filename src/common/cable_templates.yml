@@ -23,9 +23,6 @@ templates:
   X-DT06-2S: &x-dt06-2s
     pincount: 2
     autogenerate: false
-  # end common connectors
-
-
   c-body-common-colors: &c-body-common-colors
     [
       GY, # LOW BEAM,

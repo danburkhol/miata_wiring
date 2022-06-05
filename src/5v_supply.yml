@@ -1,21 +1,8 @@
 connectors:
-  X-5V-CRIMP-1: &X-5V-CRIMP
-    style: simple
-    type: crimp
-    pincount: 1
-    show_pincount: false
-    bgcolor: IV
-  X-5V-CRIMP-11:
-    <<: *X-5V-CRIMP
   X-5V-CRIMP-2:
-    <<: *X-5V-CRIMP
-
+    <<: *x-crimp
 cables:
-  C-5V-1: &c-5v
-    wirecount: 1
-    colors: [RD]
   C-5V-2:
-    <<: *c-5v
     colors: [BU]
 
 connections:

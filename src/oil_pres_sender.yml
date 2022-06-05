@@ -12,6 +12,7 @@ cables:
 
 connections:
   -
+    - C-OIL-PRES-1: [OIL PRES SENDER]
     - X-BULK: [OIL PRES SENDER]
     - C-OIL-PRES-2: [OIL PRES SENDER]
     - X-OIL-PRES

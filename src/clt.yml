@@ -1,8 +1,8 @@
 connectors:
   X-CLT-1:
     pincount: 3
-
     pinlabels: [CLT SIGNAL, CLT GAUGE, SENSOR GND]
+
   X-CLT:
     pincount: 2
     pincolors: [BUWH, BKGN]
@@ -18,8 +18,16 @@ cables:
     wirecount: 3
     wirelabels: [CLT SIGNAL, CLT GAUGE, SENSOR GND]
     colors: [BUWH, BKRD, BKGN]
+  C-CLT-2:
+    wirecount: 2
+    wirelabels: [CLT SIGNAL, SENSOR GND]
 
 connections:
   -
     - C-CLT-1: [CLT SIGNAL, CLT GAUGE, SENSOR GND]
     - X-CLT-1: [CLT SIGNAL, CLT GAUGE, SENSOR GND]
+
+  -
+    - X-CLT-1: [CLT SIGNAL, SENSOR GND]
+    - C-CLT-2: [CLT SIGNAL, SENSOR GND]
+    - X-CLT: [CLT SIGNAL, SENSOR GND]

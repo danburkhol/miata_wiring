@@ -13,10 +13,6 @@ connectors:
   X-AC-CRIMP-1:
     <<: *x-crimp
 cables:
-  C-AC-1:
-    wirecount: 2
-    wirelabels: [A/C CLUTCH, A/C FAN]
-    colors: [YERD, YE]
   C-AC-2:
     wirecount: 1
     wirelabels: [A/C PRES. SW]
@@ -48,7 +44,6 @@ connections:
     - C-AC-4: [1]
     - X-AC-CLUTCH: [1]
   -
-    - X-BODY-P2: [A/C PRES. SW]
     - C-AC-2: [A/C PRES. SW]
     - X-PMU: [INPUT A13]
 

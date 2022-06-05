@@ -38,22 +38,6 @@ connectors:
       SENSOR 12,
     ]
     notes: Connector for fob sensors
-  X-EASYGUARD-1:
-    pincount: 6
-    pinlabels: [
-      ACC,
-      ST,
-      IGN2,
-      VCC1,
-      VCC2,
-      IGN1,
-    ]
-    image:
-      src: ../img/easyguard-1.png
-  X-EASYGUARD-2:
-    pincount: 20
-    image:
-      src: ../img/easyguard-2.png
 
 cables:
   C-EASY-1:

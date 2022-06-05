@@ -3,6 +3,8 @@ connectors:
     pincount: 47
     image:
       src: ../img/hd36-24-47se.png
+      height: 256
+      width: 256
     notes: Deutsch HD30 47-pin connector
     pinlabels: [
       +5V SENSOR SUPPLY,
