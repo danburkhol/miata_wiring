@@ -1,27 +1,35 @@
 templates:
+  X-DTM06-12S: &x-dtm06-12s
+    pincount: 12
+    autogenerate: false
+  X-DTM06-6S: &x-dtm06-06s
+    pincount: 6
+    autogenerate: false
+  X-DTM06-4S: &x-dtm06-04s
+    pincount: 4
+    autogenerate: false
   X-DT06-12S: &x-dt06-12s
     pincount: 12
-    image:
-      src: ../img/dt06-12s.png
-      width: 128
     autogenerate: false
   X-DT06-8S: &x-dt06-8s
     pincount: 8
-    image:
-      src: ../img/dt06-8s.png
-      width: 128
     autogenerate: false
   X-DT06-6S: &x-dt06-6s
     pincount: 6
     autogenerate: false
   X-DT06-04S: &x-dt06-04s
     pincount: 4
-    image:
-      src: ../img/dt06-04s.png
-      width: 128
     autogenerate: false
   X-DT06-2S: &x-dt06-2s
     pincount: 2
+    autogenerate: false
+  X-DTP06-04S: &x-dtp06-04s
+    pincount: 4
+    autogenerate: false
+  X-CANBUS:
+    pincount: 4
+    pinlabels: [12V, GND, CAN HIGH, CAN LOW]
+    notes: DTM06-04S
     autogenerate: false
   c-body-common-colors: &c-body-common-colors
     [
