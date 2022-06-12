@@ -1,27 +1,35 @@
 templates:
+  X-DTM06-12S: &x-dtm06-12s
+    pincount: 12
+    autogenerate: false
+  X-DTM06-6S: &x-dtm06-06s
+    pincount: 6
+    autogenerate: false
+  X-DTM06-4S: &x-dtm06-04s
+    pincount: 4
+    autogenerate: false
   X-DT06-12S: &x-dt06-12s
     pincount: 12
-    image:
-      src: ../img/dt06-12s.png
-      width: 128
     autogenerate: false
   X-DT06-8S: &x-dt06-8s
     pincount: 8
-    image:
-      src: ../img/dt06-8s.png
-      width: 128
     autogenerate: false
   X-DT06-6S: &x-dt06-6s
     pincount: 6
     autogenerate: false
   X-DT06-04S: &x-dt06-04s
     pincount: 4
-    image:
-      src: ../img/dt06-04s.png
-      width: 128
     autogenerate: false
   X-DT06-2S: &x-dt06-2s
     pincount: 2
+    autogenerate: false
+  X-DTP06-04S: &x-dtp06-04s
+    pincount: 4
+    autogenerate: false
+  X-CANBUS:
+    pincount: 4
+    pinlabels: [12V, GND, CAN HIGH, CAN LOW]
+    notes: DTM06-04S
     autogenerate: false
   c-body-common-colors: &c-body-common-colors
     [
@@ -50,6 +58,49 @@ templates:
   C-SHIELD-2: &c-shield-2
     colors: [WH, WHBU]
     shield: true
+
+  C-X-16:
+    colors: [
+      RDWH, # HIGH BEAM IND
+      BU, # WASHER FL IND,
+      BU, # A/C REQ
+    ]
+  C-X-17:
+    colors: [
+      GNBU, # RETRACTOR ACTIVE,
+      GNBK, # L TURN SIGNAL,
+      GNWH, # R TURN SINGAL,
+      GNRD, # VSS,
+      BUYE, # BRAKE FL SW / PARKING BRAKE SW,
+      YE, # FUEL GAUGE,
+      LTGN, # SEAT BELTS,
+      RDBK, # TNS
+      RDWH, # L DOOR SPEAKER 1,
+      RDGN, # L DOOR SPEAKER 2,
+      RDYE, # L DRIVER HEADREST SPEAKER 1,
+      RDBU, # L DRIVER HEADREST SPEAKER 2,
+      BUWH, # R DRIVER HEADREST SPEAKER 1,
+      BUOG, # R DRIVER HEADREST SPEAKER 2,
+    ]
+    notes: Dashboard connector; driver side
+  C-X-18:
+    colors: [
+      BKYE, # METER,
+
+    ]
+  C-X-19:
+    colors: [
+      YEBU, # TACH,
+      BKBU, # CLT GAUGE,
+      YERD, # OIL GAUGE,
+      YEBK, # CEL,
+      WHBK, # CHARGE IND,
+      BUYE, # ABS IND,
+      BU, # R DOOR SPEAKER 1,
+      BUYE, # R DOOR SPEAKER 2,
+      BUOG, # HEATER CONTROL
+    ]
+    note: Dashboard connector; passenger side
 
 # Common connectors shared across multipl circuits
 connectors:
@@ -157,9 +208,39 @@ connectors:
     show_name: true
     show_pincount: false
     notes: Located under dash near clutch pedal box
+  X-DASH-1:
+    <<: *x-dtm06-12s
+    pinlabels: [DRIVER DOOR SPK, DRIVER DOOR SPK, POWER ANT, HEADREST SPK, HEADREST SPK, HEADREST SPK, HEADREST SPK, ROOM VCC, DRIVER DOME VCC]
+    notes: Driver side
   X-DASH-2:
-    <<: *x-dt06-12s
-    pinlabels: [CEL, OIL PRES, CHARGE IND, CLT GAUGE, ABS LT, TACH, PASS PWR WINDOW 1, PASS PWR WINDOW 2, BUYE, GNBK, BUYE, BU]
+    <<: *x-dtm06-12s
+    pinlabels: [R DOOR SPK, # [L],
+      R DOOR SPK, # [O],
+      A/C REQ, # [D],
+      UNUSED 4, # [X],
+      UNUSED 5, # [X],
+      UNUSED 6, # [X],
+      UNUSED 7, # [X],
+      CRUISE SW, # [C],
+      CRUISE SW, # [I],
+      HEATER CTRL, # [N],
+      THERMO SW, # [H],
+      PASS DOME VCC, # [J]
+    ]
+    notes: Pass side
+  X-DASH-3:
+    <<: *x-dtp06-04s
+    pinlabels: [STARTER, BLOWER VCC]
+    notes: Driver side
+  X-DASH-4:
+    <<: *x-dt06-04s
+    notes: Driver side, Retractor SW
+  X-CLUSTER-1:
+    <<: *x-dtm06-12s
+  X-CLUSTER-2:
+    <<: *x-dtm06-06s
+    pinlabels: [TACH, CHARGE IND, OIL PRES, CLT GAUGE, CEL, ABS LT]
+    notes: Pass side
   X-DOOR-1:
     <<: *x-dt06-6s
     notes: Driver side
@@ -448,29 +529,87 @@ cables:
   C-BRAKE:
     wirecount: 2
     colors: [GN, BK]
-  C-DASH-OEM-1:
-    colors: [YEBK, # CEL,
-      YERD, # OIL PRES,
-      WHBK, # CHARGE IND,
-      BKBU, # CLT GAUGE,
-      BUYE, # ABS LT,
-      YEBU, # TACH
-      RDBK, # PASS PWR WINDOW 1,
-      RDGN, # PASS PWR WINDOW 2,
-      BUYE, GNBK, BUYE, BU]
-    notes: On dashboard, OEM wiring to connector
-  C-CLUSTER-2:
-    colors: [PKGN, # CEL,
-      YERD, # OIL PRES,
-      WH, # CHARGE IND,
-      RD, # CLT GAUGE,
-      # BUYE, # ABS LT,
-      BU, # TACH
+  C-DASH-DRIVER:
+    colors: [BKBU, # STARTER,
+      GNBU, # RETRACTOR ACTIVE,
+      YE, # FUEL GAUGE,
+      LTGN, # SEAT BELTS,
+      BU, # WASHER FL SENDER,
+      BUYE, # ABS IND,
+      GNWH, # L TURN SIGNAL,
+      GNBK, # R TURN SIGNAL,
+      RDWH, # (33)
+      RD, # PANEL LAMP CTRL,
+      RDGN, # DRIVER DOOR SPK,
+      RDWH, # DRIVER DOOR SPK,
+      GNYE, # POWER ANT,
+      BUOG, # HEADREST SPK,
+      RDBU, # HEADREST SPK,
+      BUWH, # HEADREST SPK,
+      RDYE, # HEADREST SPK,
+      RDOG, # RETRACTOR SW,
+      RDBU, # RETRACTOR SW,
+      RDGN, # RETRACTOR SW,
+      OG, # RETRACTOR SW,
+      RD, # METER VCC,
+      WHBU, # CAN HIGH,
+      WH, # CAN LOW,
+      WH, # ROOM VCC,
+      RD, # DRIVER DOME VCC,
+      BKRD, # BLOWER VCC
     ]
-    wirelabels: [CEL, OIL PRES, CHARGE IND, CLT GAUGE,
-      # ABS LT,
-      TACH]
-    notes: To dashboard
+    wirelabels: [A, # BKBU, STARTER,
+      B, # GNBU, RETRACTOR ACTIVE,
+      C, # YE, FUEL GAUGE,
+      D, # LTGN, SEAT BELTS,
+      E, # BU, WASHER FL SENDER,
+      F, # BUYE, ABS IND,
+      G, # GNWH, L TURN SIGNAL,
+      H, # GNBK, R TURN SIGNAL,
+      I, # RDWH, (33)
+      J, # RD, PANEL LAMP CTRL,
+      K, # RDGN, DRIVER DOOR SPK,
+      L, # RDWH, DRIVER DOOR SPK,
+      M, # GNYE, POWER ANT,
+      N, # BUOG, HEADREST SPK,
+      O, # RDBU, HEADREST SPK,
+      P, # BUWH, HEADREST SPK,
+      Q, # RDYE, HEADREST SPK,
+      R, # RDOG, RETRACTOR SW,
+      S, # RDBU, RETRACTOR SW,
+      T, # RDGN, RETRACTOR SW,
+      U, # OG, RETRACTOR SW,
+      V, # RD, METER VCC,
+      W, # WHBU, CAN HIGH,
+      X, # WH, CAN LOW,
+      Y, # WH, ROOM VCC,
+      Z, # RD, DRIVER DOME VCC,
+      BLOWER VCC, # BKRD, BLOWER VCC
+    ]
+  C-DASH-PASS:
+    colors: [WHBK, # CHARGE IND,
+      YE, # CRUISE SW,
+      BU, # A/C REQ,
+      BKBU, # CLT GAUGE,
+      YERD, # OIL PRES,
+      YEBK, # CEL,
+      IV, # THERMO SW,
+      RD, RD, GN, BUYE, # R DOOR SPK
+      YEBU, # TACH,
+      BUOG, BU, # R DOOR SPK,
+    ]
+    wirelabels: [B, # CHARGE IND,
+      C, # CRUISE SW,
+      D, # A/C REQ,
+      E, # CLT GAUGE,
+      F, # OIL PRES,
+      G, # CEL,
+      H, # THERMO SW,
+      I, J, K, L, # R DOOR SPK
+      M, # TACH,
+      N, O, # R DOOR SPK,
+    ]
+    notes: Dashboard harness leading to passenger footwell
   C-DOOR-1:
     colors: [YE, RD, BK, GN, BU]
     # wirelabels: []\
@@ -736,16 +875,20 @@ connections:
   - # - X-PMU: [123]
     - C-BRAKE: [GN]
     - X-BRAKE: [VCC]
-  - - X-DASH-2: [1-12]
-    - C-DASH-OEM-1: [1-12]
-  - - C-CLUSTER-2: [CEL, OIL PRES, CHARGE IND, CLT GAUGE,
-        # ABS LT,
-        TACH]
-    - X-DASH-2: [CEL, OIL PRES, CHARGE IND, CLT GAUGE,
-        # ABS LT,
-        TACH]
-  - - X-ECU-BODY-11: [CEL, OIL PRES, CLT GAUGE, TACH]
-    - C-CLUSTER-2: [CEL, OIL PRES, CLT GAUGE, TACH]
+  - - C-DASH-PASS: [L, O, D, K]
+    - X-DASH-2: [1, 2, 3, 4]
+  - - C-DASH-PASS: [C, I, N, H, J]
+    - X-DASH-2: [8, 9, 10, 11, 12]
+  - - C-DASH-PASS: [M, B, F, E, G, L]
+    - X-CLUSTER-2: [1, 2, 3, 4, 5, 6]
+  - - C-DASH-DRIVER: [K, L, M, N, O, P, Q, Y, Z]
+    - X-DASH-1: [1, 2, 3, 4, 5, 6, 7, 8, 9]
+  - - C-DASH-DRIVER: [B, C, D, E, F, G, H, I, J, V, W, X]
+    - X-CLUSTER-1: [4, 7, 8, 6, 5, 1, 2, 3, 9, 12, 10, 11]
+  - - C-DASH-DRIVER: [A, BLOWER VCC]
+    - X-DASH-3: [1, 2]
+  - - C-DASH-DRIVER: [R, S, T, U]
+    - X-DASH-4: [1, 2, 3, 4]
   - - X-DOOR-1: [1-5]
     - C-DOOR-1: [1-5]
   - - C-DOOR-1: [GN, BU]
@@ -1066,6 +1209,40 @@ connections:
     - C-REAR: [R TURN SIGNAL]
   - - C-WIPER-OEM: [1-4]
     - X-WIPER-OEM: [1-4]
+#   -
+#     - X-DASH-2: [1-12]
+#     - C-DASH-OEM-1: [1-12]
+#   -
+#     - C-CLUSTER-2: [
+#         CEL,
+#         OIL PRES,
+#         CHARGE IND,
+#         CLT GAUGE,
+#         # ABS LT,
+#         TACH
+#       ]
+#     - X-DASH-2: [
+#         CEL,
+#         OIL PRES,
+#         CHARGE IND,
+#         CLT GAUGE,
+#         # ABS LT,
+#         TACH
+#       ]
+#   -
+#     - X-ECU-BODY-11: [
+#         CEL,
+#         OIL PRES,
+#         CLT GAUGE,
+#         TACH,
+#       ]
+#     - C-CLUSTER-2: [
+#         CEL,
+#         OIL PRES,
+#         CLT GAUGE,
+#         TACH
+#       ]
+
 options:
   # https://github.com/formatc1702/WireViz/blob/master/docs/syntax.md
   bgcolor_node: WH # Default = 'WH'
