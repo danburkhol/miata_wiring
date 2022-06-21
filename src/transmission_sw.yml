@@ -5,6 +5,9 @@ connectors:
   X-REVERSE-SW:
     pincount: 2
     pinlabels: [REVERSE SW, REVERSE SW GND]
+  X-PARKING-BRAKE-SW:
+    pincount: 1
+    style: simple
   X-TRANS-1:
     pincount: 6
     pinlabels: [
@@ -37,18 +40,16 @@ cables:
     notes: Located on the transmission
   C-TRANS-SW-2:
     colors: [
-      BK,
-      BKYE,
-      BKWH,
       RDGN,
-      GN,
-      BN
+      RD,
+      BK,
+      WHBU,
+      WH
     ]
     wirelabels: [
-      NEUTRAL SW,
-      NEUTRAL SW GND,
-      REVERSE SW,
-      REVERSE SW GND,
+      NEUTRAL / REVERSE / PARKING SW SIGNAL, # 2
+      UNKNOWN / BACKUP CAMERA,
+      GND,
       VSS,
       VSS GND
     ]
@@ -61,7 +62,21 @@ connections:
   -
     - X-REVERSE-SW: [REVERSE SW, REVERSE SW GND]
     - C-TRANS-SW-1: [REVERSE SW, REVERSE SW GND]
+
   -
     - C-TRANS-SW-1: [1-6]
     - X-TRANS-1: [1-6]
-    - C-TRANS-SW-2: [1-6]
+  -
+    - X-PARKING-BRAKE-SW
+    - C-TRANS-SW-2: [1]
+  -
+    - X-TRANS-1: [1, 3]
+    - C-TRANS-SW-2: [1, 1]
+  -
+    - C-TRANS-SW-2: [1]
+    - X-PMU: [INPUT A11]
+
+  -
+    - X-TRANS-1: [VSS, VSS GND]
+    - C-TRANS-SW-2: [VSS, VSS GND]
+    - X-APP-2: [VSS, VSS GND]

@@ -12,12 +12,14 @@ connectors:
     image:
       src: ../img/nc_throttle.png
   X-APP-2:
-    <<: *x-dt06-04s
+    <<: *x-dtm06-06s
     pinlabels: [
       APP 1,
       APP 2,
       5V,
       SENSOR GND,
+      VSS,
+      VSS GND
     ]
 
 cables:
