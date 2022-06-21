@@ -8,11 +8,11 @@ connections:
   -
     - C-PMU-OUT: [L TURN SIGNAL]
     - X-CRIMP-L-TURN-SIGNAL
-    - C-REAR: [L TURN SIGNAL]
+    - C-REAR: [I]
   -
     - C-PMU-OUT: [R TURN SIGNAL]
     - X-CRIMP-R-TURN-SIGNAL
-    - C-REAR: [R TURN SIGNAL]
+    - C-REAR: [A]
 
 
 #   -

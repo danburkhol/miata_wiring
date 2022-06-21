@@ -6,4 +6,4 @@ connections:
   -
     - C-PMU-OUT: [TNS]
     - X-TNS-CRIMP-1
-    - C-REAR: [TNS]
+    - C-REAR: [B]
