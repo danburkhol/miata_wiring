@@ -2,202 +2,56 @@ connectors:
   X-STEERING-1:
     <<: *x-dt06-12s
     pinlabels: [
-      TNS SW,
-      LOW BEAM SW,
-      LOW BEAM SW GND, # and TNS
-      HIGH BEAM SW,
-      HIGH BEAM SW GND,
-      TURN SIGNAL L SW,
-      TURN SIGNAL R SW,
-      TURN SIGNAL COMMON,
-      HEADLIGHT SW UNKNOWN 1, # RDGN
-      HORN SW
+      TURN SIGNAL SW,
+      HEAD LT SW,
+      HBEAM LT SW,
+      CRUISE SPEED SW,
+      WIPER SW,
+      # UNUSED,
+      # UNUSED,
+      # UNUSED,
+      # UNUSED,
+      # UNUSED,
+      # UNUSED,
+      # GND,
     ]
-    notes: Replacement for OEM D-03
-  X-STEERING-2:
-    <<: *x-dt06-12s
-    pinlabels: [
-       CRUISE 1, # YE,
-       CRUISE 2, # BU,
-       CRUISE 3, # BK,
-       WASHER 1, # BK,
-       WASHER 2, # BUBK,
-       WASHER 3, # BUWH,
-       WASHER 4, # BUOG,
-       WASHER 5, # BU,
-       WASHER 6, # GNDR,
-    ]
-  X-LT-SW-GND-CRIMP:
-    <<: *x-crimp
-    autogenerate: false
 
 cables:
-  C-STEERING-OEM:
-    colors: [
-      WH,
-      WH,
-      RD,
-      RDYE,
-      RDWH,
-      GNBK,
-      GNYE,
-      GNBK,
-      RDGN,
-
-      YE,
-      BU,
-      BK,
-      BK,
-      BUBK,
-      BUWH,
-      BUOG,
-      BU,
-      GNBN,
-    ]
-    wirelabels: [
-      TNS SW,
-      LOW BEAM SW,
-      LOW BEAM SW GND,
-      HIGH BEAM SW,
-      HIGH BEAM SW GND,
-      TURN SIGNAL L SW,
-      TURN SIGNAL R SW,
-      TURN SIGNAL COMMON,
-      HEADLIGHT SW UNKNOWN 1,
-
-      CRUISE 1,
-      CRUISE 2,
-      CRUISE 3,
-      WASHER 1,
-      WASHER 2,
-      WASHER 3,
-      WASHER 4,
-      WASHER 5,
-      WASHER 6,
-    ]
-    notes: OEM wiring into connector OEM Connector D-03 on the steering column
-
   C-STEERING-1:
     colors: [
-      PK,
-      RDBU,
-      BK,
-      RDWH,
-      BK,
-      GNWH,
-      GNYE,
-      BK,
-      RDGN,
-      GN,
+      GN, # TURN SIGNAL SW,
+      RDWH, # HEAD LT SW,
+      RDBU, # HBEAM LT SW,
+      BK, # CRUISE SPEED SW,
+      GNWH, # WIPER SW,
     ]
     wirelabels: [
-      TNS SW,
-      LOW BEAM SW,
-      LOW BEAM SW GND,
-      HIGH BEAM SW,
-      HIGH BEAM SW GND,
-      TURN SIGNAL L SW,
-      TURN SIGNAL R SW,
-      TURN SIGNAL COMMON,
-      HEADLIGHT SW UNKNOWN 1,
-      HORN SW
+      TURN SIGNAL SW,
+      HEAD LT SW,
+      HBEAM LT SW,
+      CRUISE SPEED SW,
+      WIPER SW,
     ]
 
-  C-LT-SW-GND:
-    colors: [BK]
-    wirelabels: [LT SW GND]
-
-
 connections:
-  -
-    - C-STEERING-OEM: [
-        TNS SW,
-        LOW BEAM SW,
-        LOW BEAM SW GND,
-        HIGH BEAM SW,
-        HIGH BEAM SW GND,
-        TURN SIGNAL L SW,
-        TURN SIGNAL R SW,
-        TURN SIGNAL COMMON,
-        HEADLIGHT SW UNKNOWN 1,
-      ]
-    - X-STEERING-1: [
-        TNS SW,
-        LOW BEAM SW,
-        LOW BEAM SW GND,
-        HIGH BEAM SW,
-        HIGH BEAM SW GND,
-        TURN SIGNAL L SW,
-        TURN SIGNAL R SW,
-        TURN SIGNAL COMMON,
-        HEADLIGHT SW UNKNOWN 1,
-      ]
-  -
-    - C-STEERING-OEM: [
-        CRUISE 1,
-        CRUISE 2,
-        CRUISE 3,
-        WASHER 1,
-        WASHER 2,
-        WASHER 3,
-        WASHER 4,
-        WASHER 5,
-        WASHER 6,
-      ]
-    - X-STEERING-2: [
-        CRUISE 1,
-        CRUISE 2,
-        CRUISE 3,
-        WASHER 1,
-        WASHER 2,
-        WASHER 3,
-        WASHER 4,
-        WASHER 5,
-        WASHER 6,
-      ]
-
-  # Grounding of switches
-  -
-    - X-STEERING-1: [
-        LOW BEAM SW GND,
-        HIGH BEAM SW GND,
-        TURN SIGNAL COMMON,
+  - - X-STEERING-1: [
+        TURN SIGNAL SW,
+        HEAD LT SW,
+        HBEAM LT SW,
+        CRUISE SPEED SW,
+        WIPER SW,
       ]
     - C-STEERING-1: [
-        LOW BEAM SW GND,
-        HIGH BEAM SW GND,
-        TURN SIGNAL COMMON,
-      ]
-    - X-LT-SW-GND-CRIMP
-  -
-    - X-LT-SW-GND-CRIMP
-    - C-LT-SW-GND: [1]
-    - X-GND-1
-
-
-  # To PMU
-  -
-    - X-STEERING-1: [
-        LOW BEAM SW,
-        TNS SW,
-        HIGH BEAM SW,
-        TURN SIGNAL L SW,
-        TURN SIGNAL R SW,
-        HORN SW,
-      ]
-    - C-STEERING-1: [
-        LOW BEAM SW,
-        TNS SW,
-        HIGH BEAM SW,
-        TURN SIGNAL L SW,
-        TURN SIGNAL R SW,
-        HORN SW,
+        TURN SIGNAL SW,
+        HEAD LT SW,
+        HBEAM LT SW,
+        CRUISE SPEED SW,
+        WIPER SW,
       ]
     - X-PMU: [
+        INPUT A2,
         INPUT A4,
         INPUT A6,
         INPUT A8,
-        INPUT A11,
-        INPUT A16,
-        INPUT A5,
+        INPUT A13,
       ]
