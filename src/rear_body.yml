@@ -45,45 +45,27 @@ cables:
       PKGN, # DOOR SW,
       YE, # FUEL SENDER,
       WHBU, # FUEL PUMP,
-      # BUCKLE SW,
-      # TRUNK (RD), # I don't remember what these correlate to at this time
-      # TRUNK (BU),
-      # TRUNK (BK),
+      BU, # BUCKLE SW,
+      WH, # TRUNK (RD), # I don't remember what these correlate to at this time
+      YE, # TRUNK (BU),
+      RD, # TRUNK (BK),
     ]
     wirelabels: [
-      L TURN SIGNAL,
-      R TURN SIGNAL,
-      TNS,
-      BRAKE LT,
-      REVERSE LT,
-      DOOR SW,
-      FUEL SENDER,
-      FUEL PUMP,
-      # BUCKLE SW,
-      # TRUNK (RD), # I don't remember what these correlate to at this time
-      # TRUNK (BU),
-      # TRUNK (BK),
+      I, # L TURN SIGNAL,
+      A, # R TURN SIGNAL,
+      B, # TNS,
+      G, # BRAKE LT,
+      E, # REVERSE LT,
+      H, # DOOR SW,
+      F, # FUEL SENDER,
+      D, # FUEL PUMP,
+      C, # BUCKLE SW,
+      J, # TRUNK (RD), # I don't remember what these correlate to at this time
+      K, # TRUNK (BU),
+      L, # TRUNK (BK),
     ]
 
 connections:
   -
-    - C-REAR: [
-        L TURN SIGNAL,
-        R TURN SIGNAL,
-        TNS,
-        BRAKE LT,
-        REVERSE LT,
-        DOOR SW,
-        FUEL SENDER,
-        FUEL PUMP,
-      ]
-    - X-14: [
-        L TURN SIGNAL,
-        R TURN SIGNAL,
-        TNS,
-        BRAKE LT,
-        REVERSE LT,
-        DOOR SW,
-        FUEL SENDER,
-        FUEL PUMP,
-      ]
+    - C-REAR: [I,A,B,G,E,H,F,D,C,J,K,L]
+    - X-14: [1,2,3,4,5,6,7,8,9,10,11,12]

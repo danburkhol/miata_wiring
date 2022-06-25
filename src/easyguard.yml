@@ -67,3 +67,6 @@ connections:
         +12V SW,
         INPUT A9,
       ]
+
+  - - X-EASY-2: [5,6,7]
+    - C-REAR: [J,K,L]
