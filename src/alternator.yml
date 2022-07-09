@@ -61,11 +61,9 @@ connections:
     - C-ALT-2: [ALT REF]
     - X-ALT-1: [ALT REF]
   -
-    - X-19: [CHARGE LAMP]
-    - C-ALT-3: [CHARGE IND]
-    - X-ALT-2
-    - C-ALT-2: [CHARGE IND]
-    - X-ALT-1: [CHARGE IND]
+    - X-ST-1: [ALT REF, CHARGE IND]
+    - C-ALT-2: [ALT REF, CHARGE IND]
+
   -
     - X-BATT: [POS]
     - C-PWR-1: [BK]
