@@ -12,11 +12,8 @@ connectors:
     pinlabels: [A/C CLUTCH]
   X-AC-CRIMP-1:
     <<: *x-crimp
+
 cables:
-  C-AC-2:
-    wirecount: 1
-    wirelabels: [A/C PRES. SW]
-    colors: [PK]
   C-AC-3:
     colors: [WHBK]
   C-AC-4:
@@ -43,10 +40,6 @@ connections:
     - X-AC-CRIMP-1
     - C-AC-4: [1]
     - X-AC-CLUTCH: [1]
-  -
-    - C-AC-2: [A/C PRES. SW]
-    - X-PMU: [INPUT A13]
-
   -
     - X-PMU: [INPUT A5]
     - C-PMU-OUT: [A/C PRES SW]

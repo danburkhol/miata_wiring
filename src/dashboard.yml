@@ -4,6 +4,7 @@ connectors:
     pinlabels: [
       L TURN IND, # GNBK, H,
       R TURN IND, # GNWH, G,
+      HIGH BEAM IND,
       RETRACTOR IND, # GNBU, B,
       ROOM VCC, # BU
       BRAKE IND, # BUYE, F,
@@ -103,23 +104,15 @@ cables:
       BN,
       BK,
     ]
-  C-DASH-IND:
+  C-DASH-1:
     colors: [
-      GN,
-      PK,
-      PK,
       BU,
       YE,
-      RD,
       PKGN
     ]
     wirelabels: [
-      L TURN,
-      R TURN,
-      RETRACTOR ACTIVE,
       ROOM VCC,
       FUEL GAUGE,
-      TNS VCC,
       RETRACTOR HAZARD SW,
     ]
   C-DOOR-SPK-1:
@@ -139,23 +132,30 @@ connections:
   - - C-DOOR-SPK-1: [GN, PKGN]
     - X-DASH-12: [5, 6]
 
-  - - X-DASH-11: [
-        L TURN IND, # GNBK, H,
-        R TURN IND, # GNWH, G,
-        RETRACTOR IND, # GNBU, B,
-        ROOM VCC, # BU
-        FUEL GAUGE, # YE, C,
-        TNS VCC, # PK, 8,
-        RETRACTOR HAZARD SW, # OGBK, 7,
-      ]
-    - C-DASH-IND: [
-        L TURN,
-        R TURN,
-        RETRACTOR ACTIVE,
+  - - C-DASH-1: [
         ROOM VCC,
         FUEL GAUGE,
-        TNS VCC,
         RETRACTOR HAZARD SW,
+      ]
+    - X-DASH-11: [
+        ROOM VCC, # BU
+        FUEL GAUGE, # YE, C,
+        RETRACTOR HAZARD SW, # OGBK, 7,
+      ]
+  -
+    - C-PMU-OUT: [
+        L TURN SIGNAL,
+        R TURN SIGNAL,
+        RETRACTOR ACTIVE,
+        HIGH BEAM,
+        TNS,
+      ]
+    - X-DASH-11: [
+        L TURN IND, # GNBK, H,
+        R TURN IND, # GNWH, G,
+        RETRACTOR IND,
+        HIGH BEAM IND,
+        TNS VCC,
       ]
 
 # cables:
