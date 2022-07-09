@@ -48,6 +48,7 @@ connections:
     - X-PMU: [INPUT A13]
 
   -
+    - X-PMU: [INPUT A5]
     - C-PMU-OUT: [A/C PRES SW]
     - X-AC-1: [A/C PRES SW]
 

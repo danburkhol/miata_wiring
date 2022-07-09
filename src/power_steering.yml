@@ -1,0 +1,6 @@
+cables:
+  C-POWER-STEERING:
+    colors: [BN]
+connections:
+  - - C-POWER-STEERING: [BN]
+    - X-PMU: [INPUT A7]
