@@ -119,7 +119,7 @@ connections:
     - X-PMU: [
         OUTPUT O15, # HIGH BEAM,
         OUTPUT O16, # LOW BEAM,
-        OUTPUT O9, # L TURN SIGNAL,
+        OUTPUT O11, # L TURN SIGNAL,
         OUTPUT O10, # R TURN SIGNAL,
         OUTPUT O3, # TNS,
         OUTPUT O14, # COOLING FAN,

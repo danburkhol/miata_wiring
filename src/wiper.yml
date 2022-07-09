@@ -5,6 +5,7 @@ connectors:
     pinlabels: [PARK SW 1, LOW, HIGH, PARK SW 2]
     image:
       src: ../img/wiper_motor.png
+      width: 512
   X-WIPER-1:
     <<: *x-dtm06-04s
     pinlabels: [HIGH, LOW, PARK SW]
