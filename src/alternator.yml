@@ -32,8 +32,8 @@ cables:
     colors: [WHGN, WHBK]
     wirelabels: [ALT REF, CHARGE IND]
   C-ALT-3:
-    colors: [BKRD, GN, VT]
-    wirelabels: [STARTER, ALT REF, CHARGE IND]
+    colors: [GN, VT]
+    wirelabels: [ALT REF, CHARGE IND]
 
   C-PWR-1:
     colors: [BK]
@@ -42,11 +42,12 @@ cables:
 
 connections:
   -
-    - C-ALT-3: [STARTER, ALT REF, CHARGE IND]
-    - X-ST-1: [STARTER, ALT REF, CHARGE IND]
+    - C-ALT-3: [ALT REF, CHARGE IND]
+    - X-ST-1: [ALT REF, CHARGE IND]
   -
-    - X-PMU: [OUTPUT O5] # Starter solenoid
-    - C-ALT-3: [STARTER]
+    - C-PMU-OUT: [STARTER]
+    - X-ST-1: [STARTER]
+
   -
     - C-ALT-1: [WH]
     - X-ALT-1: [BATT CHARGE]
