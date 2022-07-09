@@ -1,13 +1,33 @@
 connectors:
   X-WIPER-OEM:
     pincount: 4
-    pinlabels: [BU, BUWH, BURD, BUYE]
-
+    # pins: [BU, BUWH, BURD, BUYE]
+    pinlabels: [PARK SW 1, LOW, HIGH, PARK SW 2]
+    image:
+      src: ../img/wiper_motor.png
+  X-WIPER-1:
+    <<: *x-dtm06-04s
+    pinlabels: [HIGH, LOW, PARK SW]
 cables:
+  C-WIPER-1:
+    colors: [RD, BU, BN]
+    wirelabels: [HIGH, LOW, PARK SW]
   C-WIPER-OEM:
     colors: [BU, BUWH, BURD, BUYE]
+    wirelabels: [PARK SW 1, LOW, HIGH, PARK SW 2]
 
 connections:
   -
     - C-WIPER-OEM: [1-4]
     - X-WIPER-OEM: [1-4]
+
+  -
+    - X-PMU: [OUTPUT O9, OUTPUT O8, INPUT A14]
+    - C-WIPER-1: [HIGH, LOW, PARK SW]
+    - X-WIPER-1: [HIGH, LOW, PARK SW]
+  - - X-WIPER-1: [HIGH, LOW]
+    - C-WIPER-OEM: [HIGH, LOW]
+  - - X-WIPER-1: [PARK SW]
+    - C-WIPER-OEM: [PARK SW 1]
+  - - X-WIPER-1: [PARK SW]
+    - C-WIPER-OEM: [PARK SW 2]
