@@ -44,6 +44,9 @@ connections:
     - X-APP-1: [APP 1, APP 2]
     - C-APP-1: [APP 1, APP 2]
 
+  - - X-APP-1: [A, D]
+    - C-APP-2: [1, 1]
+
   # # accel pedal
   # -
     # - X-APP: [A,B,C,D,E,F]
