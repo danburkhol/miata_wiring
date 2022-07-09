@@ -132,6 +132,8 @@ connections:
   - - C-DOOR-SPK-1: [GN, PKGN]
     - X-DASH-12: [5, 6]
 
+  - - X-14: [FUEL SENDER]
+    - C-DASH-1: [FUEL GAUGE]
   - - C-DASH-1: [
         ROOM VCC,
         FUEL GAUGE,
