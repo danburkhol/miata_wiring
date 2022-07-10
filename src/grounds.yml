@@ -7,8 +7,6 @@ connectors:
     bgcolor: IV
   X-ENGINE-GND-CRIMP-2:
     <<: *gnd_crimp
-  X-ENGINE-GND-CRIMP-21:
-    <<: *gnd_crimp
   X-CYL-HEAD:
     style: simple
     type: eyelet

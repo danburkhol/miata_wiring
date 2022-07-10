@@ -92,34 +92,13 @@ cables:
       STARTER,
     ]
     notes: PMU outputs
-  C-PMU-IN:
-    wirecount: 16
-    wirelabels: [
-      INPUT A9,
-      INPUT A14,
-      INPUT A2,
-      INPUT A4,
-      INPUT A6,
-      INPUT A8,
-      INPUT A11,
-      INPUT A13,
-      INPUT A16,
-      INPUT A1,
-      INPUT A3,
-      INPUT A5,
-      INPUT A7,
-      INPUT A10,
-      INPUT A12,
-      INPUT A15,
-    ]
-    notes: PMU inputs
 
 connections:
   -
     - X-PMU: [
         OUTPUT O15, # HIGH BEAM,
         OUTPUT O16, # LOW BEAM,
-        OUTPUT O9, # L TURN SIGNAL,
+        OUTPUT O11, # L TURN SIGNAL,
         OUTPUT O10, # R TURN SIGNAL,
         OUTPUT O3, # TNS,
         OUTPUT O14, # COOLING FAN,

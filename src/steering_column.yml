@@ -4,13 +4,12 @@ connectors:
     pinlabels: [
       TURN SIGNAL SW,
       HEAD LT SW,
-      HBEAM LT SW,
-      CRUISE SPEED SW,
       WIPER SW,
-      # UNUSED,
-      # UNUSED,
-      # UNUSED,
-      # UNUSED,
+      CRUISE SPEED SW,
+      HORN SW,
+      CLOCK SPRING 1,
+      CLOCK SPRING 2,
+      CLOCK SPRING 3,
       # UNUSED,
       # UNUSED,
       # GND,
@@ -21,37 +20,40 @@ cables:
     colors: [
       GN, # TURN SIGNAL SW,
       RDWH, # HEAD LT SW,
-      RDBU, # HBEAM LT SW,
       BK, # CRUISE SPEED SW,
       GNWH, # WIPER SW,
     ]
     wirelabels: [
       TURN SIGNAL SW,
       HEAD LT SW,
-      HBEAM LT SW,
       CRUISE SPEED SW,
       WIPER SW,
     ]
 
 connections:
-  - - X-STEERING-1: [
-        TURN SIGNAL SW,
-        HEAD LT SW,
-        HBEAM LT SW,
-        CRUISE SPEED SW,
-        WIPER SW,
-      ]
-    - C-STEERING-1: [
-        TURN SIGNAL SW,
-        HEAD LT SW,
-        HBEAM LT SW,
-        CRUISE SPEED SW,
-        WIPER SW,
-      ]
+  -
     - X-PMU: [
         INPUT A2,
         INPUT A4,
         INPUT A6,
         INPUT A8,
-        INPUT A13,
+      ]
+    - C-STEERING-1: [
+        TURN SIGNAL SW,
+        HEAD LT SW,
+        WIPER SW,
+        CRUISE SPEED SW,
+      ]
+    - X-STEERING-1: [
+        TURN SIGNAL SW,
+        HEAD LT SW,
+        WIPER SW,
+        CRUISE SPEED SW,
+        # HORN SW,
+        # CLOCK SPRING 1,
+        # CLOCK SPRING 2,
+        # CLOCK SPRING 3,
+        # UNUSED,
+        # UNUSED,
+        # GND,
       ]

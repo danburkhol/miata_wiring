@@ -20,6 +20,9 @@ connectors:
       SENSOR GND,
     ]
     notes: Connector between the chassis and ECU
+  X-ECU-VCC:
+    <<: *x-crimp
+    notes: crimp to distribute power to ecu, lambda, inj
 cables:
   C-ECU-1: &c_ecu_pwr
     wirecount: 4
@@ -32,34 +35,15 @@ cables:
   C-ECU-8: &c_ecu_vcc
     colors: [RD, RD, RD]
     wirelabels: [ECU VCC, INJ VCC, LAMBDA HEATER]
-
-  C-ECU-AUX-1: &c_ecu_aux
-    colors: [YE, BN]
-    wirelabels: [START REQ, VSS]
-  C-ECU-AUX-2:
-    <<: *c_ecu_aux
   C-ECU-11:
     colors: [RD]
     wirelabels: [+5V SENSOR SUPPLY]
 
 connections:
   -
-    - X-PMU: [OUTPUT O8, CAN1H, CAN1L, OUTPUT O11]
+    - X-PMU: [OUTPUT O1, CAN1H, CAN1L, OUTPUT O1]
     - C-ECU-1: [ECU VCC, CAN H, CAN L, IGN VCC]
     - X-ECU-BODY-11: [ECU VCC, CAN H, CAN L, IGN VCC]
-  -
-    - C-ECU-AUX-1: [START REQ, VSS]
-    - X-ECU-BODY-11: [START REQ, VSS]
-    - C-ECU-AUX-2: [START REQ, VSS]
-
-  # -
-  #   - C-ECU-AUX-1: [
-  #       OIL PRES,
-  #       CLT GAUGE,
-  #       START REQ,
-  #       TACH,
-  #       VSS
-  #     ]
 
   -
     - X-ECU-BODY-11: [CAN H, CAN L]
