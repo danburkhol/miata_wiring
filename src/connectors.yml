@@ -101,29 +101,3 @@ connectors:
       MOTOR 2-,
       MOTOR 1+
     ]
-
-  X-5V:
-    <<: *x-crimp
-
-  X-ECU-VCC:
-    <<: *x-crimp
-    notes: crimp to distribute power to ecu, lambda, inj
-  X-IGN-VCC:
-    <<: *x-crimp
-    notes: crimp to distribute power between coils and noise filter
-  X-ECU-GND:
-    <<: *x-crimp
-
-  X-BATT-POS:
-    type: eyelet
-    pincount: 1
-    show_name: true
-    show_pincount: false
-    notes: Battery constant
-
-  X-GND-1:
-    type: eyelet
-    pincount: 1
-    show_name: true
-    show_pincount: false
-    notes: Located under dash near clutch pedal box

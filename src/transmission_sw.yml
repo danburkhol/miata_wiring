@@ -57,12 +57,11 @@ cables:
 
 connections:
   -
-    - X-NEUTRAL-SW: [NEUTRAL SW, NEUTRAL SW GND]
     - C-TRANS-SW-1: [NEUTRAL SW, NEUTRAL SW GND]
+    - X-NEUTRAL-SW: [NEUTRAL SW, NEUTRAL SW GND]
   -
-    - X-REVERSE-SW: [REVERSE SW, REVERSE SW GND]
     - C-TRANS-SW-1: [REVERSE SW, REVERSE SW GND]
-
+    - X-REVERSE-SW: [REVERSE SW, REVERSE SW GND]
   -
     - C-TRANS-SW-1: [1-6]
     - X-TRANS-1: [1-6]
@@ -73,8 +72,8 @@ connections:
     - X-TRANS-1: [1, 3]
     - C-TRANS-SW-2: [1, 1]
   -
-    - C-TRANS-SW-2: [1]
     - X-PMU: [INPUT A11]
+    - C-TRANS-SW-2: [1]
 
   -
     - X-TRANS-1: [VSS, VSS GND]

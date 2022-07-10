@@ -1,5 +1,5 @@
 connectors:
-  X-DASH-11:
+  X-DASH-1:
     <<: *x-dtm06-12s
     pinlabels: [
       L TURN IND, # GNBK, H,
@@ -17,7 +17,7 @@ connectors:
       UNKNOWN, # GNYE, M,
     ]
     notes: Driver side
-  X-DASH-12:
+  X-DASH-2:
     <<: *x-dtm06-06s
     pinlabels: [
       HEAD REST SPK - N, # N, BUYE,
@@ -28,63 +28,6 @@ connectors:
       DRIVER DOOR SPK - L, # L, RDWH,
     ]
     notes: headrest speakers and driver door speaker
-  # X-RETRACTOR-SW:
-
-  X-DASH-1:
-    <<: *x-dtm06-12s
-    pinlabels: [
-      DRIVER DOOR SPK,
-      DRIVER DOOR SPK,
-      POWER ANT,
-      HEADREST SPK,
-      HEADREST SPK,
-      HEADREST SPK,
-      HEADREST SPK,
-      ROOM VCC,
-      DRIVER DOME VCC,
-    ]
-    notes: Driver side
-
-  X-DASH-2:
-    <<: *x-dtm06-12s
-    pinlabels: [
-      R DOOR SPK, # [L],
-      R DOOR SPK, # [O],
-      A/C REQ, # [D],
-      UNUSED 4, # [X],
-      UNUSED 5, # [X],
-      UNUSED 6, # [X],
-      UNUSED 7, # [X],
-      CRUISE SW, # [C],
-      CRUISE SW, # [I],
-      HEATER CTRL, # [N],
-      THERMO SW, # [H],
-      PASS DOME VCC, # [J]
-    ]
-    notes: Pass side
-  X-DASH-3:
-    <<: *x-dtp06-04s
-    pinlabels: [
-      STARTER,
-      BLOWER VCC
-    ]
-    notes: Driver side
-  X-DASH-4:
-    <<: *x-dt06-04s
-    notes: Driver side, Retractor SW
-  X-CLUSTER-1:
-    <<: *x-dtm06-12s
-  X-CLUSTER-2:
-    <<: *x-dtm06-06s
-    pinlabels: [
-      TACH,
-      CHARGE IND,
-      OIL PRES,
-      CLT GAUGE,
-      CEL,
-      ABS LT,
-    ]
-    notes: Pass side
 
 cables:
   C-X-13-DASH:
@@ -123,14 +66,14 @@ connections:
     - C-X-13-DASH: [YE, RD, WH, BU, BN, BK]
 
   - - C-X-13-DASH: [YE, RD, WH, BU]
-    - X-DASH-12: [
+    - X-DASH-2: [
         HEAD REST SPK - Q, # Q, RDYE,
         HEAD REST SPK - O, # O, RDBU,
         HEAD REST SPK - P, # P, BUWH,
         HEAD REST SPK - N, # N, BUYE,
       ]
   - - C-DOOR-SPK-1: [GN, PKGN]
-    - X-DASH-12: [5, 6]
+    - X-DASH-2: [5, 6]
 
   - - X-14: [FUEL SENDER]
     - C-DASH-1: [FUEL GAUGE]
@@ -139,7 +82,7 @@ connections:
         FUEL GAUGE,
         RETRACTOR HAZARD SW,
       ]
-    - X-DASH-11: [
+    - X-DASH-1: [
         ROOM VCC, # BU
         FUEL GAUGE, # YE, C,
         RETRACTOR HAZARD SW, # OGBK, 7,
@@ -152,7 +95,7 @@ connections:
         HIGH BEAM,
         TNS,
       ]
-    - X-DASH-11: [
+    - X-DASH-1: [
         L TURN IND, # GNBK, H,
         R TURN IND, # GNWH, G,
         RETRACTOR IND,
@@ -303,7 +246,7 @@ connections:
 #     - C-DASH-FART: [
 #         H, G, B, I, F, C, W, X,9,8,7,M
 #       ]
-#     - X-DASH-11: [
+#     - X-DASH-1: [
 #         L TURN IND, # GNBK, H,
 #         R TURN IND, # GNWH, G,
 #         RETRACTOR IND, # GNBU, B,

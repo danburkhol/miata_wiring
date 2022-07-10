@@ -9,32 +9,3 @@ connectors:
     pinlabels: [VCC,GND]
     image:
       src: ../img/f-03.png
-  X-BC-GND:
-    <<: *x-crimp
-cables:
-  C-CLUTCH:
-    wirecount: 2
-    colors: [BN,BK]
-  C-BRAKE:
-    wirecount: 2
-    colors: [GN,BK]
-
-connections:
-  -
-    - X-BC-GND
-    - C-CLUTCH: [BK]
-    - X-CLUTCH: [GND]
-  -
-    - X-BC-GND
-    - C-BRAKE: [BK]
-    - X-BRAKE: [GND]
-
-  -
-    # - X-PMU: [123]
-    - C-CLUTCH: [BN]
-    - X-CLUTCH: [VCC]
-
-  -
-    # - X-PMU: [123]
-    - C-BRAKE: [GN]
-    - X-BRAKE: [VCC]

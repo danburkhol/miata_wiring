@@ -31,7 +31,20 @@ cables:
     ]
 
 connections:
-  - - X-STEERING-1: [
+  -
+    - X-PMU: [
+        INPUT A2,
+        INPUT A4,
+        INPUT A6,
+        INPUT A8,
+      ]
+    - C-STEERING-1: [
+        TURN SIGNAL SW,
+        HEAD LT SW,
+        WIPER SW,
+        CRUISE SPEED SW,
+      ]
+    - X-STEERING-1: [
         TURN SIGNAL SW,
         HEAD LT SW,
         WIPER SW,
@@ -43,16 +56,4 @@ connections:
         # UNUSED,
         # UNUSED,
         # GND,
-      ]
-    - C-STEERING-1: [
-        TURN SIGNAL SW,
-        HEAD LT SW,
-        WIPER SW,
-        CRUISE SPEED SW,
-      ]
-    - X-PMU: [
-        INPUT A2,
-        INPUT A4,
-        INPUT A6,
-        INPUT A8,
       ]

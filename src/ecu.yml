@@ -20,6 +20,9 @@ connectors:
       SENSOR GND,
     ]
     notes: Connector between the chassis and ECU
+  X-ECU-VCC:
+    <<: *x-crimp
+    notes: crimp to distribute power to ecu, lambda, inj
 cables:
   C-ECU-1: &c_ecu_pwr
     wirecount: 4

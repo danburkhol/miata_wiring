@@ -1,6 +1,11 @@
+connectors:
+  X-POWER-STEERING-PUMP:
+    pincount: 1
+    type: simple
 cables:
   C-POWER-STEERING:
     colors: [BN]
 connections:
-  - - C-POWER-STEERING: [BN]
-    - X-PMU: [INPUT A7]
+  - - X-PMU: [INPUT A7]
+    - C-POWER-STEERING: [BN]
+    - X-POWER-STEERING-PUMP

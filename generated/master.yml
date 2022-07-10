@@ -31,6 +31,9 @@ templates:
     pinlabels: [12V, GND, CAN HIGH, CAN LOW]
     notes: DTM06-04S
     autogenerate: false
+  X-LITTELFUSE-HWB18: &HWB18
+    pins: [A1,A2,A3,A4,A5,A6,B1,B2,B3,B4,B5,B6,C1,C2,C3,C4,C5,C6]
+    notes: LittelFuse HWB18
   c-body-common-colors: &c-body-common-colors
     [
       GY, # LOW BEAM,
@@ -164,8 +167,6 @@ connectors:
     pinlabels: [CLT SIGNAL, SENSOR GND]
     image:
       src: ../img/b1-17.png
-  X-CLT-GAUGE:
-    pincount: 1
   X-CLUTCH:
     pincount: 2
     pinlabels: [VCC, GND]
@@ -176,8 +177,6 @@ connectors:
     pinlabels: [VCC, GND]
     image:
       src: ../img/f-03.png
-  X-BC-GND:
-    <<: *x-crimp
   X-ECU-1:
     pincount: 48
     pins: [A1, A2, A3, A4, B1, B2, B3, B4, C1, C2, C3, C4, D1, D2, D3, D4, E1, E2, E3, E4, F1, F2, F3, F4, G1, G2, G3, G4, H1, H2, H3, H4, J1, J2, J3, J4, K1, K2, K3, K4, L1, L2, L3, L4, M1, M2, M3, M4]
@@ -186,67 +185,32 @@ connectors:
     pincount: 32
     pins: [A1, A2, A3, A4, B1, B2, B3, B4, C1, C2, C3, C4, D1, D2, D3, D4, E1, E2, E3, E4, F1, F2, F3, F4, G1, G2, G3, G4, H1, H2, H3, H4]
     pinlabels: [EGT 5+, EGT 6+, EGT 7+, EGT 8+, EGT 5, EGT 6, EGT 7, EGT 8, EGT 1+, EGT 2+, EGT 3+, EGT 4+, EGT 1, EGT 2, EGT 3, EGT 4, KNOCK GND, KNOCK 1, KNOCK 2, AIN 6 (0-5V), AIN 7 (0-5V), AIN 8(0-5V), DIN/VR 4, DIN/VR5, GPO 15(+12V), GPO 16 (+12V), AIN 5 (0-5V), ENGINE GROUND, MOTOR 2+, MOTOR 1-, MOTOR 2-, MOTOR 1+]
-  X-5V:
-    <<: *x-crimp
-  X-ECU-VCC:
-    <<: *x-crimp
-    notes: crimp to distribute power to ecu, lambda, inj
-  X-IGN-VCC:
-    <<: *x-crimp
-    notes: crimp to distribute power between coils and noise filter
-  X-ECU-GND:
-    <<: *x-crimp
-  X-BATT-POS:
-    type: eyelet
-    pincount: 1
-    show_name: true
-    show_pincount: false
-    notes: Battery constant
-  X-GND-1:
-    type: eyelet
-    pincount: 1
-    show_name: true
-    show_pincount: false
-    notes: Located under dash near clutch pedal box
   X-DASH-1:
     <<: *x-dtm06-12s
-    pinlabels: [DRIVER DOOR SPK, DRIVER DOOR SPK, POWER ANT, HEADREST SPK, HEADREST SPK, HEADREST SPK, HEADREST SPK, ROOM VCC, DRIVER DOME VCC]
+    pinlabels: [L TURN IND, # GNBK, H,
+      R TURN IND, # GNWH, G,
+      HIGH BEAM IND, RETRACTOR IND, # GNBU, B,
+      ROOM VCC, # BU
+      BRAKE IND, # BUYE, F,
+      FUEL GAUGE, # YE, C,
+      CAN H, # WHBU, W,
+      CAN L, # WH, X,
+      METER VCC, # BN, 9,
+      TNS VCC, # PK, 8,
+      RETRACTOR HAZARD SW, # OGBK, 7,
+      UNKNOWN, # GNYE, M,
+    ]
     notes: Driver side
   X-DASH-2:
-    <<: *x-dtm06-12s
-    pinlabels: [R DOOR SPK, # [L],
-      R DOOR SPK, # [O],
-      A/C REQ, # [D],
-      UNUSED 4, # [X],
-      UNUSED 5, # [X],
-      UNUSED 6, # [X],
-      UNUSED 7, # [X],
-      CRUISE SW, # [C],
-      CRUISE SW, # [I],
-      HEATER CTRL, # [N],
-      THERMO SW, # [H],
-      PASS DOME VCC, # [J]
-    ]
-    notes: Pass side
-  X-DASH-3:
-    <<: *x-dtp06-04s
-    pinlabels: [STARTER, BLOWER VCC]
-    notes: Driver side
-  X-DASH-4:
-    <<: *x-dt06-04s
-    notes: Driver side, Retractor SW
-  X-CLUSTER-1:
-    <<: *x-dtm06-12s
-  X-CLUSTER-2:
     <<: *x-dtm06-06s
-    pinlabels: [TACH, CHARGE IND, OIL PRES, CLT GAUGE, CEL, ABS LT]
-    notes: Pass side
-  X-DOOR-1:
-    <<: *x-dt06-6s
-    notes: Driver side
-  X-DOOR-2:
-    <<: *x-dt06-2s
-    notes: Pass side
+    pinlabels: [HEAD REST SPK - N, # N, BUYE,
+      HEAD REST SPK - P, # P, BUWH,
+      HEAD REST SPK - Q, # Q, RDYE,
+      HEAD REST SPK - O, # O, RDBU,
+      DRIVER DOOR SPK - K, # K, RDGN,
+      DRIVER DOOR SPK - L, # L, RDWH,
+    ]
+    notes: headrest speakers and driver door speaker
   X-EASY-1:
     <<: *x-dt06-04s
     pinlabels: [VCC, IGN 1, START REQ]
@@ -273,9 +237,16 @@ connectors:
     pincount: 12
     pinlabels: [ECU VCC, CAN H, CAN L, IGN VCC, OIL PRES, CLT GAUGE, START REQ, TACH, VSS, CEL, AIT SIGNAL, SENSOR GND]
     notes: Connector between the chassis and ECU
+  X-ECU-VCC:
+    <<: *x-crimp
+    notes: crimp to distribute power to ecu, lambda, inj
   X-COOLING-FAN:
     <<: *x-dt06-04s
     pinlabels: [COOLING FAN VCC, COOLING FAN GND, A/C CLUTCH, P/S PUMP]
+  X-FUSEBOX:
+    <<: *HWB18
+  X-BATT-CONST-CRIMP:
+    <<: *x-crimp
   X-ENGINE-GND-CRIMP-1: &gnd_crimp
     style: simple
     type: crimp
@@ -283,8 +254,6 @@ connectors:
     show_pincount: false
     bgcolor: IV
   X-ENGINE-GND-CRIMP-2:
-    <<: *gnd_crimp
-  X-ENGINE-GND-CRIMP-21:
     <<: *gnd_crimp
   X-CYL-HEAD:
     style: simple
@@ -328,6 +297,9 @@ connectors:
     image:
       src: ../img/b1-13.png
     notes: IGN Coil Condenser
+  X-IGN-VCC:
+    <<: *x-crimp
+    notes: crimp to distribute power between coils and noise filter
   X-INJ-1: &injector_conn
     pincount: 2
     pins: [Y, W/R]
@@ -344,11 +316,6 @@ connectors:
   X-INJ-4:
     <<: *injector_conn
     notes: Injector No. 4, Mazda Conn. B1-09
-  X-19:
-    pincount: 14
-    pinlabels: [G, LG/B, Y/B, R/B, Y/R, L, L/Y, L/O, CHARGE LAMP, Y/L, L/B, R/G, B/L, L/Y]
-    image:
-      src: ../img/x-19.png
   X-KNOCK:
     pincount: 2
     pinlabels: [SIGNAL, SENSOR GND]
@@ -365,8 +332,8 @@ connectors:
     image:
       src: ../img/nc_throttle.png
   X-APP-2:
-    <<: *x-dt06-04s
-    pinlabels: [APP 1, APP 2, 5V, SENSOR GND]
+    <<: *x-dtm06-06s
+    pinlabels: [APP 1, APP 2, 5V, SENSOR GND, VSS, VSS GND]
   X-PMU-PWR:
     pincount: 1
     notes: M6 stud on PMU-16
@@ -375,6 +342,9 @@ connectors:
     pinlabels: [OUTPUT O13, OUTPUT O12, OUTPUT O11, OUTPUT O10, OUTPUT O9, INPUT A9, +12V SW, INPUT A14, OUTPUT O8, OUTPUT O7, OUTPUT O6, OUTPUT O5, OUTPUT O4, OUTPUT O14, +5V OUTPUT, INPUT A2, INPUT A4, INPUT A6, INPUT A8, INPUT A11, INPUT A13, INPUT A16, CAN1H, CAN2H, GROUND, OUTPUT O3, OUTPUT O15, OUTPUT O16, INPUT A1, INPUT A3, INPUT A5, INPUT A7, INPUT A10, INPUT A12, INPUT A15, CAN1L, CAN2L, OUTPUT O1, OUTPUT O2]
     pincolors: [VT, VT, IV, IV, IV, BU, RD, BU, IV, IV, IV, VT, VT, VT, RD, BU, BU, BU, BU, BU, BU, BU, WHBU, WHBU, BK, VT, VT, VT, BU, BU, BU, BU, BU, BU, BU, WH, WH, VT, VT]
     notes: VT = High AMP, IV = Low AMP
+  X-POWER-STEERING-PUMP:
+    pincount: 1
+    type: simple
   X-13:
     <<: *x-dt06-12s
     pinlabels: [DEFROST (V), DEFROST (L), DEFROST (L/B), HEADREST SPKR DVR (R/Y), HEADREST SPKR DVR (R/L), HEADREST SPKR PASS (L/W), HEADREST SPKR PASS (L/O), POWER ANTENNA (B/Y), POWER ANTENNA (L/B), POWER ANTENNA (LG/Y), EASYGUARD REAR SENSOR 1, EASYGUARD REAR SENSOR 2]
@@ -422,25 +392,11 @@ connectors:
     <<: *X-SHIELD-DRAIN-CRIMP
   X-STEERING-1:
     <<: *x-dt06-12s
-    pinlabels: [TNS SW, LOW BEAM SW, LOW BEAM SW GND, # and TNS
-      HIGH BEAM SW, HIGH BEAM SW GND, TURN SIGNAL L SW, TURN SIGNAL R SW, TURN SIGNAL COMMON, HEADLIGHT SW UNKNOWN 1, # RDGN
-      HORN SW]
-    notes: Replacement for OEM D-03
-  X-STEERING-2:
-    <<: *x-dt06-12s
-    pinlabels: [CRUISE 1, # YE,
-      CRUISE 2, # BU,
-      CRUISE 3, # BK,
-      WASHER 1, # BK,
-      WASHER 2, # BUBK,
-      WASHER 3, # BUWH,
-      WASHER 4, # BUOG,
-      WASHER 5, # BU,
-      WASHER 6, # GNDR,
+    pinlabels: [TURN SIGNAL SW, HEAD LT SW, WIPER SW, CRUISE SPEED SW, HORN SW, CLOCK SPRING 1, CLOCK SPRING 2, CLOCK SPRING 3,
+      # UNUSED,
+      # UNUSED,
+      # GND,
     ]
-  X-LT-SW-GND-CRIMP:
-    <<: *x-crimp
-    autogenerate: false
   X-THROTTLE-BODY:
     pins: [A, B, C, D, E, F]
     pinlabels: [THROTTLE+, THROTTLE-, TPS SENSOR GND, TPS 2 SIG, TPS 5V, TPS 1 SIG]
@@ -454,6 +410,9 @@ connectors:
   X-REVERSE-SW:
     pincount: 2
     pinlabels: [REVERSE SW, REVERSE SW GND]
+  X-PARKING-BRAKE-SW:
+    pincount: 1
+    style: simple
   X-TRANS-1:
     pincount: 6
     pinlabels: [NEUTRAL SW, NEUTRAL SW GND, REVERSE SW, REVERSE SW GND, VSS, VSS GND]
@@ -463,14 +422,17 @@ connectors:
     <<: *x-crimp
   X-WIPER-OEM:
     pincount: 4
-    pinlabels: [BU, BUWH, BURD, BUYE]
+    # pins: [BU, BUWH, BURD, BUYE]
+    pinlabels: [PARK SW 1, LOW, HIGH, PARK SW 2]
+    image:
+      src: ../img/wiper_motor.png
+      width: 512
+  X-WIPER-1:
+    <<: *x-dtm06-04s
+    pinlabels: [HIGH, LOW, PARK SW]
 cables:
   C-5V-2:
     colors: [BU]
-  C-AC-2:
-    wirecount: 1
-    wirelabels: [A/C PRES. SW]
-    colors: [PK]
   C-AC-3:
     colors: [WHBK]
   C-AC-4:
@@ -496,8 +458,8 @@ cables:
     colors: [WHGN, WHBK]
     wirelabels: [ALT REF, CHARGE IND]
   C-ALT-3:
-    colors: [BKRD, GN, VT]
-    wirelabels: [STARTER, ALT REF, CHARGE IND]
+    colors: [GN, VT]
+    wirelabels: [ALT REF, CHARGE IND]
   C-PWR-1:
     colors: [BK]
     wirelabels: [POS]
@@ -523,100 +485,14 @@ cables:
   C-CLT-2:
     wirecount: 2
     wirelabels: [CLT SIGNAL, SENSOR GND]
-  C-CLUTCH:
-    wirecount: 2
-    colors: [BN, BK]
-  C-BRAKE:
-    wirecount: 2
-    colors: [GN, BK]
-  C-DASH-DRIVER:
-    colors: [BKBU, # STARTER,
-      GNBU, # RETRACTOR ACTIVE,
-      YE, # FUEL GAUGE,
-      LTGN, # SEAT BELTS,
-      BU, # WASHER FL SENDER,
-      BUYE, # ABS IND,
-      GNWH, # L TURN SIGNAL,
-      GNBK, # R TURN SIGNAL,
-      RDWH, # (33)
-      RD, # PANEL LAMP CTRL,
-      RDGN, # DRIVER DOOR SPK,
-      RDWH, # DRIVER DOOR SPK,
-      GNYE, # POWER ANT,
-      BUOG, # HEADREST SPK,
-      RDBU, # HEADREST SPK,
-      BUWH, # HEADREST SPK,
-      RDYE, # HEADREST SPK,
-      RDOG, # RETRACTOR SW,
-      RDBU, # RETRACTOR SW,
-      RDGN, # RETRACTOR SW,
-      OG, # RETRACTOR SW,
-      RD, # METER VCC,
-      WHBU, # CAN HIGH,
-      WH, # CAN LOW,
-      WH, # ROOM VCC,
-      RD, # DRIVER DOME VCC,
-      BKRD, # BLOWER VCC
-    ]
-    wirelabels: [A, # BKBU, STARTER,
-      B, # GNBU, RETRACTOR ACTIVE,
-      C, # YE, FUEL GAUGE,
-      D, # LTGN, SEAT BELTS,
-      E, # BU, WASHER FL SENDER,
-      F, # BUYE, ABS IND,
-      G, # GNWH, L TURN SIGNAL,
-      H, # GNBK, R TURN SIGNAL,
-      I, # RDWH, (33)
-      J, # RD, PANEL LAMP CTRL,
-      K, # RDGN, DRIVER DOOR SPK,
-      L, # RDWH, DRIVER DOOR SPK,
-      M, # GNYE, POWER ANT,
-      N, # BUOG, HEADREST SPK,
-      O, # RDBU, HEADREST SPK,
-      P, # BUWH, HEADREST SPK,
-      Q, # RDYE, HEADREST SPK,
-      R, # RDOG, RETRACTOR SW,
-      S, # RDBU, RETRACTOR SW,
-      T, # RDGN, RETRACTOR SW,
-      U, # OG, RETRACTOR SW,
-      V, # RD, METER VCC,
-      W, # WHBU, CAN HIGH,
-      X, # WH, CAN LOW,
-      Y, # WH, ROOM VCC,
-      Z, # RD, DRIVER DOME VCC,
-      BLOWER VCC, # BKRD, BLOWER VCC
-    ]
-  C-DASH-PASS:
-    colors: [WHBK, # CHARGE IND,
-      YE, # CRUISE SW,
-      BU, # A/C REQ,
-      BKBU, # CLT GAUGE,
-      YERD, # OIL PRES,
-      YEBK, # CEL,
-      IV, # THERMO SW,
-      RD, RD, GN, BUYE, # R DOOR SPK
-      YEBU, # TACH,
-      BUOG, BU, # R DOOR SPK,
-    ]
-    wirelabels: [B, # CHARGE IND,
-      C, # CRUISE SW,
-      D, # A/C REQ,
-      E, # CLT GAUGE,
-      F, # OIL PRES,
-      G, # CEL,
-      H, # THERMO SW,
-      I, J, K, L, # R DOOR SPK
-      M, # TACH,
-      N, O, # R DOOR SPK,
-    ]
-    notes: Dashboard harness leading to passenger footwell
-  C-DOOR-1:
-    colors: [YE, RD, BK, GN, BU]
-    # wirelabels: []\
-    notes: Driver door
-  C-DOOR-2:
-    colors: [GN, BU]
-    notes: Pass door
+  C-X-13-DASH:
+    wirelabels: [RDYE, RDBU, BUWH, BUOG, EASY GUARD REAR SENSOR 1, EASY GUARD REAR SENSOR 2]
+    colors: [YE, RD, WH, BU, BN, BK]
+  C-DASH-1:
+    colors: [BU, YE, PKGN]
+    wirelabels: [ROOM VCC, FUEL GAUGE, RETRACTOR HAZARD SW]
+  C-DOOR-SPK-1:
+    colors: [GN, PKGN]
   C-EASY-1:
     colors: [RD, # +12V CONST,
       RD, # IGN ON,
@@ -634,11 +510,6 @@ cables:
   C-ECU-8: &c_ecu_vcc
     colors: [RD, RD, RD]
     wirelabels: [ECU VCC, INJ VCC, LAMBDA HEATER]
-  C-ECU-AUX-1: &c_ecu_aux
-    colors: [YE, BN]
-    wirelabels: [START REQ, VSS]
-  C-ECU-AUX-2:
-    <<: *c_ecu_aux
   C-ECU-11:
     colors: [RD]
     wirelabels: [+5V SENSOR SUPPLY]
@@ -724,10 +595,8 @@ cables:
     ]
     wirelabels: [HIGH BEAM, LOW BEAM, COOLING FAN, A/C FAN, RETRACTOR VCC, TNS, L TURN SIGNAL, R TURN SIGNAL, RETRACTOR UP, RETRACTOR DOWN, RETRACTOR ACTIVE, HORN, A/C PRES SW, FUEL PUMP, STARTER]
     notes: PMU outputs
-  C-PMU-IN:
-    wirecount: 16
-    wirelabels: [INPUT A9, INPUT A14, INPUT A2, INPUT A4, INPUT A6, INPUT A8, INPUT A11, INPUT A13, INPUT A16, INPUT A1, INPUT A3, INPUT A5, INPUT A7, INPUT A10, INPUT A12, INPUT A15]
-    notes: PMU inputs
+  C-POWER-STEERING:
+    colors: [BN]
   C-REAR:
     colors: [GN, # L TURN SIGNAL,
       PK, # R TURN SIGNAL,
@@ -737,16 +606,23 @@ cables:
       PKGN, # DOOR SW,
       YE, # FUEL SENDER,
       WHBU, # FUEL PUMP,
-      # BUCKLE SW,
-      # TRUNK (RD), # I don't remember what these correlate to at this time
-      # TRUNK (BU),
-      # TRUNK (BK),
+      BU, # BUCKLE SW,
+      WH, # TRUNK (RD), # I don't remember what these correlate to at this time
+      YE, # TRUNK (BU),
+      RD, # TRUNK (BK),
     ]
-    wirelabels: [L TURN SIGNAL, R TURN SIGNAL, TNS, BRAKE LT, REVERSE LT, DOOR SW, FUEL SENDER, FUEL PUMP,
-      # BUCKLE SW,
-      # TRUNK (RD), # I don't remember what these correlate to at this time
-      # TRUNK (BU),
-      # TRUNK (BK),
+    wirelabels: [I, # L TURN SIGNAL,
+      A, # R TURN SIGNAL,
+      B, # TNS,
+      G, # BRAKE LT,
+      E, # REVERSE LT,
+      H, # DOOR SW,
+      F, # FUEL SENDER,
+      D, # FUEL PUMP,
+      C, # BUCKLE SW,
+      J, # TRUNK (RD), # I don't remember what these correlate to at this time
+      K, # TRUNK (BU),
+      L, # TRUNK (BK),
     ]
   C-RETRACTOR-1: &c-retractor
     colors: [GNBU, YE, BK, BN, WHRD]
@@ -771,16 +647,13 @@ cables:
     <<: *c-shield-drain
   C-SHIELD-DRAIN-2:
     <<: *c-shield-drain
-  C-STEERING-OEM:
-    colors: [WH, WH, RD, RDYE, RDWH, GNBK, GNYE, GNBK, RDGN, YE, BU, BK, BK, BUBK, BUWH, BUOG, BU, GNBN]
-    wirelabels: [TNS SW, LOW BEAM SW, LOW BEAM SW GND, HIGH BEAM SW, HIGH BEAM SW GND, TURN SIGNAL L SW, TURN SIGNAL R SW, TURN SIGNAL COMMON, HEADLIGHT SW UNKNOWN 1, CRUISE 1, CRUISE 2, CRUISE 3, WASHER 1, WASHER 2, WASHER 3, WASHER 4, WASHER 5, WASHER 6]
-    notes: OEM wiring into connector OEM Connector D-03 on the steering column
   C-STEERING-1:
-    colors: [PK, RDBU, BK, RDWH, BK, GNWH, GNYE, BK, RDGN, GN]
-    wirelabels: [TNS SW, LOW BEAM SW, LOW BEAM SW GND, HIGH BEAM SW, HIGH BEAM SW GND, TURN SIGNAL L SW, TURN SIGNAL R SW, TURN SIGNAL COMMON, HEADLIGHT SW UNKNOWN 1, HORN SW]
-  C-LT-SW-GND:
-    colors: [BK]
-    wirelabels: [LT SW GND]
+    colors: [GN, # TURN SIGNAL SW,
+      RDWH, # HEAD LT SW,
+      BK, # CRUISE SPEED SW,
+      GNWH, # WIPER SW,
+    ]
+    wirelabels: [TURN SIGNAL SW, HEAD LT SW, CRUISE SPEED SW, WIPER SW]
   C-TB-1:
     colors: [PK, YE, WHBU, WH]
     wirelabels: [THROTTLE+, THROTTLE-, TPS1, TPS2]
@@ -795,11 +668,16 @@ cables:
     wirelabels: [NEUTRAL SW, NEUTRAL SW GND, REVERSE SW, REVERSE SW GND, VSS, VSS GND]
     notes: Located on the transmission
   C-TRANS-SW-2:
-    colors: [BK, BKYE, BKWH, RDGN, GN, BN]
-    wirelabels: [NEUTRAL SW, NEUTRAL SW GND, REVERSE SW, REVERSE SW GND, VSS, VSS GND]
+    colors: [RDGN, RD, BK, WHBU, WH]
+    wirelabels: [NEUTRAL / REVERSE / PARKING SW SIGNAL, # 2
+      UNKNOWN / BACKUP CAMERA, GND, VSS, VSS GND]
     notes: Located from trans tunnel going up to firewall
+  C-WIPER-1:
+    colors: [RD, BU, BN]
+    wirelabels: [HIGH, LOW, PARK SW]
   C-WIPER-OEM:
     colors: [BU, BUWH, BURD, BUYE]
+    wirelabels: [PARK SW 1, LOW, HIGH, PARK SW 2]
 connections:
   - - X-BULK: [+5V SENSOR SUPPLY]
     - C-5V-2: [1]
@@ -818,9 +696,8 @@ connections:
   - - X-AC-CRIMP-1
     - C-AC-4: [1]
     - X-AC-CLUTCH: [1]
-  - - C-AC-2: [A/C PRES. SW]
-    - X-PMU: [INPUT A13]
-  - - C-PMU-OUT: [A/C PRES SW]
+  - - X-PMU: [INPUT A5]
+    - C-PMU-OUT: [A/C PRES SW]
     - X-AC-1: [A/C PRES SW]
   - - C-PMU-OUT: [A/C FAN]
     - X-AC-CRIMP-1
@@ -831,10 +708,10 @@ connections:
     - X-AIT: [A]
   - - C-AIT-2: [BK]
     - X-AIT: [B]
-  - - C-ALT-3: [STARTER, ALT REF, CHARGE IND]
-    - X-ST-1: [STARTER, ALT REF, CHARGE IND]
-  - - X-PMU: [OUTPUT O5] # Starter solenoid
-    - C-ALT-3: [STARTER]
+  - - C-ALT-3: [ALT REF, CHARGE IND]
+    - X-ST-1: [ALT REF, CHARGE IND]
+  - - C-PMU-OUT: [STARTER]
+    - X-ST-1: [STARTER]
   - - C-ALT-1: [WH]
     - X-ALT-1: [BATT CHARGE]
   - - C-ALT-1: [WH]
@@ -844,11 +721,8 @@ connections:
     - X-ALT-2
     - C-ALT-2: [ALT REF]
     - X-ALT-1: [ALT REF]
-  - - X-19: [CHARGE LAMP]
-    - C-ALT-3: [CHARGE IND]
-    - X-ALT-2
-    - C-ALT-2: [CHARGE IND]
-    - X-ALT-1: [CHARGE IND]
+  - - X-ST-1: [ALT REF, CHARGE IND]
+    - C-ALT-2: [ALT REF, CHARGE IND]
   - - X-BATT: [POS]
     - C-PWR-1: [BK]
     - X-PMU-PWR: [1]
@@ -858,58 +732,41 @@ connections:
     - C-CAS-1: [CAM1, CAM2]
     - X-BULK: [29, 30]
     - C-CAS-2: [WH, WHBU]
-  - - C-CLT-1: [CLT SIGNAL, CLT GAUGE, SENSOR GND]
+  - - X-BULK: [35, 36, 37]
+    - C-CLT-1: [CLT SIGNAL, CLT GAUGE, SENSOR GND]
     - X-CLT-1: [CLT SIGNAL, CLT GAUGE, SENSOR GND]
   - - X-CLT-1: [CLT SIGNAL, SENSOR GND]
     - C-CLT-2: [CLT SIGNAL, SENSOR GND]
     - X-CLT: [CLT SIGNAL, SENSOR GND]
-  - - X-BC-GND
-    - C-CLUTCH: [BK]
-    - X-CLUTCH: [GND]
-  - - X-BC-GND
-    - C-BRAKE: [BK]
-    - X-BRAKE: [GND]
-  - # - X-PMU: [123]
-    - C-CLUTCH: [BN]
-    - X-CLUTCH: [VCC]
-  - # - X-PMU: [123]
-    - C-BRAKE: [GN]
-    - X-BRAKE: [VCC]
-  - - C-DASH-PASS: [L, O, D, K]
-    - X-DASH-2: [1, 2, 3, 4]
-  - - C-DASH-PASS: [C, I, N, H, J]
-    - X-DASH-2: [8, 9, 10, 11, 12]
-  - - C-DASH-PASS: [M, B, F, E, G, L]
-    - X-CLUSTER-2: [1, 2, 3, 4, 5, 6]
-  - - C-DASH-DRIVER: [K, L, M, N, O, P, Q, Y, Z]
-    - X-DASH-1: [1, 2, 3, 4, 5, 6, 7, 8, 9]
-  - - C-DASH-DRIVER: [B, C, D, E, F, G, H, I, J, V, W, X]
-    - X-CLUSTER-1: [4, 7, 8, 6, 5, 1, 2, 3, 9, 12, 10, 11]
-  - - C-DASH-DRIVER: [A, BLOWER VCC]
-    - X-DASH-3: [1, 2]
-  - - C-DASH-DRIVER: [R, S, T, U]
-    - X-DASH-4: [1, 2, 3, 4]
-  - - X-DOOR-1: [1-5]
-    - C-DOOR-1: [1-5]
-  - - C-DOOR-1: [GN, BU]
-    - X-DOOR-2: [1-2]
-  - - X-EASY-1: [IGN 1, START REQ]
+  - - X-13: [4, 5, 6, 7, 11, 12]
+    - C-X-13-DASH: [YE, RD, WH, BU, BN, BK]
+  - - C-X-13-DASH: [YE, RD, WH, BU]
+    - X-DASH-2: [HEAD REST SPK - Q, # Q, RDYE,
+        HEAD REST SPK - O, # O, RDBU,
+        HEAD REST SPK - P, # P, BUWH,
+        HEAD REST SPK - N, # N, BUYE,
+      ]
+  - - C-DOOR-SPK-1: [GN, PKGN]
+    - X-DASH-2: [5, 6]
+  - - X-14: [FUEL SENDER]
+    - C-DASH-1: [FUEL GAUGE]
+  - - C-DASH-1: [ROOM VCC, FUEL GAUGE, RETRACTOR HAZARD SW]
+    - X-DASH-1: [ROOM VCC, # BU
+        FUEL GAUGE, # YE, C,
+        RETRACTOR HAZARD SW, # OGBK, 7,
+      ]
+  - - C-PMU-OUT: [L TURN SIGNAL, R TURN SIGNAL, RETRACTOR ACTIVE, HIGH BEAM, TNS]
+    - X-DASH-1: [L TURN IND, # GNBK, H,
+        R TURN IND, # GNWH, G,
+        RETRACTOR IND, HIGH BEAM IND, TNS VCC]
+  - - X-PMU: [+12V SW, INPUT A9]
     - C-EASY-1: [IGN ON, START REQ]
-    - X-PMU: [+12V SW, INPUT A9]
-  - - X-PMU: [OUTPUT O8, CAN1H, CAN1L, OUTPUT O11]
+    - X-EASY-1: [IGN 1, START REQ]
+  - - X-EASY-2: [5, 6, 7]
+    - C-REAR: [J, K, L]
+  - - X-PMU: [OUTPUT O1, CAN1H, CAN1L, OUTPUT O1]
     - C-ECU-1: [ECU VCC, CAN H, CAN L, IGN VCC]
     - X-ECU-BODY-11: [ECU VCC, CAN H, CAN L, IGN VCC]
-  - - C-ECU-AUX-1: [START REQ, VSS]
-    - X-ECU-BODY-11: [START REQ, VSS]
-    - C-ECU-AUX-2: [START REQ, VSS]
-  # -
-  #   - C-ECU-AUX-1: [
-  #       OIL PRES,
-  #       CLT GAUGE,
-  #       START REQ,
-  #       TACH,
-  #       VSS
-  #     ]
   - - X-ECU-BODY-11: [CAN H, CAN L]
     - C-ECU-2: [CAN H, CAN L]
     - X-ECU-1: [E1, E2]
@@ -1033,12 +890,6 @@ connections:
     - X-INJ-4: [+12V]
   - - X-BULK: [INJ +12V]
     - C-INJ-2: [+12V]
-  - - C-ECU-AUX-2: [TACH]
-    - X-ECU-1: [A4]
-  - - C-ECU-AUX-2: [VSS]
-    - X-ECU-2: [F3]
-  - - C-ECU-AUX-2: [CLT GAUGE, OIL PRES]
-    - X-BULK: [CLT GAUGE, OIL PRES SENDER]
   - - X-ECU-2: [E2, E1]
     - C-KNOCK-1: [SIGNAL, SENSOR GND]
     - X-BULK: [26, 40]
@@ -1074,11 +925,13 @@ connections:
     - X-APP-2: [5V]
   - - X-APP-1: [APP 1, APP 2]
     - C-APP-1: [APP 1, APP 2]
+  - - X-APP-1: [A, D]
+    - C-APP-2: [1, 1]
       # # accel pedal
       # -
   - - X-PMU: [OUTPUT O15, # HIGH BEAM,
         OUTPUT O16, # LOW BEAM,
-        OUTPUT O9, # L TURN SIGNAL,
+        OUTPUT O11, # L TURN SIGNAL,
         OUTPUT O10, # R TURN SIGNAL,
         OUTPUT O3, # TNS,
         OUTPUT O14, # COOLING FAN,
@@ -1087,8 +940,11 @@ connections:
         OUTPUT O5, # STARTER,
       ]
     - C-PMU-OUT: [HIGH BEAM, LOW BEAM, L TURN SIGNAL, R TURN SIGNAL, TNS, COOLING FAN, A/C FAN, FUEL PUMP, STARTER]
-  - - C-REAR: [L TURN SIGNAL, R TURN SIGNAL, TNS, BRAKE LT, REVERSE LT, DOOR SW, FUEL SENDER, FUEL PUMP]
-    - X-14: [L TURN SIGNAL, R TURN SIGNAL, TNS, BRAKE LT, REVERSE LT, DOOR SW, FUEL SENDER, FUEL PUMP]
+  - - X-PMU: [INPUT A7]
+    - C-POWER-STEERING: [BN]
+    - X-POWER-STEERING-PUMP
+  - - C-REAR: [I, A, B, G, E, H, F, D, C, J, K, L]
+    - X-14: [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12]
   # Pairing of both side crimps
   - - C-PMU-OUT: [RETRACTOR VCC]
     - X-RETRACTOR-CRIMP-VCC
@@ -1164,21 +1020,17 @@ connections:
   - - X-SHIELD-DRAIN-CRIMP-1
     - C-LSU-1: s
     - X-SHIELD-DRAIN-CRIMP-11
-  - - C-STEERING-OEM: [TNS SW, LOW BEAM SW, LOW BEAM SW GND, HIGH BEAM SW, HIGH BEAM SW GND, TURN SIGNAL L SW, TURN SIGNAL R SW, TURN SIGNAL COMMON, HEADLIGHT SW UNKNOWN 1]
-    - X-STEERING-1: [TNS SW, LOW BEAM SW, LOW BEAM SW GND, HIGH BEAM SW, HIGH BEAM SW GND, TURN SIGNAL L SW, TURN SIGNAL R SW, TURN SIGNAL COMMON, HEADLIGHT SW UNKNOWN 1]
-  - - C-STEERING-OEM: [CRUISE 1, CRUISE 2, CRUISE 3, WASHER 1, WASHER 2, WASHER 3, WASHER 4, WASHER 5, WASHER 6]
-    - X-STEERING-2: [CRUISE 1, CRUISE 2, CRUISE 3, WASHER 1, WASHER 2, WASHER 3, WASHER 4, WASHER 5, WASHER 6]
-  # Grounding of switches
-  - - X-STEERING-1: [LOW BEAM SW GND, HIGH BEAM SW GND, TURN SIGNAL COMMON]
-    - C-STEERING-1: [LOW BEAM SW GND, HIGH BEAM SW GND, TURN SIGNAL COMMON]
-    - X-LT-SW-GND-CRIMP
-  - - X-LT-SW-GND-CRIMP
-    - C-LT-SW-GND: [1]
-    - X-GND-1
-  # To PMU
-  - - X-STEERING-1: [LOW BEAM SW, TNS SW, HIGH BEAM SW, TURN SIGNAL L SW, TURN SIGNAL R SW, HORN SW]
-    - C-STEERING-1: [LOW BEAM SW, TNS SW, HIGH BEAM SW, TURN SIGNAL L SW, TURN SIGNAL R SW, HORN SW]
-    - X-PMU: [INPUT A4, INPUT A6, INPUT A8, INPUT A11, INPUT A16, INPUT A5]
+  - - X-PMU: [INPUT A2, INPUT A4, INPUT A6, INPUT A8]
+    - C-STEERING-1: [TURN SIGNAL SW, HEAD LT SW, WIPER SW, CRUISE SPEED SW]
+    - X-STEERING-1: [TURN SIGNAL SW, HEAD LT SW, WIPER SW, CRUISE SPEED SW,
+        # HORN SW,
+        # CLOCK SPRING 1,
+        # CLOCK SPRING 2,
+        # CLOCK SPRING 3,
+        # UNUSED,
+        # UNUSED,
+        # GND,
+      ]
   - - X-ECU-2: [H4, H2]
     - C-TB-1: [THROTTLE+, THROTTLE-]
     - X-BULK: [THROTTLE+, THROTTLE-]
@@ -1193,56 +1045,39 @@ connections:
     - X-THROTTLE-BODY: [TPS SENSOR GND, TPS 5V]
   - - C-PMU-OUT: [TNS]
     - X-TNS-CRIMP-1
-    - C-REAR: [TNS]
-  - - X-NEUTRAL-SW: [NEUTRAL SW, NEUTRAL SW GND]
-    - C-TRANS-SW-1: [NEUTRAL SW, NEUTRAL SW GND]
-  - - X-REVERSE-SW: [REVERSE SW, REVERSE SW GND]
-    - C-TRANS-SW-1: [REVERSE SW, REVERSE SW GND]
+    - C-REAR: [B]
+  - - C-TRANS-SW-1: [NEUTRAL SW, NEUTRAL SW GND]
+    - X-NEUTRAL-SW: [NEUTRAL SW, NEUTRAL SW GND]
+  - - C-TRANS-SW-1: [REVERSE SW, REVERSE SW GND]
+    - X-REVERSE-SW: [REVERSE SW, REVERSE SW GND]
   - - C-TRANS-SW-1: [1-6]
     - X-TRANS-1: [1-6]
-    - C-TRANS-SW-2: [1-6]
+  - - X-PARKING-BRAKE-SW
+    - C-TRANS-SW-2: [1]
+  - - X-TRANS-1: [1, 3]
+    - C-TRANS-SW-2: [1, 1]
+  - - X-PMU: [INPUT A11]
+    - C-TRANS-SW-2: [1]
+  - - X-TRANS-1: [VSS, VSS GND]
+    - C-TRANS-SW-2: [VSS, VSS GND]
+    - X-APP-2: [VSS, VSS GND]
   - - C-PMU-OUT: [L TURN SIGNAL]
     - X-CRIMP-L-TURN-SIGNAL
-    - C-REAR: [L TURN SIGNAL]
+    - C-REAR: [I]
   - - C-PMU-OUT: [R TURN SIGNAL]
     - X-CRIMP-R-TURN-SIGNAL
-    - C-REAR: [R TURN SIGNAL]
+    - C-REAR: [A]
   - - C-WIPER-OEM: [1-4]
     - X-WIPER-OEM: [1-4]
-#   -
-#     - X-DASH-2: [1-12]
-#     - C-DASH-OEM-1: [1-12]
-#   -
-#     - C-CLUSTER-2: [
-#         CEL,
-#         OIL PRES,
-#         CHARGE IND,
-#         CLT GAUGE,
-#         # ABS LT,
-#         TACH
-#       ]
-#     - X-DASH-2: [
-#         CEL,
-#         OIL PRES,
-#         CHARGE IND,
-#         CLT GAUGE,
-#         # ABS LT,
-#         TACH
-#       ]
-#   -
-#     - X-ECU-BODY-11: [
-#         CEL,
-#         OIL PRES,
-#         CLT GAUGE,
-#         TACH,
-#       ]
-#     - C-CLUSTER-2: [
-#         CEL,
-#         OIL PRES,
-#         CLT GAUGE,
-#         TACH
-#       ]
-
+  - - X-PMU: [OUTPUT O9, OUTPUT O8, INPUT A14]
+    - C-WIPER-1: [HIGH, LOW, PARK SW]
+    - X-WIPER-1: [HIGH, LOW, PARK SW]
+  - - X-WIPER-1: [HIGH, LOW]
+    - C-WIPER-OEM: [HIGH, LOW]
+  - - X-WIPER-1: [PARK SW]
+    - C-WIPER-OEM: [PARK SW 1]
+  - - X-WIPER-1: [PARK SW]
+    - C-WIPER-OEM: [PARK SW 2]
 options:
   # https://github.com/formatc1702/WireViz/blob/master/docs/syntax.md
   bgcolor_node: WH # Default = 'WH'
