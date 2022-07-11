@@ -68,3 +68,7 @@ connections:
     - X-BATT: [POS]
     - C-PWR-1: [BK]
     - X-PMU-PWR: [1]
+
+  -
+    - C-ALT-3: [CHARGE IND]
+    - X-ECU-BODY-11: [5]

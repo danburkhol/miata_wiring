@@ -29,6 +29,29 @@ connectors:
     ]
     notes: headrest speakers and driver door speaker
 
+  X-DASH-3:
+    <<: *x-dtm06-12s
+    pinlabels: [
+      TACH,
+      CEL,
+      CHARGE IND,
+      BRAKE IND,
+      CLT GAUGE,
+      OIL PRES GAUGE,
+      VSS,
+      CRUISE LT SW,
+      CRUISE OFF SW,
+      A/C REQ SW,
+      A/C THERMO SW,
+      HVAC HIGH BLOWER SW,
+    ]
+  X-DASH-4:
+    <<: *x-dtm06-04s
+    pinlabels: [
+      PASS SPK (BU),
+      PASS SPK (BUYE)
+    ]
+
 cables:
   C-X-13-DASH:
     wirelabels: [
@@ -60,6 +83,43 @@ cables:
     ]
   C-DOOR-SPK-1:
     colors: [GN, PKGN]
+
+  C-DASH-ECU:
+    wirecount: 12
+    colors: [
+      YERD, # TACH,
+      YE, # CEL,
+      WH, # CHARGE IND,
+      WH, # BRAKE IND,
+      WH, # CLT GAUGE,
+      WHBU, # OIL PRES GAUGE,
+      BN, # VSS,
+      GN, # CRUISE LT SW,
+      RD, # CRUISE OFF SW,
+      BU, # A/C REQ SW,
+      LBBU, # A/C THERMO SW,
+      WH, # HVAC HIGH BLOWER SW,
+    ]
+    wirelabels: [
+      TACH,
+      CEL,
+      CHARGE IND,
+      BRAKE IND,
+      CLT GAUGE,
+      OIL PRES GAUGE,
+      VSS,
+      CRUISE LT SW,
+      CRUISE OFF SW,
+      A/C REQ SW,
+      A/C THERMO SW,
+      HVAC HIGH BLOWER SW,
+    ]
+    notes: Cable going from dashboard to chassis passenger side
+
+  C-IND-1:
+    colors: [WH, WHBU]
+    wirelabels: [CLT GAUGE, OIL PRES SENDER]
+
 
 connections:
   - - X-13: [4, 5, 6, 7, 11, 12]
@@ -102,210 +162,59 @@ connections:
         HIGH BEAM IND,
         TNS VCC,
       ]
+  - - X-ECU-1: [
+        A4, # TACH,
+        C1, # CEL,
+        C4, # BRAKE IND,
+        F3, # VSS,
+        K3, # A/C REQ SW,
+        K4, # A/C THERMO SW,
+      ]
+    - C-DASH-ECU: [
+        TACH,
+        CEL,
+        BRAKE IND,
+        VSS,
+        A/C REQ SW,
+        A/C THERMO SW,
+      ]
 
-# cables:
-#   C-DASH-FART:
-#     wirelabels: [
-#       7, # - OGBK,
-#       8, # - PK,
-#       9, # - BN,
-#       B, # - GNBU,
-#       C, # - YE,
-#       F, # - BUYE,
-#       G, # - GNWH,
-#       H, # - GNBK,
-#       I, # - RDWH,
-#       K, # - RDGN,
-#       L, # - RDWH,
-#       M, # - GNYE,
-#       N, # - BUYE,
-#       O, # - RDBU,
-#       P, # - BUWH,
-#       Q, # - RDYE,
-#       W, # - WHBU,
-#       X, # - WH,
-#     ]
-#     colors: [
-#       OGBK,
-#       PK,
-#       BN,
-#       GNBU,
-#       YE,
-#       BUYE,
-#       GNWH,
-#       GNBK,
-#       RDWH,
-#       RDGN,
-#       RDWH,
-#       GNYE,
-#       BUYE,
-#       RDBU,
-#       BUWH,
-#       RDYE,
-#       WHBU,
-#       WH,
-#     ]
+  - - X-ECU-2: [
+        G2,
+        F4
+      ]
+    - C-DASH-ECU: [
+        CRUISE LT SW,
+        CRUISE OFF SW,
+      ]
 
+  - - C-DASH-ECU: [
+        TACH,
+        CEL,
+        BRAKE IND,
+        VSS,
+        CRUISE LT SW,
+        CRUISE OFF SW,
+        A/C REQ SW,
+        A/C THERMO SW,
+      ]
+    - X-DASH-3: [
+        TACH,
+        CEL,
+        BRAKE IND,
+        VSS,
+        CRUISE LT SW,
+        CRUISE OFF SW,
+        A/C REQ SW,
+        A/C THERMO SW,
+      ]
 
-#   C-DASH-DRIVER:
-#     colors: [
-#       BKBU, # STARTER,
-#       GNBU, # RETRACTOR ACTIVE,
-#       YE, # FUEL GAUGE,
-#       LTGN, # SEAT BELTS,
-#       BU, # WASHER FL SENDER,
-#       BUYE, # ABS IND,
-#       GNWH, # L TURN SIGNAL,
-#       GNBK, # R TURN SIGNAL,
-#       RDWH, # (33)
-#       RD, # PANEL LAMP CTRL,
-#       RDGN, # DRIVER DOOR SPK,
-#       RDWH, # DRIVER DOOR SPK,
-#       GNYE, # POWER ANT,
-#       BUOG, # HEADREST SPK,
-#       RDBU, # HEADREST SPK,
-#       BUWH, # HEADREST SPK,
-#       RDYE, # HEADREST SPK,
-#       RDOG, # RETRACTOR SW,
-#       RDBU, # RETRACTOR SW,
-#       RDGN, # RETRACTOR SW,
-#       OG, # RETRACTOR SW,
-#       RD, # METER VCC,
-#       WHBU, # CAN HIGH,
-#       WH, # CAN LOW,
-#       WH, # ROOM VCC,
-#       RD, # DRIVER DOME VCC,
-#       BKRD, # BLOWER VCC
-#     ]
-#     wirelabels: [
-#       A, # BKBU, STARTER,
-#       B, # GNBU, RETRACTOR ACTIVE,
-#       C, # YE, FUEL GAUGE,
-#       D, # LTGN, SEAT BELTS,
-#       E, # BU, WASHER FL SENDER,
-#       F, # BUYE, ABS IND,
-#       G, # GNWH, L TURN SIGNAL,
-#       H, # GNBK, R TURN SIGNAL,
-#       I, # RDWH, (33)
-#       J, # RD, PANEL LAMP CTRL,
-#       K, # RDGN, DRIVER DOOR SPK,
-#       L, # RDWH, DRIVER DOOR SPK,
-#       M, # GNYE, POWER ANT,
-#       N, # BUOG, HEADREST SPK,
-#       O, # RDBU, HEADREST SPK,
-#       P, # BUWH, HEADREST SPK,
-#       Q, # RDYE, HEADREST SPK,
-#       R, # RDOG, RETRACTOR SW,
-#       S, # RDBU, RETRACTOR SW,
-#       T, # RDGN, RETRACTOR SW,
-#       U, # OG, RETRACTOR SW,
-#       V, # RD, METER VCC,
-#       W, # WHBU, CAN HIGH,
-#       X, # WH, CAN LOW,
-#       Y, # WH, ROOM VCC,
-#       Z, # RD, DRIVER DOME VCC,
-#       BLOWER VCC, # BKRD, BLOWER VCC
-#     ]
-#   C-DASH-PASS:
-#     colors: [
-#       WHBK, # CHARGE IND,
-#       YE, # CRUISE SW,
-#       BU, # A/C REQ,
-#       BKBU, # CLT GAUGE,
-#       YERD, # OIL PRES,
-#       YEBK, # CEL,
-#       IV, # THERMO SW,
-#       RD,
-#       RD,
-#       GN,
-#       BUYE, # R DOOR SPK
-#       YEBU, # TACH,
-#       BUOG,
-#       BU, # R DOOR SPK,
-#     ]
-#     wirelabels: [
-#       B, # CHARGE IND,
-#       C, # CRUISE SW,
-#       D, # A/C REQ,
-#       E, # CLT GAUGE,
-#       F, # OIL PRES,
-#       G, # CEL,
-#       H, # THERMO SW,
-#       I,
-#       J,
-#       K,
-#       L, # R DOOR SPK
-#       M, # TACH,
-#       N,
-#       O, # R DOOR SPK,
-#     ]
-#     notes: Dashboard harness leading to passenger footwell
+  -
+    - X-BULK: [CLT GAUGE, OIL PRES SENDER]
+    - C-IND-1: [CLT GAUGE, OIL PRES SENDER]
+    - X-DASH-3: [CLT GAUGE, OIL PRES GAUGE]
 
-# connections:
-#   -
-#     - C-DASH-FART: [
-#         H, G, B, I, F, C, W, X,9,8,7,M
-#       ]
-#     - X-DASH-1: [
-#         L TURN IND, # GNBK, H,
-#         R TURN IND, # GNWH, G,
-#         RETRACTOR IND, # GNBU, B,
-#         HIGH BEAM IND, # RDWH, I,
-#         BRAKE IND, # BUYE, F,
-#         FUEL GAUGE, # YE, C,
-#         CAN H, # WHBU, W,
-#         CAN L, # WH, X,
-#         METER VCC, # BN, 9,
-#         TNS VCC, # PK, 8,
-#         RETRACTOR HAZARD SW, # OGBK, 7,
-#         UNKNOWN, # GNYE, M,
-#       ]
-
-
-#     - - C-DASH-PASS: [L,O,D,K]
-#       - X-DASH-2: [1,2,3,4]
-#     - - C-DASH-PASS: [C,I,N,H,J]
-#       - X-DASH-2: [8,9,10,11,12]
-#     - - C-DASH-PASS: [M,B,F,E,G,L]
-#       - X-CLUSTER-2: [1,2,3,4,5,6]
-#     - - C-DASH-DRIVER: [K,L,M,N,O,P,Q,Y,Z]
-#       - X-DASH-1: [1,2,3,4,5,6,7,8,9]
-#     - - C-DASH-DRIVER: [B,C,D,E,F,G,H,I,J,V,W,X]
-#       - X-CLUSTER-1: [4,7,8,6,5,1,2,3,9,12,10,11]
-#     - - C-DASH-DRIVER: [A,BLOWER VCC]
-#       - X-DASH-3: [1,2]
-#     - - C-DASH-DRIVER: [R,S,T,U]
-#       - X-DASH-4: [1,2,3,4]
-#   -
-#     - X-DASH-2: [1-12]
-#     - C-DASH-OEM-1: [1-12]
-#   -
-#     - C-CLUSTER-2: [
-#         CEL,
-#         OIL PRES,
-#         CHARGE IND,
-#         CLT GAUGE,
-#         # ABS LT,
-#         TACH
-#       ]
-#     - X-DASH-2: [
-#         CEL,
-#         OIL PRES,
-#         CHARGE IND,
-#         CLT GAUGE,
-#         # ABS LT,
-#         TACH
-#       ]
-#   -
-#     - X-ECU-BODY-11: [
-#         CEL,
-#         OIL PRES,
-#         CLT GAUGE,
-#         TACH,
-#       ]
-#     - C-CLUSTER-2: [
-#         CEL,
-#         OIL PRES,
-#         CLT GAUGE,
-#         TACH
-#       ]
+  -
+    - X-ECU-BODY-11: [5]
+    - C-DASH-ECU: [CHARGE IND]
+    - X-DASH-3: [CHARGE IND]
