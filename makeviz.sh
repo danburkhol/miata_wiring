@@ -30,6 +30,8 @@ restore_anchors() {
 }
 
 export_file() {
+    setup
+
     src_file=$1
     generated_file=$2
 
@@ -52,6 +54,8 @@ export_file() {
 
 
 export_master () {
+    setup
+
     for src_file in src/*.yml; do
         # make a copy of the source file to inject common items into
         tmp_file_path=tmp/$(basename $src_file)
@@ -70,11 +74,11 @@ export_master () {
         # Copy to dropbox for an accessible copy on mobile
         cp generated/master.png ~/Dropbox/master_wiring_digram.png
     fi
+
+    cleanup
 }
 
-setup
-# export_master
-# cleanup
+export_master
 
 # export_file src/5v_supply.yml generated/5v_supply.yml
 # export_file src/ac.yml generated/ac.yml
