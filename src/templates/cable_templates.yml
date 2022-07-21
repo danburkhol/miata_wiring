@@ -159,3 +159,164 @@ templates:
   X-PMU-PWR: &x-pmu-pwr
     pincount: 1
     notes: M6 stud on PMU-16
+  connectors:
+  X-ECU-1: &x-ecu-1
+    pincount: 48
+    pins: [
+      A1,A2,A3,A4,B1,B2,B3,B4,C1,C2,C3,C4,
+      D1,D2,D3,D4,E1,E2,E3,E4,F1,F2,F3,F4,
+      G1,G2,G3,G4,H1,H2,H3,H4,J1,J2,J3,J4,
+      K1,K2,K3,K4,L1,L2,L3,L4,M1,M2,M3,M4,
+    ]
+    pinlabels: [
+      GPO 5,
+      IGN 1,
+      IGN 2,
+      GPO 8/TACHO,
+      GPO 6,
+      IGN 3,
+      IGN 4,
+      GPO 1,
+      GPO 7,
+      IGN 5,
+      IGN 6,
+      GPO 2,
+      WBO2 HEATER,
+      IGN 7,
+      IGN 8,
+      GPO 3,
+      CAN H,
+      CAN I,
+      GND SHIELD,
+      GPO 4,
+      CLT,
+      IAT,
+      WB02 VREF,
+      WB02 VS,
+      +5V SENSOR SUPPLY,
+      TPS/AIN,
+      WBO2 IP,
+      WBO2 RCAL,
+      SENSOR GND,
+      TRIGGER GND,
+      TRIGGER,
+      HOME,
+      AIN 1 (TEMPERATURE),
+      AIN 2 (TEMPERATURE),
+      AIN 3 (0-5V),
+      AIN 4 (0-5V),
+      INJ 1,
+      INJ 2,
+      DIN/VR 1,
+      DIN/VR 2,
+      INJ 8,
+      IN| 7,
+      INJ 6,
+      ENGINE GND,
+      INJ 3,
+      IN 4,
+      INJ 5,
+      +12V ECU POWER SUPPLY
+    ]
+
+  X-ECU-2: &x-ecu-2
+    pincount: 32
+    pins: [
+      A1,A2,A3,A4,B1,B2,B3,B4,
+      C1,C2,C3,C4,D1,D2,D3,D4,
+      E1,E2,E3,E4,F1,F2,F3,F4,
+      G1,G2,G3,G4,H1,H2,H3,H4
+    ]
+    pinlabels: [
+      EGT 5+,
+      EGT 6+,
+      EGT 7+,
+      EGT 8+,
+      EGT 5,
+      EGT 6,
+      EGT 7,
+      EGT 8,
+      EGT 1+,
+      EGT 2+,
+      EGT 3+,
+      EGT 4+,
+      EGT 1,
+      EGT 2,
+      EGT 3,
+      EGT 4,
+      KNOCK GND,
+      KNOCK 1,
+      KNOCK 2,
+      AIN 6 (0-5V),
+      AIN 7 (0-5V),
+      AIN 8(0-5V),
+      DIN/VR 4,
+      DIN/VR5,
+      GPO 15(+12V),
+      GPO 16 (+12V),
+      AIN 5 (0-5V),
+      ENGINE GROUND,
+      MOTOR 2+,
+      MOTOR 1-,
+      MOTOR 2-,
+      MOTOR 1+
+    ]
+  X-IGN-VCC: &x-ign-vcc
+    <<: *x-crimp
+    notes: crimp to distribute power between coils and noise filter
+  X-BULK: &x-bulk
+    pincount: 47
+    image:
+      src: ../img/hd36-24-47se.png
+      height: 256
+      width: 256
+    notes: Deutsch HD30 47-pin connector
+    pinlabels: [
+      +5V SENSOR SUPPLY,
+      UNDEFINED PIN 2,
+      UNDEFINED PIN 3,
+      INJ +12V,
+      ENGINE GND,
+      IGN +12V,
+      OIL PRES SENDER,
+      UNDEFINED PIN 8,
+      UNDEFINED PIN 9,
+      UNDEFINED PIN 10,
+      UNDEFINED PIN 11,
+      INJ 4,
+      INJ 3,
+      INJ 2,
+      INJ 1,
+      IGN 4,
+      IGN 3,
+      IGN 2,
+      IGN 1,
+      UNDEFINED PIN 20,
+      UNDEFINED PIN 21,
+      UNDEFINED PIN 22,
+      UNDEFINED PIN 23,
+      SENSOR GND,
+      TPS2,
+      KNOCK SIGNAL,
+      THROTTLE+,
+      LSU LAMBDA +12V,
+      CAS 1,
+      CAS 2,
+      LSU HEATER,
+      UNDEFINED PIN 32,
+      UNDEFINED PIN 33,
+      UNDEFINED PIN 34,
+      CLT SIGNAL,
+      CLT GAUGE,
+      AIT SIGNAL,
+      TPS1,
+      SHIELD DRAIN,
+      KNOCK GND,
+      THROTTLE-,
+      LSU IP,
+      LSU COM,
+      LSU RCAL,
+      LSU VS/OS IN,
+      UNDEFINED PIN 46,
+      UNDEFINED PIN 47,
+    ]

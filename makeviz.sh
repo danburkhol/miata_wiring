@@ -76,4 +76,5 @@ setup
 export_master
 cleanup
 
-export_file src/steering_column.yml generated/steering_column.yml
+# export_file src/steering_column.yml generated/steering_column.yml
+export_file src/ecu.yml generated/ecu.yml

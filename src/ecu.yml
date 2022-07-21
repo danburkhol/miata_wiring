@@ -1,8 +1,14 @@
 connectors:
-  X-ECU-BODY-1: &x_ecu_body
-    pincount: 4
-    pinlabels: [ ECU VCC, CAN H, CAN L, IGN VCC ]
-    notes: Connector between the chassis and ECU
+  X-PMU:
+    <<: *x-pmu
+  X-ECU-1:
+    <<: *x-ecu-1
+  X-ECU-2:
+    <<: *x-ecu-2
+  X-IGN-VCC:
+    <<: *x-ign-vcc
+  X-BULK:
+    <<: *x-bulk
   X-ECU-BODY-11:
     pincount: 12
     pinlabels: [
