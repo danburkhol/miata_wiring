@@ -27,13 +27,13 @@ export_master () {
         echo -e '\n' >> $tmp_file_path
         # cp $src_file $tmp_file_path
 
-        # merges the content of src/common/connector_templates.yml into $tmp_file_path
-        # sed -i -e '/connectors:/{r src/common/connector_templates.yml' -e 'd}' $tmp_file_path
-        # sed -i -e '/cables:/{r src/common/cable_templates.yml' -e 'd}' $tmp_file_path
+        # merges the content of src/templates/connector_templates.yml into $tmp_file_path
+        # sed -i -e '/connectors:/{r src/templates/connector_templates.yml' -e 'd}' $tmp_file_path
+        # sed -i -e '/cables:/{r src/templates/cable_templates.yml' -e 'd}' $tmp_file_path
     done
 
-    sed -ri 's/\*/42069/g' src/common/cable_templates.yml
-    cp src/common/cable_templates.yml generated/master.yml
+    sed -ri 's/\*/42069/g' src/templates/cable_templates.yml
+    cp src/templates/cable_templates.yml generated/master.yml
     echo -e '\n' >> generated/master.yml
 
     yq eval-all '. as $item ireduce ({}; . *+ $item )' tmp/*.yml >> generated/master.yml
