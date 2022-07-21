@@ -1,59 +1,8 @@
 connectors:
-  X-PMU-PWR:
-    pincount: 1
-    notes: M6 stud on PMU-16
-
   X-PMU:
-    pincount: 39
-    pinlabels: [
-      OUTPUT O13,
-      OUTPUT O12,
-      OUTPUT O11,
-      OUTPUT O10,
-      OUTPUT O9,
-      INPUT A9,
-      +12V SW,
-      INPUT A14,
-      OUTPUT O8,
-      OUTPUT O7,
-      OUTPUT O6,
-      OUTPUT O5,
-      OUTPUT O4,
-
-      OUTPUT O14,
-      +5V OUTPUT,
-      INPUT A2,
-      INPUT A4,
-      INPUT A6,
-      INPUT A8,
-      INPUT A11,
-      INPUT A13,
-      INPUT A16,
-      CAN1H,
-      CAN2H,
-      GROUND,
-      OUTPUT O3,
-
-      OUTPUT O15,
-      OUTPUT O16,
-      INPUT A1,
-      INPUT A3,
-      INPUT A5,
-      INPUT A7,
-      INPUT A10,
-      INPUT A12,
-      INPUT A15,
-      CAN1L,
-      CAN2L,
-      OUTPUT O1,
-      OUTPUT O2
-    ]
-    pincolors: [
-      VT,VT,IV,IV,IV,BU,RD,BU,IV,IV,IV,VT,VT,
-      VT,RD,BU,BU,BU,BU,BU,BU,BU,WHBU,WHBU,BK,VT,
-      VT,VT,BU,BU,BU,BU,BU,BU,BU,WH,WH,VT,VT,
-    ]
-    notes: VT = High AMP, IV = Low AMP
+    <<: *x-pmu
+  X-PMU-PWR:
+    <<: *x-pmu-pwr
 
 cables:
   C-PMU-OUT:

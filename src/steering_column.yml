@@ -1,4 +1,6 @@
 connectors:
+  X-PMU:
+    <<: *x-pmu
   X-STEERING-1:
     <<: *x-dt06-12s
     pinlabels: [
