@@ -41,7 +41,7 @@ function export_single_file($input_file, $common_connectors = [])
     $parsed_input['connectors'] = (
         array_intersect_key(
             $common_connectors['connectors'],
-            array_flip($used_connectors)
+            array_flip(array_unique($used_connectors))
         )
     );
 
