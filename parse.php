@@ -7,9 +7,6 @@ use Symfony\Component\Yaml\Yaml;
 
 function array_keys_recursive($array, $callback_filter = null)
 {
-    // $keys = array_keys($array);
-    // var_export($keys);
-    // exit;
     if (is_callable($callback_filter)) {
         $keys = array_filter(array_keys($array), $callback_filter);
     } else {
@@ -33,14 +30,23 @@ function export_single_file($input_file, $common_connectors = [])
             return (bool) preg_match('/X-/i', $var);
         }
     ));
+    // Capture connector connections that are simple
+    array_walk_recursive($parsed_input['connections'], function($item) use (&$used_connectors) {
+        if ((bool) preg_match('/X-/i', $item)) {
+            $used_connectors[] = $item;
+        }
+    });
 
     // Inject the connector definitions into the array
     $parsed_input['connectors'] = (
         array_intersect_key(
-            $common_connectors,
+            $common_connectors['connectors'],
             array_flip($used_connectors)
         )
     );
+
+    // Inject the templates
+    $parsed_input['templates'] = $common_connectors['templates'];
 
     file_put_contents(
         ('./tmp/'.basename($input_file)),
@@ -53,11 +59,12 @@ function get_common_connectors()
     $template_file          = ('./src/templates/cable_templates.yml');
     $common_connectors_file = ('./src/common/connectors.yml');
 
-    return Yaml::parse(file_get_contents($template_file) . "\n" . file_get_contents($common_connectors_file))['connectors'];
+    return Yaml::parse(file_get_contents($template_file) . "\n" . file_get_contents($common_connectors_file));
 }
 
 
 $common_connectors = get_common_connectors();
 
 
-export_single_file('./src/cas.yml', $common_connectors);
+// export_single_file('./src/cas.yml', $common_connectors);
+// export_single_file('./src/ignition.yml', $common_connectors);
