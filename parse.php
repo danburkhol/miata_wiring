@@ -62,9 +62,14 @@ function get_common_connectors()
     return Yaml::parse(file_get_contents($template_file) . "\n" . file_get_contents($common_connectors_file));
 }
 
+function export_wireviz($file_path)
+{
+    if (!file_exists('./tmp')) mkdir('./tmp');
 
-$common_connectors = get_common_connectors();
+    $common_connectors = get_common_connectors();
 
+    export_single_file($file_path, $common_connectors);
+    exec('wireviz ./tmp/'.basename($file_path));
+}
 
-// export_single_file('./src/cas.yml', $common_connectors);
-// export_single_file('./src/ignition.yml', $common_connectors);
+export_wireviz('./src/power_windows.yml');
