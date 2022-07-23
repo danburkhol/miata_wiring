@@ -73,3 +73,6 @@ function export_wireviz($file_path)
 }
 
 export_wireviz('./src/power_windows.yml');
+export_wireviz('./src/wiper.yml');
+export_wireviz('./src/dashboard.yml');
+export_wireviz('./src/pedal.yml');
