@@ -166,7 +166,7 @@ connectors:
       notes: crimp to distribute power between coils and noise filter
     X-ECU-BODY-11:
       pincount: 12
-      pinlabels: [ECU VCC, CAN H, CAN L, IGN VCC, CHARGE IND, CLT GAUGE, START REQ, TACH, A/C CLUTCH, CEL, AIT SIGNAL, SENSOR GND]
+      pinlabels: [ECU VCC, CAN H, CAN L, IGN VCC, CHARGE IND, CLT GAUGE, START REQ, TACH, A/C CLUTCH, PASS WINDOW +, PASS WINDOW -, SENSOR GND]
       notes: Connector between the chassis and ECU
     X-ECU-VCC:
       <<: *x-crimp
@@ -360,6 +360,9 @@ connectors:
     X-WIPER-1:
       <<: *x-dtm06-04s
       pinlabels: [HIGH, LOW, PARK SW]
+    X-WASHER-PUMP:
+      pincount: 2
+      pinlabels: [VCC, GND]
     X-PWR-WIND:
       <<: *x-dt06-6s
       pinlabels: [

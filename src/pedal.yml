@@ -16,7 +16,7 @@ connectors:
     pinlabels: [
       APP 1,
       APP 2,
-      5V,
+#       5V,
       SENSOR GND,
       VSS,
       VSS GND
@@ -24,7 +24,8 @@ connectors:
 
 cables:
   C-APP-1:
-    <<: *c-shield-3
+    colors: [WH, WHBU, WHOG]
+    shield: true
     wirelabels: [SENSOR GND, APP 1, APP 2]
   C-APP-2:
     colors: [RDWH]

@@ -128,6 +128,15 @@ connections:
     - C-TMP-1: [CHARGE IND]
     - X-DASH-3: [CHARGE IND]
 
+  # accurate connection but need cable
+  # - - X-ECU-2: [H3]
+  #   # - C-
+  #   - X-14: [REVERSE LT]
+  # - - X-ECU-2: [H1]
+      # red wire, for washer pump
+    # - C-
+    # - X-WASHER-PUMP: [VCC]
+
   #   # commented out for individual diagram
   # # -
   # #   - C-PMU-OUT: [

@@ -255,13 +255,13 @@ templates:
       AIN 8(0-5V),
       DIN/VR 4,
       DIN/VR5,
-      GPO 15(+12V),
+      GPO 15 (+12V),
       GPO 16 (+12V),
       AIN 5 (0-5V),
       ENGINE GROUND,
-      MOTOR 2+,
+      GPO 14 (+12F),
       MOTOR 1-,
-      MOTOR 2-,
+      GPO 13 (+12V),
       MOTOR 1+
     ]
   X-IGN-VCC: &x-ign-vcc
