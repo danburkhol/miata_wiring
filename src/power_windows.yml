@@ -19,3 +19,6 @@ connections:
     - C-PWR-WIND: [POWER WINDOW VCC]
   - - X-GND-UNDER-DASH
     - C-PWR-WIND: [GND]
+
+  - - X-ECU-BODY-11: [10, 11]
+    - C-PWR-WIND: [P5, P6]
