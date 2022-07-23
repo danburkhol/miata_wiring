@@ -121,6 +121,9 @@ connections:
         RETRACTOR HAZARD SW, # OGBK, 7,
       ]
 
+  - - X-FUSEBOX: [ROOM VCC]
+    - C-DASH-1: [ROOM VCC]
+
   - - X-ECU-BODY-11: [5]
     - C-TMP-1: [CHARGE IND]
     - X-DASH-3: [CHARGE IND]
