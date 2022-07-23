@@ -1,58 +1,33 @@
-connectors:
-  X-DASH-1:
-    <<: *x-dtm06-12s
-    pinlabels: [
-      L TURN IND, # GNBK, H,
-      R TURN IND, # GNWH, G,
-      HIGH BEAM IND,
-      RETRACTOR IND, # GNBU, B,
-      ROOM VCC, # BU
-      BRAKE IND, # BUYE, F,
-      FUEL GAUGE, # YE, C,
-      CAN H, # WHBU, W,
-      CAN L, # WH, X,
-      METER VCC, # BN, 9,
-      TNS VCC, # PK, 8,
-      RETRACTOR HAZARD SW, # OGBK, 7,
-      UNKNOWN, # GNYE, M,
-    ]
-    notes: Driver side
-  X-DASH-2:
-    <<: *x-dtm06-06s
-    pinlabels: [
-      HEAD REST SPK - N, # N, BUYE,
-      HEAD REST SPK - P, # P, BUWH,
-      HEAD REST SPK - Q, # Q, RDYE,
-      HEAD REST SPK - O, # O, RDBU,
-      DRIVER DOOR SPK - K, # K, RDGN,
-      DRIVER DOOR SPK - L, # L, RDWH,
-    ]
-    notes: headrest speakers and driver door speaker
-
-  X-DASH-3:
-    <<: *x-dtm06-12s
-    pinlabels: [
-      TACH,
-      CEL,
-      CHARGE IND,
-      BRAKE IND,
-      CLT GAUGE,
-      OIL PRES GAUGE,
-      VSS,
-      CRUISE LT SW,
-      CRUISE OFF SW,
-      A/C REQ SW,
-      A/C THERMO SW,
-      HVAC HIGH BLOWER SW,
-    ]
-  X-DASH-4:
-    <<: *x-dtm06-04s
-    pinlabels: [
-      PASS SPK (BU),
-      PASS SPK (BUYE)
-    ]
-
 cables:
+  C-TMP-1:
+    wirelabels: [
+      TACH,
+      BRAKE IND,
+      CEL,
+      CRUISE LT,
+      VSS,
+      A/C REQ,
+      A/C THERMO SW,
+      CRUISE OFF,
+      CLT GAUGE,
+      OIL PRES SENDER,
+      CHARGE IND,
+    ]
+    colors: [
+      YERD,
+      WH,
+      YE,
+      GN,
+      BN,
+      BU,
+      LBBU,
+      RD,
+      WH,
+      WH,
+      WH,
+    ]
+    notes: Cable from MaxxECU to passenger side of dashboard harness
+
   C-X-13-DASH:
     wirelabels: [
       RDYE,
@@ -84,44 +59,40 @@ cables:
   C-DOOR-SPK-1:
     colors: [GN, PKGN]
 
-  C-DASH-ECU:
-    wirecount: 12
-    colors: [
-      YERD, # TACH,
-      YE, # CEL,
-      WH, # CHARGE IND,
-      WH, # BRAKE IND,
-      WH, # CLT GAUGE,
-      WHBU, # OIL PRES GAUGE,
-      BN, # VSS,
-      GN, # CRUISE LT SW,
-      RD, # CRUISE OFF SW,
-      BU, # A/C REQ SW,
-      LBBU, # A/C THERMO SW,
-      WH, # HVAC HIGH BLOWER SW,
-    ]
-    wirelabels: [
-      TACH,
-      CEL,
-      CHARGE IND,
-      BRAKE IND,
-      CLT GAUGE,
-      OIL PRES GAUGE,
-      VSS,
-      CRUISE LT SW,
-      CRUISE OFF SW,
-      A/C REQ SW,
-      A/C THERMO SW,
-      HVAC HIGH BLOWER SW,
-    ]
-    notes: Cable going from dashboard to chassis passenger side
-
-  C-IND-1:
-    colors: [WH, WHBU]
-    wirelabels: [CLT GAUGE, OIL PRES SENDER]
-
-
 connections:
+  - - X-ECU-1: [
+        A4,
+        C4,
+        C1,
+        K3,
+        K4,
+      ]
+    - C-TMP-1: [
+        TACH,
+        BRAKE IND,
+        CEL,
+        A/C REQ,
+        A/C THERMO SW,
+      ]
+
+  - - X-ECU-2: [
+        F3,
+        G2,
+        F4,
+      ]
+    - C-TMP-1: [
+        VSS,
+        CRUISE LT,
+        CRUISE OFF,
+      ]
+
+  - - C-TMP-1: [1,2,3,4,5,6, 7, 8]
+    - X-DASH-3: [1,4,2,8,7,10,11,9]
+
+  - - X-BULK: [7, 36]
+    - C-TMP-1: [CLT GAUGE, OIL PRES SENDER]
+    - X-DASH-3: [5, 6]
+
   - - X-13: [4, 5, 6, 7, 11, 12]
     - C-X-13-DASH: [YE, RD, WH, BU, BN, BK]
 
@@ -132,11 +103,13 @@ connections:
         HEAD REST SPK - P, # P, BUWH,
         HEAD REST SPK - N, # N, BUYE,
       ]
+
   - - C-DOOR-SPK-1: [GN, PKGN]
     - X-DASH-2: [5, 6]
 
   - - X-14: [FUEL SENDER]
     - C-DASH-1: [FUEL GAUGE]
+
   - - C-DASH-1: [
         ROOM VCC,
         FUEL GAUGE,
@@ -147,74 +120,27 @@ connections:
         FUEL GAUGE, # YE, C,
         RETRACTOR HAZARD SW, # OGBK, 7,
       ]
-  -
-    - C-PMU-OUT: [
-        L TURN SIGNAL,
-        R TURN SIGNAL,
-        RETRACTOR ACTIVE,
-        HIGH BEAM,
-        TNS,
-      ]
-    - X-DASH-1: [
-        L TURN IND, # GNBK, H,
-        R TURN IND, # GNWH, G,
-        RETRACTOR IND,
-        HIGH BEAM IND,
-        TNS VCC,
-      ]
-  - - X-ECU-1: [
-        A4, # TACH,
-        C1, # CEL,
-        C4, # BRAKE IND,
-        F3, # VSS,
-        K3, # A/C REQ SW,
-        K4, # A/C THERMO SW,
-      ]
-    - C-DASH-ECU: [
-        TACH,
-        CEL,
-        BRAKE IND,
-        VSS,
-        A/C REQ SW,
-        A/C THERMO SW,
-      ]
 
-  - - X-ECU-2: [
-        G2,
-        F4
-      ]
-    - C-DASH-ECU: [
-        CRUISE LT SW,
-        CRUISE OFF SW,
-      ]
+  - - X-FUSEBOX: [ROOM VCC]
+    - C-DASH-1: [ROOM VCC]
 
-  - - C-DASH-ECU: [
-        TACH,
-        CEL,
-        BRAKE IND,
-        VSS,
-        CRUISE LT SW,
-        CRUISE OFF SW,
-        A/C REQ SW,
-        A/C THERMO SW,
-      ]
-    - X-DASH-3: [
-        TACH,
-        CEL,
-        BRAKE IND,
-        VSS,
-        CRUISE LT SW,
-        CRUISE OFF SW,
-        A/C REQ SW,
-        A/C THERMO SW,
-      ]
-
-  -
-    - X-BULK: [CLT GAUGE, OIL PRES SENDER]
-    - C-IND-1: [CLT GAUGE, OIL PRES SENDER]
-    - X-DASH-3: [CLT GAUGE, OIL PRES GAUGE]
-
-  -
-    - X-ECU-BODY-11: [5]
-    - C-DASH-ECU: [CHARGE IND]
+  - - X-ECU-BODY-11: [5]
+    - C-TMP-1: [CHARGE IND]
     - X-DASH-3: [CHARGE IND]
+
+  #   # commented out for individual diagram
+  # # -
+  # #   - C-PMU-OUT: [
+  # #       L TURN SIGNAL,
+  # #       R TURN SIGNAL,
+  # #       RETRACTOR ACTIVE,
+  # #       HIGH BEAM,
+  # #       TNS,
+  # #     ]
+  # #   - X-DASH-1: [
+  # #       L TURN IND, # GNBK, H,
+  # #       R TURN IND, # GNWH, G,
+  # #       RETRACTOR IND,
+  # #       HIGH BEAM IND,
+  # #       TNS VCC,
+  # #     ]

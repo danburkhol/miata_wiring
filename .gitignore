@@ -1,6 +1,8 @@
 generated/*
 .DS_Store
 src/*
+vendor/*
+tmp/*
 !src/*.yml
 !src/*.yaml
 !src/common/*.yml
