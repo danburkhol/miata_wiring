@@ -191,6 +191,9 @@ connectors:
       bgcolor: IV
     X-ENGINE-GND-CRIMP-2:
       <<: *gnd_crimp
+    X-GND-UNDER-DASH:
+      <<: *gnd_crimp
+      notes: Located just above the clutch pedal
     X-CYL-HEAD:
       style: simple
       type: eyelet
@@ -357,3 +360,19 @@ connectors:
     X-WIPER-1:
       <<: *x-dtm06-04s
       pinlabels: [HIGH, LOW, PARK SW]
+    X-PWR-WIND:
+      <<: *x-dt06-6s
+      pinlabels: [
+        DRIVER WINDOW +,
+        DRIVER WINDOW -,
+        PASS WINDOW +,
+        PASS WINDOW -,
+        TRANS SW,
+        # REVERSE LT,
+      ]
+    X-PWR-WIND-VCC:
+      <<: *x-dtp06-02s
+      pinlabels: [
+        POWER WINDOW VCC,
+        GND,
+      ]

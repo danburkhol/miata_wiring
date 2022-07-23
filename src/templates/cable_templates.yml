@@ -26,6 +26,9 @@ templates:
   X-DTP06-04S: &x-dtp06-04s
     pincount: 4
     autogenerate: false
+  X-DTP06-02S: &x-dtp06-02s
+    pincount: 2
+    autogenerate: false
   X-CANBUS:
     pincount: 4
     pinlabels: [12V, GND, CAN HIGH, CAN LOW]
