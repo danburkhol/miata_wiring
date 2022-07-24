@@ -206,6 +206,32 @@ function cleanup()
     rmdir('./tmp');
 }
 
+/**
+ * Generated a basic HTML file with relative links to each generated svg file for easy reference
+ *
+ * @param string $dest
+ * @return void
+ */
+function generate_home_file($dest = './generated/home.html')
+{
+    file_put_contents(
+        $dest,
+        implode(
+            "</br>",
+            array_reduce(
+                glob('./generated/*.svg'),
+                function($out, $item) {
+                    $href = str_ireplace('generated/', '', $item);
+                    $out[] = '<a href="'.$href.'">'.basename($item).'</a>';
+                    return $out;
+                },
+                []
+            )
+        )
+    );
+}
+
 export_all();
 export_master();
 cleanup();
+generate_home_file();
