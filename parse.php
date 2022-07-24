@@ -81,6 +81,18 @@ function get_common_connectors()
     ]);
 }
 
+function merge_yaml_arrays($arr1, $arr2)
+{
+    $out = [];
+    foreach (['connectors', 'cables', 'connections'] as $key) {
+        $out[$key] = array_merge(
+            ($arr1[$key] ?? []),
+            ($arr2[$key] ?? []),
+            ($out[$key] ?? [])
+        );
+    }
+    return $out;
+}
 /**
  * Generate a global config of all source and template files merged together
  * can be exported as-is or used to fill in gaps of other source files for individual export
@@ -129,4 +141,47 @@ function export_master($tmp_file_path = './tmp/master.yml')
     export_wireviz($tmp_file_path);
 }
 
-export_master();
+function find_missing_definitions($keys_to_find)
+{
+    $global_config = generate_global_config();
+
+    // Retrieve the definitions of the $keys_to_find
+    return array_reduce(
+        $keys_to_find,
+        function($out, $item) use ($global_config) {
+            $type = ((stripos($item, 'x-') !== false) ? 'connectors' : 'cables');
+
+            $out[$type][$item] = $global_config[$type][$item];
+            return $out;
+        },
+        []
+    );
+}
+
+function export_individual($file)
+{
+    if (!file_exists('./tmp')) mkdir('./tmp');
+
+    $tmp = concat_and_parse_yaml_files([
+        ('./src/templates/cable_templates.yml'),
+        $file
+    ]);
+
+    if (empty($tmp['connections'])) return; // Nothing to do
+    $tmp_path = './tmp/'.basename($file);
+
+    $cables_and_connectors = array_unique(array_keys_recursive(
+        ($tmp['connections'] ?? []),
+        function($var) {return !is_numeric($var);}
+    ));
+
+    $merged = merge_yaml_arrays($tmp, find_missing_definitions($cables_and_connectors));
+
+    file_put_contents($tmp_path, Yaml::dump($merged));
+
+    export_wireviz($tmp_path);
+}
+
+// export_individual('./src/ac.yml');
+
+// export_master();
