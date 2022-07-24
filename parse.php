@@ -176,12 +176,48 @@ function export_individual($file)
     if (empty($tmp['connections'])) return; // Nothing to do
     $tmp_path = './tmp/'.basename($file);
 
+    file_put_contents($tmp_path, Yaml::dump(inject_undefined_assets($tmp)));
+
+    export_wireviz($tmp_path);
+}
+
+function inject_undefined_assets($tmp)
+{
     $cables_and_connectors = array_unique(array_keys_recursive(
         ($tmp['connections'] ?? []),
         function($var) {return !is_numeric($var);}
     ));
 
-    $merged = merge_yaml_arrays($tmp, find_missing_definitions($cables_and_connectors));
+    return merge_yaml_arrays($tmp, find_missing_definitions($cables_and_connectors));
+}
+
+/**
+ * Export a set of files with a specific output filename
+ *
+ * @param array(string) $files
+ * @param string $output_file_name
+ * @return void
+ */
+function export_set($files, $output_file_name)
+{
+    if (!file_exists('./tmp')) mkdir('./tmp');
+
+    $merged = [];
+
+    $merged = array_reduce(
+        $files,
+        function($out, $file) {
+            $tmp = concat_and_parse_yaml_files([
+                ('./src/templates/cable_templates.yml'),
+                $file
+            ]);
+
+            return merge_yaml_arrays($out, inject_undefined_assets($tmp));
+        },
+        []
+    );
+
+    $tmp_path = './tmp/'.basename($output_file_name);
 
     file_put_contents($tmp_path, Yaml::dump($merged));
 
