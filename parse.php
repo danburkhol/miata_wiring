@@ -22,6 +22,7 @@ function array_keys_recursive($array, $callback_filter = null)
 function export_single_file($input_file, $common_connectors = [])
 {
     $parsed_input = Yaml::parseFile($input_file);
+    if (empty($parsed_input['connections'])) return;
 
     // detect the connectors used in this file
     $used_connectors = (
