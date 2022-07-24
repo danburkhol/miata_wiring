@@ -124,11 +124,15 @@ function generate_global_config()
     );
 }
 
-function export_wireviz($file_path, $dest = null)
+function export_wireviz($file_path, $dest_filename = null)
 {
     if (!file_exists('./tmp')) mkdir('./tmp');
 
-    exec('wireviz ./tmp/'.basename($file_path));
+    if (empty($dest_filename)) {
+        $dest_filename = str_ireplace('.yml', '', basename($file_path));
+    }
+
+    exec('wireviz ./tmp/'.basename($file_path).' -o ./generated/'.$dest_filename);
 }
 
 function export_master($tmp_file_path = './tmp/master.yml')
@@ -182,6 +186,26 @@ function export_individual($file)
     export_wireviz($tmp_path);
 }
 
-// export_individual('./src/ac.yml');
+function export_all()
+{
+    foreach (glob('./src/*.yml') as $file) {
+        export_individual($file);
+    }
+}
 
-// export_master();
+function cleanup()
+{
+    array_map('unlink', [
+        glob('./tmp/*'),
+        glob('./generated/*.png'),
+        glob('./generated/*.html'),
+        glob('./generated/*.tsv'),
+        glob('./generated/*.gv'),
+        glob('./generated/*.yml'),
+    ]);
+    rmdir('./tmp');
+}
+
+export_all();
+export_master();
+cleanup();
