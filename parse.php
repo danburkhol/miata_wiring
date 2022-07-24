@@ -155,6 +155,8 @@ function find_missing_definitions($keys_to_find)
         function($out, $item) use ($global_config) {
             $type = ((stripos($item, 'x-') !== false) ? 'connectors' : 'cables');
 
+            if (!isset($global_config[$type][$item])) return $out;
+
             $out[$type][$item] = $global_config[$type][$item];
             return $out;
         },
