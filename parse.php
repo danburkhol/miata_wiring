@@ -197,14 +197,14 @@ function export_all()
 
 function cleanup()
 {
-    array_map('unlink', [
+    array_map('unlink', array_merge(
         glob('./tmp/*'),
         glob('./generated/*.png'),
         glob('./generated/*.html'),
         glob('./generated/*.tsv'),
         glob('./generated/*.gv'),
-        glob('./generated/*.yml'),
-    ]);
+        glob('./generated/*.yml')
+    ));
     rmdir('./tmp');
 }
 
