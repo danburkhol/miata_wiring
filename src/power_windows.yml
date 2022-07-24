@@ -17,7 +17,7 @@ connections:
 
   - - X-PMU: [OUTPUT O12]
     - C-PWR-WIND: [POWER WINDOW VCC]
-  - - X-GND-UNDER-DASH
+  - - X-GND-UNDER-DASH: [1]
     - C-PWR-WIND: [GND]
 
   - - X-ECU-BODY-11: [10, 11]

@@ -271,5 +271,73 @@ function generate_home_file($dest = './generated/home.html')
 
 export_all();
 export_master();
-cleanup();
+
+$subsystems = [
+    [
+        'filename' => 'body_outputs.yml',
+        'files'    => [
+            './src/5v_supply.yml',
+            './src/ac.yml',
+            './src/alternator.yml',
+            './src/body_grounds.yml',
+            './src/brake_light.yml',
+            './src/bulkhead.yml',
+            './src/easyguard.yml',
+            './src/fan.yml',
+            './src/headlamps.yml',
+            './src/pmu.yml',
+            './src/power_windows.yml',
+            './src/rear_body.yml',
+            './src/retractors.yml',
+            './src/tns.yml',
+            './src/turn_signal.yml',
+            './src/wiper.yml',
+        ],
+    ],
+    [
+        'filename' => 'efi.yml',
+        'files'    => [
+            './src/5v_supply.yml',
+            './src/ait.yml',
+            './src/cas.yml',
+            './src/clt.yml',
+            './src/ecu.yml',
+            './src/ignition.yml',
+            './src/injectors.yml',
+            './src/knock.yml',
+            './src/lsu.yml',
+            // './src/pedal.yml',
+            './src/pmu.yml',
+            './src/sensor_gnd.yml',
+            './src/sensors.yml',
+            './src/shield_drains.yml',
+            // './src/throttle.yml',
+        ],
+    ],
+    [
+        'filename' => 'interior.yml',
+        'files'    => [
+            './src/body_grounds.yml',
+            './src/brake_light.yml',
+            './src/clutch_brake_sw.yml',
+            './src/dashboard.yml',
+            './src/door_locks.yml',
+            './src/easyguard.yml',
+            './src/ecu.yml',
+            './src/oil_pres_sender.yml',
+            './src/pmu.yml',
+            './src/power_windows.yml',
+            './src/rear_body.yml',
+            './src/steering_column.yml',
+            './src/transmission_sw.yml',
+            './src/wiper.yml',
+        ],
+    ],
+];
+
+foreach ($subsystems as $subsys) {
+    export_set($subsys['files'], $subsys['filename']);
+}
+
+// cleanup();
 generate_home_file();
