@@ -281,7 +281,6 @@ $subsystems = [
             './src/alternator.yml',
             './src/body_grounds.yml',
             './src/brake_light.yml',
-            './src/bulkhead.yml',
             './src/easyguard.yml',
             './src/fan.yml',
             './src/headlamps.yml',
@@ -333,6 +332,25 @@ $subsystems = [
             './src/wiper.yml',
             './src/underglow.yml',
             './src/reverse_lt.yml',
+        ],
+    ],
+    [
+        'filename' => 'lighting.yml',
+        'files'    => [
+            './src/brake_light.yml',
+            './src/ecu.yml',
+            './src/pmu.yml',
+            './src/rear_body.yml',
+            './src/underglow.yml',
+            './src/reverse_lt.yml',
+        ],
+    ],
+    [
+        'filename' => 'cluster.yml',
+        'files'    => [
+            './src/ecu.yml',
+            './src/dashboard.yml',
+            './src/pmu.yml',
         ],
     ],
 ];
