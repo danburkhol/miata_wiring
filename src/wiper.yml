@@ -7,6 +7,11 @@ cables:
   C-WIPER-OEM:
     colors: [BU, BUWH, BURD, BUYE]
     wirelabels: [PARK SW 1, LOW, HIGH, PARK SW 2]
+  C-WASHER-1: &c-washer
+    colors: [RD]
+    wirelabels: [E]
+  C-WASHER-2:
+    <<: *c-washer
 
 connections:
   -
@@ -26,3 +31,9 @@ connections:
     - C-WIPER-OEM: [PARK SW 2]
   - - X-BULK: [10, 11]
     - C-WIPER-OEM: [HIGH, LOW]
+
+  - - X-WASHER-PUMP: [VCC]
+    - C-WASHER-1: [E]
+    - X-ECU-BODY-12: [WASHER PUMP]
+    - C-WASHER-2: [E]
+    - X-ECU-2: [GPO 14]
