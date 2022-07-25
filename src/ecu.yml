@@ -39,8 +39,20 @@ cables:
     <<: *c_ecu_pwr
     notes: Located in passenger foot well with ECU
   C-ECU-8: &c_ecu_vcc
-    colors: [RD, RD, RD]
-    wirelabels: [ECU VCC, INJ VCC, LAMBDA HEATER]
+    colors: [
+      RD,
+      RD,
+      RD,
+      BU,
+      YE
+    ]
+    wirelabels: [
+      ECU VCC,
+      INJ VCC,
+      LAMBDA HEATER,
+      GPO 5,
+      GPO 6,
+    ]
   C-ECU-11:
     colors: [RD]
     wirelabels: [+5V SENSOR SUPPLY]
@@ -63,8 +75,9 @@ connections:
     - X-ECU-VCC
     - C-ECU-8: [1-3]
   -
-    - C-ECU-8: [ECU VCC]
     - X-ECU-1: [M4]
+    - C-ECU-8: [ECU VCC]
+
   -
     - X-ECU-BODY-11: [IGN VCC]
     - C-ECU-2: [IGN VCC]
@@ -80,3 +93,13 @@ connections:
     - X-ECU-BODY-11: [A/C CLUTCH]
     - C-ECU-2: [A/C CLUTCH]
     - X-ECU-2: [G2]
+
+  - - C-ECU-2: [CAN H, CAN L]
+    - X-BULK: [20, 21]
+
+  - - X-ECU-1: [GPO 5, GPO 6]
+    - C-ECU-8: [GPO 5, GPO 6]
+    - X-BULK: [46, 47]
+
+  - - C-ECU-8: [LAMBDA HEATER, INJ VCC]
+    - X-BULK: [31, 4]
