@@ -1,0 +1,12 @@
+cables:
+  C-REVERSE-LT-1: &c-rev-lt
+    colors: [YE]
+    wirelabels: [R]
+  C-REVERSE-LT-2:
+    <<: *c-rev-lt
+
+connections:
+  - - C-REVERSE-LT-1: [1]
+    - X-ECU-BODY-12: [REVERSE LT]
+    - C-REVERSE-LT-2: [1]
+    - X-ECU-2: [GPO 13]
