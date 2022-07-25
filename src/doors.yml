@@ -1,0 +1,50 @@
+cables:
+  C-DOOR-1: &c-door
+    colors: [RDWH, RDGN, RD, BK, GN, GNRD]
+    wirelabels: [
+      SPK 1,
+      SPK 2,
+      LOCK,
+      UNLOCK,
+      POWER WINDOW +,
+      POWER WINDOW -
+    ]
+    notes: Driver side
+  C-DOOR-2:
+    <<: *c-door
+    colors: [RDWH, RDGN, GN, BU, GN, GNRD]
+    notes: Pass side
+
+connections:
+  - - C-DOOR-1: [
+        SPK 1,
+        SPK 2,
+        LOCK,
+        UNLOCK,
+        POWER WINDOW +,
+        POWER WINDOW -
+      ]
+    - X-DOOR-1: [
+        SPK 1,
+        SPK 2,
+        LOCK,
+        UNLOCK,
+        POWER WINDOW +,
+        POWER WINDOW -
+      ]
+  - - C-DOOR-2: [
+        SPK 1,
+        SPK 2,
+        LOCK,
+        UNLOCK,
+        POWER WINDOW +,
+        POWER WINDOW -
+      ]
+    - X-DOOR-2: [
+        SPK 1,
+        SPK 2,
+        LOCK,
+        UNLOCK,
+        POWER WINDOW +,
+        POWER WINDOW -
+      ]

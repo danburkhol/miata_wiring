@@ -438,3 +438,17 @@ connectors:
         POWER WINDOW VCC,
         GND,
       ]
+    X-DOOR-1: &x-door
+      <<: *x-dt06-6s
+      pinlabels: [
+        SPK 1,
+        SPK 2,
+        LOCK,
+        UNLOCK,
+        POWER WINDOW +,
+        POWER WINDOW -
+      ]
+      notes: Driver door
+    X-DOOR-2:
+      <<: *x-door
+      notes: Pass door
