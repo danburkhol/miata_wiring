@@ -79,7 +79,40 @@ connectors:
     X-ECU-2:
       pincount: 32
       pins: [A1, A2, A3, A4, B1, B2, B3, B4, C1, C2, C3, C4, D1, D2, D3, D4, E1, E2, E3, E4, F1, F2, F3, F4, G1, G2, G3, G4, H1, H2, H3, H4]
-      pinlabels: [EGT 5+, EGT 6+, EGT 7+, EGT 8+, EGT 5, EGT 6, EGT 7, EGT 8, EGT 1+, EGT 2+, EGT 3+, EGT 4+, EGT 1, EGT 2, EGT 3, EGT 4, KNOCK GND, KNOCK 1, KNOCK 2, AIN 6 (0-5V), AIN 7 (0-5V), AIN 8(0-5V), DIN/VR 4, DIN/VR5, GPO 15(+12V), GPO 16 (+12V), AIN 5 (0-5V), ENGINE GROUND, MOTOR 2+, MOTOR 1-, MOTOR 2-, MOTOR 1+]
+      pinlabels: [
+        EGT 5+,
+        EGT 6+,
+        EGT 7+,
+        EGT 8+,
+        EGT 5,
+        EGT 6,
+        EGT 7,
+        EGT 8,
+        EGT 1+,
+        EGT 2+,
+        EGT 3+,
+        EGT 4+,
+        EGT 1,
+        EGT 2,
+        EGT 3,
+        EGT 4,
+        KNOCK GND,
+        KNOCK 1,
+        KNOCK 2,
+        AIN 6 (0-5V),
+        AIN 7 (0-5V),
+        AIN 8(0-5V),
+        DIN/VR 4,
+        DIN/VR5,
+        GPO 15(+12V),
+        GPO 16 (+12V),
+        AIN 5 (0-5V),
+        ENGINE GROUND,
+        GPO 14,
+        MOTOR 1-,
+        GPO 13,
+        MOTOR 1+,
+      ]
       <<: *x-ecu-2
     X-DASH-1:
       <<: *x-dtm06-12s
