@@ -128,28 +128,17 @@ connections:
     - C-TMP-1: [CHARGE IND]
     - X-DASH-3: [CHARGE IND]
 
-  # accurate connection but need cable
-  # - - X-ECU-2: [H3]
-  #   # - C-
-  #   - X-14: [REVERSE LT]
-  # - - X-ECU-2: [H1]
-      # red wire, for washer pump
-    # - C-
-    # - X-WASHER-PUMP: [VCC]
-
-  #   # commented out for individual diagram
-  # # -
-  # #   - C-PMU-OUT: [
-  # #       L TURN SIGNAL,
-  # #       R TURN SIGNAL,
-  # #       RETRACTOR ACTIVE,
-  # #       HIGH BEAM,
-  # #       TNS,
-  # #     ]
-  # #   - X-DASH-1: [
-  # #       L TURN IND, # GNBK, H,
-  # #       R TURN IND, # GNWH, G,
-  # #       RETRACTOR IND,
-  # #       HIGH BEAM IND,
-  # #       TNS VCC,
-  # #     ]
+  - - C-PMU-OUT: [
+        L TURN SIGNAL,
+        R TURN SIGNAL,
+        RETRACTOR ACTIVE,
+        HIGH BEAM,
+        TNS,
+      ]
+    - X-DASH-1: [
+        L TURN IND, # GNBK, H,
+        R TURN IND, # GNWH, G,
+        RETRACTOR IND,
+        HIGH BEAM IND,
+        TNS VCC,
+      ]
