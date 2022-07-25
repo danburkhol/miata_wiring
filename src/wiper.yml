@@ -1,7 +1,9 @@
 cables:
-  C-WIPER-1:
+  C-WIPER-1: &c-wiper
     colors: [RD, BU, BN]
     wirelabels: [HIGH, LOW, PARK SW]
+  C-WIPER-2:
+    <<: *c-wiper
   C-WIPER-OEM:
     colors: [BU, BUWH, BURD, BUYE]
     wirelabels: [PARK SW 1, LOW, HIGH, PARK SW 2]
@@ -14,10 +16,13 @@ connections:
   -
     - X-PMU: [OUTPUT O9, OUTPUT O8, INPUT A14]
     - C-WIPER-1: [HIGH, LOW, PARK SW]
-    - X-WIPER-1: [HIGH, LOW, PARK SW]
-  - - X-WIPER-1: [HIGH, LOW]
-    - C-WIPER-OEM: [HIGH, LOW]
-  - - X-WIPER-1: [PARK SW]
+    - X-ECU-BODY-11: [WIPER HIGH, WIPER LOW, WIPER PARK SW]
+    - C-WIPER-2: [HIGH, LOW, PARK SW]
+    - X-BULK: [10, 11, 37]
+
+  - - X-BULK: [37]
     - C-WIPER-OEM: [PARK SW 1]
-  - - X-WIPER-1: [PARK SW]
+  - - X-BULK: [37]
     - C-WIPER-OEM: [PARK SW 2]
+  - - X-BULK: [10, 11]
+    - C-WIPER-OEM: [HIGH, LOW]
