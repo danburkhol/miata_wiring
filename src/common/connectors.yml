@@ -180,7 +180,20 @@ connectors:
         PASS WINDOW -,
         SENSOR GND
         ]
-      notes: Connector between the chassis and ECU
+      notes: Connector between the chassis and ECU, located near ECU
+    X-ECU-BODY-12:
+      <<: *x-dtm06-12s
+      pinlabels: [
+        APP 1,
+        APP 2,
+        5V,
+        SENSOR GND,
+        VSS 1,
+        VSS 2,
+        WASHER PUMP,
+        REVERSE LT
+        ]
+      notes: Connector between the chassis and ECU, located near ECU
     X-ECU-VCC:
       <<: *x-crimp
       notes: crimp to distribute power to ecu, lambda, inj

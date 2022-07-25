@@ -1,31 +1,28 @@
 cables:
-  C-APP-1:
-    colors: [WH, WHBU, WHOG]
+  C-APP-1: &c-app
+    colors: [RDWH, WH, WHBU, WHOG]
     shield: true
-    wirelabels: [SENSOR GND, APP 1, APP 2]
+    wirelabels: [5V, SENSOR GND, APP 1, APP 2]
   C-APP-2:
-    colors: [RDWH]
-    wirelabels: [5V]
+    <<: *c-app
 
 connections:
   -
-    - C-APP-1: [APP 1, APP 2, SENSOR GND]
-    - X-APP-2: [APP 1, APP 2, SENSOR GND]
-  -
     - C-APP-1: [s]
     - X-ECU-BODY-11: [12]
-  -
-    - C-APP-2: [5V]
-    - X-APP-2: [5V]
-  -
-    - X-APP-1: [APP 1, APP 2]
-    - C-APP-1: [APP 1, APP 2]
 
-  - - X-APP-1: [A, D]
-    - C-APP-2: [1, 1]
+  - - X-APP-1: [A, D, B, E, APP 1, APP 2]
+    - C-APP-1: [5V, 5V, SENSOR GND, SENSOR GND, APP 1, APP 2]
 
-  # # accel pedal
-  -
-    - X-APP: [A,B,C,D,E,F]
-    - C-ECU-APP: [1-6]
-    - X-MAXXECU-RACE-1: [H4, H2, H1, E4, G1, G3]
+  - - C-APP-1: [5V, SENSOR GND, APP 1, APP 2]
+    - X-ECU-BODY-12: [5V, SENSOR GND, APP 1, APP 2]
+    - C-APP-2: [5V, SENSOR GND, APP 1, APP 2]
+
+  - - C-APP-2: [SENSOR GND]
+    - X-SENSOR-GND-CRIMP-1: [1]
+
+  - - C-APP-2: [s]
+    - X-SHIELD-DRAIN-CRIMP-1: [1]
+
+  - - C-APP-2: [APP 1, APP 2]
+    - X-ECU-2: [F1, F2]
