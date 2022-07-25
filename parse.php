@@ -306,7 +306,7 @@ $subsystems = [
             './src/injectors.yml',
             './src/knock.yml',
             './src/lsu.yml',
-            // './src/pedal.yml',
+            './src/pedal.yml',
             './src/pmu.yml',
             './src/sensor_gnd.yml',
             './src/sensors.yml',
@@ -331,6 +331,8 @@ $subsystems = [
             './src/steering_column.yml',
             './src/transmission_sw.yml',
             './src/wiper.yml',
+            './src/underglow.yml',
+            './src/reverse_lt.yml',
         ],
     ],
 ];
@@ -339,5 +341,5 @@ foreach ($subsystems as $subsys) {
     export_set($subsys['files'], $subsys['filename']);
 }
 
-// cleanup();
+cleanup();
 generate_home_file();
