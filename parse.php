@@ -132,7 +132,7 @@ function export_wireviz($file_path, $dest_filename = null)
         $dest_filename = str_ireplace('.yml', '', basename($file_path));
     }
 
-    exec('wireviz ./tmp/'.basename($file_path).' -o ./generated/'.$dest_filename);
+    exec('wireviz --prepend-file ./src/diagram_options.yml ./tmp/'.basename($file_path).' -o ./generated/'.$dest_filename);
 }
 
 function export_master($tmp_file_path = './tmp/master.yml')
@@ -351,6 +351,7 @@ $subsystems = [
             './src/ecu.yml',
             './src/dashboard.yml',
             './src/pmu.yml',
+            './src/doors.yml',
         ],
     ],
 ];
