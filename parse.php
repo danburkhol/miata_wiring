@@ -269,6 +269,22 @@ function generate_home_file($dest = './generated/home.html')
     );
 }
 
+
+$file_to_export = ($argv[1] ?? null);
+if (!empty($file_to_export)) {
+    if (!file_exists($file_to_export)) {
+        echo ("File does not exist: ".$file_to_export);
+        exit;
+    }
+    export_individual($file_to_export);
+
+    echo ("Exported: ".$file_to_export);
+
+    cleanup();
+    generate_home_file();
+    exit;
+}
+
 export_all();
 export_master();
 
