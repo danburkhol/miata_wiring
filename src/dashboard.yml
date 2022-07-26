@@ -150,6 +150,8 @@ connections:
         TNS VCC,
       ]
 
+  - - C-IN-LT-1: [VCC, PASS DOME LT GND]
+    - X-DASH-4: [3, 4]
 
   - - X-DASH-1: [ROOM VCC, DRIVER DOME LT GND]
     - C-IN-LT-1: [VCC, DRIVER DOME LT GND]

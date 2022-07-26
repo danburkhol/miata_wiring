@@ -134,7 +134,8 @@ connectors:
       notes: Driver side
     X-DASH-2:
       <<: *x-dtm06-06s
-      pinlabels: [HEAD REST SPK - N, # N, BUYE,
+      pinlabels: [
+        HEAD REST SPK - N, # N, BUYE,
         HEAD REST SPK - P, # P, BUWH,
         HEAD REST SPK - Q, # Q, RDYE,
         HEAD REST SPK - O, # O, RDBU,
@@ -161,7 +162,13 @@ connectors:
       notes: Passenger side
     X-DASH-4:
       <<: *x-dtm06-04s
-      pinlabels: [PASS SPK (BU), PASS SPK (BUYE)]
+      pinlabels: [
+        PASS SPK (BU),
+        PASS SPK (BUYE),
+        ROOM VCC,
+        PASS DOME LT GND
+      ]
+      notes: Pass side door speakers and dome light
     X-DASH-ECU:
       <<: *x-dtm06-12s
       pinlabels: [
