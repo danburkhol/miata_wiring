@@ -122,10 +122,10 @@ connectors:
         HIGH BEAM IND,
         RETRACTOR IND, # GNBU, B,
         ROOM VCC, # BU
-        BRAKE IND, # BUYE, F,
+        UNUSED, # BUYE, F,
         FUEL GAUGE, # YE, C,
-        CAN H, # WHBU, W,
-        CAN L, # WH, X,
+        UNUSED, # WHBU, W,
+        DRIVER DOME LT GND, # WH, X,
         METER VCC, # BN, 9,
         TNS VCC, # PK, 8,
         RETRACTOR HAZARD SW, # OGBK, 7,
@@ -452,3 +452,15 @@ connectors:
     X-DOOR-2:
       <<: *x-door
       notes: Pass door
+    X-IN-LT-1: &x-in-lt
+      <<: *x-dt06-04s
+      pinlabels: [
+        VCC,
+        DOME LT GND,
+        DOOR SW,
+        GND
+      ]
+      notes: Drive side knee light
+    X-IN-LT-2:
+      <<: *x-in-lt
+      notes: Pass side knee light

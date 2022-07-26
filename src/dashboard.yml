@@ -58,6 +58,13 @@ cables:
     ]
   C-DOOR-SPK-1:
     colors: [GN, PKGN]
+  C-IN-LT-1: &c-in-lt
+    colors: [
+      RD, YE, YE, WH, BK
+    ]
+    wirelabels: [
+      VCC, DRIVER DOME LT GND, PASS DOME LT GND, DOOR SW, GND
+    ]
 
 connections:
   - - X-ECU-1: [
@@ -142,3 +149,14 @@ connections:
         HIGH BEAM IND,
         TNS VCC,
       ]
+
+
+  - - X-DASH-1: [ROOM VCC, DRIVER DOME LT GND]
+    - C-IN-LT-1: [VCC, DRIVER DOME LT GND]
+  - - X-EASY-2: [4, 8]
+    - C-IN-LT-1: [DOOR SW, GND]
+
+  - - C-IN-LT-1: [VCC, DOOR SW, GND]
+    - X-IN-LT-1: [VCC, DOOR SW, GND]
+  - - C-IN-LT-1: [VCC, DOOR SW, GND]
+    - X-IN-LT-2: [VCC, DOOR SW, GND]
