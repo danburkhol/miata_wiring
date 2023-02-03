@@ -95,7 +95,7 @@ export_master
 # export_file src/diagram_options.yml generated/diagram_options.yml
 # export_file src/door_locks.yml generated/door_locks.yml
 # export_file src/easyguard.yml generated/easyguard.yml
-export_file src/ecu.yml generated/ecu.yml
+# export_file src/ecu.yml generated/ecu.yml
 # export_file src/fan.yml generated/fan.yml
 # export_file src/fusebox.yml generated/fusebox.yml
 # export_file src/grounds.yml generated/grounds.yml
@@ -113,7 +113,7 @@ export_file src/ecu.yml generated/ecu.yml
 # export_file src/sensor_gnd.yml generated/sensor_gnd.yml
 # export_file src/sensors.yml generated/sensors.yml
 # export_file src/shield_drains.yml generated/shield_drains.yml
-export_file src/steering_column.yml generated/steering_column.yml
+# export_file src/steering_column.yml generated/steering_column.yml
 # export_file src/throttle.yml generated/throttle.yml
 # export_file src/tns.yml generated/tns.yml
 # export_file src/transmission_sw.yml generated/transmission_sw.yml

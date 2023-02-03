@@ -1,5 +1,9 @@
 # Wiring for my 1992 Mazda Miata
 
+## Generate Diagrams
+- run `php parse.php`
+- Open your browser to `{repo}/generated/home.html`
+
 ## Schema
 - {TYPE}-{NAME}-{LOCATION}{INDEX?}
 
