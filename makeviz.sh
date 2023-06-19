@@ -78,7 +78,7 @@ export_master () {
     cleanup
 }
 
-export_master
+# export_master
 
 # export_file src/5v_supply.yml generated/5v_supply.yml
 # export_file src/ac.yml generated/ac.yml
@@ -128,3 +128,14 @@ export_master
 #     export_file $src_file $generated_file
 #     # strip_anchors $src_file $tmp_file_path
 # done
+
+# define an array of file names: foobar.yml, fizzbuzz.yml
+new_files=(
+    'fusebox.yml'
+);
+
+# Iterate over a list of new_files
+# wireviz src/{filename.yml} -o generated/{filename.yml}
+for file in "${new_files[@]}"; do
+    wireviz src/$file -o generated/$file
+done
