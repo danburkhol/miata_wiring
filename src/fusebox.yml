@@ -61,7 +61,7 @@ connectors:
       E9,
       E10,
       79 R TURN VCC,
-      R TURN
+      R TURN LT
     ]
 
   x-crimp-1: &x-crimp

@@ -131,7 +131,8 @@ export_master () {
 
 # define an array of file names: foobar.yml, fizzbuzz.yml
 new_files=(
-    'fusebox.yml'
+    'fusebox.yml',
+    'dashbulkhead.yml'
 );
 
 # Iterate over a list of new_files
