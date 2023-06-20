@@ -123,7 +123,7 @@ export_master () {
 # for src_file in src/*.yml; do
 #     # make a copy of the source file to inject common items into
 #     tmp_file_path=tmp/$(basename $src_file)
-#     generated_file=generated/$(basename $src_file)
+#     generated_file=generated/$(mcbasename $src_file)
 
 #     export_file $src_file $generated_file
 #     # strip_anchors $src_file $tmp_file_path
@@ -131,8 +131,9 @@ export_master () {
 
 # define an array of file names: foobar.yml, fizzbuzz.yml
 new_files=(
-    'fusebox.yml',
+    'fusebox.yml'
     'dashbulkhead.yml'
+    'mce18.yml'
 );
 
 # Iterate over a list of new_files
