@@ -128,6 +128,29 @@ connectors:
         48 TRUNK RELEASE 2b
     ]
 
+  x-bulk-chassis: &x-bulk-chassis
+    pn: AHDP04-24-16PR-SRA
+    pincount: 16
+    pins: [A,B,C,D,E,F,G,H,J,K,L,M,N,P,R,S]
+    pinlabels: [
+      COOLING FAN,
+      AC FAN,
+      LOW BEAM,
+      HIGH BEAM,
+      CONST VCC,
+      ACC VCC,
+      PWR WND GND,
+      PWR WND VCC,
+      PWR WND (+) 1,
+      PWR WND (-) 1,
+      PWR WND (+) 2,
+      PWR WND (-) 2,
+      RETRACTOR UP,
+      RETRACTOR DOWN,
+      TNS,
+      UNUSUED
+    ]
+
 cables:
   c-const-vcc-1: &c-const-vcc
     colors: [YE,YE,YE,BK,BN]
@@ -383,4 +406,31 @@ connections:
         06 PWR WND SW 2,
         07 PWR WND SW 3,
         08 PWR WND SW 4
+      ]
+
+  - - c-foobar-2: [
+        CONST VCC,
+        SW VCC,
+        10 PWR WND (+) 1,
+        11 PWR WND (-) 1,
+        12 PWR WND (+) 2,
+        13 PWR WND (-) 2,
+        0 PWR WND GND,
+        PWR WND VCC,
+        RETRACTOR VCC,
+        26 RETRACTOR UP,
+        27 RETRACTOR DOWN
+      ]
+    - x-bulk-chassis: [
+        CONST VCC,
+        ACC VCC,
+        PWR WND (+) 1,
+        PWR WND (-) 1,
+        PWR WND (+) 2,
+        PWR WND (-) 2,
+        PWR WND GND,
+        PWR WND VCC,
+        CONST VCC,
+        RETRACTOR UP,
+        RETRACTOR DOWN
       ]
