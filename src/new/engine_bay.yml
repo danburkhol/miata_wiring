@@ -1,0 +1,97 @@
+
+connectors:
+  F1: &x-crimp
+    style: simple
+    type: Crimp ferrule
+    pincount: 1
+    show_pincount: false
+    bgcolor: IV
+    autogenerate: false
+  F2:
+    <<: *x-crimp
+  F3:
+    <<: *x-crimp
+  F4:
+    <<: *x-crimp
+  F5:
+    <<: *x-crimp
+  F6:
+    <<: *x-crimp
+  F7:
+    <<: *x-crimp
+  F8:
+    <<: *x-crimp
+  F-GND-1:
+    <<: *x-crimp
+    notes: DRIVER SIDE
+  F-GND-2:
+    <<: *x-crimp
+    notes: PASSENGER SIDE
+  X-CHASSIS: &x-bulk
+    pincount: 47
+    pinlabels: [
+      AC FAN,R TURN SIGNAL,L TURN SIGNAL,AC FAN,COOLING FAN,COOLING FAN,TNS,LOW BEAM,LOW BEAM,LOW BEAM,LOW BEAM,HIGH BEAM,HIGH BEAM,HIGH BEAM,HIGH BEAM,WASHER PUMP GND,WASHER PUMP,PMU INPUT A7,PMU INPUT A11,PMU INPUT A9,HORN,RETRACTOR UP,RETRACTOR DOWN,RETRACTOR ACTIVE,AC CLUTCH,WIPER HIGH,WIPER LOW,WIPER PARK SW,BRAKE FL SW,UNASSIGNED,UNASSIGNED,UNASSIGNED,GND,RETRACTOR COSNT VCC,GND
+    ]
+  E1-04: &x-retractor
+    pincount: 6
+    pins: [
+      G/L, R/Y, B,
+      BR, W/R, 6
+    ]
+    pinlabels: [
+      ACTIVE, UP, GND,
+      VCC, DOWN,
+    ]
+    # image:
+      # src: ../img/e1-04.png
+    notes: Driver Headlight Actuator
+  E1-05:
+    <<: *x-retractor
+    notes: Pass Headlight Actuator
+  X-RETRACTOR-CRIMP-VCC:
+    <<: *x-crimp
+  X-RETRACTOR-CRIMP-UP:
+    <<: *x-crimp
+  X-RETRACTOR-CRIMP-DOWN:
+    <<: *x-crimp
+  X-RETRACTOR-CRIMP-ACTIVE:
+    <<: *x-crimp
+  X-RETRACTOR-CRIMP-GND:
+    <<: *x-crimp
+
+  X-COOLING-FAN:
+    pinlabels: [
+      COOLING FAN VCC,
+      COOLING FAN GND,
+      A/C CLUTCH,
+      P/S PUMP,
+    ]
+  X-AC-FAN:
+    pinlabels: [
+      A/C FAN VCC,
+      A/C PRES SW,
+      A/C FAN GND,
+      A/C PRES SW GND,
+    ]
+
+  X-E1-01: &headlamp_conn
+    pincount: 3
+    pinlabels: [HIGH BEAM, GND, LOW BEAM]
+    # image:
+    #   src: ../img/e1-01.png
+    notes: L Headlamp, Mazda Conn. E1-01
+  X-E1-02:
+    <<: *headlamp_conn
+    notes: R Headlamp, Mazda Conn. E1-02
+
+  X-WASHER-PUMP:
+    pincount: 2
+    pinlabels: [VCC, GND]
+
+  X-BRAKE-FL-SW:
+    pincount: 2
+    pinlabels: [VCC, GND]
+
+  X-HORN:
+    pincount: 1
+    type: simple

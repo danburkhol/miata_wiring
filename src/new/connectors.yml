@@ -1,0 +1,127 @@
+
+connectors:
+  F1: &x-crimp
+    style: simple
+    type: Crimp ferrule
+    pincount: 1
+    show_pincount: false
+    bgcolor: IV
+    autogenerate: false
+  F2:
+    <<: *x-crimp
+  F3:
+    <<: *x-crimp
+  F4:
+    <<: *x-crimp
+  F5:
+    <<: *x-crimp
+  F6:
+    <<: *x-crimp
+  F7:
+    <<: *x-crimp
+  F-TNS:
+    <<: *x-crimp
+  F-LTURN:
+    <<: *x-crimp
+  F-RTURN:
+    <<: *x-crimp
+  F-IGN:
+    <<: *x-crimp
+  X-PMU:
+    pincount: 39
+    pinlabels: [
+      OUTPUT O13,
+      OUTPUT O12,
+      OUTPUT O11,
+      OUTPUT O10,
+      OUTPUT O9,
+      INPUT A9,
+      +12V SW,
+      INPUT A14,
+      OUTPUT O8,
+      OUTPUT O7,
+      OUTPUT O6,
+      OUTPUT O5,
+      OUTPUT O4,
+
+      OUTPUT O14,
+      +5V OUTPUT,
+      INPUT A2,
+      INPUT A4,
+      INPUT A6,
+      INPUT A8,
+      INPUT A11,
+      INPUT A13,
+      INPUT A16,
+      CAN1H,
+      CAN2H,
+      GROUND,
+      OUTPUT O3,
+
+      OUTPUT O15,
+      OUTPUT O16,
+      INPUT A1,
+      INPUT A3,
+      INPUT A5,
+      INPUT A7,
+      INPUT A10,
+      INPUT A12,
+      INPUT A15,
+      CAN1L,
+      CAN2L,
+      OUTPUT O1,
+      OUTPUT O2
+    ]
+    pincolors: [
+      VT,VT,IV,IV,IV,BU,RD,BU,IV,IV,IV,VT,VT,
+      VT,RD,BU,BU,BU,BU,BU,BU,BU,WHBU,WHBU,BK,VT,
+      VT,VT,BU,BU,BU,BU,BU,BU,BU,WH,WH,VT,VT,
+    ]
+    notes: VT = High AMP, IV = Low AMP
+
+  X-FUSEBOX:
+    pincount: 61
+    pinlabels: [A1,A2,A3,A4,A5,A6,A7,A8,A9,A10,A11,A12,B1,B2,B3,B4,B5,B6,B7,B8,B9,B10,B10,B11,B12,C1,C2,C3,C4,C5,C6,C7,C8,C9,C10,C11,C12,D1,D2,D3,D4,D5,D6,D7,D8,D9,D10,D11,D12,E1,E2,E3,E4,E5,E6,E7,E8,E9,E10,E11,E12]
+
+  X-CHASSIS: &x-bulk
+    pincount: 47
+    pinlabels: [
+      AC FAN,R TURN SIGNAL,L TURN SIGNAL,AC FAN,COOLING FAN,COOLING FAN,TNS,LOW BEAM,LOW BEAM,LOW BEAM,LOW BEAM,HIGH BEAM,HIGH BEAM,HIGH BEAM,HIGH BEAM,WASHER PUMP GND,WASHER PUMP,PMU INPUT A7,PMU INPUT A11,PMU INPUT A9,HORN,RETRACTOR UP,RETRACTOR DOWN,RETRACTOR ACTIVE,AC CLUTCH,WIPER HIGH,WIPER LOW,WIPER PARK SW,BRAKE FL SW,UNASSIGNED,UNASSIGNED,UNASSIGNED,GND,RETRACTOR COSNT VCC,GND
+    ]
+  X-DASH:
+    <<: *x-bulk
+    pinlabels: [METER VCC,UNASSIGNED,HAZARD SW,HVAC Blower VCC,HVAC Blower VCC,ACC VCC,DRIVER DOOR SW (-),PASS DOOR SW (-),HIGH BEAM IND,BRAKE IND,CEL IND,CHARGE IND,RETRACTOR IND,R TURN IND,L TURN IND,TACH IN,VSS OUT,CLT GAUGE,FUEL GAUGE,OIL PRES GAUGE,DRIVER SPK (+),DRIVER SPK (-),PASS SPK (+),PASS SPK (-),Headrest DRIVER SPK (+),Headrest DRIVER SPK (-),Headrest PASS SPK (+),Headrest PASS SPK (-),REVERSE LT (backup cam trigger),A/C REQ SW,HVAC HIGH BLOWER SW,CRUISE OFF SW,CRUISE LT SW,CONSTANT "ROOM"  VCC,RETRACTOR SW DOWN,RETRACTOR SW UP,TNS VCC,UNASSIGNED,UNASSIGNED,UNASSIGNED,UNASSIGNED,UNASSIGNED,UNASSIGNED,UNASSIGNED,UNASSIGNED,UNASSIGNED,UNASSIGNED]
+  X-13:
+    # <<: *x-dt06-12s
+    pinlabels: [
+      DEFROST (V),
+      DEFROST (L),
+      DEFROST (L/B),
+      HEADREST SPKR DVR (R/Y),
+      HEADREST SPKR DVR (R/L),
+      HEADREST SPKR PASS (L/W),
+      HEADREST SPKR PASS (L/O),
+      POWER ANTENNA (B/Y),
+      POWER ANTENNA (L/B),
+      POWER ANTENNA (LG/Y),
+      EASYGUARD REAR SENSOR 1,
+      EASYGUARD REAR SENSOR 2,
+    ]
+    notes: near dead pedal
+  X-14:
+    # <<: *x-dt06-12s
+    pinlabels: [
+      L TURN SIGNAL,
+      R TURN SIGNAL,
+      TNS,
+      BRAKE LT,
+      REVERSE LT,
+      DOOR SW,
+      FUEL SENDER,
+      FUEL PUMP,
+      BUCKLE SW,
+      TRUNK (RD), # I don't remember what these correlate to at this time
+      TRUNK (BU),
+      TRUNK (BK),
+    ]
+    notes: near dead pedal
