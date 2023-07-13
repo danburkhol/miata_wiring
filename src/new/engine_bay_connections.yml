@@ -186,9 +186,10 @@ connections:
     - E1-05: [ACTIVE]
 
   ### RETRACTOR GND ###
-  - - F-GND-1
-    - C2: [15]
-    - X-RETRACTOR-CRIMP-GND
+  # Commented out for layout reasons
+  # - - F-GND-1
+  #   - C2: [15]
+  #   - X-RETRACTOR-CRIMP-GND
   - - X-RETRACTOR-CRIMP-GND
     - C-RETRACTOR-1: [GND]
     - E1-04: [GND]
