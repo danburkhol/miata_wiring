@@ -74,13 +74,13 @@ connectors:
       A/C PRES SW GND,
     ]
 
-  X-E1-01: &headlamp_conn
+  E1-01: &headlamp_conn
     pincount: 3
     pinlabels: [HIGH BEAM, GND, LOW BEAM]
     # image:
     #   src: ../img/e1-01.png
     notes: L Headlamp, Mazda Conn. E1-01
-  X-E1-02:
+  E1-02:
     <<: *headlamp_conn
     notes: R Headlamp, Mazda Conn. E1-02
 
@@ -95,3 +95,27 @@ connectors:
   X-HORN:
     pincount: 1
     type: simple
+
+  E4-03: &turn-signal
+    pincount: 2
+    pinlabels: [VCC,GND]
+    notes: Front Left Turn Signal
+  E4-04:
+    <<: *turn-signal
+    notes: Front Right Turn Signal
+
+  E4-01: &side-marker
+    pincount: 2
+    pinlabels: [VCC,GND]
+    notes: Front Left Side Marker
+  E4-02:
+    <<: *side-marker
+    notes: Front Right Side Marker
+
+  E3-02: &front-park-lt
+    pincount: 2
+    pinlabels: [VCC,GND]
+    notes: Front Left Park Light
+  E3-03:
+    <<: *front-park-lt
+    notes: Front Right Park Light
