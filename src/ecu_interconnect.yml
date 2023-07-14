@@ -1,0 +1,102 @@
+connectors:
+  X-CB-1:
+    pincount: 12
+    pinlabels: [
+      OIL PRES GAUGE,
+      CLT GAUGE,
+      WIPER PARK SW,
+      WIPER HIGH,
+      WIPER LOW,
+      X-ECU-2:H3,
+      X-ECU-2:H1,
+      X-ECU-2:IF4
+    ]
+    notes: To ECU Area
+  X-CB-2:
+    pincount: 12
+    pinlabels: [
+      ECU VCC,
+      ECU VCC,
+      ENGINE GND,
+      UNASSIGNED,
+      CEL IND,
+      TACH,
+      X-ECU-2:G2,
+      X-ECU-1:K4,
+      X-ECU-1:K3,
+      X-ECU-1:C4,
+      X-ECU-1:B4,
+      VSS OUT
+    ]
+    notes: To ECU Area
+  EC-CEL: &ecu-crimp
+    style: simple
+    type: Crimp ferrule
+    pincount: 1
+    show_pincount: false
+    bgcolor: IV
+    autogenerate: false
+  EC-TACH:
+    <<: *ecu-crimp
+  EC-VSS:
+    <<: *ecu-crimp
+  EC-OPG:
+    <<: *ecu-crimp
+  EC-CLTG:
+    <<: *ecu-crimp
+  EC1: &ecu-crimp-auto
+    <<: *ecu-crimp
+    autogenerate: true
+
+cables:
+  ECU1:
+    wirecount: 10
+    wirelabels: [
+        1,2,3,4,5,
+        6,7,8,9,10
+      ]
+
+connections:
+  - - F-IGN
+    - ECU1: [1,2]
+  - - ECU1: [1,2]
+    - X-CB-2: [1,2]
+
+  ### CEL
+  - - EC-CEL
+    - IC3: [11]
+  - - EC-CEL
+    - ECU1: [3]
+    - X-CB-2: [5]
+
+  ### TACH
+  - - EC-TACH
+    - IC3: [16]
+  - - EC-TACH
+    - ECU1: [4]
+    - X-CB-2: [6]
+
+  ### VSS
+  - - EC-VSS
+    - IC3: [17]
+  - - EC-VSS
+    - ECU1: [5]
+    - X-CB-2: [12]
+
+  ### OPG
+  - - EC-OPG
+    - IC3: [20]
+  - - EC-OPG
+    - ECU1: [6]
+    - X-CB-1: [1]
+
+  ### CLTG
+  - - EC-CLTG
+    - IC3: [18]
+  - - EC-CLTG
+    - ECU1: [7]
+    - X-CB-1: [2]
+
+  ### WIPERS
+  - - C-PMU: [5,8,9]
+    - X-CB-1: [4,3,5]

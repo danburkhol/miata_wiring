@@ -149,37 +149,6 @@ connectors:
       TRUNK (BK),
     ]
     notes: near dead pedal
-
-  X-CB-1:
-    pincount: 12
-    pinlabels: [
-      OIL PRES GAUGE,
-      CLT GAUGE,
-      WIPER PARK SW,
-      WIPER HIGH,
-      WIPER LOW,
-      X-ECU-2:H3,
-      X-ECU-2:H1,
-      X-ECU-2:IF4
-    ]
-    notes: To ECU Area
-  X-CB-2:
-    pincount: 12
-    pinlabels: [
-      ECU VCC,
-      ECU VCC,
-      ENGINE GND,
-      UNASSIGNED,
-      CEL IND,
-      TACH,
-      X-ECU-2:G2,
-      X-ECU-1:K4,
-      X-ECU-1:K3,
-      X-ECU-1:C4,
-      X-ECU-1:B4,
-      VSS OUT
-    ]
-    notes: To ECU Area
   X-ST-1:
     pincount: 4
     pinlabels: [
