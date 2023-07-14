@@ -3,6 +3,7 @@ generated/*
 src/*
 vendor/*
 tmp/*
+src_old/*
 !src/*.yml
 !src/*.yaml
 !src/common/*.yml
