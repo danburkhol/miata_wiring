@@ -10,7 +10,7 @@ FILE=$1
 # get the filename without the extension from the input argument
 FILENAME=$(basename -- "$FILE")
 
-wireviz $1 -o generated/$FILENAME
+wireviz $1 -o generated/$FILENAME --prepend-file templates/templates.yml
 
 # wireviz $1 --prepend-file common.yml
 
