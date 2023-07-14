@@ -1,164 +1,106 @@
-cables:
-  C-TMP-1:
-    wirelabels: [
-      TACH,
-      BRAKE IND,
-      CEL,
-      CRUISE LT,
-      VSS,
-      A/C REQ,
-      A/C THERMO SW,
-      CRUISE OFF,
-      CLT GAUGE,
-      OIL PRES SENDER,
-      CHARGE IND,
-    ]
-    colors: [
-      YERD,
-      WH,
-      YE,
-      GN,
-      BN,
-      BU,
-      LBBU,
-      RD,
-      WH,
-      WH,
-      WH,
-    ]
-    notes: Cable from MaxxECU to passenger side of dashboard harness
 
-  C-X-13-DASH:
-    wirelabels: [
-      RDYE,
-      RDBU,
-      BUWH,
-      BUOG,
-      EASY GUARD REAR SENSOR 1,
-      EASY GUARD REAR SENSOR 2,
-    ]
-    colors: [
-      YE,
-      RD,
-      WH,
-      BU,
-      BN,
-      BK,
-    ]
-  C-DASH-1:
-    colors: [
-      BU,
-      YE,
-      PKGN
-    ]
-    wirelabels: [
-      ROOM VCC,
+connectors:
+  DC1: &dc-crimp
+    style: simple
+    type: Crimp ferrule
+    pincount: 1
+    show_pincount: false
+    bgcolor: IV
+    autogenerate: false
+
+  X-DASH:
+    pincount: 47
+    pinlabels: [
+        METER VCC,
+        UNASSIGNED,
+        HAZARD SW,
+        HVAC Blower VCC,
+        HVAC Blower VCC,
+        ACC VCC,
+        DRIVER DOOR SW (-),
+        PASS DOOR SW (-),
+        HIGH BEAM IND,
+        BRAKE IND,
+        CEL IND,
+        CHARGE IND,
+        RETRACTOR IND,
+        R TURN IND,
+        L TURN IND,
+        TACH IN,
+        VSS OUT,
+        CLT GAUGE,
+        FUEL GAUGE,
+        OIL PRES GAUGE,
+        DRIVER SPK (+),
+        DRIVER SPK (-),
+        PASS SPK (+),
+        PASS SPK (-),
+        Headrest DRIVER SPK (+),
+        Headrest DRIVER SPK (-),
+        Headrest PASS SPK (+),
+        Headrest PASS SPK (-),
+        REVERSE LT (backup cam trigger),
+        A/C REQ SW,
+        HVAC HIGH BLOWER SW,
+        CRUISE OFF SW,
+        CRUISE LT SW,
+        CONSTANT "ROOM"  VCC,
+        RETRACTOR SW DOWN,
+        RETRACTOR SW UP,
+        TNS VCC,
+        UNASSIGNED,
+        UNASSIGNED,
+        UNASSIGNED,
+        UNASSIGNED,
+        UNASSIGNED,
+        UNASSIGNED,
+        UNASSIGNED,
+        UNASSIGNED,
+        UNASSIGNED,
+        UNASSIGNED
+      ]
+
+  X-CLUSTER:
+    pinlabels: [
+      HIGH BEAM IND,
+      BRAKE IND,
+      CEL IND,
+      CHARGE IND,
+      RETRACTOR IND,
+      R TURN IND,
+      L TURN IND,
+      TACH IN,
+      VSS OUT,
+      CLT GAUGE,
       FUEL GAUGE,
-      RETRACTOR HAZARD SW,
+      OIL PRES GAUGE
     ]
-  C-DOOR-SPK-1:
-    colors: [GN, PKGN]
-  C-IN-LT-1: &c-in-lt
-    colors: [
-      RD, YE, YE, WH, BK
+  X-RADIO:
+    pinlabels: [
+      DRIVER SPK (+),
+      DRIVER SPK (-),
+      PASS SPK (+),
+      PASS SPK (-),
+      Headrest DRIVER SPK (+),
+      Headrest DRIVER SPK (-),
+      Headrest PASS SPK (+),
+      Headrest PASS SPK (-),
+      REVERSE LT (backup cam trigger)
     ]
-    wirelabels: [
-      VCC, DRIVER DOME LT GND, PASS DOME LT GND, DOOR SW, GND
-    ]
+
+cables:
+  D1:
+    wirecount: 47
+
 
 connections:
-  - - X-ECU-1: [
-        A4,
-        C4,
-        C1,
-        K3,
-        K4,
-      ]
-    - C-TMP-1: [
-        TACH,
-        BRAKE IND,
-        CEL,
-        A/C REQ,
-        A/C THERMO SW,
-      ]
+  - - X-DASH: [1-47]
+    - D1: [1-47]
 
-  - - X-ECU-2: [
-        F3,
-        G2,
-        F4,
-      ]
-    - C-TMP-1: [
-        VSS,
-        CRUISE LT,
-        CRUISE OFF,
-      ]
+  - - D1: [9-20]
+    - X-CLUSTER: [1-12]
 
-  - - C-TMP-1: [1,2,3,4,5,6, 7, 8]
-    - X-DASH-3: [1,4,2,8,7,10,11,9]
-
-  - - X-BULK: [7, 36]
-    - C-TMP-1: [CLT GAUGE, OIL PRES SENDER]
-    - X-DASH-3: [5, 6]
-
-  - - X-13: [4, 5, 6, 7, 11, 12]
-    - C-X-13-DASH: [YE, RD, WH, BU, BN, BK]
-
-  - - C-X-13-DASH: [YE, RD, WH, BU]
-    - X-DASH-2: [
-        HEAD REST SPK - Q, # Q, RDYE,
-        HEAD REST SPK - O, # O, RDBU,
-        HEAD REST SPK - P, # P, BUWH,
-        HEAD REST SPK - N, # N, BUYE,
-      ]
-
-  - - C-DOOR-SPK-1: [GN, PKGN]
-    - X-DASH-2: [5, 6]
-
-  - - X-14: [FUEL SENDER]
-    - C-DASH-1: [FUEL GAUGE]
-
-  - - C-DASH-1: [
-        ROOM VCC,
-        FUEL GAUGE,
-        RETRACTOR HAZARD SW,
-      ]
-    - X-DASH-1: [
-        ROOM VCC, # BU
-        FUEL GAUGE, # YE, C,
-        RETRACTOR HAZARD SW, # OGBK, 7,
-      ]
-
-  - - X-FUSEBOX: [ROOM VCC]
-    - C-DASH-1: [ROOM VCC]
-
-  - - X-ECU-BODY-11: [5]
-    - C-TMP-1: [CHARGE IND]
-    - X-DASH-3: [CHARGE IND]
-
-  - - C-PMU-OUT: [
-        L TURN SIGNAL,
-        R TURN SIGNAL,
-        RETRACTOR ACTIVE,
-        HIGH BEAM,
-        TNS,
-      ]
-    - X-DASH-1: [
-        L TURN IND, # GNBK, H,
-        R TURN IND, # GNWH, G,
-        RETRACTOR IND,
-        HIGH BEAM IND,
-        TNS VCC,
-      ]
-
-  - - C-IN-LT-1: [VCC, PASS DOME LT GND]
-    - X-DASH-4: [3, 4]
-
-  - - X-DASH-1: [ROOM VCC, DRIVER DOME LT GND]
-    - C-IN-LT-1: [VCC, DRIVER DOME LT GND]
-  - - X-EASY-2: [4, 8]
-    - C-IN-LT-1: [DOOR SW, GND]
-
-  - - C-IN-LT-1: [VCC, DOOR SW, GND]
-    - X-IN-LT-1: [VCC, DOOR SW, GND]
-  - - C-IN-LT-1: [VCC, DOOR SW, GND]
-    - X-IN-LT-2: [VCC, DOOR SW, GND]
+  - - D1: [4,5]
+    - DC1
+  - - D1: [21-29]
+    - X-RADIO: [1-9]
