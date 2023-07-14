@@ -1,0 +1,351 @@
+
+connectors:
+  F1: &x-crimp
+    style: simple
+    type: Crimp ferrule
+    pincount: 1
+    show_pincount: false
+    bgcolor: IV
+    autogenerate: false
+  F2:
+    <<: *x-crimp
+  F3:
+    <<: *x-crimp
+  F4:
+    <<: *x-crimp
+  F5:
+    <<: *x-crimp
+  F6:
+    <<: *x-crimp
+  F7:
+    <<: *x-crimp
+  F8:
+    <<: *x-crimp
+  F-GND-1:
+    <<: *x-crimp
+    notes: DRIVER SIDE
+  F-GND-2:
+    <<: *x-crimp
+    notes: PASSENGER SIDE
+  X-CHASSIS: &x-bulk
+    pincount: 47
+    pinlabels: [
+      AC FAN,R TURN SIGNAL,L TURN SIGNAL,AC FAN,COOLING FAN,COOLING FAN,TNS,LOW BEAM,LOW BEAM,LOW BEAM,LOW BEAM,HIGH BEAM,HIGH BEAM,HIGH BEAM,HIGH BEAM,WASHER PUMP GND,WASHER PUMP,PMU INPUT A7,PMU INPUT A11,PMU INPUT A9,HORN,RETRACTOR UP,RETRACTOR DOWN,RETRACTOR ACTIVE,AC CLUTCH,WIPER HIGH,WIPER LOW,WIPER PARK SW,BRAKE FL SW,UNASSIGNED,UNASSIGNED,UNASSIGNED,GND,RETRACTOR COSNT VCC,GND
+    ]
+  E1-04: &x-retractor
+    pincount: 6
+    pins: [
+      G/L, R/Y, B,
+      BR, W/R, 6
+    ]
+    pinlabels: [
+      ACTIVE, UP, GND,
+      VCC, DOWN,
+    ]
+    # image:
+      # src: ../img/e1-04.png
+    notes: Driver Headlight Actuator
+  E1-05:
+    <<: *x-retractor
+    notes: Pass Headlight Actuator
+  X-RETRACTOR-CRIMP-VCC:
+    <<: *x-crimp
+  X-RETRACTOR-CRIMP-UP:
+    <<: *x-crimp
+  X-RETRACTOR-CRIMP-DOWN:
+    <<: *x-crimp
+  X-RETRACTOR-CRIMP-ACTIVE:
+    <<: *x-crimp
+  X-RETRACTOR-CRIMP-GND:
+    <<: *x-crimp
+
+  X-COOLING-FAN:
+    pinlabels: [
+      COOLING FAN VCC,
+      COOLING FAN GND,
+      A/C CLUTCH,
+      P/S PUMP,
+    ]
+  X-AC-FAN:
+    pinlabels: [
+      A/C FAN VCC,
+      A/C PRES SW,
+      A/C FAN GND,
+      A/C PRES SW GND,
+    ]
+
+  E1-01: &headlamp_conn
+    pincount: 3
+    pinlabels: [HIGH BEAM, GND, LOW BEAM]
+    # image:
+    #   src: ../img/e1-01.png
+    notes: L Headlamp, Mazda Conn. E1-01
+  E1-02:
+    <<: *headlamp_conn
+    notes: R Headlamp, Mazda Conn. E1-02
+
+  X-WASHER-PUMP:
+    pincount: 2
+    pinlabels: [VCC, GND]
+
+  X-BRAKE-FL-SW:
+    pincount: 2
+    pinlabels: [VCC, GND]
+
+  X-HORN:
+    pincount: 1
+    type: simple
+
+  E4-03: &turn-signal
+    pincount: 2
+    pinlabels: [VCC,GND]
+    notes: Front Left Turn Signal
+  E4-04:
+    <<: *turn-signal
+    notes: Front Right Turn Signal
+
+  E4-01: &side-marker
+    pincount: 2
+    pinlabels: [VCC,GND]
+    notes: Front Left Side Marker
+  E4-02:
+    <<: *side-marker
+    notes: Front Right Side Marker
+
+  E3-02: &front-park-lt
+    pincount: 2
+    pinlabels: [VCC,GND]
+    notes: Front Left Park Light
+  E3-03:
+    <<: *front-park-lt
+    notes: Front Right Park Light
+
+cables:
+  C2:
+    wirecount: 25
+    colors: [
+      # 5 wires per row
+      WHBK,WHBK,WHBK,WH ,BK  ,
+      GN  ,PK  ,GY  ,GY ,RDBK,
+      RDBK,BK  ,BK  ,BK ,BK  ,
+      RD  ,BK  ,RD  ,BK ,RD  ,
+      BK  ,RD  ,BK  ,RD ,BK  ,
+      # RD  ,BK  ,RD  ,BK ,RD
+    ]
+    # wirelabels: [CHASSIS]
+  C1:
+    wirecount: 32
+    colors: [
+      # 10 wires per row
+      RD,RD,RD,RD,RD,RD,RD,RD,RD,RD,
+      RD,RD,RD,RD,RD,BK,RD,WH,WH,WH,
+      GN,GY,GY,PK,RD,RD,BU,WH,RD,BUWH,
+      GY,BK
+    ]
+  C-RETRACTOR-1: &c-retractor
+    colors: [
+      GNBU, YE, BK,
+      BN, WHRD
+    ]
+    wirelabels: [
+      ACTIVE, UP, GND,
+      VCC, DOWN,
+    ]
+    notes: Driver side
+  C-RETRACTOR-2:
+    <<: *c-retractor
+    notes: Pass side
+
+connections:
+  ### R TURN SIGNAL
+  - - X-CHASSIS: [2]
+    - C1: [1]
+    - F1
+    - C2: [7]
+    - E4-04: [VCC]
+  - - F-GND-1
+    - C2: [13]
+    - E4-04: [GND]
+
+  ### L TURN SIGNAL
+  - - X-CHASSIS: [3]
+    - C1: [2]
+    - F2
+    - C2: [6]
+    - E4-03: [VCC]
+  - - F-GND-1
+    - C2: [5]
+    - E4-03: [GND]
+
+  ### AC FAN ###
+  - - X-CHASSIS: [1,4]
+    - C1: [3,4]
+    - F3
+  - - F3
+    - C2: [1]
+    - X-AC-FAN: [1]
+
+  ### COOLING FAN ###
+  - - X-CHASSIS: [5, 6]
+    - C1: [5, 6]
+    - F4
+  - - F4
+    - C2: [2]
+    - X-COOLING-FAN: [1]
+
+
+  ### TNS ###
+  - - X-CHASSIS: [7]
+    - C1: [7]
+    - F5
+  - - F5
+    - C2: [16,18,20,22]
+
+  ## LEFT TNS GND ###
+  - - F-GND-1
+    - C2: [17,19,21]
+  ## RIGHT TNS GND ###
+  - - F-GND-2
+    - C2: [23]
+
+  ### LEFT TNS ###
+  - - C2: [16,17]
+    - E4-01: [VCC,GND]
+  - - C2: [18,19]
+    - E3-02: [VCC,GND]
+
+  ### RIGHT TNS ###
+  - - C2: [20,21]
+    - E4-02: [VCC,GND]
+  - - C2: [22,23]
+    - E3-03: [VCC,GND]
+
+  ### LOW BEAM ###
+  - - X-CHASSIS: [8-11]
+    - C1: [8-11]
+    - F6
+  - - F6
+    - C2: [8]
+    - E1-01: [3]
+  - - F6
+    - C2: [9]
+    - E1-02: [3]
+
+  ### HIGH BEAM ###
+  - - X-CHASSIS: [12-15]
+    - C1: [12-15]
+    - F7
+  - - F7
+    - C2: [10]
+    - E1-01: [1]
+  - - F7
+    - C2: [11]
+    - E1-02: [1]
+
+  ### HEADLIGHT GND ###
+  - - F-GND-1
+    - C2: [12]
+    - E1-01: [2]
+  - - F-GND-2
+    - C2: [13]
+    - E1-02: [2]
+
+  ### one to one mapping
+  - - X-CHASSIS: [16-29]
+    - C1: [16-29]
+  ### LEFTOVER ###
+  - - X-CHASSIS: [33-35]
+    - C1: [30-32]
+
+  ### AC CLUTCH ###
+  - - C1: [25]
+    - X-AC-FAN: [2]
+
+  - - C1: [19]
+    - F8
+    - C2: [3]
+    - X-AC-FAN: [3]
+  - - F8
+    - C2: [4]
+    - X-COOLING-FAN: [3]
+
+
+  ### RETRACTOR VCC ###
+  - - C1: [31]
+    - X-RETRACTOR-CRIMP-VCC
+    - C-RETRACTOR-1: [VCC]
+    - E1-04: [VCC]
+  - - X-RETRACTOR-CRIMP-VCC
+    - C-RETRACTOR-2: [VCC]
+    - E1-05: [VCC]
+
+
+  ### RETRACTOR UP ###
+  - - C1: [22]
+    - X-RETRACTOR-CRIMP-UP
+    - C-RETRACTOR-1: [UP]
+    - E1-04: [UP]
+  - - X-RETRACTOR-CRIMP-UP
+    - C-RETRACTOR-2: [UP]
+    - E1-05: [UP]
+
+  ### RETRACTOR DOWN ###
+  - - C1: [23]
+    - X-RETRACTOR-CRIMP-DOWN
+    - C-RETRACTOR-1: [DOWN]
+    - E1-04: [DOWN]
+  - - X-RETRACTOR-CRIMP-DOWN
+    - C-RETRACTOR-2: [DOWN]
+    - E1-05: [DOWN]
+
+  ### RETRACTOR ACTIVE ###
+  - - C1: [24]
+    - X-RETRACTOR-CRIMP-ACTIVE
+    - C-RETRACTOR-1: [ACTIVE]
+    - E1-04: [ACTIVE]
+  - - X-RETRACTOR-CRIMP-ACTIVE
+    - C-RETRACTOR-2: [ACTIVE]
+    - E1-05: [ACTIVE]
+
+  ### RETRACTOR GND ###
+  # Commented out for layout reasons
+  # - - F-GND-1
+  #   - C2: [15]
+  #   - X-RETRACTOR-CRIMP-GND
+  - - X-RETRACTOR-CRIMP-GND
+    - C-RETRACTOR-1: [GND]
+    - E1-04: [GND]
+  - - X-RETRACTOR-CRIMP-GND
+    - C-RETRACTOR-2: [GND]
+    - E1-05: [GND]
+
+  ### POWER STEERING ###
+  - - X-CHASSIS: [18]
+    - C1: [18]
+    - X-COOLING-FAN: [4]
+
+
+
+
+
+
+
+  ### WASHER PUMP
+  - - C1: [16]
+    - F-GND-1
+    - C2: [5]
+    - X-WASHER-PUMP: [GND]
+  - - C1: [17]
+    - X-WASHER-PUMP: [VCC]
+
+  ### HORN
+  - - C1: [21]
+    - X-HORN: [1]
+
+
+  ### BRAKE FL SW ###
+  - - C1: [29]
+    - X-BRAKE-FL-SW: [1]
+  - - F-GND-1
+    - C2: [14]
+    - X-BRAKE-FL-SW: [2]

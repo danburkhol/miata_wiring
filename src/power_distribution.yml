@@ -1,0 +1,383 @@
+
+connectors:
+  IF1: &if-crimp
+    style: simple
+    type: Crimp ferrule
+    pincount: 1
+    show_pincount: false
+    bgcolor: IV
+    autogenerate: false
+  IF2:
+    <<: *if-crimp
+  IF3:
+    <<: *if-crimp
+  IF4:
+    <<: *if-crimp
+  IF5:
+    <<: *if-crimp
+  IF6:
+    <<: *if-crimp
+  IF7:
+    <<: *if-crimp
+
+  F-IGN:
+    <<: *if-crimp
+  F-AC-FAN:
+    <<: *if-crimp
+  F-TNS:
+    <<: *if-crimp
+  F-HVAC-BLOWER:
+    <<: *if-crimp
+  F-LTURN:
+    <<: *if-crimp
+  F-RTURN:
+    <<: *if-crimp
+  F-COOLING-FAN:
+    <<: *if-crimp
+  F-LOW-BEAM:
+    <<: *if-crimp
+  F-HIGH-BEAM:
+    <<: *if-crimp
+
+  F-DASH-VCC:
+    <<: *if-crimp
+  F-BRAKE-IND:
+    <<: *if-crimp
+  X-PMU:
+    pincount: 39
+    pinlabels: [
+      OUTPUT O13,
+      OUTPUT O12,
+      OUTPUT O11,
+      OUTPUT O10,
+      OUTPUT O9,
+      INPUT A9,
+      +12V SW,
+      INPUT A14,
+      OUTPUT O8,
+      OUTPUT O7,
+      OUTPUT O6,
+      OUTPUT O5,
+      OUTPUT O4,
+
+      OUTPUT O14,
+      +5V OUTPUT,
+      INPUT A2,
+      INPUT A4,
+      INPUT A6,
+      INPUT A8,
+      INPUT A11,
+      INPUT A13,
+      INPUT A16,
+      CAN1H,
+      CAN2H,
+      GROUND,
+      OUTPUT O3,
+
+      OUTPUT O15,
+      OUTPUT O16,
+      INPUT A1,
+      INPUT A3,
+      INPUT A5,
+      INPUT A7,
+      INPUT A10,
+      INPUT A12,
+      INPUT A15,
+      CAN1L,
+      CAN2L,
+      OUTPUT O1,
+      OUTPUT O2
+    ]
+    pincolors: [
+      VT,VT,IV,IV,IV,BU,RD,BU,IV,IV,IV,VT,VT,
+      VT,RD,BU,BU,BU,BU,BU,BU,BU,WHBU,WHBU,BK,VT,
+      VT,VT,BU,BU,BU,BU,BU,BU,BU,WH,WH,VT,VT,
+    ]
+    notes: VT = High AMP, IV = Low AMP
+
+  X-FUSEBOX:
+    pincount: 61
+    pinlabels: [A1,A2,A3,A4,A5,A6,A7,A8,A9,A10,A11,A12,B1,B2,B3,B4,B5,B6,B7,B8,B9,B10,B10,B11,B12,C1,C2,C3,C4,C5,C6,C7,C8,C9,C10,C11,C12,D1,D2,D3,D4,D5,D6,D7,D8,D9,D10,D11,D12,E1,E2,E3,E4,E5,E6,E7,E8,E9,E10,E11,E12]
+
+  X-CHASSIS: &x-bulk
+    pincount: 47
+    pinlabels: [
+      AC FAN,R TURN SIGNAL,L TURN SIGNAL,AC FAN,COOLING FAN,COOLING FAN,TNS,LOW BEAM,LOW BEAM,LOW BEAM,LOW BEAM,HIGH BEAM,HIGH BEAM,HIGH BEAM,HIGH BEAM,WASHER PUMP GND,WASHER PUMP,PMU INPUT A7,PMU INPUT A11,PMU INPUT A9,HORN,RETRACTOR UP,RETRACTOR DOWN,RETRACTOR ACTIVE,AC CLUTCH,WIPER HIGH,WIPER LOW,WIPER PARK SW,BRAKE FL SW,UNASSIGNED,UNASSIGNED,UNASSIGNED,GND,RETRACTOR COSNT VCC,GND
+    ]
+  X-DASH:
+    <<: *x-bulk
+    pinlabels: [METER VCC,UNASSIGNED,HAZARD SW,HVAC Blower VCC,HVAC Blower VCC,ACC VCC,DRIVER DOOR SW (-),PASS DOOR SW (-),HIGH BEAM IND,BRAKE IND,CEL IND,CHARGE IND,RETRACTOR IND,R TURN IND,L TURN IND,TACH IN,VSS OUT,CLT GAUGE,FUEL GAUGE,OIL PRES GAUGE,DRIVER SPK (+),DRIVER SPK (-),PASS SPK (+),PASS SPK (-),Headrest DRIVER SPK (+),Headrest DRIVER SPK (-),Headrest PASS SPK (+),Headrest PASS SPK (-),REVERSE LT (backup cam trigger),A/C REQ SW,HVAC HIGH BLOWER SW,CRUISE OFF SW,CRUISE LT SW,CONSTANT "ROOM"  VCC,RETRACTOR SW DOWN,RETRACTOR SW UP,TNS VCC,UNASSIGNED,UNASSIGNED,UNASSIGNED,UNASSIGNED,UNASSIGNED,UNASSIGNED,UNASSIGNED,UNASSIGNED,UNASSIGNED,UNASSIGNED]
+  X-13:
+    # <<: *x-dt06-12s
+    pinlabels: [
+      DEFROST (V),
+      DEFROST (L),
+      DEFROST (L/B),
+      HEADREST SPKR DVR (R/Y),
+      HEADREST SPKR DVR (R/L),
+      HEADREST SPKR PASS (L/W),
+      HEADREST SPKR PASS (L/O),
+      POWER ANTENNA (B/Y),
+      POWER ANTENNA (L/B),
+      POWER ANTENNA (LG/Y),
+      EASYGUARD REAR SENSOR 1,
+      EASYGUARD REAR SENSOR 2,
+    ]
+    notes: near dead pedal
+  X-14:
+    # <<: *x-dt06-12s
+    pinlabels: [
+      L TURN SIGNAL,
+      R TURN SIGNAL,
+      TNS,
+      BRAKE LT,
+      REVERSE LT,
+      DOOR SW,
+      FUEL SENDER,
+      FUEL PUMP,
+      BUCKLE SW,
+      TRUNK (RD), # I don't remember what these correlate to at this time
+      TRUNK (BU),
+      TRUNK (BK),
+    ]
+    notes: near dead pedal
+
+  X-CB-1:
+    pincount: 12
+    pinlabels: [
+      OIL PRES GAUGE,
+      CLT GAUGE,
+      WIPER PARK SW,
+      WIPER HIGH,
+      WIPER LOW,
+      X-ECU-2:H3,
+      X-ECU-2:H1,
+      X-ECU-2:IF4
+    ]
+    notes: To ECU Area
+  X-CB-2:
+    pincount: 12
+    pinlabels: [
+      ECU VCC,
+      ECU VCC,
+      ENGINE GND,
+      UNASSIGNED,
+      CEL IND,
+      TACH,
+      X-ECU-2:G2,
+      X-ECU-1:K4,
+      X-ECU-1:K3,
+      X-ECU-1:C4,
+      X-ECU-1:B4,
+      VSS OUT
+    ]
+    notes: To ECU Area
+  X-ST-1:
+    pincount: 4
+    pinlabels: [
+      STARTER,
+      ALT REF, # WHGN,
+      CHARGE IND, # WHBK,
+    ]
+
+
+cables:
+  C-PMU:
+    colors: [
+        RDBK,RDBK,GY,RDBK,BKRD,RD,RD,RD,RD,RD,RD,RDBK,RDBK,BU,WHBK,WHBK,WH,WH,WH,WH,WH,WH,WH,WH,WH,WH,WH,WH,WH,WH,WH,WH,WH,RD,BK
+      ]
+    wirelabels: [
+        "1","6","3","8","9","6","7","8","9","08","09","12","7","5","2","4","43","3","44","4","54","5","46","6","59","47","7","48","8","45","49","9","55","99","00"
+      ]
+  IC1:
+    wirecount: 50
+    colors: [
+        RDBK,
+        RDBK,
+        GY,
+        RDBK,
+        BKRD,
+        RD,
+        RD,
+        RD,
+        RD,
+        RD,
+        RD,
+        RDBK,
+        RDBK,
+        BU,
+        WHBK,
+        WHBK
+      ]
+    wirelabels: [
+        "1",
+        "6",
+        "3",
+        "8",
+        "9",
+        "6",
+        "7",
+        "8",
+        "9",
+        "08",
+        "09",
+        "12",
+        "7",
+        "5",
+        "2",
+        "4"
+      ]
+    notes: PMU Exist
+  IC2:
+    wirecount: 50
+  C-CHASSIS:
+    colors: [BK,RD,RD,BK,BK,BK,RD,RD,RD,RD,RD,RD,RD,RD,RD,RD,RD,WH,WH,WH,GN,RD,RD,WH,YERD,BU,RD,WH,BU,BU,WH,BN,BK,GY,BK]
+    wirelabels: ["6","08","09","6","5","5","3","2","2","2","2","4","4","4","4","07","7","46","7","59","1","26","27","13","7","70","28","54","29","30","31","410","33","25","35"]
+  IC3:
+    wirecount: 47
+  IC4:
+    wirecount: 24
+    notes: To ECU Area
+    # wirelabels: [
+    #     1,2,"8","
+    #   ]
+    # colors: [RD, RD, RD]
+    # wirelabels: [L TURN SIGNAL, R TURN SIGNAL, TNS]
+
+connections:
+  # PMU
+  - - X-PMU: [
+        OUTPUT O1,
+        OUTPUT O2,
+        OUTPUT O3,
+        OUTPUT O4,
+        OUTPUT O5,
+        OUTPUT O6,
+        OUTPUT O7,
+        OUTPUT O8,
+        OUTPUT O9,
+        OUTPUT O10,
+        OUTPUT O11,
+        OUTPUT O12,
+        OUTPUT O13,
+        OUTPUT O14,
+        OUTPUT O15,
+        OUTPUT O16
+      ]
+    - IC1: [1-16]
+
+  ### IGNITION
+  - - IC1: [1]
+    - F-IGN
+  - - F-IGN
+    - IC4: [1-2]
+
+  - - IC4: [1,2]
+    - X-CB-2: [1,2]
+
+
+  ### AC FAN
+  - - IC1: [2]
+    - F-AC-FAN
+  - - F-AC-FAN
+    - C-CHASSIS: [1,4]
+    - X-CHASSIS: [1,4]
+
+  ### TNS
+  - - IC1: [3]
+    - F-TNS
+  - - F-TNS
+    - C-CHASSIS: [7]
+    - X-CHASSIS: [7]
+
+
+  ### L TURN SIGNALS
+  - - IC1: [5]
+    - F-LTURN
+  - - F-LTURN
+    - C-CHASSIS: [3]
+    - X-CHASSIS: [3]
+
+
+  ### R TURN SIGNALS
+  - - IC1: [6]
+    - F-RTURN
+  - - F-RTURN
+    - C-CHASSIS: [2]
+    - X-CHASSIS: [2]
+
+  ### COOLING FAN
+  - - IC1: [7]
+    - F-COOLING-FAN
+  - - F-COOLING-FAN
+    - C-CHASSIS: [5,6]
+    - X-CHASSIS: [5,6]
+
+
+  ##### DASHBOARD #####
+  ### DASH TRUNK
+  # - - IC3: [1-47]
+    # - X-DASH: [1-47]
+
+  ### DASHBOARD VCC
+  # - - X-PMU: [OUTPUT O13]
+  #   - IC1: [13]
+  #   - F-DASH-VCC
+  # - - F-DASH-VCC
+  #   - IC3: [5,6]
+  #   - X-DASH: [5,6]
+  ### HVAC BLOWER
+  # - - IC1: [4]
+  #   - F-HVAC-BLOWER
+  # - - F-HVAC-BLOWER
+  #   - IC3: [3,4]
+  #   - X-DASH: [3,4]
+
+  ### BRAKE FL SW
+  - - X-DASH: [7]
+    - C-CHASSIS: [29]
+
+  ### LOW BEAM
+  - - IC1: [16]
+    - F-LOW-BEAM
+  - - F-LOW-BEAM
+    - C-CHASSIS: [8-11]
+    - X-CHASSIS: [8-11]
+
+  ### HIGH BEAM
+  - - IC1: [15]
+    - F-HIGH-BEAM
+  - - F-HIGH-BEAM
+    - C-CHASSIS: [12-15]
+    - X-CHASSIS: [12-15]
+
+  ### WASHER
+  - - C-CHASSIS: [16]
+    - X-CHASSIS: [16]
+  - - X-PMU: [OUTPUT O7]
+    - C-CHASSIS: [17]
+    - X-CHASSIS: [17]
+
+  ## INPUTS
+  - - X-PMU: [INPUT A7, INPUT A11, INPUT A9]
+    - C-CHASSIS: [18, 19, 20]
+    - X-CHASSIS: [18, 19, 20]
+
+  # HORN
+  - - X-FUSEBOX: [A2]
+    - C-CHASSIS: [21]
+    - X-CHASSIS: [21]
+
+  # RETRACTORS
+  - - X-FUSEBOX: [D7, D8, B8]
+    - C-CHASSIS: [22, 23, 34]
+    - X-CHASSIS: [22, 23, 34]
+
+  ### RETRACTOR ACTIVE
+  - - X-DASH: [13]
+    - C-CHASSIS: [24]
+    - X-CHASSIS: [24]
+
+  ### REMAINING
+  - - C-CHASSIS: [25-33,35]
+    - X-CHASSIS: [25-33,35]
