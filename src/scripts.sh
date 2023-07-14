@@ -1,7 +1,10 @@
 #!/bin/bash
+# yq '. *= load("file2.yml")' file1.yml
 
-wireviz interior_connectors.yml --prepend-file interior_cables.yml
-wireviz engine_bay.yml --prepend-file engine_bay_connections.yml
+# capture path to .yml file as input argument
+FILE=$1
+
+# wireviz $1 --prepend-file common.yml
 
 # delete .gv, bom.tsv, and .png files
 find . -type f -name "*.gv" -delete

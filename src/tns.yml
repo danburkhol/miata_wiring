@@ -1,9 +1,0 @@
-connectors:
-  X-TNS-CRIMP-1:
-    <<: *x-crimp
-
-connections:
-  -
-    - C-PMU-OUT: [TNS]
-    - X-TNS-CRIMP-1
-    - C-REAR: [B]

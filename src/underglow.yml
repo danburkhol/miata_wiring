@@ -1,8 +1,0 @@
-cables:
-  C-GLOW-1:
-    colors: [OG]
-
-connections:
-  - - X-ECU-BODY-11: [5]
-    - C-GLOW-1: [1]
-    - X-BULK: [34]
