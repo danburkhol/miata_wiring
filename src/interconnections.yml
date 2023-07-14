@@ -1,0 +1,5 @@
+connections:
+  - - C-PMU: [38]
+    - X-PMU-CONST
+  - - C-PMU: [2]
+    - FB-PWR-WND-VCC

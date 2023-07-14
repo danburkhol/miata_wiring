@@ -7,6 +7,13 @@ connectors:
     show_pincount: false
     bgcolor: IV
     autogenerate: false
+  X-PMU-CONST:
+    style: simple
+    type: Crimp ferrule
+    pincount: 1
+    show_pincount: false
+    bgcolor: IV
+    autogenerate: false
   CR:
     <<: *if-crimp
     autogenerate: true
@@ -52,8 +59,9 @@ connectors:
     <<: *if-crimp
   F-BRAKE-IND:
     <<: *if-crimp
+
   X-PMU:
-    pincount: 39
+    # pincount: 39
     pinlabels: [
       OUTPUT O13,
       OUTPUT O12,
@@ -95,26 +103,18 @@ connectors:
       CAN1L,
       CAN2L,
       OUTPUT O1,
-      OUTPUT O2
+      OUTPUT O2,
+
+      CONST VCC
     ]
     pincolors: [
       VT,VT,IV,IV,IV,BU,RD,BU,IV,IV,IV,VT,VT,
       VT,RD,BU,BU,BU,BU,BU,BU,BU,WHBU,WHBU,BK,VT,
       VT,VT,BU,BU,BU,BU,BU,BU,BU,WH,WH,VT,VT,
+      GY
     ]
     notes: VT = High AMP, IV = Low AMP
 
-  X-FUSEBOX:
-    pinlabels: [A1,A2,A3,A4,A5,A6,A7,A8,A9,A10,A11,A12,B1,B2,B3,B4,B5,B6,B7,B8,B9,B10,B11,B12,C1,C2,C3,C4,C5,C6,C7,C8,C9,C10,C11,C12,D1,D2,D3,D4,D5,D6,D7,D8,D9,D10,D11,D12,E1,E2,E3,E4,E5,E6,E7,E8,E9,E10,E11,E12]
-
-  X-CHASSIS:
-    pincount: 47
-    pinlabels: [
-      AC FAN,R TURN SIGNAL,L TURN SIGNAL,AC FAN,COOLING FAN,COOLING FAN,TNS,LOW BEAM,LOW BEAM,LOW BEAM,LOW BEAM,HIGH BEAM,HIGH BEAM,HIGH BEAM,HIGH BEAM,WASHER PUMP GND,WASHER PUMP,PMU INPUT A7,PMU INPUT A11,PMU INPUT A9,HORN,RETRACTOR UP,RETRACTOR DOWN,RETRACTOR ACTIVE,AC CLUTCH,WIPER HIGH,WIPER LOW,WIPER PARK SW,BRAKE FL SW,UNASSIGNED,UNASSIGNED,UNASSIGNED,GND,RETRACTOR COSNT VCC,GND
-    ]
-  X-DASH:
-    pincount: 47
-    pinlabels: [METER VCC,UNASSIGNED,HAZARD SW,HVAC Blower VCC,HVAC Blower VCC,ACC VCC,DRIVER DOOR SW (-),PASS DOOR SW (-),HIGH BEAM IND,BRAKE IND,CEL IND,CHARGE IND,RETRACTOR IND,R TURN IND,L TURN IND,TACH IN,VSS OUT,CLT GAUGE,FUEL GAUGE,OIL PRES GAUGE,DRIVER SPK (+),DRIVER SPK (-),PASS SPK (+),PASS SPK (-),Headrest DRIVER SPK (+),Headrest DRIVER SPK (-),Headrest PASS SPK (+),Headrest PASS SPK (-),REVERSE LT (backup cam trigger),A/C REQ SW,HVAC HIGH BLOWER SW,CRUISE OFF SW,CRUISE LT SW,CONSTANT "ROOM"  VCC,RETRACTOR SW DOWN,RETRACTOR SW UP,TNS VCC,UNASSIGNED,UNASSIGNED,UNASSIGNED,UNASSIGNED,UNASSIGNED,UNASSIGNED,UNASSIGNED,UNASSIGNED,UNASSIGNED,UNASSIGNED]
   X-13:
     # <<: *x-dt06-12s
     pinlabels: [
@@ -229,7 +229,8 @@ cables:
       WH,
       WH,
       RDBK,
-      RDBK
+      RDBK,
+      BUWH
     ]
     wirelabels: [
       "7",
@@ -268,7 +269,8 @@ cables:
       "49",
       "36",
       "1",
-      "6"
+      "6",
+      "99"
     ]
 
   IC2:
@@ -288,8 +290,10 @@ cables:
     # wirelabels: [L TURN SIGNAL, R TURN SIGNAL, TNS]
 
 connections:
-  - - X-PMU: [1-23,25-36,38,39]
-    - C-PMU: [1-23,24-35,36,37]
+  - - X-PMU: [1-23,25-36,38,39,40]
+    - C-PMU: [1-23,24-35,36,37,38]
+  - - C-PMU: [38]
+    - X-PMU-CONST
 
 
   ### OUTPUT DISTRIBUTION CRIMPS

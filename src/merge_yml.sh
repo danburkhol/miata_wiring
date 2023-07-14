@@ -35,9 +35,18 @@ do
     # Merge the yaml files for connectors and cables
     yq eval-all 'select(fileIndex == 0) * select(fileIndex == 1)' $MERGED_FILE $file > tmp && mv tmp $MERGED_FILE
 
+    # inject a new line in $MERGED_FILE
+    # echo "" >> $MERGED_FILE
+
     # Extract and append the connections
     yq e '.connections' $file >> $CONNECTIONS_FILE
+
+    # inject a new line in $CONNECTIONS_FILE
+    # echo "" >> $CONNECTIONS_FILE
 done
+
+# remove connections from the $MERGED_FILE to avoid dupe entries
+yq eval 'del(.connections)' $MERGED_FILE > tmp && mv tmp $MERGED_FILE
 
 # Append the connections content to the final merged file
 echo "connections: " >> $MERGED_FILE
